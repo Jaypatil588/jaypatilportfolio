@@ -13,6 +13,18 @@ function decodeLocationValue(value: string | null | undefined) {
   }
 }
 
+function parseJsonArray(value: unknown) {
+  if (!value) return []
+  if (Array.isArray(value)) return value.map(String)
+  if (typeof value !== 'string') return []
+  try {
+    const parsed = JSON.parse(value)
+    return Array.isArray(parsed) ? parsed.map(String) : []
+  } catch {
+    return []
+  }
+}
+
 export default async function AdminRoute() {
   const cookieStore = await cookies()
   const isAuthed = cookieStore.get('portfolio_admin_auth')?.value === '1'
@@ -50,7 +62,6 @@ export default async function AdminRoute() {
     recentProjects,
     recentDistributions,
     recentResponses,
-    ragHistory,
     recentVisits,
     refTagBreakdown,
   ] = await Promise.all([
@@ -61,11 +72,20 @@ export default async function AdminRoute() {
     sql`SELECT COUNT(*)::int AS count FROM visits`,
     sql`SELECT COUNT(DISTINCT ip_hash)::int AS count FROM visits`,
     sql`
-      SELECT id, user_id, project_id, company, created_at,
-             data->>'name' AS name, data->>'type' AS type, data->>'rank' AS rank
+      SELECT
+        id,
+        company,
+        COALESCE((data->>'atsScore')::int, 0) AS ats_score,
+        data->>'name' AS name,
+        data->>'type' AS type,
+        COALESCE((data->>'techCount')::int, 0) AS tech_count,
+        data->'techStack' AS tech_stack,
+        data->'concepts' AS concepts,
+        data->>'whatItSolves' AS what_it_solves,
+        data->>'description' AS description
       FROM projects_data
-      ORDER BY id DESC
-      LIMIT 12
+      ORDER BY COALESCE((data->>'atsScore')::int, 0) DESC, id DESC
+      LIMIT 40
     `,
     sql`
       SELECT id, user_id, dist_type, company, created_at,
@@ -80,12 +100,6 @@ export default async function AdminRoute() {
       FROM chat_logs
       ORDER BY timestamp DESC
       LIMIT 20
-    `,
-    sql`
-      SELECT id, timestamp, message, response, referer
-      FROM chat_logs
-      ORDER BY timestamp DESC
-      LIMIT 30
     `,
     sql`
       SELECT id, timestamp, ref_tag, device_type, referer, page_url, country, region, city, COALESCE(time_on_page_seconds, 0) AS time_on_page_seconds
@@ -115,7 +129,7 @@ export default async function AdminRoute() {
       <div className="mx-auto max-w-7xl space-y-8">
         <h1 className="text-3xl md:text-4xl font-semibold">Admin Panel</h1>
         <p className="mt-3 text-muted-foreground">
-          Internal view of database tables, responses, RAG chat history, and tracking metrics.
+          Internal view of database tables, chatbot responses, and tracking metrics.
         </p>
 
         <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -148,25 +162,32 @@ export default async function AdminRoute() {
             <table className="w-full text-sm">
               <thead className="text-left text-muted-foreground">
                 <tr>
-                  <th className="py-2 pr-3">ID</th>
-                  <th className="py-2 pr-3">Project ID</th>
-                  <th className="py-2 pr-3">Name</th>
+                  <th className="py-2 pr-3">ATS Score</th>
+                  <th className="py-2 pr-3">Project / Role</th>
                   <th className="py-2 pr-3">Type</th>
-                  <th className="py-2 pr-3">Rank</th>
-                  <th className="py-2 pr-3">Company</th>
+                  <th className="py-2 pr-3"># Tech</th>
+                  <th className="py-2 pr-3">Tech Stack</th>
+                  <th className="py-2 pr-3">Concepts</th>
+                  <th className="py-2 pr-3">What It Solves (AI)</th>
+                  <th className="py-2 pr-3">Description</th>
                 </tr>
               </thead>
               <tbody>
-                {recentProjects.map((row) => (
+                {recentProjects.map((row) => {
+                  const techStack = parseJsonArray(row.tech_stack)
+                  const concepts = parseJsonArray(row.concepts)
+                  return (
                   <tr key={row.id} className="border-t border-white/5">
-                    <td className="py-2 pr-3">{row.id}</td>
-                    <td className="py-2 pr-3 font-mono text-xs">{row.project_id || '-'}</td>
-                    <td className="py-2 pr-3">{row.name || '-'}</td>
+                    <td className="py-2 pr-3 font-semibold">{row.ats_score ?? 0}</td>
+                    <td className="py-2 pr-3 font-medium">{row.name || '-'}</td>
                     <td className="py-2 pr-3">{row.type || '-'}</td>
-                    <td className="py-2 pr-3">{row.rank || '-'}</td>
-                    <td className="py-2 pr-3">{row.company || '-'}</td>
+                    <td className="py-2 pr-3">{row.tech_count ?? 0}</td>
+                    <td className="py-2 pr-3">{techStack.length ? techStack.join(', ') : '-'}</td>
+                    <td className="py-2 pr-3">{concepts.length ? concepts.join(', ') : '-'}</td>
+                    <td className="py-2 pr-3">{row.what_it_solves || '-'}</td>
+                    <td className="py-2 pr-3">{row.description || '-'}</td>
                   </tr>
-                ))}
+                )})}
               </tbody>
             </table>
           </div>
@@ -221,19 +242,6 @@ export default async function AdminRoute() {
                 ))}
               </tbody>
             </table>
-          </div>
-        </section>
-
-        <section className="rounded-2xl border border-primary/20 bg-card/60 p-4">
-          <h2 className="text-xl font-semibold mb-3">RAG Chatbot History</h2>
-          <div className="space-y-3">
-            {ragHistory.map((row) => (
-              <article key={row.id} className="rounded-xl border border-white/10 p-3 bg-background/40">
-                <p className="text-xs text-muted-foreground">{new Date(row.timestamp).toLocaleString()}</p>
-                <p className="mt-2 text-sm"><span className="text-primary font-medium">Q:</span> {row.message || '-'}</p>
-                <p className="mt-1 text-sm"><span className="text-primary font-medium">A:</span> {row.response || '-'}</p>
-              </article>
-            ))}
           </div>
         </section>
 
