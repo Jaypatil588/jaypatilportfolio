@@ -1,5 +1,6 @@
 import { Header } from '@/components/header'
 import { HeroSection } from '@/components/hero-section'
+import { LeaveMessageSection } from '@/components/leave-message-section'
 import { SkillsSection } from '@/components/skills-section'
 import { ProjectsSection } from '@/components/projects-section'
 import { ExperienceSection } from '@/components/experience-section'
@@ -11,6 +12,9 @@ export default function Home() {
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Header />
       <HeroSection />
+      <section id="message">
+        <LeaveMessageSection />
+      </section>
       <section id="skills">
         <SkillsSection />
       </section>
