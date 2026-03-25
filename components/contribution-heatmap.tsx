@@ -16,6 +16,8 @@ interface ContributionHeatmapProps {
   days: CombinedDay[]
 }
 
+const weekdayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+
 function styleForCell(githubLevel: number, leetcodeLevel: number) {
   const githubShades = ['#123924', '#1f7a3d', '#2dbf5c', '#67f58e']
   const leetcodeShades = ['#4a3b10', '#8e6e12', '#d8a719', '#ffe066']
