@@ -36,47 +36,55 @@ export async function GET(request: Request) {
     await sql`ALTER TABLE visits ADD COLUMN IF NOT EXISTS region VARCHAR(100)`
     await sql`ALTER TABLE visits ADD COLUMN IF NOT EXISTS city VARCHAR(100)`
     await sql`ALTER TABLE visits ADD COLUMN IF NOT EXISTS time_on_page_seconds INTEGER DEFAULT 0`
-    await sql`
-      CREATE UNIQUE INDEX IF NOT EXISTS visits_user_ip_unique
-      ON visits (user_id, ip_hash)
-      WHERE ip_hash IS NOT NULL
-    `
-
     const safeDuration = Number.isFinite(durationSec) && durationSec > 0 ? Math.round(durationSec) : 0
 
     const deviceType = detectDeviceType(userAgent)
 
     if (ipHash) {
-      await sql`
-        INSERT INTO visits (
-          user_id, ip_hash, user_agent, referer, ref_tag, page_url, country, region, city, device_type, time_on_page_seconds
-        )
-        VALUES (
-          1,
-          ${ipHash},
-          ${userAgent || null},
-          ${referer || null},
-          ${refTag},
-          ${pageUrl},
-          ${country || null},
-          ${region || null},
-          ${city || null},
-          ${deviceType},
-          ${safeDuration}
-        )
-        ON CONFLICT (user_id, ip_hash) DO UPDATE
+      // Update latest known row for this IP; if none exists, insert a new row.
+      const updated = await sql`
+        UPDATE visits
         SET
           timestamp = NOW(),
-          user_agent = COALESCE(EXCLUDED.user_agent, visits.user_agent),
-          referer = COALESCE(EXCLUDED.referer, visits.referer),
-          ref_tag = COALESCE(EXCLUDED.ref_tag, visits.ref_tag),
-          page_url = COALESCE(EXCLUDED.page_url, visits.page_url),
-          country = COALESCE(EXCLUDED.country, visits.country),
-          region = COALESCE(EXCLUDED.region, visits.region),
-          city = COALESCE(EXCLUDED.city, visits.city),
-          device_type = COALESCE(EXCLUDED.device_type, visits.device_type),
-          time_on_page_seconds = COALESCE(visits.time_on_page_seconds, 0) + ${safeDuration}
+          user_agent = COALESCE(${userAgent || null}, user_agent),
+          referer = COALESCE(${referer || null}, referer),
+          ref_tag = COALESCE(${refTag || null}, ref_tag),
+          page_url = COALESCE(${pageUrl || null}, page_url),
+          country = COALESCE(${country || null}, country),
+          region = COALESCE(${region || null}, region),
+          city = COALESCE(${city || null}, city),
+          device_type = COALESCE(${deviceType}, device_type),
+          time_on_page_seconds = COALESCE(time_on_page_seconds, 0) + ${safeDuration}
+        WHERE id = (
+          SELECT id
+          FROM visits
+          WHERE user_id = 1 AND ip_hash = ${ipHash}
+          ORDER BY timestamp DESC
+          LIMIT 1
+        )
+        RETURNING id
       `
+
+      if (updated.length === 0) {
+        await sql`
+          INSERT INTO visits (
+            user_id, ip_hash, user_agent, referer, ref_tag, page_url, country, region, city, device_type, time_on_page_seconds
+          )
+          VALUES (
+            1,
+            ${ipHash},
+            ${userAgent || null},
+            ${referer || null},
+            ${refTag},
+            ${pageUrl},
+            ${country || null},
+            ${region || null},
+            ${city || null},
+            ${deviceType},
+            ${safeDuration}
+          )
+        `
+      }
     } else {
       // If IP isn't available, fall back to plain insert.
       await sql`
