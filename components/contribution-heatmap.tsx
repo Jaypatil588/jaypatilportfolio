@@ -26,7 +26,7 @@ function styleForCell(githubLevel: number, leetcodeLevel: number) {
   const leetcodeShades = ['#0d2a63', '#1454d2', '#1f7dff', '#73b4ff']
 
   if (githubLevel === 0 && leetcodeLevel === 0) {
-    return { className: 'border-[#2e2e2e] bg-[#3d3d3d]', style: undefined as CSSProperties | undefined }
+    return { className: 'border-[#e5e7eb] bg-white', style: undefined as CSSProperties | undefined }
   }
 
   // GitHub priority on overlap days
