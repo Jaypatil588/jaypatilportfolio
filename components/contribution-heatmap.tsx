@@ -22,11 +22,11 @@ interface RenderCell {
 }
 
 function styleForCell(githubLevel: number, leetcodeLevel: number) {
-  const githubShades = ['#0f4d2f', '#0fa34a', '#1fe16b', '#7bffab']
-  const leetcodeShades = ['#0d2a63', '#1454d2', '#1f7dff', '#73b4ff']
+  const githubShades = ['#1a6a45', '#22a95b', '#39e27a', '#8dffb8']
+  const leetcodeShades = ['#8a6a18', '#c89b1f', '#efc62e', '#ffe27a']
 
   if (githubLevel === 0 && leetcodeLevel === 0) {
-    return { className: 'border-[#cbd5e1] bg-[#e5e7eb]', style: undefined as CSSProperties | undefined }
+    return { className: 'border-[#2e2e2e] bg-[#3d3d3d]', style: undefined as CSSProperties | undefined }
   }
 
   // GitHub priority on overlap days
@@ -116,20 +116,20 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
   }, [days])
 
   return (
-    <div className="rounded-2xl border border-white/70 bg-gradient-to-br from-[#f8fafc]/95 via-[#f1f5f9]/92 to-[#e2e8f0]/88 px-4 py-3 shadow-2xl">
+    <div className="rounded-2xl border border-white/10 bg-[#1f1f1f] px-4 py-3 shadow-xl">
       <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
         <div>
-          <p className="text-zinc-900 text-3xl font-bold leading-none">
+          <p className="text-zinc-100 text-3xl font-bold leading-none">
             {formatNumber(stats.total)}
-            <span className="ml-2 text-zinc-600 text-sm font-medium">activities in the past one year</span>
+            <span className="ml-2 text-zinc-300 text-sm font-medium">activities in the past one year</span>
           </p>
-          <p className="text-[11px] text-zinc-600 mt-1">{title} • {subtitle}</p>
+          <p className="text-[11px] text-zinc-400 mt-1">{title} • {subtitle}</p>
         </div>
 
-        <div className="flex items-center gap-4 text-sm text-zinc-700">
+        <div className="flex items-center gap-4 text-sm text-zinc-300">
           <span>Total active days: {stats.activeDays}</span>
           <span>Max streak: {stats.maxStreak}</span>
-          <span className="rounded-md bg-zinc-200 px-3 py-1 text-zinc-700 border border-zinc-300">Current</span>
+          <span className="rounded-md bg-zinc-700/80 px-3 py-1 text-zinc-200">Current</span>
         </div>
       </div>
 
@@ -161,17 +161,17 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
                   )
               })}
             </div>
-            <p className="mt-1 text-[11px] text-zinc-700 text-center">{month.month}</p>
+            <p className="mt-1 text-[11px] text-zinc-300 text-center">{month.month}</p>
           </div>
         ))}
       </div>
 
-      <div className="mt-3 rounded-md border border-zinc-300 bg-white/80 px-3 py-2 text-xs text-zinc-700 min-h-[34px] flex items-center justify-between gap-3">
+      <div className="mt-3 rounded-md border border-zinc-700 bg-zinc-900/60 px-3 py-2 text-xs text-zinc-300 min-h-[34px] flex items-center justify-between gap-3">
         {hovered ? (
           <>
             <span>{hovered.date}</span>
-            <span className="text-emerald-600">GitHub: {hovered.githubCount}</span>
-            <span className="text-sky-600">LeetCode: {hovered.leetcodeCount}</span>
+            <span className="text-emerald-300">GitHub: {hovered.githubCount}</span>
+            <span className="text-yellow-300">LeetCode: {hovered.leetcodeCount}</span>
           </>
         ) : (
           <span>Hover any box to see daily stats</span>

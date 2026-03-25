@@ -136,7 +136,7 @@ export function ProjectsSection() {
             Last 365 Days, <span className="gradient-text">Merged Heatmap</span>
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
-            A single unified timeline from the current date, blending GitHub (green) and LeetCode (blue) activity.
+            A single unified timeline from the current date, blending GitHub (green) and LeetCode (yellow) activity.
           </p>
         </motion.div>
 
@@ -171,7 +171,7 @@ export function ProjectsSection() {
               </div>
               <div className="rounded-2xl glass p-5">
                 <div className="text-sm text-muted-foreground mb-1">LeetCode Submissions</div>
-                <div className="text-3xl font-bold text-sky-300">{leetcodeData.totalSubmissions}</div>
+                <div className="text-3xl font-bold text-yellow-300">{leetcodeData.totalSubmissions}</div>
               </div>
               <div className="rounded-2xl glass p-5">
                 <div className="text-sm text-muted-foreground mb-1">GitHub Stars</div>
@@ -259,7 +259,7 @@ export function ProjectsSection() {
                   href={leetcodeData.profileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-sky-500 text-white hover:bg-sky-400 transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-yellow-500 text-black hover:bg-yellow-400 transition-all"
                 >
                   <Trophy className="w-4 h-4" />
                   LeetCode Profile
