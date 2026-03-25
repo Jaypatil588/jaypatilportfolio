@@ -8,6 +8,45 @@ import { createOpenAI } from '@ai-sdk/openai'
 import { ragContext } from '@/lib/portfolio-data'
 
 export const maxDuration = 30
+const VECTOR_STORE_ID = 'vs_69c34c0041148191a9bc58aff18cbee6'
+
+function extractUserText(message: UIMessage): string {
+  const textParts = message.parts
+    .filter((part) => part.type === 'text')
+    .map((part) => part.text.trim())
+    .filter(Boolean)
+
+  return textParts.join('\n')
+}
+
+async function fetchVectorContext(query: string): Promise<string> {
+  const apiKey = process.env.OPENAI_API_KEY
+  if (!apiKey || !query.trim()) return ''
+
+  const response = await fetch(`https://api.openai.com/v1/vector_stores/${VECTOR_STORE_ID}/search`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      query,
+      max_num_results: 5,
+      rewrite_query: true,
+    }),
+  })
+
+  if (!response.ok) return ''
+
+  const payload = await response.json()
+  const snippets = (payload?.data ?? [])
+    .flatMap((item: { content?: Array<{ type: string; text?: string }> }) => item.content ?? [])
+    .filter((entry: { type?: string; text?: string }) => entry.type === 'text' && entry.text)
+    .map((entry: { text?: string }) => entry.text?.trim())
+    .filter(Boolean)
+
+  return snippets.join('\n\n').slice(0, 12000)
+}
 
 export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json()
@@ -16,6 +55,10 @@ export async function POST(req: Request) {
   const openai = createOpenAI({
     apiKey: process.env.OPENAI_API_KEY,
   })
+
+  const lastUserMessage = [...messages].reverse().find((message) => message.role === 'user')
+  const userQuery = lastUserMessage ? extractUserText(lastUserMessage) : ''
+  const vectorContext = await fetchVectorContext(userQuery)
 
   const systemPrompt = `You are Jay Patil's AI assistant on his portfolio website. You answer questions about Jay based on his resume and portfolio information.
 
@@ -30,6 +73,8 @@ IMPORTANT RULES:
 
 CONTEXT ABOUT JAY PATIL:
 ${ragContext}
+
+${vectorContext ? `ADDITIONAL RETRIEVED CONTEXT (VECTOR STORE ${VECTOR_STORE_ID}):\n${vectorContext}` : ''}
 
 Remember: You represent Jay's portfolio. Be helpful and showcase his expertise!`
 
