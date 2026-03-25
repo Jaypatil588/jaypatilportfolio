@@ -18,12 +18,13 @@ export function HeroSection() {
         <div className="w-full h-full">
           <div className="grid lg:grid-cols-2 gap-0 items-stretch min-h-[calc(100vh-6rem)]">
             <motion.div
-              className="flex flex-col items-center text-center justify-center space-y-8 px-6 md:px-12 lg:px-16 xl:px-20 py-10 lg:py-16"
+              className="flex items-center justify-center px-4 py-8 lg:py-12"
               initial={{ opacity: 0, x: -45 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
             >
-              <div className="space-y-4">
+              <div className="w-full max-w-[620px] flex flex-col items-center text-center space-y-8">
+                <div className="space-y-4 flex flex-col items-center">
                 <motion.div
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary font-medium"
                   initial={{ opacity: 0, y: 18 }}
@@ -35,7 +36,7 @@ export function HeroSection() {
                 </motion.div>
 
                 <motion.div
-                  className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20"
+                  className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20 mx-auto"
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -52,7 +53,7 @@ export function HeroSection() {
                 </motion.div>
 
                 <motion.h1
-                  className="text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-balance"
+                  className="text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-balance text-center"
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.25 }}
@@ -69,84 +70,85 @@ export function HeroSection() {
                 >
                   {portfolioData.tagline}
                 </motion.p>
+                </div>
+
+                <motion.p
+                  className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl"
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.45 }}
+                >
+                  {portfolioData.summary}
+                </motion.p>
+
+                <motion.div
+                  className="flex items-center gap-2 text-muted-foreground"
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.55 }}
+                >
+                  <MapPin className="w-4 h-4 text-primary" />
+                  <span>{portfolioData.location}</span>
+                </motion.div>
+
+                <motion.div
+                  className="flex flex-wrap items-center justify-center gap-3"
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.65 }}
+                >
+                  <a
+                    href={portfolioData.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-5 py-3 rounded-xl glass hover-glow text-sm font-medium group"
+                  >
+                    <Github className="w-5 h-5 group-hover:text-primary transition-colors" />
+                    <span className="group-hover:text-primary transition-colors">GitHub</span>
+                  </a>
+                  <a
+                    href={portfolioData.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-5 py-3 rounded-xl glass hover-glow text-sm font-medium group"
+                  >
+                    <Linkedin className="w-5 h-5 group-hover:text-primary transition-colors" />
+                    <span className="group-hover:text-primary transition-colors">LinkedIn</span>
+                  </a>
+                  <a
+                    href={`mailto:${portfolioData.email}`}
+                    className="flex items-center gap-2 px-5 py-3 rounded-xl glass hover-glow text-sm font-medium group"
+                  >
+                    <Mail className="w-5 h-5 group-hover:text-primary transition-colors" />
+                    <span className="group-hover:text-primary transition-colors">Email</span>
+                  </a>
+                </motion.div>
+
+                <motion.div
+                  className="flex flex-wrap justify-center gap-4"
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.75 }}
+                >
+                  <a
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105 text-sm font-semibold shadow-lg shadow-primary/25"
+                  >
+                    <FileText className="w-5 h-5" />
+                    View Resume
+                  </a>
+                  <a
+                    href="/resume.pdf"
+                    download
+                    className="flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-primary text-primary hover:bg-primary/10 transition-all hover:scale-105 text-sm font-semibold"
+                  >
+                    <Download className="w-5 h-5" />
+                    Download PDF
+                  </a>
+                </motion.div>
               </div>
-
-              <motion.p
-                className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.45 }}
-              >
-                {portfolioData.summary}
-              </motion.p>
-
-              <motion.div
-                className="flex items-center gap-2 text-muted-foreground"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.55 }}
-              >
-                <MapPin className="w-4 h-4 text-primary" />
-                <span>{portfolioData.location}</span>
-              </motion.div>
-
-              <motion.div
-                className="flex flex-wrap items-center gap-3"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.65 }}
-              >
-                <a
-                  href={portfolioData.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl glass hover-glow text-sm font-medium group"
-                >
-                  <Github className="w-5 h-5 group-hover:text-primary transition-colors" />
-                  <span className="group-hover:text-primary transition-colors">GitHub</span>
-                </a>
-                <a
-                  href={portfolioData.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl glass hover-glow text-sm font-medium group"
-                >
-                  <Linkedin className="w-5 h-5 group-hover:text-primary transition-colors" />
-                  <span className="group-hover:text-primary transition-colors">LinkedIn</span>
-                </a>
-                <a
-                  href={`mailto:${portfolioData.email}`}
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl glass hover-glow text-sm font-medium group"
-                >
-                  <Mail className="w-5 h-5 group-hover:text-primary transition-colors" />
-                  <span className="group-hover:text-primary transition-colors">Email</span>
-                </a>
-              </motion.div>
-
-              <motion.div
-                className="flex flex-wrap gap-4"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.75 }}
-              >
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105 text-sm font-semibold shadow-lg shadow-primary/25"
-                >
-                  <FileText className="w-5 h-5" />
-                  View Resume
-                </a>
-                <a
-                  href="/resume.pdf"
-                  download
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-primary text-primary hover:bg-primary/10 transition-all hover:scale-105 text-sm font-semibold"
-                >
-                  <Download className="w-5 h-5" />
-                  Download PDF
-                </a>
-              </motion.div>
             </motion.div>
 
             <motion.div
