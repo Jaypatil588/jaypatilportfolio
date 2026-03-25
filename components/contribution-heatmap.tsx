@@ -1,6 +1,6 @@
 'use client'
 
-import { CSSProperties, useMemo } from 'react'
+import { CSSProperties, useMemo, useState } from 'react'
 
 interface CombinedDay {
   date: string
@@ -16,10 +16,6 @@ interface ContributionHeatmapProps {
   days: CombinedDay[]
 }
 
-const weekdayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-const weekColumnWidth = 18
-const monthGapWidth = 8
-
 function styleForCell(githubLevel: number, leetcodeLevel: number) {
   const githubShades = ['#123924', '#1f7a3d', '#2dbf5c', '#67f58e']
   const leetcodeShades = ['#4a3b10', '#8e6e12', '#d8a719', '#ffe066']
@@ -28,100 +24,36 @@ function styleForCell(githubLevel: number, leetcodeLevel: number) {
     return { className: 'border-[#1c2a38] bg-[#0b1621]', style: undefined as CSSProperties | undefined }
   }
 
+  // GitHub priority on overlap days
   if (githubLevel > 0) {
     const color = githubShades[Math.max(githubLevel - 1, 0)] || githubShades[3]
     return { className: 'border-transparent', style: { background: color } }
   }
 
-  if (leetcodeLevel > 0) {
-    const color = leetcodeShades[Math.max(leetcodeLevel - 1, 0)] || leetcodeShades[3]
-    return { className: 'border-transparent', style: { background: color } }
-  }
-  return { className: 'border-[#1c2a38] bg-[#0b1621]', style: undefined as CSSProperties | undefined }
+  const color = leetcodeShades[Math.max(leetcodeLevel - 1, 0)] || leetcodeShades[3]
+  return { className: 'border-transparent', style: { background: color } }
 }
 
 export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatmapProps) {
-  const weeks = useMemo(() => {
-    if (!days.length) return [] as CombinedDay[][]
+  const [hovered, setHovered] = useState<CombinedDay | null>(null)
 
-    const firstDate = new Date(`${days[0].date}T00:00:00`)
-    const start = new Date(firstDate)
-    start.setDate(start.getDate() - start.getDay())
+  const months = useMemo(() => {
+    const groups = new Map<string, { label: string; days: CombinedDay[] }>()
 
-    const lastDate = new Date(`${days[days.length - 1].date}T00:00:00`)
-    const end = new Date(lastDate)
-    end.setDate(end.getDate() + (6 - end.getDay()))
+    for (const day of days) {
+      const dt = new Date(`${day.date}T00:00:00`)
+      const key = `${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, '0')}`
+      const label = dt.toLocaleString('en-US', { month: 'short' })
 
-    const dayMap = new Map(days.map((day) => [day.date, day]))
-    const columns: CombinedDay[][] = []
-
-    for (let cursor = new Date(start); cursor <= end; cursor.setDate(cursor.getDate() + 7)) {
-      const column: CombinedDay[] = []
-      for (let i = 0; i < 7; i += 1) {
-        const d = new Date(cursor)
-        d.setDate(cursor.getDate() + i)
-        const iso = d.toISOString().slice(0, 10)
-        column.push(
-          dayMap.get(iso) ?? {
-            date: iso,
-            githubCount: 0,
-            githubLevel: 0,
-            leetcodeCount: 0,
-            leetcodeLevel: 0,
-          }
-        )
+      if (!groups.has(key)) {
+        groups.set(key, { label, days: [] })
       }
-      columns.push(column)
+
+      groups.get(key)!.days.push(day)
     }
 
-    return columns
+    return Array.from(groups.entries()).map(([key, value]) => ({ key, ...value }))
   }, [days])
-
-  const monthStarts = useMemo(() => {
-    if (!days.length || !weeks.length) return [] as Array<{ month: string; week: number }>
-
-    const firstDate = new Date(`${days[0].date}T00:00:00`)
-    const start = new Date(firstDate)
-    start.setDate(start.getDate() - start.getDay())
-    const lastDate = new Date(`${days[days.length - 1].date}T00:00:00`)
-
-    const labels: Array<{ month: string; week: number }> = []
-    let monthCursor = new Date(firstDate.getFullYear(), firstDate.getMonth(), 1)
-
-    while (monthCursor <= lastDate) {
-      const diffDays = Math.floor((monthCursor.getTime() - start.getTime()) / (1000 * 60 * 60 * 24))
-      labels.push({
-        month: monthCursor.toLocaleString('en-US', { month: 'short' }),
-        week: Math.max(0, Math.floor(diffDays / 7)),
-      })
-      monthCursor = new Date(monthCursor.getFullYear(), monthCursor.getMonth() + 1, 1)
-    }
-
-    const minLabelGapWeeks = 2
-    const result: Array<{ month: string; week: number }> = []
-    let lastPlacedWeek = -9999
-
-    for (let i = 0; i < labels.length; i += 1) {
-      // Skip the first partial month label if the range starts late in the month.
-      if (i === 0 && firstDate.getDate() > 7) continue
-
-      if (labels[i].week - lastPlacedWeek < minLabelGapWeeks) continue
-
-      result.push(labels[i])
-      lastPlacedWeek = labels[i].week
-    }
-
-    return result
-  }, [days, weeks])
-
-  const monthStartWeeks = useMemo(() => {
-    return monthStarts.map((item) => item.week).filter((week, index) => index > 0)
-  }, [monthStarts])
-
-  const weekLeft = (week: number) => {
-    const boundariesBefore = monthStartWeeks.filter((startWeek) => startWeek < week).length
-    return week * weekColumnWidth + boundariesBefore * monthGapWidth
-  }
 
   const totals = useMemo(() => {
     return days.reduce(
@@ -147,52 +79,46 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
       </div>
 
       <div className="overflow-x-auto">
-        <div className="min-w-[940px]">
-          <div className="relative h-6 ml-8">
-            {monthStarts.map((item) => (
-              <span
-                key={`${item.month}-${item.week}`}
-                className="absolute text-xs text-muted-foreground"
-                style={{ left: `${weekLeft(item.week)}px` }}
-              >
-                {item.month}
-              </span>
-            ))}
-          </div>
+        <div className="min-w-[980px] flex items-start gap-5 pb-2" onMouseLeave={() => setHovered(null)}>
+          {months.map((month) => (
+            <div key={month.key} className="shrink-0">
+              <p className="text-xs text-muted-foreground mb-2">{month.label}</p>
+              <div className="grid grid-cols-7 gap-1.5">
+                {month.days.map((day) => {
+                  const cellStyle = styleForCell(day.githubLevel, day.leetcodeLevel)
+                  const dateText = new Date(`${day.date}T00:00:00`).toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric',
+                  })
 
-          <div className="flex gap-2">
-            <div className="w-7 grid grid-rows-7 gap-1">
-              {weekdayLabels.map((label, rowIndex) => (
-                <div key={label} className="h-3.5 text-[10px] leading-3 text-muted-foreground">
-                  {rowIndex % 2 === 1 ? label : ''}
-                </div>
-              ))}
+                  return (
+                    <button
+                      key={day.date}
+                      type="button"
+                      className={`h-3.5 w-3.5 rounded-[3px] border transition-transform hover:scale-125 ${cellStyle.className}`}
+                      style={cellStyle.style}
+                      onMouseEnter={() => setHovered(day)}
+                      aria-label={`${dateText} - GitHub ${day.githubCount}, LeetCode ${day.leetcodeCount}`}
+                    />
+                  )
+                })}
+              </div>
             </div>
-
-            <div className="grid grid-flow-col auto-cols-max gap-1">
-              {weeks.map((week, colIndex) => (
-                <div
-                  key={colIndex}
-                  className={`grid grid-rows-7 gap-1 ${monthStartWeeks.includes(colIndex) ? 'ml-2' : ''}`}
-                >
-                  {week.map((day) => {
-                    const cellStyle = styleForCell(day.githubLevel, day.leetcodeLevel)
-                    const titleText = `${day.date}: GitHub ${day.githubCount}, LeetCode ${day.leetcodeCount}`
-
-                    return (
-                      <div
-                        key={day.date}
-                        title={titleText}
-                        className={`h-3.5 w-3.5 rounded-[3px] border ${cellStyle.className}`}
-                        style={cellStyle.style}
-                      />
-                    )
-                  })}
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
+      </div>
+
+      <div className="mt-4 rounded-lg border border-border/60 bg-background/40 px-3 py-2 text-xs text-muted-foreground min-h-[40px] flex items-center justify-between gap-3">
+        {hovered ? (
+          <>
+            <span>{hovered.date}</span>
+            <span className="text-emerald-300">GitHub: {hovered.githubCount}</span>
+            <span className="text-amber-300">LeetCode: {hovered.leetcodeCount}</span>
+          </>
+        ) : (
+          <span>Hover a box to see daily stats</span>
+        )}
       </div>
 
       <div className="mt-4 flex flex-wrap items-center justify-end gap-2 text-xs text-muted-foreground">
