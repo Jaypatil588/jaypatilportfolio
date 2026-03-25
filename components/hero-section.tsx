@@ -41,11 +41,12 @@ export function HeroSection() {
                   transition={{ delay: 0.2 }}
                 >
                   <Image
-                    src="/mugshot.png"
+                    src="/mugshot.webp"
                     alt="Jay Patil profile photo"
                     width={192}
                     height={192}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-[50%_28%]"
+                    sizes="(max-width: 768px) 160px, 192px"
                     priority
                   />
                 </motion.div>
