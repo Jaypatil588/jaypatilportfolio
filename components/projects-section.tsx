@@ -8,7 +8,7 @@ import { ContributionHeatmap } from './contribution-heatmap'
 
 interface GithubPayload {
   username: string
-  year: number
+  range: { from: string; to: string }
   profile: {
     login: string
     name: string | null
@@ -40,7 +40,7 @@ interface GithubPayload {
 
 interface LeetcodePayload {
   username: string
-  year: number
+  range: { from: string; to: string }
   profileUrl: string
   totalSubmissions: number
   totalActiveDays: number
@@ -53,16 +53,10 @@ function githubUsernameFromUrl(url: string) {
 }
 
 export function ProjectsSection() {
-  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear())
   const [githubData, setGithubData] = useState<GithubPayload | null>(null)
   const [leetcodeData, setLeetcodeData] = useState<LeetcodePayload | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-
-  const years = useMemo(() => {
-    const current = new Date().getFullYear()
-    return Array.from({ length: 7 }, (_, i) => current - i)
-  }, [])
 
   useEffect(() => {
     const githubUsername = githubUsernameFromUrl(portfolioData.github)
@@ -73,8 +67,8 @@ export function ProjectsSection() {
         setIsLoading(true)
 
         const [githubResponse, leetcodeResponse] = await Promise.all([
-          fetch(`/api/github?username=${githubUsername}&year=${selectedYear}`),
-          fetch(`/api/leetcode?username=${leetcodeUsername}&year=${selectedYear}`),
+          fetch(`/api/github?username=${githubUsername}`),
+          fetch(`/api/leetcode?username=${leetcodeUsername}`),
         ])
 
         const githubPayload = await githubResponse.json()
@@ -100,7 +94,26 @@ export function ProjectsSection() {
     }
 
     loadData()
-  }, [selectedYear])
+  }, [])
+
+  const mergedHeatmap = useMemo(() => {
+    if (!githubData || !leetcodeData) return []
+
+    const leetcodeMap = new Map(
+      leetcodeData.heatmap.map((day) => [day.date, { count: day.count, level: day.level }])
+    )
+
+    return githubData.heatmap.map((day) => {
+      const lc = leetcodeMap.get(day.date) || { count: 0, level: 0 }
+      return {
+        date: day.date,
+        githubCount: day.count,
+        githubLevel: day.level,
+        leetcodeCount: lc.count,
+        leetcodeLevel: lc.level,
+      }
+    })
+  }, [githubData, leetcodeData])
 
   return (
     <section className="py-24 px-4 relative overflow-hidden">
@@ -117,175 +130,144 @@ export function ProjectsSection() {
           transition={{ duration: 0.5 }}
         >
           <span className="inline-block px-4 py-2 rounded-full glass text-sm text-primary font-medium mb-4">
-            GitHub + LeetCode Showcase
+            Combined Activity Showcase
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Yearly Activity, <span className="gradient-text">Live Projects</span>
+            Last 365 Days, <span className="gradient-text">Merged Heatmap</span>
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
-            Interactive contribution heatmaps and repositories pulled from your public profiles.
+            A single unified timeline from the current date, blending GitHub (green) and LeetCode (yellow) activity.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-6 items-start">
-          <div className="lg:col-span-10 space-y-6">
-            {isLoading && (
-              <div className="rounded-2xl glass p-8 text-center text-muted-foreground">Loading activity...</div>
-            )}
+        {isLoading && (
+          <div className="rounded-2xl glass p-8 text-center text-muted-foreground">Loading activity...</div>
+        )}
 
-            {error && !isLoading && (
-              <div className="rounded-2xl glass p-8 text-center">
-                <p className="text-foreground font-semibold mb-2">Could not load activity data</p>
-                <p className="text-muted-foreground text-sm">{error}</p>
-              </div>
-            )}
-
-            {!isLoading && !error && githubData && leetcodeData && (
-              <>
-                <ContributionHeatmap
-                  title="GitHub Contributions"
-                  subtitle="contributions in the year"
-                  days={githubData.heatmap}
-                  scheme="github"
-                />
-
-                <ContributionHeatmap
-                  title="LeetCode Submissions"
-                  subtitle="submissions in the year"
-                  days={leetcodeData.heatmap}
-                  scheme="leetcode"
-                />
-
-                <motion.div
-                  className="grid md:grid-cols-2 lg:grid-cols-4 gap-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="rounded-2xl glass p-5">
-                    <div className="text-sm text-muted-foreground mb-1">GitHub Contributions</div>
-                    <div className="text-3xl font-bold text-emerald-300">{githubData.metrics.totalContributions}</div>
-                  </div>
-                  <div className="rounded-2xl glass p-5">
-                    <div className="text-sm text-muted-foreground mb-1">LeetCode Submissions</div>
-                    <div className="text-3xl font-bold text-amber-300">{leetcodeData.totalSubmissions}</div>
-                  </div>
-                  <div className="rounded-2xl glass p-5">
-                    <div className="text-sm text-muted-foreground mb-1">GitHub Stars</div>
-                    <div className="text-3xl font-bold text-foreground">{githubData.metrics.totalStars}</div>
-                  </div>
-                  <div className="rounded-2xl glass p-5">
-                    <div className="text-sm text-muted-foreground mb-1">LeetCode Active Days</div>
-                    <div className="text-3xl font-bold text-foreground">{leetcodeData.totalActiveDays}</div>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
-                  {githubData.repos.map((repo, index) => (
-                    <motion.a
-                      key={repo.id}
-                      href={repo.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group rounded-2xl glass p-6 hover-glow block"
-                      whileHover={{ y: -6 }}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.05 }}
-                    >
-                      <div className="flex items-start justify-between gap-3 mb-3">
-                        <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                          {repo.name}
-                        </h3>
-                        <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                      </div>
-
-                      <p className="text-sm text-muted-foreground leading-relaxed min-h-[3rem]">
-                        {repo.description || 'No description provided.'}
-                      </p>
-
-                      <div className="mt-4 flex items-center flex-wrap gap-4 text-xs text-muted-foreground">
-                        {repo.language && <span className="px-2 py-1 rounded-md bg-secondary/70">{repo.language}</span>}
-                        <span className="inline-flex items-center gap-1">
-                          <Star className="w-3.5 h-3.5" />
-                          {repo.stars}
-                        </span>
-                        <span className="inline-flex items-center gap-1">
-                          <GitFork className="w-3.5 h-3.5" />
-                          {repo.forks}
-                        </span>
-                      </div>
-
-                      {repo.homepage && (
-                        <div className="mt-4 text-sm text-primary inline-flex items-center gap-2">
-                          Live Demo
-                          <ExternalLink className="w-4 h-4" />
-                        </div>
-                      )}
-                    </motion.a>
-                  ))}
-                </motion.div>
-
-                <motion.div
-                  className="rounded-2xl glass p-6 flex flex-wrap items-center justify-between gap-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
-                  <div>
-                    <p className="text-lg font-semibold text-foreground">Explore full profiles</p>
-                    <p className="text-sm text-muted-foreground">See detailed activity and contributions directly on source platforms.</p>
-                  </div>
-                  <div className="flex flex-wrap gap-3">
-                    <a
-                      href={githubData.profile.profileUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 text-white hover:bg-emerald-500 transition-all"
-                    >
-                      <Github className="w-4 h-4" />
-                      GitHub Profile
-                    </a>
-                    <a
-                      href={leetcodeData.profileUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-amber-500 text-black hover:bg-amber-400 transition-all"
-                    >
-                      <Trophy className="w-4 h-4" />
-                      LeetCode Profile
-                    </a>
-                  </div>
-                </motion.div>
-              </>
-            )}
+        {error && !isLoading && (
+          <div className="rounded-2xl glass p-8 text-center">
+            <p className="text-foreground font-semibold mb-2">Could not load activity data</p>
+            <p className="text-muted-foreground text-sm">{error}</p>
           </div>
+        )}
 
-          <aside className="lg:col-span-2 rounded-2xl glass p-3 sticky top-24">
-            <p className="px-3 pb-2 text-xs uppercase tracking-wide text-muted-foreground">Year</p>
-            <div className="space-y-1">
-              {years.map((year) => (
-                <button
-                  key={year}
-                  onClick={() => setSelectedYear(year)}
-                  className={`w-full rounded-lg px-3 py-2 text-left text-sm transition-colors ${
-                    selectedYear === year
-                      ? 'bg-primary text-primary-foreground'
-                      : 'text-muted-foreground hover:bg-secondary/70 hover:text-foreground'
-                  }`}
+        {!isLoading && !error && githubData && leetcodeData && (
+          <>
+            <ContributionHeatmap
+              title="GitHub + LeetCode Activity"
+              subtitle={`${githubData.range.from} to ${githubData.range.to}`}
+              days={mergedHeatmap}
+            />
+
+            <motion.div
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="rounded-2xl glass p-5">
+                <div className="text-sm text-muted-foreground mb-1">GitHub Contributions</div>
+                <div className="text-3xl font-bold text-emerald-300">{githubData.metrics.totalContributions}</div>
+              </div>
+              <div className="rounded-2xl glass p-5">
+                <div className="text-sm text-muted-foreground mb-1">LeetCode Submissions</div>
+                <div className="text-3xl font-bold text-amber-300">{leetcodeData.totalSubmissions}</div>
+              </div>
+              <div className="rounded-2xl glass p-5">
+                <div className="text-sm text-muted-foreground mb-1">GitHub Stars</div>
+                <div className="text-3xl font-bold text-foreground">{githubData.metrics.totalStars}</div>
+              </div>
+              <div className="rounded-2xl glass p-5">
+                <div className="text-sm text-muted-foreground mb-1">LeetCode Active Days</div>
+                <div className="text-3xl font-bold text-foreground">{leetcodeData.totalActiveDays}</div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              {githubData.repos.map((repo, index) => (
+                <motion.a
+                  key={repo.id}
+                  href={repo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group rounded-2xl glass p-6 hover-glow block"
+                  whileHover={{ y: -6 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
                 >
-                  {year}
-                </button>
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {repo.name}
+                    </h3>
+                    <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                  </div>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed min-h-[3rem]">
+                    {repo.description || 'No description provided.'}
+                  </p>
+
+                  <div className="mt-4 flex items-center flex-wrap gap-4 text-xs text-muted-foreground">
+                    {repo.language && <span className="px-2 py-1 rounded-md bg-secondary/70">{repo.language}</span>}
+                    <span className="inline-flex items-center gap-1">
+                      <Star className="w-3.5 h-3.5" />
+                      {repo.stars}
+                    </span>
+                    <span className="inline-flex items-center gap-1">
+                      <GitFork className="w-3.5 h-3.5" />
+                      {repo.forks}
+                    </span>
+                  </div>
+
+                  {repo.homepage && (
+                    <div className="mt-4 text-sm text-primary inline-flex items-center gap-2">
+                      Live Demo
+                      <ExternalLink className="w-4 h-4" />
+                    </div>
+                  )}
+                </motion.a>
               ))}
-            </div>
-          </aside>
-        </div>
+            </motion.div>
+
+            <motion.div
+              className="rounded-2xl glass p-6 flex flex-wrap items-center justify-between gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div>
+                <p className="text-lg font-semibold text-foreground">Explore full profiles</p>
+                <p className="text-sm text-muted-foreground">See detailed activity and contributions directly on source platforms.</p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={githubData.profile.profileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 text-white hover:bg-emerald-500 transition-all"
+                >
+                  <Github className="w-4 h-4" />
+                  GitHub Profile
+                </a>
+                <a
+                  href={leetcodeData.profileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-amber-500 text-black hover:bg-amber-400 transition-all"
+                >
+                  <Trophy className="w-4 h-4" />
+                  LeetCode Profile
+                </a>
+              </div>
+            </motion.div>
+          </>
+        )}
       </div>
     </section>
   )

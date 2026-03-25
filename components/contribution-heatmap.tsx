@@ -1,42 +1,53 @@
 'use client'
 
-import { useMemo } from 'react'
+import { CSSProperties, useMemo } from 'react'
 
-interface HeatmapDay {
+interface CombinedDay {
   date: string
-  count: number
-  level: number
+  githubCount: number
+  githubLevel: number
+  leetcodeCount: number
+  leetcodeLevel: number
 }
 
 interface ContributionHeatmapProps {
   title: string
   subtitle: string
-  days: HeatmapDay[]
-  scheme: 'github' | 'leetcode'
+  days: CombinedDay[]
 }
 
 const weekdayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
-const colorSchemes: Record<'github' | 'leetcode', Record<number, string>> = {
-  github: {
-    0: 'bg-[#0b1621] border-[#1c2a38]',
-    1: 'bg-[#123924] border-[#1f4f33]',
-    2: 'bg-[#1f7a3d] border-[#1f7a3d]',
-    3: 'bg-[#2dbf5c] border-[#2dbf5c]',
-    4: 'bg-[#67f58e] border-[#67f58e]',
-  },
-  leetcode: {
-    0: 'bg-[#0f1622] border-[#1c2a38]',
-    1: 'bg-[#4a3b10] border-[#5f4d14]',
-    2: 'bg-[#8e6e12] border-[#8e6e12]',
-    3: 'bg-[#d8a719] border-[#d8a719]',
-    4: 'bg-[#ffe066] border-[#ffe066]',
-  },
+function styleForCell(githubLevel: number, leetcodeLevel: number) {
+  const githubShades = ['#123924', '#1f7a3d', '#2dbf5c', '#67f58e']
+  const leetcodeShades = ['#4a3b10', '#8e6e12', '#d8a719', '#ffe066']
+
+  if (githubLevel === 0 && leetcodeLevel === 0) {
+    return { className: 'border-[#1c2a38] bg-[#0b1621]', style: undefined as CSSProperties | undefined }
+  }
+
+  if (githubLevel > 0 && leetcodeLevel === 0) {
+    const color = githubShades[Math.max(githubLevel - 1, 0)] || githubShades[3]
+    return { className: 'border-transparent', style: { background: color } }
+  }
+
+  if (leetcodeLevel > 0 && githubLevel === 0) {
+    const color = leetcodeShades[Math.max(leetcodeLevel - 1, 0)] || leetcodeShades[3]
+    return { className: 'border-transparent', style: { background: color } }
+  }
+
+  const green = githubShades[Math.max(githubLevel - 1, 0)] || githubShades[3]
+  const yellow = leetcodeShades[Math.max(leetcodeLevel - 1, 0)] || leetcodeShades[3]
+
+  return {
+    className: 'border-transparent',
+    style: { background: `linear-gradient(135deg, ${green} 0%, ${green} 48%, ${yellow} 52%, ${yellow} 100%)` },
+  }
 }
 
-export function ContributionHeatmap({ title, subtitle, days, scheme }: ContributionHeatmapProps) {
+export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatmapProps) {
   const weeks = useMemo(() => {
-    if (!days.length) return [] as HeatmapDay[][]
+    if (!days.length) return [] as CombinedDay[][]
 
     const firstDate = new Date(`${days[0].date}T00:00:00`)
     const start = new Date(firstDate)
@@ -47,15 +58,23 @@ export function ContributionHeatmap({ title, subtitle, days, scheme }: Contribut
     end.setDate(end.getDate() + (6 - end.getDay()))
 
     const dayMap = new Map(days.map((day) => [day.date, day]))
-    const columns: HeatmapDay[][] = []
+    const columns: CombinedDay[][] = []
 
     for (let cursor = new Date(start); cursor <= end; cursor.setDate(cursor.getDate() + 7)) {
-      const column: HeatmapDay[] = []
+      const column: CombinedDay[] = []
       for (let i = 0; i < 7; i += 1) {
         const d = new Date(cursor)
         d.setDate(cursor.getDate() + i)
         const iso = d.toISOString().slice(0, 10)
-        column.push(dayMap.get(iso) ?? { date: iso, count: 0, level: 0 })
+        column.push(
+          dayMap.get(iso) ?? {
+            date: iso,
+            githubCount: 0,
+            githubLevel: 0,
+            leetcodeCount: 0,
+            leetcodeLevel: 0,
+          }
+        )
       }
       columns.push(column)
     }
@@ -69,27 +88,44 @@ export function ContributionHeatmap({ title, subtitle, days, scheme }: Contribut
     const firstDate = new Date(`${days[0].date}T00:00:00`)
     const start = new Date(firstDate)
     start.setDate(start.getDate() - start.getDay())
+    const lastDate = new Date(`${days[days.length - 1].date}T00:00:00`)
 
     const labels: Array<{ month: string; week: number }> = []
-    const firstYear = new Date(`${days[0].date}T00:00:00`).getFullYear()
+    let monthCursor = new Date(firstDate.getFullYear(), firstDate.getMonth(), 1)
 
-    for (let month = 0; month < 12; month += 1) {
-      const firstOfMonth = new Date(firstYear, month, 1)
-      const diffDays = Math.floor((firstOfMonth.getTime() - start.getTime()) / (1000 * 60 * 60 * 24))
-      const week = Math.max(0, Math.floor(diffDays / 7))
-      labels.push({ month: firstOfMonth.toLocaleString('en-US', { month: 'short' }), week })
+    while (monthCursor <= lastDate) {
+      const diffDays = Math.floor((monthCursor.getTime() - start.getTime()) / (1000 * 60 * 60 * 24))
+      labels.push({
+        month: monthCursor.toLocaleString('en-US', { month: 'short' }),
+        week: Math.max(0, Math.floor(diffDays / 7)),
+      })
+      monthCursor = new Date(monthCursor.getFullYear(), monthCursor.getMonth() + 1, 1)
     }
 
     return labels
   }, [days, weeks])
 
-  const total = days.reduce((sum, day) => sum + day.count, 0)
+  const totals = useMemo(() => {
+    return days.reduce(
+      (acc, day) => {
+        acc.github += day.githubCount
+        acc.leetcode += day.leetcodeCount
+        return acc
+      },
+      { github: 0, leetcode: 0 }
+    )
+  }, [days])
 
   return (
     <div className="rounded-2xl glass p-6">
       <div className="mb-4">
         <h3 className="text-xl font-semibold text-foreground">{title}</h3>
-        <p className="text-sm text-muted-foreground">{total} {subtitle}</p>
+        <p className="text-sm text-muted-foreground">{subtitle}</p>
+        <p className="text-xs text-muted-foreground mt-1">
+          <span className="text-emerald-300">{totals.github} GitHub</span>
+          {' • '}
+          <span className="text-amber-300">{totals.leetcode} LeetCode</span>
+        </p>
       </div>
 
       <div className="overflow-x-auto">
@@ -118,13 +154,19 @@ export function ContributionHeatmap({ title, subtitle, days, scheme }: Contribut
             <div className="grid grid-flow-col auto-cols-max gap-1">
               {weeks.map((week, colIndex) => (
                 <div key={colIndex} className="grid grid-rows-7 gap-1">
-                  {week.map((day) => (
-                    <div
-                      key={day.date}
-                      title={`${day.date}: ${day.count}`}
-                      className={`h-3.5 w-3.5 rounded-[3px] border ${colorSchemes[scheme][day.level]}`}
-                    />
-                  ))}
+                  {week.map((day) => {
+                    const cellStyle = styleForCell(day.githubLevel, day.leetcodeLevel)
+                    const titleText = `${day.date}: GitHub ${day.githubCount}, LeetCode ${day.leetcodeCount}`
+
+                    return (
+                      <div
+                        key={day.date}
+                        title={titleText}
+                        className={`h-3.5 w-3.5 rounded-[3px] border ${cellStyle.className}`}
+                        style={cellStyle.style}
+                      />
+                    )
+                  })}
                 </div>
               ))}
             </div>
@@ -132,12 +174,23 @@ export function ContributionHeatmap({ title, subtitle, days, scheme }: Contribut
         </div>
       </div>
 
-      <div className="mt-4 flex items-center justify-end gap-2 text-xs text-muted-foreground">
-        <span>Less</span>
-        {[0, 1, 2, 3, 4].map((level) => (
-          <span key={level} className={`h-3 w-3 rounded-[3px] border ${colorSchemes[scheme][level]}`} />
+      <div className="mt-4 flex flex-wrap items-center justify-end gap-2 text-xs text-muted-foreground">
+        <span>GitHub</span>
+        {[1, 2, 3, 4].map((level) => (
+          <span
+            key={`g-${level}`}
+            className="h-3 w-3 rounded-[3px]"
+            style={{ background: ['#123924', '#1f7a3d', '#2dbf5c', '#67f58e'][level - 1] }}
+          />
         ))}
-        <span>More</span>
+        <span className="ml-2">LeetCode</span>
+        {[1, 2, 3, 4].map((level) => (
+          <span
+            key={`l-${level}`}
+            className="h-3 w-3 rounded-[3px]"
+            style={{ background: ['#4a3b10', '#8e6e12', '#d8a719', '#ffe066'][level - 1] }}
+          />
+        ))}
       </div>
     </div>
   )

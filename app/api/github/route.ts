@@ -31,10 +31,10 @@ function commitLevel(count: number): number {
   return 4
 }
 
-function buildYearDays(year: number, counts: Map<string, number>) {
+function buildRollingDays(from: string, to: string, counts: Map<string, number>) {
   const days: Array<{ date: string; count: number; level: number }> = []
-  const start = new Date(Date.UTC(year, 0, 1))
-  const end = new Date(Date.UTC(year, 11, 31))
+  const start = new Date(`${from}T00:00:00Z`)
+  const end = new Date(`${to}T00:00:00Z`)
 
   for (let cursor = new Date(start); cursor <= end; cursor.setUTCDate(cursor.getUTCDate() + 1)) {
     const date = cursor.toISOString().slice(0, 10)
@@ -67,12 +67,20 @@ function extractContributionsFromSvg(svg: string) {
   return counts
 }
 
+function getLastYearRange() {
+  const toDate = new Date()
+  const fromDate = new Date(toDate)
+  fromDate.setDate(toDate.getDate() - 364)
+
+  return {
+    from: fromDate.toISOString().slice(0, 10),
+    to: toDate.toISOString().slice(0, 10),
+  }
+}
+
 export async function GET(request: NextRequest) {
   const username =
     request.nextUrl.searchParams.get('username')?.trim() || process.env.GITHUB_USERNAME || 'Jaypatil588'
-  const yearParam = request.nextUrl.searchParams.get('year')
-  const parsedYear = yearParam ? Number(yearParam) : new Date().getFullYear()
-  const year = Number.isFinite(parsedYear) ? parsedYear : new Date().getFullYear()
   const token = process.env.GITHUB_TOKEN
 
   const headers: HeadersInit = {
@@ -84,8 +92,7 @@ export async function GET(request: NextRequest) {
     headers.Authorization = `Bearer ${token}`
   }
 
-  const from = `${year}-01-01`
-  const to = `${year}-12-31`
+  const { from, to } = getLastYearRange()
 
   try {
     const profilePromise = fetch(`https://api.github.com/users/${username}`, {
@@ -138,7 +145,7 @@ export async function GET(request: NextRequest) {
     const contributionsSvg = await contributionsResponse.text()
 
     const contributionCounts = extractContributionsFromSvg(contributionsSvg)
-    const heatmap = buildYearDays(year, contributionCounts)
+    const heatmap = buildRollingDays(from, to, contributionCounts)
 
     const ownRepos = repos.filter((repo) => !repo.fork)
     const totalStars = ownRepos.reduce((sum, repo) => sum + repo.stargazers_count, 0)
@@ -148,7 +155,7 @@ export async function GET(request: NextRequest) {
 
     const response = {
       username,
-      year,
+      range: { from, to },
       profile: {
         login: profile.login,
         name: profile.name,
@@ -181,7 +188,7 @@ export async function GET(request: NextRequest) {
         })),
       dataSource: {
         hasToken: Boolean(token),
-        note: `GitHub contribution graph for ${year}.`,
+        note: `GitHub contribution graph from ${from} to ${to}.`,
       },
     }
 
@@ -191,9 +198,6 @@ export async function GET(request: NextRequest) {
       },
     })
   } catch {
-    return NextResponse.json(
-      { error: 'Unexpected error while loading GitHub data.' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Unexpected error while loading GitHub data.' }, { status: 500 })
   }
 }
