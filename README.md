@@ -21,4 +21,5 @@ OPENAI_API_KEY=
 GITHUB_USERNAME=Jaypatil588
 # Optional, helps with GitHub API rate limits for showcase widgets
 GITHUB_TOKEN=
+LEETCODE_USERNAME=jaypatil588
 ```

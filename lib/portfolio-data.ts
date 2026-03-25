@@ -7,6 +7,7 @@ export const portfolioData = {
   phone: "+1-669-367-0026",
   linkedin: "https://linkedin.com/in/jaypatil588",
   github: "https://github.com/Jaypatil588",
+  leetcodeUsername: "jaypatil588",
   
   summary: `Software Engineer with 4 years of experience building scalable cloud-native applications, specializing in robust backend infrastructure, full-stack development, and integrating applied AI/ML workflows.`,
 

@@ -1,8 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const MAX_EVENT_PAGES = 10
-const HEATMAP_DAYS = 140
-
 interface GithubRepo {
   id: number
   name: string
@@ -26,45 +23,56 @@ interface GithubProfile {
   html_url: string
 }
 
-interface GithubEvent {
-  type: string
-  created_at: string
-  payload?: {
-    size?: number
-    commits?: Array<unknown>
-  }
-}
-
 function commitLevel(count: number): number {
   if (count === 0) return 0
   if (count <= 2) return 1
   if (count <= 5) return 2
-  if (count <= 8) return 3
+  if (count <= 9) return 3
   return 4
 }
 
-function buildRecentDays(counts: Map<string, number>) {
+function buildYearDays(year: number, counts: Map<string, number>) {
   const days: Array<{ date: string; count: number; level: number }> = []
-  const now = new Date()
+  const start = new Date(Date.UTC(year, 0, 1))
+  const end = new Date(Date.UTC(year, 11, 31))
 
-  for (let offset = HEATMAP_DAYS - 1; offset >= 0; offset -= 1) {
-    const currentDate = new Date(now)
-    currentDate.setDate(now.getDate() - offset)
-    const isoDate = currentDate.toISOString().slice(0, 10)
-    const commitCount = counts.get(isoDate) ?? 0
-    days.push({
-      date: isoDate,
-      count: commitCount,
-      level: commitLevel(commitCount),
-    })
+  for (let cursor = new Date(start); cursor <= end; cursor.setUTCDate(cursor.getUTCDate() + 1)) {
+    const date = cursor.toISOString().slice(0, 10)
+    const count = counts.get(date) ?? 0
+    days.push({ date, count, level: commitLevel(count) })
   }
 
   return days
 }
 
+function extractContributionsFromSvg(svg: string) {
+  const counts = new Map<string, number>()
+  const regexDateFirst = /<rect[^>]*data-date="(\d{4}-\d{2}-\d{2})"[^>]*data-count="(\d+)"[^>]*>/g
+  const regexCountFirst = /<rect[^>]*data-count="(\d+)"[^>]*data-date="(\d{4}-\d{2}-\d{2})"[^>]*>/g
+
+  let match = regexDateFirst.exec(svg)
+  while (match) {
+    const [, date, count] = match
+    counts.set(date, Number(count))
+    match = regexDateFirst.exec(svg)
+  }
+
+  match = regexCountFirst.exec(svg)
+  while (match) {
+    const [, count, date] = match
+    counts.set(date, Number(count))
+    match = regexCountFirst.exec(svg)
+  }
+
+  return counts
+}
+
 export async function GET(request: NextRequest) {
   const username =
     request.nextUrl.searchParams.get('username')?.trim() || process.env.GITHUB_USERNAME || 'Jaypatil588'
+  const yearParam = request.nextUrl.searchParams.get('year')
+  const parsedYear = yearParam ? Number(yearParam) : new Date().getFullYear()
+  const year = Number.isFinite(parsedYear) ? parsedYear : new Date().getFullYear()
   const token = process.env.GITHUB_TOKEN
 
   const headers: HeadersInit = {
@@ -75,6 +83,9 @@ export async function GET(request: NextRequest) {
   if (token) {
     headers.Authorization = `Bearer ${token}`
   }
+
+  const from = `${year}-01-01`
+  const to = `${year}-12-31`
 
   try {
     const profilePromise = fetch(`https://api.github.com/users/${username}`, {
@@ -87,7 +98,19 @@ export async function GET(request: NextRequest) {
       next: { revalidate: 3600 },
     })
 
-    const [profileResponse, reposResponse] = await Promise.all([profilePromise, reposPromise])
+    const contributionsPromise = fetch(
+      `https://github.com/users/${username}/contributions?from=${from}&to=${to}`,
+      {
+        headers: { 'User-Agent': 'jaypatilportfolio' },
+        next: { revalidate: 3600 },
+      }
+    )
+
+    const [profileResponse, reposResponse, contributionsResponse] = await Promise.all([
+      profilePromise,
+      reposPromise,
+      contributionsPromise,
+    ])
 
     if (!profileResponse.ok) {
       return NextResponse.json(
@@ -103,41 +126,29 @@ export async function GET(request: NextRequest) {
       )
     }
 
+    if (!contributionsResponse.ok) {
+      return NextResponse.json(
+        { error: 'Unable to load GitHub contribution graph.' },
+        { status: contributionsResponse.status }
+      )
+    }
+
     const profile = (await profileResponse.json()) as GithubProfile
     const repos = (await reposResponse.json()) as GithubRepo[]
+    const contributionsSvg = await contributionsResponse.text()
 
-    const eventRequests = Array.from({ length: MAX_EVENT_PAGES }, (_, index) =>
-      fetch(`https://api.github.com/users/${username}/events/public?per_page=100&page=${index + 1}`, {
-        headers,
-        next: { revalidate: 3600 },
-      })
-    )
-
-    const eventResponses = await Promise.all(eventRequests)
-    const eventPayloads = await Promise.all(
-      eventResponses.map(async (response) => {
-        if (!response.ok) return [] as GithubEvent[]
-        return (await response.json()) as GithubEvent[]
-      })
-    )
-
-    const commitCounts = new Map<string, number>()
-
-    for (const events of eventPayloads) {
-      for (const event of events) {
-        if (event.type !== 'PushEvent') continue
-        const date = event.created_at.slice(0, 10)
-        const commitCount = event.payload?.size ?? event.payload?.commits?.length ?? 1
-        commitCounts.set(date, (commitCounts.get(date) ?? 0) + commitCount)
-      }
-    }
+    const contributionCounts = extractContributionsFromSvg(contributionsSvg)
+    const heatmap = buildYearDays(year, contributionCounts)
 
     const ownRepos = repos.filter((repo) => !repo.fork)
     const totalStars = ownRepos.reduce((sum, repo) => sum + repo.stargazers_count, 0)
     const totalForks = ownRepos.reduce((sum, repo) => sum + repo.forks_count, 0)
 
+    const totalContributions = heatmap.reduce((sum, day) => sum + day.count, 0)
+
     const response = {
       username,
+      year,
       profile: {
         login: profile.login,
         name: profile.name,
@@ -151,8 +162,9 @@ export async function GET(request: NextRequest) {
         totalStars,
         totalForks,
         trackedRepos: ownRepos.length,
+        totalContributions,
       },
-      heatmap: buildRecentDays(commitCounts),
+      heatmap,
       repos: ownRepos
         .sort((a, b) => new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime())
         .slice(0, 9)
@@ -169,9 +181,7 @@ export async function GET(request: NextRequest) {
         })),
       dataSource: {
         hasToken: Boolean(token),
-        note: token
-          ? 'Commit counts are based on public push events and refreshed hourly.'
-          : 'Commit counts are based on public events (rate-limited by GitHub API without token).',
+        note: `GitHub contribution graph for ${year}.`,
       },
     }
 
@@ -180,7 +190,7 @@ export async function GET(request: NextRequest) {
         'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
       },
     })
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: 'Unexpected error while loading GitHub data.' },
       { status: 500 }
