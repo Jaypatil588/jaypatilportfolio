@@ -119,8 +119,10 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
     <div className="rounded-2xl border border-white/10 bg-[#1f1f1f] px-4 py-3 shadow-xl">
       <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
         <div>
-          <h3 className="text-white text-2xl font-bold leading-none">{formatNumber(stats.total)}</h3>
-          <p className="text-zinc-300 text-sm">activities in the past one year</p>
+          <p className="text-zinc-100 text-3xl font-bold leading-none">
+            {formatNumber(stats.total)}
+            <span className="ml-2 text-zinc-300 text-sm font-medium">activities in the past one year</span>
+          </p>
           <p className="text-[11px] text-zinc-400 mt-1">{title} • {subtitle}</p>
         </div>
 
@@ -131,13 +133,13 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
         </div>
       </div>
 
-      <div className="grid grid-cols-12 gap-x-3 gap-y-2" onMouseLeave={() => setHovered(null)}>
+      <div className="grid grid-cols-12 gap-x-2 gap-y-2" onMouseLeave={() => setHovered(null)}>
         {renderMonths.map((month) => (
           <div key={month.key} className="min-w-0">
-            <div className="grid grid-rows-7 grid-flow-col auto-cols-max gap-[2px]">
+            <div className="grid grid-rows-7 grid-flow-col auto-cols-max gap-[3px]">
               {month.cells.map((cell) => {
                 if (!cell.day) {
-                  return <span key={cell.key} className="h-2 w-2 rounded-[2px] opacity-0" />
+                  return <span key={cell.key} className="h-3 w-3 rounded-[2px] opacity-0" />
                 }
 
                 const cellStyle = styleForCell(cell.day.githubLevel, cell.day.leetcodeLevel)
@@ -147,16 +149,16 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
                   year: 'numeric',
                 })
 
-                return (
-                  <button
-                    key={cell.key}
-                    type="button"
-                    className={`h-2 w-2 rounded-[2px] border transition-transform hover:scale-125 ${cellStyle.className}`}
-                    style={cellStyle.style}
-                    onMouseEnter={() => setHovered(cell.day!)}
-                    aria-label={`${dateText} - GitHub ${cell.day.githubCount}, LeetCode ${cell.day.leetcodeCount}`}
-                  />
-                )
+                  return (
+                    <button
+                      key={cell.key}
+                      type="button"
+                      className={`h-3 w-3 rounded-[2px] border transition-transform hover:scale-115 ${cellStyle.className}`}
+                      style={cellStyle.style}
+                      onMouseEnter={() => setHovered(cell.day!)}
+                      aria-label={`${dateText} - GitHub ${cell.day.githubCount}, LeetCode ${cell.day.leetcodeCount}`}
+                    />
+                  )
               })}
             </div>
             <p className="mt-1 text-[11px] text-zinc-300 text-center">{month.month}</p>
