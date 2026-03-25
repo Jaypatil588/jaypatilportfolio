@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 import { cookies } from 'next/headers'
 import { neon } from '@neondatabase/serverless'
 import { AdminLinkTools } from '@/components/admin-link-tools'
+import { AdminResetVisits } from '@/components/admin-reset-visits'
 
 export default async function AdminRoute() {
   const cookieStore = await cookies()
@@ -25,6 +26,10 @@ export default async function AdminRoute() {
 
   const sql = neon(dbUrl)
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jaypatilportfolio.vercel.app'
+
+  await sql`ALTER TABLE visits ADD COLUMN IF NOT EXISTS region VARCHAR(100)`
+  await sql`ALTER TABLE visits ADD COLUMN IF NOT EXISTS city VARCHAR(100)`
+  await sql`ALTER TABLE visits ADD COLUMN IF NOT EXISTS time_on_page_seconds INTEGER DEFAULT 0`
 
   const [
     usersCount,
@@ -74,7 +79,7 @@ export default async function AdminRoute() {
       LIMIT 30
     `,
     sql`
-      SELECT id, timestamp, ref_tag, device_type, referer, page_url, country
+      SELECT id, timestamp, ref_tag, device_type, referer, page_url, country, region, city, COALESCE(time_on_page_seconds, 0) AS time_on_page_seconds
       FROM visits
       ORDER BY timestamp DESC
       LIMIT 40
@@ -113,6 +118,14 @@ export default async function AdminRoute() {
           ))}
         </section>
 
+        <section className="rounded-2xl border border-primary/20 bg-card/60 p-4 flex items-center justify-between">
+          <div>
+            <h2 className="text-lg font-semibold">Tracking Controls</h2>
+            <p className="text-sm text-muted-foreground">Reset visits and unique-visitor counts.</p>
+          </div>
+          <AdminResetVisits />
+        </section>
+
         <AdminLinkTools
           links={[
             { label: 'Post', url: `${baseUrl}/?ref=post` },
@@ -122,7 +135,7 @@ export default async function AdminRoute() {
 
         <section className="rounded-2xl border border-primary/20 bg-card/60 p-4">
           <h2 className="text-xl font-semibold mb-3">Projects Table Data</h2>
-          <div className="overflow-x-auto">
+          <div className="max-h-[420px] overflow-y-auto overflow-x-hidden rounded-xl border border-white/10">
             <table className="w-full text-sm">
               <thead className="text-left text-muted-foreground">
                 <tr>
@@ -152,7 +165,7 @@ export default async function AdminRoute() {
 
         <section className="rounded-2xl border border-primary/20 bg-card/60 p-4">
           <h2 className="text-xl font-semibold mb-3">Distributions Table Data</h2>
-          <div className="overflow-x-auto">
+          <div className="max-h-[420px] overflow-y-auto overflow-x-hidden rounded-xl border border-white/10">
             <table className="w-full text-sm">
               <thead className="text-left text-muted-foreground">
                 <tr>
@@ -180,7 +193,7 @@ export default async function AdminRoute() {
 
         <section className="rounded-2xl border border-primary/20 bg-card/60 p-4">
           <h2 className="text-xl font-semibold mb-3">Responses Table</h2>
-          <div className="overflow-x-auto">
+          <div className="max-h-[420px] overflow-y-auto overflow-x-hidden rounded-xl border border-white/10">
             <table className="w-full text-sm">
               <thead className="text-left text-muted-foreground">
                 <tr>
@@ -224,14 +237,15 @@ export default async function AdminRoute() {
               </span>
             ))}
           </div>
-          <div className="overflow-x-auto">
+          <div className="max-h-[420px] overflow-y-auto overflow-x-hidden rounded-xl border border-white/10">
             <table className="w-full text-sm">
               <thead className="text-left text-muted-foreground">
                 <tr>
                   <th className="py-2 pr-3">Time</th>
                   <th className="py-2 pr-3">Ref</th>
                   <th className="py-2 pr-3">Device</th>
-                  <th className="py-2 pr-3">Country</th>
+                  <th className="py-2 pr-3">Location</th>
+                  <th className="py-2 pr-3">Time On Page</th>
                   <th className="py-2 pr-3">Page</th>
                   <th className="py-2 pr-3">Referer</th>
                 </tr>
@@ -242,7 +256,8 @@ export default async function AdminRoute() {
                     <td className="py-2 pr-3 whitespace-nowrap">{new Date(row.timestamp).toLocaleString()}</td>
                     <td className="py-2 pr-3">{row.ref_tag || 'direct'}</td>
                     <td className="py-2 pr-3">{row.device_type || '-'}</td>
-                    <td className="py-2 pr-3">{row.country || '-'}</td>
+                    <td className="py-2 pr-3">{[row.city, row.region, row.country].filter(Boolean).join(', ') || '-'}</td>
+                    <td className="py-2 pr-3">{row.time_on_page_seconds ?? 0}s</td>
                     <td className="py-2 pr-3">{row.page_url || '-'}</td>
                     <td className="py-2 pr-3">{row.referer || '-'}</td>
                   </tr>

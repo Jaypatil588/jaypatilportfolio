@@ -1,4 +1,6 @@
 import {
+  createUIMessageStream,
+  createUIMessageStreamResponse,
   consumeStream,
   convertToModelMessages,
   streamText,
@@ -49,6 +51,45 @@ async function fetchVectorContext(query: string): Promise<string> {
   return snippets.join('\n\n').slice(0, 12000)
 }
 
+async function classifyPortfolioQuery(query: string): Promise<0 | 1> {
+  const apiKey = process.env.OPENAI_API_KEY
+  if (!apiKey || !query.trim()) return 0
+
+  try {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: 'gpt-5-nano',
+        temperature: 0,
+        max_tokens: 1,
+        messages: [
+          {
+            role: 'system',
+            content:
+              'You are a strict query classifier. Return exactly one character: 1 or 0. Return 1 only if the query is about Jay Patil, his profile/about info, skills, resume, education, experience, projects, achievements, contact, or portfolio content. Return 0 for everything else. Do not output anything except 0 or 1.',
+          },
+          { role: 'user', content: query },
+        ],
+      }),
+    })
+
+    if (!response.ok) return 0
+    const payload = await response.json()
+    const raw = String(payload?.choices?.[0]?.message?.content ?? '').trim()
+
+    // Enforce binary output only.
+    if (raw === '1') return 1
+    if (raw === '0') return 0
+    return 0
+  } catch {
+    return 0
+  }
+}
+
 async function persistChatLog(message: string, response: string, referer: string | null) {
   try {
     const dbUrl = process.env.DATABASE_URL
@@ -73,8 +114,33 @@ export async function POST(req: Request) {
 
   const lastUserMessage = [...messages].reverse().find((message) => message.role === 'user')
   const userQuery = lastUserMessage ? extractUserText(lastUserMessage) : ''
-  const vectorContext = await fetchVectorContext(userQuery)
   const referer = req.headers.get('referer') || null
+  const decision = await classifyPortfolioQuery(userQuery)
+
+  if (decision === 0) {
+    const rejectionMessage = 'Sorry, I will not do that :)'
+    const rejectionStream = createUIMessageStream({
+      execute: ({ writer }) => {
+        const partId = 'rejection-text'
+        writer.write({ type: 'start' })
+        writer.write({ type: 'text-start', id: partId })
+        writer.write({ type: 'text-delta', id: partId, delta: rejectionMessage })
+        writer.write({ type: 'text-end', id: partId })
+        writer.write({ type: 'finish', finishReason: 'stop' })
+      },
+      originalMessages: messages,
+      onFinish: async () => {
+        await persistChatLog(userQuery || '', rejectionMessage, referer)
+      },
+    })
+
+    return createUIMessageStreamResponse({
+      stream: rejectionStream,
+      consumeSseStream: consumeStream,
+    })
+  }
+
+  const vectorContext = await fetchVectorContext(userQuery)
 
   const systemPrompt = `You are Jay Patil's AI assistant on his portfolio website. You answer questions about Jay based on his resume and portfolio information.
 
