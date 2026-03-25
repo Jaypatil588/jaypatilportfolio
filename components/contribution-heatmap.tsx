@@ -78,12 +78,12 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
         </p>
       </div>
 
-      <div className="overflow-x-auto">
-        <div className="min-w-[980px] flex items-start gap-5 pb-2" onMouseLeave={() => setHovered(null)}>
+      <div onMouseLeave={() => setHovered(null)}>
+        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-3 pb-2">
           {months.map((month) => (
-            <div key={month.key} className="shrink-0">
-              <p className="text-xs text-muted-foreground mb-2">{month.label}</p>
-              <div className="grid grid-cols-7 gap-1.5">
+            <div key={month.key} className="min-w-0">
+              <p className="text-[10px] text-muted-foreground mb-1">{month.label}</p>
+              <div className="grid grid-cols-7 gap-1">
                 {month.days.map((day) => {
                   const cellStyle = styleForCell(day.githubLevel, day.leetcodeLevel)
                   const dateText = new Date(`${day.date}T00:00:00`).toLocaleDateString('en-US', {
@@ -96,7 +96,7 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
                     <button
                       key={day.date}
                       type="button"
-                      className={`h-3.5 w-3.5 rounded-[3px] border transition-transform hover:scale-125 ${cellStyle.className}`}
+                      className={`h-2.5 w-2.5 rounded-[2px] border transition-transform hover:scale-125 ${cellStyle.className}`}
                       style={cellStyle.style}
                       onMouseEnter={() => setHovered(day)}
                       aria-label={`${dateText} - GitHub ${day.githubCount}, LeetCode ${day.leetcodeCount}`}
