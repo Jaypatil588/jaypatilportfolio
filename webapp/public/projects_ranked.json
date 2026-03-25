@@ -1,0 +1,2499 @@
+[
+  {
+    "name": "Role @ FlexiVan",
+    "person": "Bharath Gunari",
+    "type": "Experience",
+    "description": "Aug 2019 - Jul 2021 · 2 yrs Scottsdale, Arizona • Worked with an Agile, Scrum methodology to ensure delivery of high-quality work • GPS Infrastructure - Responsible for cleansing and re-structuring of high-volume GPS data (approx. 500k rows per day) eliminating noise and generating various data structures like trip segments, turn times, and round trips which enables BI analysis, customer reports, and invoicing. (Java, PostgreSQL) • Utilize strategies like data partitioning, indexing for PostgreSQL database scaling, and performance improvements bringing about a reduction of overall query execution time by 5 folds. • Mainframe Integration and Sunset - Playing a key role in consolidating mainframe data and applications into our existing application stack which involved understanding of existing implementation and functionalities and deciding the structure of final product based on scalability, robustness, and performance resulting in deprecating the mainframe system and allowing the company to cut operating cost (half a million dollar per year). • GPS Pipeline Integration - Implemented PostGIS-based framework to derive various elements out of GPS data which enabled the company to explore various GPS providers for better accuracy and availability of data. • In-house Mobile Application Support - Developing and Managing systems and apps to run day-to-day operations at our depots (including gate and Maintenance & Repair) which involves gathering and delivering the solutions to the users by coordinating with the Offshore development team. (JavaScript, Php, NodeJS, Ionic Framework) • Data Integration Pipeline - Building an end-to-end framework and EDI 214 data pipeline to collect container pickup and drop events data from 5 different trucking companies and coalesce them together into one feed for our customer and facilitate invoicing based on this feed. Invoicing amount approximately totaling up to million dollars per month. • REST API - Developed REST APIs for exposing the services including processing JSON data formats. … more Software Engineer Intern",
+    "techStack": [
+      "agile",
+      "api",
+      "data structures",
+      "java",
+      "javascript",
+      "nodejs",
+      "php",
+      "postgresql",
+      "rest api",
+      "rest apis",
+      "scala",
+      "scrum"
+    ],
+    "techCount": 12,
+    "concepts": [
+      "Distributed Systems",
+      "API / Microservices",
+      "Mobile Development",
+      "Data Engineering",
+      "Cloud / DevOps",
+      "Database Systems",
+      "Game AI / Algorithms",
+      "Compilers / Language Design",
+      "Operating Systems",
+      "Testing / CI-CD",
+      "Real-time Systems",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Tackles distributed computing challenges like consistency, fault tolerance, and scalability. Builds service-oriented architecture with clean API boundaries. Native or cross-platform mobile application. Pipelines for processing and transforming large datasets. Cloud infrastructure and deployment automation. Data storage, querying, and optimization. Algorithmic problem-solving and game theory. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 43,
+    "rank": 1
+  },
+  {
+    "name": "The GitHub link to the source code of the front end.",
+    "person": "Yachen (Carl) Yin",
+    "type": "Project",
+    "description": "BlogIt: A Full Stack Blog Java Web Application Associated with 美国东北大学 1. Developed RESTful APIs with Spring Boot, enabling user registration, article search, blog writing, image uploads, user comments, etc. 2. Integrated JWT for encrypted token generation, cached frequently accessed data in Redis for optimized performance. 3. Utilized login interceptor, ThreadLocal for temporary user data storage, and asynchronous article view updates via thread pools. 4. Leveraged AWS S3 for image storage, AOP for uniform exception handling, addressed cache consistency issues using RocketMQ. 5. Constructed a back-end management system with Spring Security. 6. Containerized the project using Docker and set up automated CI/CD pipelines with AWS ECS/ CodePipeline",
+    "techStack": [
+      "aws",
+      "ci/cd",
+      "docker",
+      "java",
+      "redis",
+      "spring",
+      "spring boot"
+    ],
+    "techCount": 7,
+    "concepts": [
+      "Full-Stack Development",
+      "API / Microservices",
+      "Data Engineering",
+      "Security / Cryptography",
+      "Cloud / DevOps",
+      "Database Systems",
+      "Operating Systems",
+      "Search / Recommendation",
+      "Automation / Scraping",
+      "Testing / CI-CD",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Builds service-oriented architecture with clean API boundaries. Pipelines for processing and transforming large datasets. Addresses security, encryption, or authentication concerns. Cloud infrastructure and deployment automation. Data storage, querying, and optimization. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 34,
+    "rank": 2
+  },
+  {
+    "name": "ETL Optimization and Kubernetes Scheduling - CMU 15719 Advanced Cloud Computing",
+    "person": "Yiling Y.",
+    "type": "Project",
+    "description": "• Developed and optimized an ETL pipeline for a distributed LLM model using Go and Apache Spark on AWS, processing large scale dataset with over 800 million features. Enhanced scalable file storage using EBS and HDFS • Advanced data handling by implementing inverted indexes and optimizing joins in RDDs to reduce data shuffling. Solved OOM issues and cut gradient descent training time • Implemented a Kubernetes scheduler with strategic policy adjustment to decrease Job Completion Time",
+    "techStack": [
+      "aws",
+      "kubernetes",
+      "scala",
+      "spark"
+    ],
+    "techCount": 4,
+    "concepts": [
+      "Distributed Systems",
+      "Data Engineering",
+      "Cloud / DevOps",
+      "Database Systems",
+      "Operating Systems",
+      "Testing / CI-CD",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Tackles distributed computing challenges like consistency, fault tolerance, and scalability. Pipelines for processing and transforming large datasets. Cloud infrastructure and deployment automation. Data storage, querying, and optimization. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 33,
+    "rank": 3
+  },
+  {
+    "name": "Role @ FactSet",
+    "person": "Tanvir Islam",
+    "type": "Experience",
+    "description": "Jul 2019 - Apr 2021 · 1 yr 10 mos Norwalk, Connecticut, United States · On-site • Worked on designing a Point-in-Time database that incorporated post-processed company/securities data generated from the raw archived data of past twenty years • Created robust RESTful and GraphQL APIs to make data concurrently accessible to a large number of clients • Worked as the engineer on-call for production related issues on a rotational basis • Developed an internally used product ground-up using .NET, PostgreSQL, GraphQL and Vue.js to maintain thousands of security-linked metadata, to provide a reliable UI for maintaining these records, and to expose the data through APIs serving a large throughput of clients • Worked on creating a new data workflow pipeline using Python (pandas, numpy, sqlalchemy) that improved the runtime of existing ingest/update jobs by more than 20% • Optimized memory footprints of Python workflows dealing with anywhere between 10 - 20 million database rows by half that resulted into significantly cutting the cloud storage cost • Conducted lunch-interviews and partook in interviewer panels for engineering applicants … more University of Connecticut 2 yrs 9 mos Storrs, Connecticut, United States Technical Support Specialist Sep 2017 - May 2019 · 1 yr 9 mos • Designed and maintained the websites for University of Connecticut School of Fine Arts and Benton Museum • Administered the content management system for Benton Museum's record database • Provided IT support to faculties, classrooms, and exhibitions to ensure a reliable technical platform • Trained new hires to get them up-to-speed with the internally used software and technologies … more Research Assistant Sep 2016 - Aug 2018 · 2 yrs I collaborated with Dr. John Ayers on researching better performing growth-platforms for semiconductor devices. In my work, I simulated and analyzed novel growth platforms for InGaAs/GaAs semiconductor devices. I implemented numerous simulation algorithms on MATLAB to analyze chirped and unchirped superlattice structures and quantify their performances. We simulated characteristics such as the average and surface strain, the surface in-plane lattice constant and threading dislocation density profiles for different superlattice structures. From our studies, we showed that - Chirped superlattices can serve as growth-platform with a 7%-46% Indium composition - Compositionally-chirped superlattices allow a wide range of surface in-plane lattice constant for the growth of devices while incorporating alternating local strains to enable dislocation filtering. - Thickness-modulated chirped superlattice can outperform unchirped superlattices and linearly-graded layers as dislocation filters. Based on the research, I authored four research papers that were published in IJHSES CMOC Journal, Journal of the Electrochemical Society (ECS), and International Journal of High Speed Electronics and Systems. I also presented research posters on our findings at the MIT IEEE Undergraduate Research Technology Conference in 2017 and at the Connecticut Optoelectronics and Microelectronics (CMOC) conference in 2017 and 2019. Find my publications on Google Scholar: http://scholar.google.com/citations?user=VLMVgH4AAAAJ … more REU Fellow",
+    "techStack": [
+      ".net",
+      "algorithms",
+      "graphql",
+      "matlab",
+      "numpy",
+      "pandas",
+      "perl",
+      "postgresql",
+      "python",
+      "vue.js"
+    ],
+    "techCount": 10,
+    "concepts": [
+      "Full-Stack Development",
+      "API / Microservices",
+      "Data Engineering",
+      "Security / Cryptography",
+      "Cloud / DevOps",
+      "Database Systems",
+      "Compilers / Language Design",
+      "Operating Systems",
+      "Search / Recommendation",
+      "Testing / CI-CD",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Builds service-oriented architecture with clean API boundaries. Pipelines for processing and transforming large datasets. Addresses security, encryption, or authentication concerns. Cloud infrastructure and deployment automation. Data storage, querying, and optimization. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 33,
+    "rank": 4
+  },
+  {
+    "name": "Role @ Amazon Web Services (AWS)",
+    "person": "Yachen (Carl) Yin",
+    "type": "Experience",
+    "description": "May 2023 - Aug 2023 · 4 mos Boston, Massachusetts, United States · On-site ● Automated manual patching of 71 steps to only 1 click. ○ Designed and built 2 CI/CD pipelines in Ruby to deploy and activate patching automatically in all 13 regions for AWS OpenZFS filesystem. ○ Developed a ruby script integrated into the approval workflow of each pipeline to invoke the API for patching activation. ○ Tested the pipelines in Gamma stage with 100% success rate, and promoted them to Prod stages reducing the patching time cost from 2 weeks to 1 day. ● Created an API cutting the related error rate to 0% ○ Developed a RPC API in Java to get filesystem hardware configs from PostgreSQL database and thus replace hard-coded and erroneous config files. ○ Designed and defined the request and response data models of the API in XML with least dimensions but highest information efficiency, which were transformed into Java classes using Coral. ○ Implemented the API behavior in Java by AWS Java coding style with input validation, query towards Postgre, and monitoring, which can return accurate hardware configs within ~200ms latency. ○ Performed 12 unit tests for each method, and deployed the code to S3 bucket using CodeDeploy for integration testing in AWS CLI. … more Amazon Web Services (AWS), RPC and +4 skills Software Dev Intern",
+    "techStack": [
+      "api",
+      "aws",
+      "ci/cd",
+      "java",
+      "postgresql",
+      "ruby"
+    ],
+    "techCount": 6,
+    "concepts": [
+      "API / Microservices",
+      "Cloud / DevOps",
+      "Database Systems",
+      "Compilers / Language Design",
+      "Operating Systems",
+      "Automation / Scraping",
+      "Testing / CI-CD",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Builds service-oriented architecture with clean API boundaries. Cloud infrastructure and deployment automation. Data storage, querying, and optimization. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 32,
+    "rank": 5
+  },
+  {
+    "name": "Role @ Amazon",
+    "person": "Nilabhro Chakraborty",
+    "type": "Experience",
+    "description": "Jun 2022 - Aug 2022 · 3 mos Bengaluru, Karnataka, India ~Worked with the CMT Systems Team on developing two plugins from scratch named PathFinder Forward and PathFinder Reverse using Javascript, Regex, REST APIs and React (frontend). These plugins were put into production by our team after sending a launch mail. It reduced Benchmarking time by ~60% and ensured seamless user experience for PD audits with very less chances of manual errors. ~Worked on AUROR (Mad-eye), which automated operations of instance fleet clusters like respawing, refreshing and adhoc pausing. Implemented an entire API Gateway including DynamoDB metadata store and 4 lambda's from scratch. Pushed code to production after testing in Beta Stage. Tech used - AWS Services like EMR and S3, DynamoDB, Cloud Formation. ~Made a PoC project on EMR vs EMR Serverless in terms of job execution time and cost of maintenance. Showed distinct contrast among the two with pricing examples on real running clusters ~Made a detailed study on an internal tool of CMT Systems and wrote javaDocs for the complete workflow, data-flow and steps required to onboard new marketplaces ~Received a PPO (Pre Placement Offer) from Amazon for my internship work … more SDE Intern, Bangalore Office In-office Internship Java, Amazon Web Services (AWS) and +4 skills ---",
+    "techStack": [
+      "api",
+      "aws",
+      "dynamodb",
+      "java",
+      "javascript",
+      "react",
+      "rest api",
+      "rest apis"
+    ],
+    "techCount": 8,
+    "concepts": [
+      "Full-Stack Development",
+      "API / Microservices",
+      "Cloud / DevOps",
+      "Game AI / Algorithms",
+      "Compilers / Language Design",
+      "Operating Systems",
+      "Automation / Scraping",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Builds service-oriented architecture with clean API boundaries. Cloud infrastructure and deployment automation. Algorithmic problem-solving and game theory.",
+    "atsScore": 31,
+    "rank": 6
+  },
+  {
+    "name": "Role @ Apple",
+    "person": "Vedant G.",
+    "type": "Experience",
+    "description": "Feb 2020 - Dec 2021 · 1 yr 11 mos Cupertino, California, United States •  Worked on a crash analytics Python Kafka client running on Kubernetes •  Designed Postgres backed REST APIs for crash related queries, including correlations based on signatures •  Developed an iOS animated exercise app for testing accessory motion API •  Created custom XML template language with features like inheritance for reducing Splunk code duplication … more Software Engineer Intern",
+    "techStack": [
+      "api",
+      "ios",
+      "kafka",
+      "kubernetes",
+      "python",
+      "rest api",
+      "rest apis"
+    ],
+    "techCount": 7,
+    "concepts": [
+      "API / Microservices",
+      "Mobile Development",
+      "Cloud / DevOps",
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Builds service-oriented architecture with clean API boundaries. Native or cross-platform mobile application. Cloud infrastructure and deployment automation.",
+    "atsScore": 31,
+    "rank": 7
+  },
+  {
+    "name": "Role @ Juniper Networks",
+    "person": "Akanksha Diwedy",
+    "type": "Experience",
+    "description": "Jun 2020 - Apr 2021 · 11 mos San Francisco Bay Area Developed new features for monitoring and visualizing user defined metrics using RESTful API and Flask as part of Appformix Team which optimizes enterprise cloud operations with real-time analytics. Created monitoring ability for Openstack Octavia load balancers backend for health checks and alert notifications. Aided in troubleshooting, debugging, reproducing and validating issues at all stages of development. … more Graduate Research Assistant Information Sciences Institute Feb 2019 - Jun 2020 · 1 yr 5 mos Marina Del Ray, California Department : Center of Knowledge Graph Professor : Dr. Pedro Szekely Processed large scale web archives data as part of information retrieval to decode unstructured data, extract and collect excel/CSV files for table to wikidata conversion task. Designed YAML files for mapping tables to json or triples format according to wikidata and also for defining properties(P nodes) for complex databases. … more Software Engineer Intern A10 Networks, Inc May 2019 - Aug 2019 · 4 mos San Jose, California Developed a way to perform regression testing using a predictive model that estimates the likelihood of each test failing for a newly proposed code change. It leverages machine learning and probabilistic analysis for selecting regression tests. This method needs to run only a small subset of tests in order to detect faulty changes even before the code is committed. The model learns a test selection strategy from a large data set of historical code changes and test outcomes along with information about the current code change. Used XGBoost Regression Algorithm for training the model over large scale data to achieve 82% accuracy and eliminate a large number of unnecessary test executions. Optimized and parallelized the model's feature extraction from order of n-squared to order of n, thereby reducing the time of execution from 12 days to 4.5 hours. … more ---",
+    "techStack": [
+      "api",
+      "flask",
+      "machine learning"
+    ],
+    "techCount": 3,
+    "concepts": [
+      "Machine Learning",
+      "Full-Stack Development",
+      "API / Microservices",
+      "Cloud / DevOps",
+      "Database Systems",
+      "Networking",
+      "Operating Systems",
+      "Search / Recommendation",
+      "Automation / Scraping",
+      "Testing / CI-CD",
+      "Real-time Systems",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Applies ML models to solve prediction/classification problems. End-to-end application from UI to server. Builds service-oriented architecture with clean API boundaries. Cloud infrastructure and deployment automation. Data storage, querying, and optimization. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 30,
+    "rank": 8
+  },
+  {
+    "name": "Movie-Link",
+    "person": "Michael Stone",
+    "type": "Project",
+    "description": "Utilized IMDB API, SQLite, ​Python​(​Flask), HTML & CSS, and JavaScript(Ajax)​ to create a web app where users can search up movies by name and can view movie information such as movie summary, rating, and date of release. Users were able to also set up zoom sessions through the web-app to watch movies with friends. Implemented Google OAuth to allow users to login with existing Gmail accounts to ensure security. Integrated ​Flask ​to store user information (movie wishlist, friends list, upcoming sessions, emails, and account settings). Web-app was capable of restoring a user’s session and account information upon login by using ​Ajax ​to make back-end requests for user data. Integrated Unit and coverage testing. Ensuring that tests had over 90% branch coverage. Came up with test cases to ensure that our MVC was air tight and functioned as intended. ---",
+    "techStack": [
+      "api",
+      "css",
+      "flask",
+      "html",
+      "java",
+      "javascript",
+      "oauth",
+      "python",
+      "sqlite"
+    ],
+    "techCount": 9,
+    "concepts": [
+      "Full-Stack Development",
+      "API / Microservices",
+      "Security / Cryptography",
+      "Database Systems",
+      "Search / Recommendation",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Builds service-oriented architecture with clean API boundaries. Addresses security, encryption, or authentication concerns. Data storage, querying, and optimization.",
+    "atsScore": 29,
+    "rank": 9
+  },
+  {
+    "name": "Role @ Carnegie Mellon University",
+    "person": "Andrew Benson",
+    "type": "Experience",
+    "description": "Jan 2014 - May 2017 · 3 yrs 5 mos Pittsburgh School of Computer Science (SCS), Intro CS sequence (15-251, 15-151, 15-131, 15-122, 15-112). At CMU, this involves teaching recitation, sometimes teaching lectures, holding office hours, answering Q&A on Piazza, proctoring exams, grading, and some other things as they come up. 15-251: Great Theoretical Ideas in Computer Science. Spring 2017. An intense survey of topics in computer science theory. Covers automata, Turing machines, computability, complexity theory, graph theory, boolean circuits, probability theory, randomized algorithms, cryptography, and more. 15-151: Mathematical Foundations for Computer Science. Fall 2016 (Head TA). A rigorous overview of proof-based mathematics and logic. Covers induction, set theory, functions and relations, number theory, combinatorics, probability, and more. 15-131: Great Practical Ideas for Computer Scientists. Fall 2016. A crash course in command-line tooling for first-semester CS majors. Covers the terminal, vim, bash, git, LaTeX, and more. 15-122: Principles of Imperative Computation. Spring 2014, Fall 2014, Fall 2015, Spring 2016 (Head TA). Covers code reasoning, the C programming language, pointers and memory, generics, data structures, simple algorithms, complexity analysis. 15-112: Fundamentals of Programming and Computer Science. Spring 2015. An intensive first course in programming in Python. Covers fundamental programming constructs, the Python language, object-oriented programming, graphics / animation, efficiency and analysis, and basic problem-solving design. … more Software Engineering Intern",
+    "techStack": [
+      "algorithms",
+      "bash",
+      "data structures",
+      "git",
+      "python",
+      "spring"
+    ],
+    "techCount": 6,
+    "concepts": [
+      "Operating Systems",
+      "Automation / Scraping",
+      "Testing / CI-CD",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Focuses on speed, efficiency, and scalability.",
+    "atsScore": 27,
+    "rank": 10
+  },
+  {
+    "name": "Role @ Northrop Grumman",
+    "person": "Michael Hansen",
+    "type": "Experience",
+    "description": "Jul 2017 - Feb 2019 · 1 yr 8 mos Greater Denver Area While at Northrop Grumman, I worked on several different machine learning research and development projects in the Autonomous Intelligence and Robotics Lab. I worked primarily with C++ and Python, and I was part of an Agile Software Development team that competed in the DARPA Spectrum Collaboration Challenge (SC2). SC2, which was a three-year DARPA Grand Challenge, focused on addressing radio frequency (RF) spectrum scarcity with collaborative machine learning agents. Additionally, I supported research projects to apply machine learning to signals processing, object detection, and image classification. … more Mathematics Tutor Private Tutor Apr 2014 - Jun 2017 · 3 yrs 3 mos Denver Metropolitan Area I tutored high school and college students in Mathematics while I was a student at the University of Denver. While tutoring, I strived to explain concepts in an intuitive and easily understood manner. I prepared activities and exercises for students to complete to help boost their performance and confidence in Mathematics classes. We also discussed test taking strategies to help maximize scores. … more Software Engineer Internship Comcast Jun 2016 - Aug 2016 · 3 mos Denver Metropolitan Area I worked as a Software Engineer intern attached to an Agile Software Development team. Much of my work focused on company-wide portals that allow Comcast employees to access and manipulate customer account information. I also wrote programs to help manage data received from customer set-top boxes. Additionally, I collaborated with other interns to design and prototype a \"smart mirror\" to demo and pitch to Comcast leadership. … more Research Assistant University of Denver Aug 2013 - May 2015 · 1 yr 10 mos University of Denver, Denver, CO ---",
+    "techStack": [
+      "agile",
+      "c++",
+      "machine learning",
+      "python"
+    ],
+    "techCount": 4,
+    "concepts": [
+      "Machine Learning",
+      "Computer Vision",
+      "Full-Stack Development",
+      "Game AI / Algorithms",
+      "Compilers / Language Design",
+      "Operating Systems",
+      "Search / Recommendation",
+      "Testing / CI-CD",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Applies ML models to solve prediction/classification problems. Analyzes and interprets visual data. End-to-end application from UI to server. Algorithmic problem-solving and game theory. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 27,
+    "rank": 11
+  },
+  {
+    "name": "Built a distributed, cloud-based file storage service like Dropbox using Golang and gRPC.",
+    "person": "Chen Yizhe",
+    "type": "Project",
+    "description": "Designed an optimized storage service using block caching, metadata storage service that maps filenames to blocks with SHA-256 hash function and can handle file conflict. Improved the mapping approach using consistent hashing to handle large sevices with thousands of block store servers and implemented the metadata sever based on RAFT protocal to make it stay consistent regardless of failures.",
+    "techStack": [
+      "golang",
+      "grpc"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "Distributed Systems",
+      "Cloud / DevOps",
+      "Database Systems",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Tackles distributed computing challenges like consistency, fault tolerance, and scalability. Cloud infrastructure and deployment automation. Data storage, querying, and optimization. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 26,
+    "rank": 12
+  },
+  {
+    "name": "Role @ Amazon",
+    "person": "Joseph Lambo",
+    "type": "Experience",
+    "description": "Jun 2021 - Aug 2021 · 3 mos Seattle, Washington, United States •\tDeveloped tools that actively supported and streamlined modeling process for Alexa routing teams. Tools estimated to reduce time required for modeling process from multiple days to a few hours. •\tWorked with various Python, Java, AWS, API’s, NoSQL and CL Scripting interfaces. … more Future Force Hackathon Participant Salesforce Jul 2020 · 1 mo United States Participated in a virtual hackathon where teams were given the task of developing intuitive and creative ways to improve diversity and representation in technology and the tech industry. Developed a Personalized Internship Finder for minorities with my team. … more ---",
+    "techStack": [
+      "aws",
+      "java",
+      "nosql",
+      "python"
+    ],
+    "techCount": 4,
+    "concepts": [
+      "API / Microservices",
+      "Data Engineering",
+      "Cloud / DevOps",
+      "Database Systems",
+      "Networking",
+      "Operating Systems",
+      "Testing / CI-CD",
+      "Real-time Systems"
+    ],
+    "whatItSolves": "Builds service-oriented architecture with clean API boundaries. Pipelines for processing and transforming large datasets. Cloud infrastructure and deployment automation. Data storage, querying, and optimization.",
+    "atsScore": 26,
+    "rank": 13
+  },
+  {
+    "name": "Role @ Tripadvisor",
+    "person": "Rynah Rodrigues",
+    "type": "Experience",
+    "description": "Jul 2018 - Jan 2021 · 2 yrs 7 mos Greater Boston Developing server and client side aspects of the website, developing new and modifying existing features mainly associated with Search Engine Optimizations (SEO). Led a major migration of On-Page SEO factors to a standalone Microservice. Designed the architecture, ensuring scalability and optimized performance of the service. Developed an application for E2E testing, conducting comparative analysis and loading testing for the service. Implemented end-to-end internal linking for pages. From designing  a scalable microservice  and integrating it using GraphQL queries to source the web-components on the frontend. Redesigned pages from legacy code to the new advanced code base(Dust/React.js), thus improving responsiveness of the page to support multiple viewports. Designed an internal tool for Project managers using PHP, Javascript and HTML to help visualize and integrate projects from different brands, run and monitor tests, and prioritize projects. Mentoring  developers through the development process of advanced SEO projects and guide them through specific pain points. Performing project management for engineering initiatives, documenting project tasks, requirements and handling project timelines. … more Intern Tata Consultancy Services Jun 2014 - Dec 2014 · 7 mos Modelled and developed domain dictionaries, which focuses on products in social media and analytics space. Worked on text mining engines, proliferating text analytic capabilities through research and collated databases Prepared meta data as inputs to crawlers and assisted in analysis, interpretation, and presentation of the results. … more ---",
+    "techStack": [
+      "graphql",
+      "html",
+      "java",
+      "javascript",
+      "php",
+      "react",
+      "react.js",
+      "scala"
+    ],
+    "techCount": 8,
+    "concepts": [
+      "Full-Stack Development",
+      "API / Microservices",
+      "Database Systems",
+      "Operating Systems",
+      "Search / Recommendation",
+      "Automation / Scraping",
+      "Testing / CI-CD",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Builds service-oriented architecture with clean API boundaries. Data storage, querying, and optimization. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 26,
+    "rank": 14
+  },
+  {
+    "name": "Role @ Carnegie Mellon University",
+    "person": "Chen Yizhe",
+    "type": "Experience",
+    "description": "Jul 2021 - Jan 2022 · 7 mos Engaged in Soundcool web department to establish a flexible, web-based platform for collaborative multimedia creation or performance. Here is the link to official website: https://soundcool.org/en/ … more JavaScript, Redux.js and +8 skills Research Assistant Huazhong University of Science and Technology Jan 2021 - Jun 2021 · 6 mos Proposed an efficient human pose estimation network by building bridges between two pyramid networks to learn multi-level features and adding lightweight attention blocks. Efficient Human Pose Estimation by Maximizing Fusion and High-Level Spatial Attention PyTorch, Computer Vision and +2 skills ---",
+    "techStack": [
+      "computer vision",
+      "java",
+      "javascript",
+      "pytorch",
+      "redux"
+    ],
+    "techCount": 5,
+    "concepts": [
+      "Computer Vision",
+      "Full-Stack Development",
+      "Networking",
+      "Operating Systems",
+      "Search / Recommendation",
+      "Testing / CI-CD",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Analyzes and interprets visual data. End-to-end application from UI to server. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 25,
+    "rank": 15
+  },
+  {
+    "name": "Imaging recognition system",
+    "person": "Menghan C.",
+    "type": "Project",
+    "description": "• Developed face recognition algorithms to identify human faces in images. • Use OpenCV and C++ to detect the changing process of facial expression on human faces • Used Machine learning skills to train sample images to improve the recognition ---",
+    "techStack": [
+      "algorithms",
+      "c++",
+      "express",
+      "machine learning",
+      "opencv"
+    ],
+    "techCount": 5,
+    "concepts": [
+      "Machine Learning",
+      "Computer Vision",
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Applies ML models to solve prediction/classification problems. Analyzes and interprets visual data.",
+    "atsScore": 25,
+    "rank": 16
+  },
+  {
+    "name": "Role @ Salesforce",
+    "person": "Yiling Y.",
+    "type": "Experience",
+    "description": "May 2024 - Aug 2024 · 4 mos San Francisco, California, United States • Enhanced service distribution and communication asynchrony across the Sandbox system to worldwide servers using message queues, leveraging Java Spring customized beans for Dependency Injection and Inversion of Control • Built the Targeted Auto Remediation framework to automatically restore failed sandbox creations using cus\u0002tomized rules, incorporating Linux cron jobs for systematic scheduling and SpEL parser. This advancement cut recovery times by 90% and substantially lowered operational costs compared to manual reset actions. • Established centralized rule configuration service using Heroku database. Completed unit and functional tests with 90% coverage, using JUnit framework and Mockito for Java stubbing … more Intern",
+    "techStack": [
+      "heroku",
+      "java",
+      "linux",
+      "spring"
+    ],
+    "techCount": 4,
+    "concepts": [
+      "Distributed Systems",
+      "API / Microservices",
+      "Database Systems",
+      "Compilers / Language Design",
+      "Operating Systems",
+      "Automation / Scraping",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Tackles distributed computing challenges like consistency, fault tolerance, and scalability. Builds service-oriented architecture with clean API boundaries. Data storage, querying, and optimization.",
+    "atsScore": 24,
+    "rank": 17
+  },
+  {
+    "name": "Role @ Ping Identity",
+    "person": "Mayank Dandwani",
+    "type": "Experience",
+    "description": "May 2021 - Jul 2021 · 3 mos India Developed Spring Boot microservices featuring custom Java-based API responses, comprehensive Spring Boot validation, and custom error handling for optimal user experience REST APIs, Data Validation and +3 skills ---",
+    "techStack": [
+      "api",
+      "java",
+      "microservices",
+      "rest api",
+      "rest apis",
+      "spring",
+      "spring boot"
+    ],
+    "techCount": 7,
+    "concepts": [
+      "API / Microservices",
+      "Operating Systems"
+    ],
+    "whatItSolves": "Builds service-oriented architecture with clean API boundaries.",
+    "atsScore": 23,
+    "rank": 18
+  },
+  {
+    "name": "Role @ Sony",
+    "person": "Chen Yizhe",
+    "type": "Experience",
+    "description": "Jul 2023 - Mar 2024 · 9 mos San Diego, California, United States · On-site I work in the SONY Home Entertainment Team, contributing to both the frontend and backend of the Sony Device Software Updates Management Orchestrator (SUMO) system. This system serves as an over-the-air (OTA) update management platform, enabling Sony engineers to efficiently release and distribute software updates to millions of Sony smart devices. My contributions mainly include: 1.Event Log Viewer 2.Scalable and efficient pagination component for data tables 3.JSON data compare component 4.Retry for the failed software update distribution pipeline API 5.Multiple value filter module … more JavaScript, Gin and +18 skills Software Engineer",
+    "techStack": [
+      "api",
+      "java",
+      "javascript",
+      "scala"
+    ],
+    "techCount": 4,
+    "concepts": [
+      "Distributed Systems",
+      "Full-Stack Development",
+      "API / Microservices",
+      "Data Engineering",
+      "Operating Systems",
+      "Testing / CI-CD",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Tackles distributed computing challenges like consistency, fault tolerance, and scalability. End-to-end application from UI to server. Builds service-oriented architecture with clean API boundaries. Pipelines for processing and transforming large datasets. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 22,
+    "rank": 19
+  },
+  {
+    "name": "Role @ University of Florida",
+    "person": "Ganesh Kurcheti",
+    "type": "Experience",
+    "description": "Sep 2020 - Feb 2021 · 6 mos Gainesville, Florida, United States · On-site -> Spearheaded the development of a web portal for tracking patients’ data and providing suggestions for diagnosis. -> Consolidated 4+ report generation interfaces to a single generic interface which saved the admin time and effort. -> Pioneered the full-stack development of applications using ReactJS and AWS (lambda, API Gateway, and DynamoDB) … more React.js and JavaScript ---",
+    "techStack": [
+      "api",
+      "aws",
+      "dynamodb",
+      "java",
+      "javascript",
+      "react",
+      "react.js",
+      "reactjs"
+    ],
+    "techCount": 8,
+    "concepts": [
+      "Full-Stack Development",
+      "API / Microservices",
+      "Cloud / DevOps",
+      "Operating Systems"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Builds service-oriented architecture with clean API boundaries. Cloud infrastructure and deployment automation.",
+    "atsScore": 22,
+    "rank": 20
+  },
+  {
+    "name": "Role @ Switchboard",
+    "person": "Miguel Antochiw 🍿",
+    "type": "Experience",
+    "description": "Jan 2021 - Oct 2021 · 10 mos Defining the next generation of collaboration tools by building a sleek and performant user's interface. Sumo Logic 5 yrs 6 mos Staff Software Engineer Feb 2020 - Jan 2021 · 1 yr Senior Software Engineer II Nov 2018 - Feb 2020 · 1 yr 4 mos Senior Software Engineer Aug 2015 - Nov 2018 · 3 yrs 4 mos Redwood City, CA Develop new UI features for the product, investigate and fix bugs, do performance optimizations and apply new technologies to the product as required. My area of expertise in the product are the charts (currently using Highcharts). We use the following JS frameworks: Backbone, AngularJS and RXJS. … more Co-Founder & CTO Startup in Stealth Mode Apr 2015 - Jul 2015 · 4 mos Menlo Park, CA Design the architecture of the product, including data schema, storage, platform, application layers, consumer website, internal dashboard, consumer iPhone app and interaction with partners. During that time, we built more than a prototype of the product. Some of the technologies used were MongoDB, a variation of PHP (Google Cloud Engine), AngularJS and Objective C. Our backend was built on Google Cloud Engine to allow future scaling on demand. … more ---",
+    "techStack": [
+      "angular",
+      "angularjs",
+      "google cloud",
+      "mongodb",
+      "php"
+    ],
+    "techCount": 5,
+    "concepts": [
+      "Full-Stack Development",
+      "Cloud / DevOps",
+      "Database Systems",
+      "Game AI / Algorithms",
+      "Operating Systems",
+      "Testing / CI-CD",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Cloud infrastructure and deployment automation. Data storage, querying, and optimization. Algorithmic problem-solving and game theory. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 22,
+    "rank": 21
+  },
+  {
+    "name": "Youtube Transcript Summarizer",
+    "person": "Nilabhro Chakraborty",
+    "type": "Project",
+    "description": "Getting transcripts for a given video ID using a python API. Performing text summarization on obtained transcripts using HuggingFace transformers. Built a Flask Backend REST API to expose the summarization service to client. Developed a chrome extension which utilizes the Backend API to display summarized text to the user ---",
+    "techStack": [
+      "api",
+      "flask",
+      "python",
+      "rest api",
+      "transformers"
+    ],
+    "techCount": 5,
+    "concepts": [
+      "Full-Stack Development",
+      "API / Microservices",
+      "Game AI / Algorithms",
+      "Operating Systems"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Builds service-oriented architecture with clean API boundaries. Algorithmic problem-solving and game theory.",
+    "atsScore": 22,
+    "rank": 22
+  },
+  {
+    "name": "Role @ Intel Corporation",
+    "person": "Thanos Ariyanayagam",
+    "type": "Experience",
+    "description": "Sep 2022 - Apr 2023 · 8 mos Toronto, Ontario, Canada - Enhanced Intel FPGA AI Suite efficiency as measured by an 11% increase in ML model throughput, by architecting critical C++ compiler optimizations including graph-level operator fusion, memory layout transformations, and mixed-precision (INT8) quantization. - Unlocked FPGA acceleration for complex action recognition domains as measured by a pending patent (Pub #20230237014), by engineering a novel CoreDLA compiler extension to support 3D compute graphs and convolutions. - Modernized platform architecture as measured by the successful end-to-end migration to OpenVINO 2022.3.0 LTS, by spearheading the large-scale testing and verification of the entire CoreDLA compiler and runtime stack. - Accelerated client innovation cycles as measured by the deployment of bespoke FPGA solutions, by partnering with key customers to architect and optimize workloads tailored to their specific AI product requirements. … more Perl, Operating Systems and +6 skills Software Engineer Intern",
+    "techStack": [
+      "c++",
+      "operating systems",
+      "perl"
+    ],
+    "techCount": 3,
+    "concepts": [
+      "Computer Vision",
+      "Cloud / DevOps",
+      "Compilers / Language Design",
+      "Operating Systems",
+      "Testing / CI-CD",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Analyzes and interprets visual data. Cloud infrastructure and deployment automation. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 22,
+    "rank": 23
+  },
+  {
+    "name": "Fault Location and Transmission Line Type Estimation Based on Transient Waveform",
+    "person": "Chen Yizhe",
+    "type": "Project",
+    "description": "◦ Developed a PyTorch-based deep learning model utilizing 3D Convolution and ResNet-34 architecture to analyze classified transmission transient waveforms, achieving a fault identification accuracy rate of 92.67%, surpassing manual identification methods. ◦ Developed a CUDA-accelerated lightning location grid search algorithm achieving sub-300m localization accuracy, tested for 10,372 samples on GTX 3090 platform, with overall runtime of 79,712ms and GPU memory usage peaked at 512Mb.",
+    "techStack": [
+      "deep learning",
+      "pytorch"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "Machine Learning",
+      "Computer Vision",
+      "Operating Systems",
+      "Search / Recommendation",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Applies ML models to solve prediction/classification problems. Analyzes and interprets visual data.",
+    "atsScore": 21,
+    "rank": 24
+  },
+  {
+    "name": "Role @ Tesla",
+    "person": "Ganesh Kurcheti",
+    "type": "Experience",
+    "description": "May 2023 - Feb 2024 · 10 mos Austin, Texas, United States · On-site -> Scaled line-side software for operators to support building Model Y and Cybertruck, resulting in at least ~10% production increase. -> Improved activity tracking and tool-controller microservices, yielding ~30% less debugging time and doubling data processing speed. … more Software Engineer",
+    "techStack": [
+      "bert",
+      "microservices"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "API / Microservices",
+      "Data Engineering",
+      "Security / Cryptography",
+      "Compilers / Language Design",
+      "Operating Systems",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Builds service-oriented architecture with clean API boundaries. Pipelines for processing and transforming large datasets. Addresses security, encryption, or authentication concerns. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 21,
+    "rank": 25
+  },
+  {
+    "name": "Role @ Amazon",
+    "person": "Nilabhro Chakraborty",
+    "type": "Experience",
+    "description": "Jan 2024 - Jun 2025 · 1 yr 6 mos Bengaluru, Karnataka, India · On-site Worked for CMT Systems Team (ASIN Importer) - Worked with large scale software systems responsible for competitve pricing at Amazon - Took care of full software development cycle, from development to testing to deployment - Developed a new workflow with end goal as automation using SQS, lambda, DDB stream and SNS services - Worked on better utilization of team’s resources on cost front (POC for it) - SME for the team on a service responsible for onboarding competitors into CMT system. Onboarded the entire competitor set for Amazon Now after launching an automated onboarding platform for merchants. Reduced TAT time by more than 50% margins and removed manual touchpoints … more Spring Framework, Java and +1 skill Cloud Engineer",
+    "techStack": [
+      "java",
+      "spring"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "Cloud / DevOps",
+      "Game AI / Algorithms",
+      "Operating Systems",
+      "Automation / Scraping",
+      "Testing / CI-CD",
+      "Real-time Systems",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Cloud infrastructure and deployment automation. Algorithmic problem-solving and game theory. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 21,
+    "rank": 26
+  },
+  {
+    "name": "Role @ BlueVector AI",
+    "person": "Nilabhro Chakraborty",
+    "type": "Experience",
+    "description": "Jun 2023 - Dec 2023 · 7 mos Denver, Colorado, United States · Remote Worked as a Cloud Engineer on the SnapApp Product. Some of my responsibilities included - 1. Developing new features for SnapApp product 2. Using Google Cloud Platform for hosting 3. Writing SQL migration files 4. Fixing production issues and bugs … more Workbench, Terraform and +6 skills Mentor JU Code Club",
+    "techStack": [
+      "google cloud",
+      "sql",
+      "terraform"
+    ],
+    "techCount": 3,
+    "concepts": [
+      "Cloud / DevOps",
+      "Database Systems",
+      "Operating Systems"
+    ],
+    "whatItSolves": "Cloud infrastructure and deployment automation. Data storage, querying, and optimization.",
+    "atsScore": 21,
+    "rank": 27
+  },
+  {
+    "name": "Santorini: Online Board Game - CMU 17514 Principles of Software System Construction",
+    "person": "Yiling Y.",
+    "type": "Project",
+    "description": "• Designed in UML and implemented in Java with software design principles for an extensible game architecture, using Single Responsibility Principle • Developed an interactive user interface using TypeScript and React for multi-user shared gameplay • Set up CI/CD pipeline on \\textbf{GitHub Actions} for automated testing, ensuring code quality by 95\\% branch coverage ---",
+    "techStack": [
+      "ci/cd",
+      "github actions",
+      "java",
+      "react",
+      "typescript"
+    ],
+    "techCount": 5,
+    "concepts": [
+      "Cloud / DevOps",
+      "Game AI / Algorithms",
+      "Automation / Scraping",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Cloud infrastructure and deployment automation. Algorithmic problem-solving and game theory.",
+    "atsScore": 20,
+    "rank": 28
+  },
+  {
+    "name": "Role @ Netflix",
+    "person": "Shambhavi S.",
+    "type": "Experience",
+    "description": "May 2021 - Sep 2021 · 5 mos California, United States - Was a part of the first ever Netflix intern cohort. - Orchestrated the deployment of containerized Netflix applications on partner Set-Top Box (STB) hardware, ensuring high availability in a multi-tenant environment. - Implemented strict resource isolation using Linux cgroups to manage CPU quotas and memory limits, preventing application crashes and mitigating OOM (Out of Memory) risks. … more Containerization, Virtualization and +3 skills Software Engineer Adobe Sep 2017 - Dec 2019 · 2 yrs 4 mos Noida, Uttar Pradesh, India • Build Release Install Test Team - Designed and developed the framework for pre-production testing of installers for Adobe Digital Imaging products. - Leveraged the flexibility of installer framework for Adobe Digital Imaging products to create it’s testing API. Thereafter, used the API to create a command line tool Echo with enhanced testing capabilities. - Built, tested, and deployed standalone GUI utility Theo for Mac OS and Windows to evaluate and compare blueprints, and verify codesigning. - Created Atom – a GUI utility to serve as one-stop solution for all development related software requirements of the team. • Adobe Pre - Release Team - Automated various workflows for Prerelease system based on DIY model that enables product teams for easy setup, creation and administration of prerelease program site, content, user access, prerelease build delivery, feedback channels like new age U2U forums, JIRA bug base integration and third-party bug-based connectivity. - Designed intuitive graphical wrapper over batch scripts to augment accessibility for both beta users which increased bug detection by 70%. Adobe Application Streaming : A Virtualization Platform Solution for Adobe Products - Worked on the development of framework for Application Streaming Project to test the applications on different cloud platforms to deliver application experience to users via browser seamlessly. … more C++, Software Infrastructure and +2 skills Summer Intern",
+    "techStack": [
+      "api",
+      "c++",
+      "jira",
+      "linux"
+    ],
+    "techCount": 4,
+    "concepts": [
+      "API / Microservices",
+      "Cloud / DevOps",
+      "Compilers / Language Design",
+      "Operating Systems",
+      "Automation / Scraping",
+      "Testing / CI-CD",
+      "Real-time Systems"
+    ],
+    "whatItSolves": "Builds service-oriented architecture with clean API boundaries. Cloud infrastructure and deployment automation.",
+    "atsScore": 20,
+    "rank": 29
+  },
+  {
+    "name": "Role @ Seattle University",
+    "person": "Ana M.",
+    "type": "Experience",
+    "description": "Sep 2021 - Jun 2022 · 10 mos Seattle, Washington, United States Tutor students in Computer Science classes on the topics Java fundamentals, Algorithms and Data Structures. Grade weekly labs and projects, which involves code review and debugging. … more ---",
+    "techStack": [
+      "algorithms",
+      "data structures",
+      "java"
+    ],
+    "techCount": 3,
+    "concepts": [
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 19,
+    "rank": 30
+  },
+  {
+    "name": "Projects",
+    "person": "Mihir Manek",
+    "type": "Project",
+    "description": "Cloud Oriented Distributed & Encrypted File Storage (CODE-FS) Associated with KJ Somaiya College of Engineering, Vidyavihar The main aim of the project is to provide security to the data that is uploaded by encrypting the files at the client side using strong algorithms like AES, so that the user is in charge of his own data, and split the file into various fragments and store it in a distributed network of nodes, which is a dynamic network, along with real time backup and replication capabilities. Institutions and organizations can utilize our product as a middleware to provide cloud storage facilities to various employees and users in a secure way. We look forward to deploy this product in a commercial manner so that the Government can also utilize it for their needs.",
+    "techStack": [
+      "aes",
+      "algorithms"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "Distributed Systems",
+      "Security / Cryptography",
+      "Cloud / DevOps",
+      "Database Systems",
+      "Networking",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Tackles distributed computing challenges like consistency, fault tolerance, and scalability. Addresses security, encryption, or authentication concerns. Cloud infrastructure and deployment automation. Data storage, querying, and optimization.",
+    "atsScore": 19,
+    "rank": 31
+  },
+  {
+    "name": "Role @ Mercedes-Benz Research & Development North America, Inc.",
+    "person": "Ganesh Kurcheti",
+    "type": "Experience",
+    "description": "Feb 2021 - Apr 2021 · 3 mos Sunnyvale, California, United States · Remote -> Standardized unit test cases for C++ speech assistant services using GTest and GMock which improved overall tests coverage by ~70%. -> Refactored most of the underlying logic for the embedded functions interface and created new component tests framework using Python. … more Student Programmer",
+    "techStack": [
+      "c++",
+      "python"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 17,
+    "rank": 32
+  },
+  {
+    "name": "Projects",
+    "person": "Michael Stone",
+    "type": "Project",
+    "description": "Android Movie App Utilized both IMDB API and YouTube API to showcase movies currently playing in theaters. Users can view movie trailers, ratings, and descriptions. Implemented and designed complex view adapters to differentiate between popular and less popular movies, even when in portrait or landscape view. Deployed server using ​Herokuapp​ to allow users to signup and login. Built protocol to manage user info and preferences using ​Java​.",
+    "techStack": [
+      "android",
+      "api",
+      "heroku",
+      "java"
+    ],
+    "techCount": 4,
+    "concepts": [
+      "API / Microservices",
+      "Mobile Development",
+      "Cloud / DevOps",
+      "Game AI / Algorithms",
+      "Networking",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Builds service-oriented architecture with clean API boundaries. Native or cross-platform mobile application. Cloud infrastructure and deployment automation. Algorithmic problem-solving and game theory.",
+    "atsScore": 17,
+    "rank": 33
+  },
+  {
+    "name": "Projects",
+    "person": "Nilabhro Chakraborty",
+    "type": "Project",
+    "description": "Code Editor using React Associated with Jadavpur University, Kolkata Made a code editor using React in which we replicated the features of an existing editor called Code-pen using HTML, CSS and Javascript",
+    "techStack": [
+      "css",
+      "html",
+      "java",
+      "javascript",
+      "react"
+    ],
+    "techCount": 5,
+    "concepts": [
+      "Distributed Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Tackles distributed computing challenges like consistency, fault tolerance, and scalability.",
+    "atsScore": 17,
+    "rank": 34
+  },
+  {
+    "name": "Projects",
+    "person": "Rynah Rodrigues",
+    "type": "Project",
+    "description": "Teach It To Me Associated with Fr Conceicao Rodrigues College of Engineering Band Stand Bandra (West) Mumbai 400 050 Interactive web application which teaches young children Mathematics and English. It included graphical images and videos. Children could also challenge each other through puzzles, games, and quizzes. The front-end was implemented using HTML, CSS, JavaScript, and back-end was implemented using MySQL database server.",
+    "techStack": [
+      "css",
+      "html",
+      "java",
+      "javascript",
+      "mysql"
+    ],
+    "techCount": 5,
+    "concepts": [
+      "Full-Stack Development",
+      "Database Systems",
+      "Game AI / Algorithms",
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Data storage, querying, and optimization. Algorithmic problem-solving and game theory.",
+    "atsScore": 17,
+    "rank": 35
+  },
+  {
+    "name": "Application of Multi-Label Classification.",
+    "person": "Akanksha Diwedy",
+    "type": "Project",
+    "description": "Designed Multi-Label Convolutional neural network (CNNs) to perform Face Recognition and Expression Detection using a shared layers model to learn and identify common features of both tasks. Optimized network with learning rate decays, training epochs and dropout to achieve 94% accuracy for face prediction and 89% for expression prediction.",
+    "techStack": [
+      "express"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Machine Learning",
+      "Computer Vision",
+      "Networking",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Applies ML models to solve prediction/classification problems. Analyzes and interprets visual data. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 15,
+    "rank": 36
+  },
+  {
+    "name": "Role @ Amazon Web Services (AWS)",
+    "person": "Charlene Junus",
+    "type": "Experience",
+    "description": "Dec 2023 - Sep 2025 · 1 yr 10 mos Seattle, Washington, United States · On-site Amazon Web Services (AWS), Java and +3 skills Chief Executive Officer, Founder charlenejunusart Jun 2016 - Mar 2024 · 7 yrs 10 mos Greater Jakarta Area, Indonesia Charlenejunusart is a boutique art organization aimed at producing premium artwork including custom painted masks, shoes, cardholders, tote bags, and many more. Our customers include Vice President Bapak Maruf Amin, former governor Bapak Basuki Purnama and former Minister of Tourism Bapak Wishnutama. Instagram: @charlenejunusart Website: www.charlenejunus.com Email: charlenejunusart@gmail.com … more Backend Systems and Infrastructure",
+    "techStack": [
+      "aws",
+      "java"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "Full-Stack Development",
+      "Cloud / DevOps",
+      "Compilers / Language Design",
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Cloud infrastructure and deployment automation.",
+    "atsScore": 15,
+    "rank": 37
+  },
+  {
+    "name": "Classify handwritten digits on MNIST dataset",
+    "person": "Shambhavi S.",
+    "type": "Project",
+    "description": "Associated with University of Southern California - Classified handwritten digits on MNIST dataset using Artificial Neural Network (i.e. Multi-Layer Perceptron Neural Network) by implementing both feedforward and backpropagation from scratch. - The prediction accuracy achieved was 95%. - Python, NumPy, Multi-Layer Perceptron Neural Network ---",
+    "techStack": [
+      "numpy",
+      "python"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "Machine Learning",
+      "Networking",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Applies ML models to solve prediction/classification problems.",
+    "atsScore": 15,
+    "rank": 38
+  },
+  {
+    "name": "Role @ University of Puerto Rico-Mayaguez",
+    "person": "Jean Carlos Méndez",
+    "type": "Experience",
+    "description": "Aug 2024 - Dec 2024 · 5 mos Mayagüez, Puerto Rico · On-site Instructor of CIIC 3015 - Introduction to Computer Programming course to freshmen students at the University of Puerto Rico, Mayaguez campus as part of the Google In Residence (GIR) program. … more Computer Science Education Goldman Sachs 5 yrs 2 mos New York Engineering Associate Jan 2020 - Aug 2021 · 1 yr 8 mos Engineering Analyst Jul 2016 - Dec 2019 · 3 yrs 6 mos Software Engineering Co-Op IBM Aug 2015 - May 2016 · 10 mos Austin, Texas Worked primarily as a Node.js developer in the Systems Management Team for WebSphere Application Server (WAS). Developed prototypes for various existing WAS features using JavaScript. These features had focus on security, with emphasis on SSL. … more Technology Summer Analyst Goldman Sachs May 2015 - Aug 2015 · 4 mos Jersey City, New Jersey Software Engineering Intern ---",
+    "techStack": [
+      "java",
+      "javascript",
+      "node.js"
+    ],
+    "techCount": 3,
+    "concepts": [
+      "Full-Stack Development",
+      "Security / Cryptography",
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Addresses security, encryption, or authentication concerns.",
+    "atsScore": 14,
+    "rank": 39
+  },
+  {
+    "name": "Role @ Amazon Web Services (AWS)",
+    "person": "Yachen (Carl) Yin",
+    "type": "Experience",
+    "description": "May 2024 - Aug 2025 · 1 yr 4 mos Boston, Massachusetts, United States · On-site Working on building, operating, and growing the AWS File Storage services processing massive data sets at up to >100GB/S of throughput, >1,000,000 of IOPS, and <0.001 latencies. Software Dev Intern",
+    "techStack": [
+      "aws"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Cloud / DevOps",
+      "Database Systems",
+      "Operating Systems",
+      "Testing / CI-CD",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Cloud infrastructure and deployment automation. Data storage, querying, and optimization. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 14,
+    "rank": 40
+  },
+  {
+    "name": "Role @ Microsoft",
+    "person": "Andrew Benson",
+    "type": "Experience",
+    "description": "Jun 2015 - Aug 2015 · 3 mos Redmond Operating Systems Group (OSG), Windows 10 (Windows Phone). I worked on Project Astoria (https://en.wikipedia.org/wiki/Windows_10_Mobile#Project_Astoria), a subsystem of Windows 10 that emulates an Android environment in order to allow Android apps to run on Windows with minimal changes by the developer. It now partially lives on as WSL, the Windows Subsystem for Linux (https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux). My team worked on Android-Windows Phone UI compatibility in Astoria. It's a lot more interesting than it sounds, especially if you liked Windows Phone. Ask me if you're interested. … more ---",
+    "techStack": [
+      "android",
+      "linux",
+      "operating systems"
+    ],
+    "techCount": 3,
+    "concepts": [
+      "API / Microservices",
+      "Mobile Development",
+      "Compilers / Language Design",
+      "Operating Systems",
+      "Testing / CI-CD",
+      "Real-time Systems"
+    ],
+    "whatItSolves": "Builds service-oriented architecture with clean API boundaries. Native or cross-platform mobile application.",
+    "atsScore": 14,
+    "rank": 41
+  },
+  {
+    "name": "Modeling Movie Data (MongoDB and Node.js)",
+    "person": "Rynah Rodrigues",
+    "type": "Project",
+    "description": "Associated with Rochester Institute of Technology This project focused on enhancing the feature of MongoDB over SQL Databases, which displays the movie information in real time to the user, scraping from IMDB using node.js. It also intends to perform User profiling which can be used for recommending similar movies to users. ---",
+    "techStack": [
+      "mongodb",
+      "node.js",
+      "sql"
+    ],
+    "techCount": 3,
+    "concepts": [
+      "API / Microservices",
+      "Database Systems",
+      "Game AI / Algorithms",
+      "Search / Recommendation",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Builds service-oriented architecture with clean API boundaries. Data storage, querying, and optimization. Algorithmic problem-solving and game theory.",
+    "atsScore": 14,
+    "rank": 42
+  },
+  {
+    "name": "Role @ National Science Foundation (NSF)",
+    "person": "Tanvir Islam",
+    "type": "Experience",
+    "description": "May 2018 - Aug 2018 · 4 mos Storrs, Connecticut, United States During this summer research opportunity, I investigated the use of Software Defined Radio (SDR) for real-time communication systems under the supervision of Dr. Shengli Zhou and Dr. Song Han at the University of Connecticut. I worked on developing a wireless ad-hoc network system capable of inter-computer message transfer by implementing IEEE 802.15.4 with AES Cipher Block Chaining (CBC) security protocol on an SDR platform. I used C++ (Boost, SWIG) to program signal-processing blocks on GNURadio to build the system's PHY and MAC layer. Python was used to implement the APP layer for the network. … more ---",
+    "techStack": [
+      "aes",
+      "c++",
+      "python"
+    ],
+    "techCount": 3,
+    "concepts": [
+      "Security / Cryptography",
+      "Networking",
+      "Operating Systems",
+      "Search / Recommendation",
+      "Testing / CI-CD",
+      "Real-time Systems"
+    ],
+    "whatItSolves": "Addresses security, encryption, or authentication concerns.",
+    "atsScore": 14,
+    "rank": 43
+  },
+  {
+    "name": "Docker, Redis and +7 skills",
+    "person": "Yachen (Carl) Yin",
+    "type": "Project",
+    "description": "GitHub - TjuAachen/CS5500_Group9_Blog-It-Web-Application: A Full Stack Blog Web Application ---",
+    "techStack": [
+      "docker",
+      "redis"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "Full-Stack Development",
+      "Cloud / DevOps",
+      "Database Systems"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Cloud infrastructure and deployment automation. Data storage, querying, and optimization.",
+    "atsScore": 13,
+    "rank": 44
+  },
+  {
+    "name": "Role @ Carnegie Mellon University School of Computer Science",
+    "person": "Yicheng Zhang",
+    "type": "Experience",
+    "description": "Dec 2022 - Dec 2023 · 1 yr 1 mo Pittsburgh, Pennsylvania, United States · On-site Communication, Distributed Systems and +2 skills Software Dev Engineer Intern",
+    "techStack": [
+      "distributed systems"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Distributed Systems"
+    ],
+    "whatItSolves": "Tackles distributed computing challenges like consistency, fault tolerance, and scalability.",
+    "atsScore": 13,
+    "rank": 45
+  },
+  {
+    "name": "Role @ LinkedIn",
+    "person": "Charlene Junus",
+    "type": "Experience",
+    "description": "May 2023 - Aug 2023 · 4 mos Sunnyvale, California, United States · On-site LinkedIn helped me get this job helped me get this job Search Infrastructure Team - Encryption and Decryption Java, Back-End Web Development and +3 skills ---",
+    "techStack": [
+      "encryption",
+      "java"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "Security / Cryptography",
+      "Cloud / DevOps",
+      "Compilers / Language Design",
+      "Operating Systems",
+      "Search / Recommendation"
+    ],
+    "whatItSolves": "Addresses security, encryption, or authentication concerns. Cloud infrastructure and deployment automation.",
+    "atsScore": 13,
+    "rank": 46
+  },
+  {
+    "name": "Role @ Bloomberg",
+    "person": "David Castro",
+    "type": "Experience",
+    "description": "Aug 2024 - Mar 2025 · 8 mos New York, New York, United States · On-site Futures and Options Enrichment Team (C++, Python) Executive Board: Full Stack Developer",
+    "techStack": [
+      "c++",
+      "python"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "Full-Stack Development",
+      "Game AI / Algorithms",
+      "Operating Systems"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Algorithmic problem-solving and game theory.",
+    "atsScore": 12,
+    "rank": 47
+  },
+  {
+    "name": "Sentinel - A Campus Alert Application",
+    "person": "Jean Carlos Méndez",
+    "type": "Project",
+    "description": "Sentinel is a security application currently being developed in the University of Puerto Rico, Mayaguez Campus (UPRM). It consists of Android and iOS applications where students can immediately report an incident in the case of an emergency. All the incidents are stored in a database and administrated by the college police. I am working as the primary developer of both the Android Application and the website where the college police can manage all the reported incidents.",
+    "techStack": [
+      "android",
+      "ios"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "Full-Stack Development",
+      "Mobile Development",
+      "Security / Cryptography",
+      "Database Systems",
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Native or cross-platform mobile application. Addresses security, encryption, or authentication concerns. Data storage, querying, and optimization.",
+    "atsScore": 12,
+    "rank": 48
+  },
+  {
+    "name": "Role @ Devetry (part of Dept)",
+    "person": "Michael Stone",
+    "type": "Experience",
+    "description": "Jun 2021 - May 2022 · 1 yr Denver, Colorado, United States Columbia University in the City of New York 9 mos Lab Programmer (BioelectronicsLab) Jul 2017 - Aug 2017 · 2 mos Columbia University Overhauled a camera system that was designed to monitor bacteria growth to be able to handle dual camera live streaming, while also creating a GUI in Python that allowed graduate students to automatically save data. The data collected was later used in the graduate students thesis paper. During this time I had to self teach myself Python as well as GUI design in a couple days to meet deadlines. … more Lab Programmer (Biomechanics Lab) Dec 2016 - Aug 2017 · 9 mos Columbia University, New York, NY Worked on developing an Android application to help researchers in my lab organize and collect data. Also spent time reverse engineering legacy code in while self teaching myself lab view. ---",
+    "techStack": [
+      "android",
+      "python"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "Mobile Development",
+      "Operating Systems",
+      "Search / Recommendation",
+      "Automation / Scraping",
+      "Testing / CI-CD",
+      "Real-time Systems"
+    ],
+    "whatItSolves": "Native or cross-platform mobile application.",
+    "atsScore": 12,
+    "rank": 49
+  },
+  {
+    "name": "Concepts Used:-",
+    "person": "Mihir Manek",
+    "type": "Project",
+    "description": "PHP, HTML5, JavaScript, jQuery, CSS3, BootStrap, Material UI/UX, Virtual Private Server Hosting ---",
+    "techStack": [
+      "bootstrap",
+      "css3",
+      "html",
+      "html5",
+      "java",
+      "javascript",
+      "jquery",
+      "php"
+    ],
+    "techCount": 8,
+    "concepts": [
+      "Database Systems",
+      "Operating Systems"
+    ],
+    "whatItSolves": "Data storage, querying, and optimization.",
+    "atsScore": 12,
+    "rank": 50
+  },
+  {
+    "name": "Role @ Apple",
+    "person": "Vedant G.",
+    "type": "Experience",
+    "description": "May 2019 - Aug 2019 · 4 mos Cupertino, California, United States •\tAdvanced in-house source-to-source compiler for optimizations and performing code path analysis •\tDesigned and implemented algorithm for identifying memory leaks in the Java Card runtime at compile time •\tDeveloped automated compile-time code report generation and code path visualization •\tImplemented testing suite for testing function of tools and secure Java Card applets •\tReviewed software source code to identify bugs and performance issues … more Embedded Software Developer",
+    "techStack": [
+      "java"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Compilers / Language Design",
+      "Operating Systems",
+      "Automation / Scraping",
+      "Testing / CI-CD",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Focuses on speed, efficiency, and scalability.",
+    "atsScore": 12,
+    "rank": 51
+  },
+  {
+    "name": "Projects",
+    "person": "Xavier Lamphere",
+    "type": "Project",
+    "description": "Tic-Tac-Toe Made on February 24-25 in my free time between classes to test my skills. Hadn't yet learned how to make a GUI in Java so everything in the game ran through the console. Simply draws and redraws a Tic-Tac-Toe ascii box each time a move is made updated with who owns which squares. Simple small program but also my first.",
+    "techStack": [
+      "java"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Cloud / DevOps",
+      "Game AI / Algorithms",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Cloud infrastructure and deployment automation. Algorithmic problem-solving and game theory.",
+    "atsScore": 12,
+    "rank": 52
+  },
+  {
+    "name": "Role @ Salesforce",
+    "person": "Ganesh Kurcheti",
+    "type": "Experience",
+    "description": "Feb 2024 - Present · 2 yrs 2 mos California, United States · Hybrid -> Orchestrated the enablement of the UI API for the Task entity in Sales Cloud, enhancing user experience for approximately 80,000 customers. -> Directed the migration of core components of Task entity from Aura to LWC, fixing 7+ accessibility bugs and ensuring future scalability. … more Senior Software Engineer",
+    "techStack": [
+      "api",
+      "scala"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "API / Microservices",
+      "Cloud / DevOps",
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Builds service-oriented architecture with clean API boundaries. Cloud infrastructure and deployment automation.",
+    "atsScore": 11,
+    "rank": 53
+  },
+  {
+    "name": "A visualization of global coronavirus data.",
+    "person": "Tanvir Islam",
+    "type": "Project",
+    "description": "The app displays a time-series view of the virus spread for all countries across the world, and also offers RESTful API endpoints to access data. Back-end of this app was developed using Node.js and MongoDB, and the data visualizations were generated using D3.js and Vue.js.",
+    "techStack": [
+      "api",
+      "mongodb",
+      "node.js",
+      "vue.js"
+    ],
+    "techCount": 4,
+    "concepts": [
+      "API / Microservices",
+      "Database Systems",
+      "Game AI / Algorithms",
+      "Operating Systems"
+    ],
+    "whatItSolves": "Builds service-oriented architecture with clean API boundaries. Data storage, querying, and optimization. Algorithmic problem-solving and game theory.",
+    "atsScore": 11,
+    "rank": 54
+  },
+  {
+    "name": "SDSU Schedule Planner",
+    "person": "Jacob D.",
+    "type": "Project",
+    "description": "1.) Created SQL database and used BeautifulSoup to scrap SDSU web portal and RateMyProfessor to store all course information with associated professor rating. 2.) Parses inputted student's degree evaluation to evaluate necessary requirements to graduate. 3.) For each requirement, queries database to gather data on each course fulfilling the requirement and sorts the list based off of professor ratings from RateMyProfessor. 4.) Returns list of requirements to graduate with recommended courses.",
+    "techStack": [
+      "sql"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Full-Stack Development",
+      "Database Systems",
+      "Search / Recommendation",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Data storage, querying, and optimization.",
+    "atsScore": 10,
+    "rank": 55
+  },
+  {
+    "name": "Role @ YouTube",
+    "person": "Ana M.",
+    "type": "Experience",
+    "description": "Jun 2022 - Sep 2022 · 4 mos San Bruno, California, United States Python (Programming Language) and TypeScript Software Engineer",
+    "techStack": [
+      "python",
+      "typescript"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 10,
+    "rank": 56
+  },
+  {
+    "name": "Role @ Bloomberg LP",
+    "person": "Soumita Das",
+    "type": "Experience",
+    "description": "Apr 2021 - Oct 2021 · 7 mos New York City Metropolitan Area Graduate Research Assistant University at Buffalo School of Engineering and Applied Sciences Mar 2020 - Dec 2020 · 10 mos Buffalo, New York, United States ● Implemented ​Transformer​ and ​Seq2Seq​ models to predict masked locations in user trajectories leveraging their ​WiFi ​traces. ● Achieved an accuracy of​ 82%​ for missing locations and ​93%​ for recreating the entire trajectories. ● Experimenting on identifying events on campus and social relationships among users from the predicted locations. … more Software Engineer Intern",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Machine Learning",
+      "Operating Systems",
+      "Search / Recommendation",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Applies ML models to solve prediction/classification problems.",
+    "atsScore": 10,
+    "rank": 57
+  },
+  {
+    "name": "Role @ Tata Consultancy Services",
+    "person": "Soumita Das",
+    "type": "Experience",
+    "description": "Dec 2018 - Feb 2019 · 3 mos Greater Kolkata Area ● Developed a ​4-layer classifier to identify inclusion and exclusion criteria in biomedical text combining Convolution Neural Network (CNN)​, Recurrent Neural Network ​(RNN)​ and Bi-directional Long Short Term Memory Network ​(LSTM)​ with ​Attention​ Layer. ● Utilized a combination of ​word2vec​ and Class-Specific Embeddings to boost the precision upto ​82% ​and F-1 Score upto ​83%​. … more Undergraduate Research Assistant",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Machine Learning",
+      "Computer Vision",
+      "Networking",
+      "Operating Systems",
+      "Search / Recommendation",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Applies ML models to solve prediction/classification problems. Analyzes and interprets visual data.",
+    "atsScore": 10,
+    "rank": 58
+  },
+  {
+    "name": "Role @ Heritage Institute of Technology",
+    "person": "Soumita Das",
+    "type": "Experience",
+    "description": "Sep 2018 - Jan 2019 · 5 mos Kolkata, West Bengal, India ● Analysed tags from ​MovieLens​ ​(20-million)​ dataset based on​ WordNet​ similarity and combined to form group tag clouds. ● Developed a recommender engine having a precision of ​90%​ for highly cohesive groups and ​78%​ for dissimilar groups. … more Tag_Cloud_Recommendation.pdf ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Cloud / DevOps",
+      "Operating Systems",
+      "Search / Recommendation",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Cloud infrastructure and deployment automation.",
+    "atsScore": 10,
+    "rank": 59
+  },
+  {
+    "name": "Projects",
+    "person": "Soumita Das",
+    "type": "Project",
+    "description": "Modified Transformer model for artistic style transfer Associated with University at Buffalo Designed a Pizza structured Transformer for converting modern English language to Shakespearean style. Reduced the trainable parameters by 70% and training time by 50% as compared to traditional Transformer. Achieved a higher BLEU score than traditional Transformer and Seq2Seq models.",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Machine Learning",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Applies ML models to solve prediction/classification problems.",
+    "atsScore": 10,
+    "rank": 60
+  },
+  {
+    "name": "RAFT, gRPC and +3 skills",
+    "person": "Chen Yizhe",
+    "type": "Project",
+    "description": "---",
+    "techStack": [
+      "grpc"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Distributed Systems"
+    ],
+    "whatItSolves": "Tackles distributed computing challenges like consistency, fault tolerance, and scalability.",
+    "atsScore": 9,
+    "rank": 61
+  },
+  {
+    "name": "Website coming soon :)",
+    "person": "Jacob D.",
+    "type": "Project",
+    "description": "Personal Website I made a personal website to practice front end development with html and css and back end with python to set up a contact feature. ---",
+    "techStack": [
+      "css",
+      "html",
+      "python"
+    ],
+    "techCount": 3,
+    "concepts": [
+      "Full-Stack Development"
+    ],
+    "whatItSolves": "End-to-end application from UI to server.",
+    "atsScore": 9,
+    "rank": 62
+  },
+  {
+    "name": "Role @ Facebook",
+    "person": "Andrew Benson",
+    "type": "Experience",
+    "description": "May 2016 - Aug 2016 · 4 mos Menlo Park Facebook Messenger, Social / Photos team. I sped up the Messenger for iOS camera by 2-5x, and developed an unreleased photo sharing feature. Admittedly I sped up iOS messenger by deleting the previous intern's code that didn't work (not even joking, their filter was _that_ slow), so there's a good chance all of my work has been deleted by now as well. At least I had a fun summer and the MPK food was good. … more Software Engineering Intern",
+    "techStack": [
+      "ios"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Compilers / Language Design",
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 9,
+    "rank": 63
+  },
+  {
+    "name": "Role @ Warner Bros. Discovery",
+    "person": "Mihir Manek",
+    "type": "Experience",
+    "description": "Jul 2023 - Oct 2023 · 4 mos Seattle, Washington, United States · Hybrid Docker, Web Technologies and +5 skills Software Engineer Intern",
+    "techStack": [
+      "docker"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Cloud / DevOps",
+      "Operating Systems"
+    ],
+    "whatItSolves": "Cloud infrastructure and deployment automation.",
+    "atsScore": 9,
+    "rank": 64
+  },
+  {
+    "name": "Given the current state of moves/choices made, the agent tells the next move to make.",
+    "person": "Akanksha Diwedy",
+    "type": "Project",
+    "description": "Optimized the minimax algorithm with evaluation function, alpha beta pruning and move ordering to reduce search space by 85% in order to meet time and memory constraints. ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Game AI / Algorithms",
+      "Operating Systems",
+      "Search / Recommendation",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Algorithmic problem-solving and game theory. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 8,
+    "rank": 65
+  },
+  {
+    "name": "Generative Neural Networks for MNIST handwritten digits",
+    "person": "Soumita Das",
+    "type": "Project",
+    "description": "Associated with University at Buffalo Implemented and compared the performance of Restricted Boltzmann Machine(RBM), Variational Autoencoder (VAE) and Generative Adversarial Network(GAN). ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Machine Learning",
+      "API / Microservices",
+      "Networking",
+      "Testing / CI-CD",
+      "Performance Optimization"
+    ],
+    "whatItSolves": "Applies ML models to solve prediction/classification problems. Builds service-oriented architecture with clean API boundaries. Focuses on speed, efficiency, and scalability.",
+    "atsScore": 8,
+    "rank": 66
+  },
+  {
+    "name": "An interactive educational tool to learn Git.",
+    "person": "Tanvir Islam",
+    "type": "Project",
+    "description": "The web application allows users to input various Git commands and generates a tree-view of it. Users can also link a GitHub repository and the app will use GitHub's REST APIs to generate a commit tree of that repo. Visualizations are done using Vue.js and p5.js. ---",
+    "techStack": [
+      "git",
+      "rest api",
+      "rest apis",
+      "vue.js"
+    ],
+    "techCount": 4,
+    "concepts": [
+      "Full-Stack Development",
+      "API / Microservices",
+      "Operating Systems"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Builds service-oriented architecture with clean API boundaries.",
+    "atsScore": 8,
+    "rank": 67
+  },
+  {
+    "name": "CUDA, PyTorch and +3 skills",
+    "person": "Chen Yizhe",
+    "type": "Project",
+    "description": "Scalable Fault-tolerant SurfStore",
+    "techStack": [
+      "pytorch",
+      "scala"
+    ],
+    "techCount": 2,
+    "concepts": [],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 7,
+    "rank": 68
+  },
+  {
+    "name": "Food Storage Application",
+    "person": "Joseph Lambo",
+    "type": "Project",
+    "description": "Developed an application that reads in the user's biometric information and weight gain/loss goals and calculates the optimal nutrition path to the goal, and suggests various foods to help meet the daily goal. Also acts as a calorie tracker that tracks the user's calorie intake with an extensive database of food items, along with their nutritional value. ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Database Systems",
+      "Operating Systems"
+    ],
+    "whatItSolves": "Data storage, querying, and optimization.",
+    "atsScore": 7,
+    "rank": 69
+  },
+  {
+    "name": "React, MongoDB and +1 skill",
+    "person": "Yachen (Carl) Yin",
+    "type": "Project",
+    "description": "The source code for the front end.",
+    "techStack": [
+      "mongodb",
+      "react"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "Database Systems"
+    ],
+    "whatItSolves": "Data storage, querying, and optimization.",
+    "atsScore": 7,
+    "rank": 70
+  },
+  {
+    "name": "Game playing AI agent (PYTHON)",
+    "person": "Akanksha Diwedy",
+    "type": "Project",
+    "description": "Associated with University of Southern California Programmed an AI agent to play a non-zero sum game with both players trying to maximize their own score.",
+    "techStack": [
+      "python"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Game AI / Algorithms",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Algorithmic problem-solving and game theory.",
+    "atsScore": 7,
+    "rank": 71
+  },
+  {
+    "name": "The most used web browser in the world.",
+    "person": "Carlos K.",
+    "type": "Project",
+    "description": "goless The goless open source library provides Go programming language semantics built on top of Stackless Python or gevent. ---",
+    "techStack": [
+      "python"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 7,
+    "rank": 72
+  },
+  {
+    "name": "Projects",
+    "person": "Menghan C.",
+    "type": "Project",
+    "description": "Chatting Website • Designed database schema to represent each user and their chatting relationship • Developed a realtime transaction system and authentication system using token based authentication • Used Django MVC framework",
+    "techStack": [
+      "django"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Full-Stack Development",
+      "Security / Cryptography",
+      "Database Systems",
+      "Real-time Systems"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Addresses security, encryption, or authentication concerns. Data storage, querying, and optimization.",
+    "atsScore": 7,
+    "rank": 73
+  },
+  {
+    "name": "Role @ Samsung Electronics",
+    "person": "Shambhavi S.",
+    "type": "Experience",
+    "description": "Jun 2015 - Aug 2015 · 3 mos India Created ARM LE Emulation of Raspberry which mainly involved creating a Linux ISO image of the CPU on QEMU and performing all the operations of the operations on it thereby, cutting down the huge amount of cost incurred in the testing of processors under the supervision of Dr. Kaushik Saha. … more Summer Intern",
+    "techStack": [
+      "linux"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 7,
+    "rank": 74
+  },
+  {
+    "name": "Role @ TikTok",
+    "person": "Chen Yizhe",
+    "type": "Experience",
+    "description": "May 2024 - Apr 2025 · 1 yr San Jose, California, United States · On-site I contribute to the Advertiser Tiering and Ticket Platform within the Global Monetization - Business Integrity team. Golang, RDS and +8 skills Software Engineer",
+    "techStack": [
+      "golang"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 6,
+    "rank": 75
+  },
+  {
+    "name": "Role @ University of Michigan College of Engineering",
+    "person": "Vedant G.",
+    "type": "Experience",
+    "description": "May 2017 - Apr 2019 · 2 yrs Ann Arbor, Michigan, United States • Built a low-cost indoor localization system to be used for interactive learning in classrooms of 20 to 30 students • Designed and implemented algorithm for tracking through reverse time difference of arrival • Facilitated concurrency, flexibility, versatility and replaceability through software design and in-house wireless protocols The link to the GitHub repository containing the code for ranging is here: https://github.com/VVHack/STM32F411E-DW1000 … more Embedded Development, Soldering and +1 skill Engineering Intern Molex May 2018 - Aug 2018 · 4 mos Rochester Hills, Michigan • Developed a spreadsheet driven motion simulation software within Siemens NX CAD software using NX Open .Net API • Worked on a VB .Net desktop application that controls servo motors based on user input … more ---",
+    "techStack": [
+      ".net",
+      "api"
+    ],
+    "techCount": 2,
+    "concepts": [
+      "API / Microservices",
+      "Networking",
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Builds service-oriented architecture with clean API boundaries.",
+    "atsScore": 6,
+    "rank": 76
+  },
+  {
+    "name": "Projects",
+    "person": "Melissa Kohl",
+    "type": "Project",
+    "description": "Fed.Con Associated with Booz Allen Hamilton Developed a middleware product for cross-communication of Runtime Infrastructures (RTIs) to send data between dissimilar military training simulations.",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Cloud / DevOps",
+      "Compilers / Language Design",
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Cloud infrastructure and deployment automation.",
+    "atsScore": 5,
+    "rank": 77
+  },
+  {
+    "name": "Role @ HBO Max",
+    "person": "Mihir Manek",
+    "type": "Experience",
+    "description": "Jun 2022 - Aug 2022 · 3 mos New York, United States Plasmo, TypeScript and +3 skills Teaching Assistant",
+    "techStack": [
+      "typescript"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 5,
+    "rank": 78
+  },
+  {
+    "name": "Created a database query that simplifies a week long process into a 10 second query.",
+    "person": "Ryan Iley",
+    "type": "Project",
+    "description": "Exposed a RESTful API for Moki Systems to develop an associated mobile app.",
+    "techStack": [
+      "api"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "API / Microservices",
+      "Mobile Development",
+      "Data Engineering",
+      "Database Systems",
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Builds service-oriented architecture with clean API boundaries. Native or cross-platform mobile application. Pipelines for processing and transforming large datasets. Data storage, querying, and optimization.",
+    "atsScore": 5,
+    "rank": 79
+  },
+  {
+    "name": "Java Card Game Compilation",
+    "person": "Xavier Lamphere",
+    "type": "Project",
+    "description": "A small suit of basic card games including Blackjack, Solitaire, and Go Fish. Made in Java. ---",
+    "techStack": [
+      "java"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Game AI / Algorithms"
+    ],
+    "whatItSolves": "Algorithmic problem-solving and game theory.",
+    "atsScore": 5,
+    "rank": 80
+  },
+  {
+    "name": "Role @ Intel Corporation",
+    "person": "Alice Zhou",
+    "type": "Experience",
+    "description": "Aug 2021 - Jul 2022 · 1 yr San Jose, California, United States - Ran and consistently maintained two (2) hardware collateral blocks for Intel’s FPGA (Field programmable gate array) device and created tickets to track issues with their owners. - Independently implemented and tested five (5) firmware projects that calibrate various clock signals in an IO block. … more C (Programming Language), Embedded Systems and +1 skill Software Engineer Intern",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 4,
+    "rank": 81
+  },
+  {
+    "name": "UPRM Career Management System",
+    "person": "Jean Carlos Méndez",
+    "type": "Project",
+    "description": "The University of Puerto Rico, Mayaguez (UPRM)’s Placement Office currently has a website on which companies can register to the bi annual job fair held at this campus and lets the students see what companies are attending, plus the majors and positions they are looking for. This website has served them well along the years, but it has its shortcomings given that it is almost a decade old and some of the desired essential functionalities were never implemented. Example of the main problems are: the lack of a clearly defined way for companies to add relevant data such as the company logo and brief description, the lack of functionality to upload documents that the companies would like students to see and the lack of an activity calendar for events hosted by companies. ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Full-Stack Development",
+      "Operating Systems"
+    ],
+    "whatItSolves": "End-to-end application from UI to server.",
+    "atsScore": 4,
+    "rank": 82
+  },
+  {
+    "name": "Role @ Lightning Motorcycles",
+    "person": "Yachen (Carl) Yin",
+    "type": "Experience",
+    "description": "Jan 2023 - Apr 2023 · 4 mos Hollister, California, United States Redux.js, AngularJS and +4 skills ---",
+    "techStack": [
+      "angular",
+      "angularjs",
+      "redux"
+    ],
+    "techCount": 3,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 4,
+    "rank": 83
+  },
+  {
+    "name": "Projects",
+    "person": "Akanksha Diwedy",
+    "type": "Project",
+    "description": "Crowd Analysis by Face Recognition and Expression Detection Associated with University of Southern California",
+    "techStack": [
+      "express"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Computer Vision",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "Analyzes and interprets visual data.",
+    "atsScore": 4,
+    "rank": 84
+  },
+  {
+    "name": "Role @ Hawx Services, LLC",
+    "person": "Ana M.",
+    "type": "Experience",
+    "description": "Sep 2021 - Jun 2022 · 10 mos React Native, React.js and +2 skills Graduate Teaching Assistant",
+    "techStack": [
+      "react",
+      "react native",
+      "react.js"
+    ],
+    "techCount": 3,
+    "concepts": [
+      "Mobile Development",
+      "Operating Systems"
+    ],
+    "whatItSolves": "Native or cross-platform mobile application.",
+    "atsScore": 4,
+    "rank": 85
+  },
+  {
+    "name": "Role @ FlexiVan",
+    "person": "Bharath Gunari",
+    "type": "Experience",
+    "description": "Jan 2019 - May 2019 · 5 mos Scottsdale, Arizona • Developed and integrated Automated License plate recognition which helped in eliminating manual data input. • Visibility of waiting times near shipping terminals and depots which resulted in improved customer scheduling and logistics. … more Arizona State University 1 yr 6 mos Tempe, Arizona Graduate Research Assistant (EMIT Lab) Jan 2018 - Feb 2019 · 1 yr 2 mos Computing Support Developer Part-time May 2018 - Jan 2019 · 9 mos Instructional Aide Part-time Sep 2017 - Jan 2019 · 1 yr 5 mos ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems",
+      "Search / Recommendation",
+      "Automation / Scraping"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 4,
+    "rank": 86
+  },
+  {
+    "name": "Projects",
+    "person": "Bharath Gunari",
+    "type": "Project",
+    "description": "Human Tracking in Quad-copter Associated with Arizona State University Led a team of 3 people to program the Quad-copter Parrot bebop 2 to detect the person and follow the person.Implemented YOLO to detect the person in the image and built an algorithm to automate the guidance to quadcopter to follow the detected person.",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Automation / Scraping",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 4,
+    "rank": 87
+  },
+  {
+    "name": "DataStorm-FE: A Data- and Decision-Flow and Coordination Engine for Coupled Simulation Ensembles",
+    "person": "Bharath Gunari",
+    "type": "Project",
+    "description": "Associated with Arizona State University Data analyst on team project “DataStorm: A Data and Decision-Flow and Coordination Engine for Coupled Simulation Ensembles”. This project is being developed under Prof. Selcuk Candan (ASU) funded by NSF and was presented in 2018 44th International Conference on Very Large Data Bases (VLDB) in Brazil. +3 ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Compilers / Language Design",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 4,
+    "rank": 88
+  },
+  {
+    "name": "Role @ Fi",
+    "person": "Mayank Dandwani",
+    "type": "Experience",
+    "description": "Jan 2022 - May 2022 · 5 mos Learned Go and developed code generators for essential Go classes and methods which were commonly used across multiple teams. Worked with multiple teams to figured out the commonly used services. Created a tool which takes input directly from the command line, boosting developer productivity. … more Teamwork, Collaborative Problem Solving and +2 skills SDE Intern",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 4,
+    "rank": 89
+  },
+  {
+    "name": "Portal for MatQuiz 2016-17",
+    "person": "Mihir Manek",
+    "type": "Project",
+    "description": "Associated with MARK Developers Developed a portal for Indian Institute of Materials Management (http://iimmmumbai.org) for conducting an online quiz competition, which included MCQs, True False Questions, Anagrams, etc. which were generated dynamically for each participant based on a custom hash function.",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Full-Stack Development",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "End-to-end application from UI to server.",
+    "atsScore": 4,
+    "rank": 90
+  },
+  {
+    "name": "Role @ Jadavpur University",
+    "person": "Nilabhro Chakraborty",
+    "type": "Experience",
+    "description": "Oct 2021 - Jun 2023 · 1 yr 9 mos Kolkata, West Bengal, India · On-site Mentored juniors and batchmates on DSA concepts and helping them get a good grasp over general/ complex algorithmic and data structure problems in the role as a “Mentor” at JU CodeClub. Participated in various popular hackathons and coding contests on behalf of Jadavpur University. … more DSA, Mentoring and +1 skill Software Development Engineer Intern",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 4,
+    "rank": 91
+  },
+  {
+    "name": "Projects",
+    "person": "Rhiannan Wackes",
+    "type": "Project",
+    "description": "MIT Online Science, Technology, Engineering Community I was selected to participate in this rigorous, six-month online program offered by MIT Office of Engineering Outreach Programs, where I complete two courses of my choice, an intensive project-based course and a science writing course. I enrolled in Neuroscience and Connectomics, where I analyzed real data via an interactive online interface and contributed to real neuroscience research. I also enrolled in a Science Writing course, where I interviewed researchers and Ph.D candidates and completed an essay on stroke and ongoing research in the field of neuroregeneration that aims to minimize and treat stroke damage. ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems",
+      "Search / Recommendation",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 4,
+    "rank": 92
+  },
+  {
+    "name": "Role @ Amazon",
+    "person": "Tanvir Islam",
+    "type": "Experience",
+    "description": "Jun 2021 - Jul 2021 · 2 mos New York, United States Worked with the Amazon Ads Exchange (AAX) team on streamlining the process of onboarding a new ads source and instituting a way to collect analytics on the total time spent on the process. I worked on creating a thorough standard operation protocol (SOP) for source onboarding to decrease the amount of time required to add and configure a new source. … more Software Engineer",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Data Engineering",
+      "Game AI / Algorithms",
+      "Networking",
+      "Operating Systems",
+      "Real-time Systems"
+    ],
+    "whatItSolves": "Pipelines for processing and transforming large datasets. Algorithmic problem-solving and game theory.",
+    "atsScore": 4,
+    "rank": 93
+  },
+  {
+    "name": "Role @ ByteDance",
+    "person": "Bili Dong",
+    "type": "Experience",
+    "description": "Jun 2020 - Sep 2020 · 4 mos Shanghai, China · On-site • Android App Development ---",
+    "techStack": [
+      "android"
+    ],
+    "techCount": 1,
+    "concepts": [
+      "Mobile Development",
+      "Operating Systems"
+    ],
+    "whatItSolves": "Native or cross-platform mobile application.",
+    "atsScore": 3,
+    "rank": 94
+  },
+  {
+    "name": "Role @ Columbia Bartending Agency",
+    "person": "David Castro",
+    "type": "Experience",
+    "description": "Aug 2023 - Jun 2024 · 11 mos New York, New York, United States · Hybrid Computer Science Teaching Assistant",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 2,
+    "rank": 95
+  },
+  {
+    "name": "Role @ Columbia University",
+    "person": "David Castro",
+    "type": "Experience",
+    "description": "Aug 2023 - May 2024 · 10 mos New York, New York, United States · On-site Discrete Mathematics and Artificial Intelligence (AI) Secondary Marketing - Agency Mortgage-backed Securities Summer Analyst",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 2,
+    "rank": 96
+  },
+  {
+    "name": "Gym Fitness App",
+    "person": "Joseph Lambo",
+    "type": "Project",
+    "description": "Currently creating an app that records the user's biometric information, current max lifts, and other factors to return personalized fitness advice and information, including max possible lifts, optimal progression path, suggested workouts etc.",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 2,
+    "rank": 97
+  },
+  {
+    "name": "Role @ Ivalua",
+    "person": "Bharath Gunari",
+    "type": "Experience",
+    "description": "Sep 2021 - Oct 2021 · 2 mos Seattle, Washington, United States LinkedIn helped me get this job helped me get this job Part of Run Team Software Engineer",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 2,
+    "rank": 98
+  },
+  {
+    "name": "Role @ X, The Moonshot Factory",
+    "person": "Charlene Junus",
+    "type": "Experience",
+    "description": "Sep 2025 - Present · 7 mos Mountain View, California, United States · On-site LinkedIn helped me get this job helped me get this job Software Engineer",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 2,
+    "rank": 99
+  },
+  {
+    "name": "Role @ ServiceNow",
+    "person": "Muskan Thakur",
+    "type": "Experience",
+    "description": "Jan 2024 - Mar 2024 · 3 mos Bengaluru, Karnataka, India · On-site Software Development Engineer Intern",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 2,
+    "rank": 100
+  },
+  {
+    "name": "Role @ QuikDox",
+    "person": "Muskan Thakur",
+    "type": "Experience",
+    "description": "Mar 2023 - Apr 2023 · 2 mos Mumbai, Maharashtra, India · Remote LinkedIn helped me get this job helped me get this job ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 2,
+    "rank": 101
+  },
+  {
+    "name": "Projects",
+    "person": "Ryan Iley",
+    "type": "Project",
+    "description": "Driver Contractor Dashboard Associated with C.R. England Internal tool for CR England drivers to find runs (truck routes) they want in order to improve driver retention rates.",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Full-Stack Development",
+      "Game AI / Algorithms",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "End-to-end application from UI to server. Algorithmic problem-solving and game theory.",
+    "atsScore": 2,
+    "rank": 102
+  },
+  {
+    "name": "Watering App is a prototype for a rules engine using Drools.",
+    "person": "Ryan Iley",
+    "type": "Project",
+    "description": "It allows developers to fundamentally change logic in the code and apply the changes without restarting the program. ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "API / Microservices"
+    ],
+    "whatItSolves": "Builds service-oriented architecture with clean API boundaries.",
+    "atsScore": 2,
+    "rank": 103
+  },
+  {
+    "name": "Role @ Amazon",
+    "person": "Sarika Singh",
+    "type": "Experience",
+    "description": "May 2025 - Jul 2025 · 3 mos Bellevue, Washington, United States · On-site Research Assistant Georgia Institute of Technology Feb 2025 - Apr 2025 · 3 mos Atlanta, Georgia, United States · On-site Data Modeling for Zurich Insurance Software Engineer",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems",
+      "Search / Recommendation"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 2,
+    "rank": 104
+  },
+  {
+    "name": "Role @ Indian Institute of Technology, Bombay",
+    "person": "Shambhavi S.",
+    "type": "Experience",
+    "description": "Jun 2014 - Aug 2014 · 3 mos Mumbai Metropolitan Region Designed an Eclipse-based debugger for a Virtual Machine by manipulating an assembly code to augment functionalities in a breakpoint under the supervision of Professor Amitabha Sanyal. ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 2,
+    "rank": 105
+  },
+  {
+    "name": "Designing an Operating System in 3 stages:",
+    "person": "Shambhavi S.",
+    "type": "Project",
+    "description": "Kernel 1: Process and thread creation, management of thread lifecycle, mutex locks for thread safety,",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 2,
+    "rank": 106
+  },
+  {
+    "name": "Role @ Rewriting the Code",
+    "person": "Valentina B.",
+    "type": "Experience",
+    "description": "Jun 2020 - Jun 2021 · 1 yr 1 mo Student Assistant College of Computing at Georgia Tech Sep 2018 - Apr 2021 · 2 yrs 8 mos Software Engineer Intern",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 2,
+    "rank": 107
+  },
+  {
+    "name": "Role @ IBM",
+    "person": "Xun Xue",
+    "type": "Experience",
+    "description": "Apr 2018 - Dec 2019 · 1 yr 9 mos San Francisco Bay Area Software Engineer Internship Sizung Jun 2017 - Aug 2017 · 3 mos Greater New york city Area ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 2,
+    "rank": 108
+  },
+  {
+    "name": "Role @ United States Space Force",
+    "person": "Albert Yeh",
+    "type": "Experience",
+    "description": "Dec 2019 - Jan 2023 · 3 yrs 2 mos Los Angeles, California, United States Software Engineer",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 109
+  },
+  {
+    "name": "Role @ Air Force Materiel Command",
+    "person": "Albert Yeh",
+    "type": "Experience",
+    "description": "Oct 2009 - Oct 2012 · 3 yrs 1 mo Edwards, California, United States ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 110
+  },
+  {
+    "name": "Role @ JPMorgan Chase & Co.",
+    "person": "David Castro",
+    "type": "Experience",
+    "description": "Jun 2023 - Aug 2023 · 3 mos New York, New York, United States · On-site ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 111
+  },
+  {
+    "name": "All In Stock: A MERN stock trading application",
+    "person": "Yachen (Carl) Yin",
+    "type": "Project",
+    "description": "Associated with 美国东北大学",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 112
+  },
+  {
+    "name": "Role @ Amazon",
+    "person": "Yicheng Zhang",
+    "type": "Experience",
+    "description": "May 2023 - Aug 2023 · 4 mos Sunnyvale, California, United States · On-site Alexa device CV ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 113
+  },
+  {
+    "name": "Role @ Kuaishou Technology",
+    "person": "Yiling Y.",
+    "type": "Experience",
+    "description": "Nov 2022 - Jan 2023 · 3 mos Beijing, China ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 114
+  },
+  {
+    "name": "Projects",
+    "person": "Carlos K.",
+    "type": "Project",
+    "description": "Google Chrome Associated with Google",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 115
+  },
+  {
+    "name": "Role @ 谷歌",
+    "person": "Jennifer Joe",
+    "type": "Experience",
+    "description": "Mar 2018 - Present · 8 yrs 1 mo ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 116
+  },
+  {
+    "name": "Role @ Google DeepMind",
+    "person": "Mayank Dandwani",
+    "type": "Experience",
+    "description": "Oct 2025 - Present · 6 mos Google",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 117
+  },
+  {
+    "name": "Created an intuitive graphical user interface to implement the product, simplifying the connection.",
+    "person": "Melissa Kohl",
+    "type": "Project",
+    "description": "Presented our project to company leadership to provoke further investment. +4 ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 118
+  },
+  {
+    "name": "Projects",
+    "person": "Miguel Antochiw 🍿",
+    "type": "Project",
+    "description": "Outlook.com Associated with Microsoft",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 119
+  },
+  {
+    "name": "Proud developer of the sexiest, simplest and most elegante web-based e-mail out there.",
+    "person": "Miguel Antochiw 🍿",
+    "type": "Project",
+    "description": "Outlook.com Calendar Associated with Microsoft",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems",
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 120
+  },
+  {
+    "name": "Role @ Northeastern University",
+    "person": "Mihir Manek",
+    "type": "Experience",
+    "description": "Jan 2022 - May 2022 · 5 mos Boston, Massachusetts, United States ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 121
+  },
+  {
+    "name": "Role @ Amazon",
+    "person": "Muskan Thakur",
+    "type": "Experience",
+    "description": "Aug 2023 - Dec 2023 · 5 mos Bengaluru, Karnataka, India · On-site Software Engineer Intern",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 122
+  },
+  {
+    "name": "Role @ Databricks",
+    "person": "Rahul .",
+    "type": "Experience",
+    "description": "Sep 2024 - Present · 1 yr 7 mos Bengaluru, Karnataka, India Google",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 123
+  },
+  {
+    "name": "Role @ Directi",
+    "person": "Rahul .",
+    "type": "Experience",
+    "description": "Jan 2022 - Jul 2022 · 7 mos Summer Analyst",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 124
+  },
+  {
+    "name": "Role @ Goldman Sachs",
+    "person": "Rahul .",
+    "type": "Experience",
+    "description": "May 2021 - Jul 2021 · 3 mos ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 125
+  },
+  {
+    "name": "Role @ Walter Reed Army Institute of Research",
+    "person": "Rhiannan Wackes",
+    "type": "Experience",
+    "description": "Jul 2017 - Aug 2017 · 2 mos Walter Reed Army Institute of Research ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems",
+      "Search / Recommendation"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 126
+  },
+  {
+    "name": "Drools Watering App",
+    "person": "Ryan Iley",
+    "type": "Project",
+    "description": "Associated with AtTask, Inc.",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 127
+  },
+  {
+    "name": "Projects",
+    "person": "Shambhavi S.",
+    "type": "Project",
+    "description": "Weenix Operating System Associated with University of Southern California",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Testing / CI-CD"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 128
+  },
+  {
+    "name": "context switching and scheduler functionality.",
+    "person": "Shambhavi S.",
+    "type": "Project",
+    "description": "Kernel 2: Implementation of Virtual file system, management of inodes, and their reference counts.",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 129
+  },
+  {
+    "name": "Kernel 3: Implementation of Virtual Memory, managing Page Faults, v-nodes, shadow, and",
+    "person": "Shambhavi S.",
+    "type": "Project",
+    "description": "anonymous objects. Performing kernel read and write operations.",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 130
+  },
+  {
+    "name": "Role @ Apple",
+    "person": "Valentina B.",
+    "type": "Experience",
+    "description": "May 2021 - Aug 2021 · 4 mos RTC Fellow",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 131
+  },
+  {
+    "name": "Role @ Salesforce",
+    "person": "Valentina B.",
+    "type": "Experience",
+    "description": "May 2020 - Aug 2020 · 4 mos ---",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 132
+  },
+  {
+    "name": "Role @ Verily",
+    "person": "Xun Xue",
+    "type": "Experience",
+    "description": "Oct 2020 - Jan 2021 · 4 mos Pudong, Shanghai, China Software Engineer",
+    "techStack": [],
+    "techCount": 0,
+    "concepts": [
+      "Operating Systems"
+    ],
+    "whatItSolves": "General software engineering project.",
+    "atsScore": 0,
+    "rank": 133
+  }
+]

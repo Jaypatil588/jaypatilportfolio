@@ -1,0 +1,904 @@
+{
+  "techKeywords": [
+    {
+      "rank": 1,
+      "keyword": "java",
+      "count": 25,
+      "atsWeight": 5
+    },
+    {
+      "rank": 2,
+      "keyword": "api",
+      "count": 16,
+      "atsWeight": 2
+    },
+    {
+      "rank": 3,
+      "keyword": "python",
+      "count": 16,
+      "atsWeight": 5
+    },
+    {
+      "rank": 4,
+      "keyword": "javascript",
+      "count": 11,
+      "atsWeight": 3
+    },
+    {
+      "rank": 5,
+      "keyword": "aws",
+      "count": 8,
+      "atsWeight": 3
+    },
+    {
+      "rank": 6,
+      "keyword": "react",
+      "count": 7,
+      "atsWeight": 2
+    },
+    {
+      "rank": 7,
+      "keyword": "c++",
+      "count": 7,
+      "atsWeight": 5
+    },
+    {
+      "rank": 8,
+      "keyword": "rest api",
+      "count": 6,
+      "atsWeight": 3
+    },
+    {
+      "rank": 9,
+      "keyword": "scala",
+      "count": 6,
+      "atsWeight": 2
+    },
+    {
+      "rank": 10,
+      "keyword": "html",
+      "count": 6,
+      "atsWeight": 1
+    },
+    {
+      "rank": 11,
+      "keyword": "rest apis",
+      "count": 5,
+      "atsWeight": 3
+    },
+    {
+      "rank": 12,
+      "keyword": "spring",
+      "count": 5,
+      "atsWeight": 3
+    },
+    {
+      "rank": 13,
+      "keyword": "algorithms",
+      "count": 5,
+      "atsWeight": 6
+    },
+    {
+      "rank": 14,
+      "keyword": "android",
+      "count": 5,
+      "atsWeight": 3
+    },
+    {
+      "rank": 15,
+      "keyword": "php",
+      "count": 4,
+      "atsWeight": 0
+    },
+    {
+      "rank": 16,
+      "keyword": "css",
+      "count": 4,
+      "atsWeight": 1
+    },
+    {
+      "rank": 17,
+      "keyword": "linux",
+      "count": 4,
+      "atsWeight": 3
+    },
+    {
+      "rank": 18,
+      "keyword": "mongodb",
+      "count": 4,
+      "atsWeight": 2
+    },
+    {
+      "rank": 19,
+      "keyword": "data structures",
+      "count": 3,
+      "atsWeight": 6
+    },
+    {
+      "rank": 20,
+      "keyword": "postgresql",
+      "count": 3,
+      "atsWeight": 3
+    },
+    {
+      "rank": 21,
+      "keyword": "ci/cd",
+      "count": 3,
+      "atsWeight": 3
+    },
+    {
+      "rank": 22,
+      "keyword": "docker",
+      "count": 3,
+      "atsWeight": 4
+    },
+    {
+      "rank": 23,
+      "keyword": "vue.js",
+      "count": 3,
+      "atsWeight": 0
+    },
+    {
+      "rank": 24,
+      "keyword": "ios",
+      "count": 3,
+      "atsWeight": 2
+    },
+    {
+      "rank": 25,
+      "keyword": "flask",
+      "count": 3,
+      "atsWeight": 2
+    },
+    {
+      "rank": 26,
+      "keyword": "machine learning",
+      "count": 3,
+      "atsWeight": 7
+    },
+    {
+      "rank": 27,
+      "keyword": "react.js",
+      "count": 3,
+      "atsWeight": 0
+    },
+    {
+      "rank": 28,
+      "keyword": "pytorch",
+      "count": 3,
+      "atsWeight": 5
+    },
+    {
+      "rank": 29,
+      "keyword": "express",
+      "count": 3,
+      "atsWeight": 2
+    },
+    {
+      "rank": 30,
+      "keyword": "sql",
+      "count": 3,
+      "atsWeight": 3
+    },
+    {
+      "rank": 31,
+      "keyword": "typescript",
+      "count": 3,
+      "atsWeight": 3
+    },
+    {
+      "rank": 32,
+      "keyword": "node.js",
+      "count": 3,
+      "atsWeight": 2
+    },
+    {
+      "rank": 33,
+      "keyword": "agile",
+      "count": 2,
+      "atsWeight": 0
+    },
+    {
+      "rank": 34,
+      "keyword": "redis",
+      "count": 2,
+      "atsWeight": 3
+    },
+    {
+      "rank": 35,
+      "keyword": "spring boot",
+      "count": 2,
+      "atsWeight": 0
+    },
+    {
+      "rank": 36,
+      "keyword": "kubernetes",
+      "count": 2,
+      "atsWeight": 5
+    },
+    {
+      "rank": 37,
+      "keyword": ".net",
+      "count": 2,
+      "atsWeight": 0
+    },
+    {
+      "rank": 38,
+      "keyword": "graphql",
+      "count": 2,
+      "atsWeight": 3
+    },
+    {
+      "rank": 39,
+      "keyword": "numpy",
+      "count": 2,
+      "atsWeight": 0
+    },
+    {
+      "rank": 40,
+      "keyword": "perl",
+      "count": 2,
+      "atsWeight": 0
+    },
+    {
+      "rank": 41,
+      "keyword": "dynamodb",
+      "count": 2,
+      "atsWeight": 0
+    },
+    {
+      "rank": 42,
+      "keyword": "git",
+      "count": 2,
+      "atsWeight": 0
+    },
+    {
+      "rank": 43,
+      "keyword": "golang",
+      "count": 2,
+      "atsWeight": 4
+    },
+    {
+      "rank": 44,
+      "keyword": "grpc",
+      "count": 2,
+      "atsWeight": 6
+    },
+    {
+      "rank": 45,
+      "keyword": "redux",
+      "count": 2,
+      "atsWeight": 0
+    },
+    {
+      "rank": 46,
+      "keyword": "heroku",
+      "count": 2,
+      "atsWeight": 0
+    },
+    {
+      "rank": 47,
+      "keyword": "microservices",
+      "count": 2,
+      "atsWeight": 5
+    },
+    {
+      "rank": 48,
+      "keyword": "angular",
+      "count": 2,
+      "atsWeight": 2
+    },
+    {
+      "rank": 49,
+      "keyword": "angularjs",
+      "count": 2,
+      "atsWeight": 0
+    },
+    {
+      "rank": 50,
+      "keyword": "google cloud",
+      "count": 2,
+      "atsWeight": 5
+    },
+    {
+      "rank": 51,
+      "keyword": "operating systems",
+      "count": 2,
+      "atsWeight": 4
+    },
+    {
+      "rank": 52,
+      "keyword": "aes",
+      "count": 2,
+      "atsWeight": 0
+    },
+    {
+      "rank": 53,
+      "keyword": "nodejs",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 54,
+      "keyword": "scrum",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 55,
+      "keyword": "spark",
+      "count": 1,
+      "atsWeight": 4
+    },
+    {
+      "rank": 56,
+      "keyword": "matlab",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 57,
+      "keyword": "pandas",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 58,
+      "keyword": "ruby",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 59,
+      "keyword": "kafka",
+      "count": 1,
+      "atsWeight": 4
+    },
+    {
+      "rank": 60,
+      "keyword": "oauth",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 61,
+      "keyword": "sqlite",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 62,
+      "keyword": "bash",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 63,
+      "keyword": "nosql",
+      "count": 1,
+      "atsWeight": 3
+    },
+    {
+      "rank": 64,
+      "keyword": "computer vision",
+      "count": 1,
+      "atsWeight": 5
+    },
+    {
+      "rank": 65,
+      "keyword": "opencv",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 66,
+      "keyword": "reactjs",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 67,
+      "keyword": "transformers",
+      "count": 1,
+      "atsWeight": 6
+    },
+    {
+      "rank": 68,
+      "keyword": "deep learning",
+      "count": 1,
+      "atsWeight": 6
+    },
+    {
+      "rank": 69,
+      "keyword": "bert",
+      "count": 1,
+      "atsWeight": 6
+    },
+    {
+      "rank": 70,
+      "keyword": "terraform",
+      "count": 1,
+      "atsWeight": 3
+    },
+    {
+      "rank": 71,
+      "keyword": "github actions",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 72,
+      "keyword": "jira",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 73,
+      "keyword": "mysql",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 74,
+      "keyword": "distributed systems",
+      "count": 1,
+      "atsWeight": 8
+    },
+    {
+      "rank": 75,
+      "keyword": "encryption",
+      "count": 1,
+      "atsWeight": 3
+    },
+    {
+      "rank": 76,
+      "keyword": "bootstrap",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 77,
+      "keyword": "css3",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 78,
+      "keyword": "html5",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 79,
+      "keyword": "jquery",
+      "count": 1,
+      "atsWeight": 0
+    },
+    {
+      "rank": 80,
+      "keyword": "django",
+      "count": 1,
+      "atsWeight": 2
+    },
+    {
+      "rank": 81,
+      "keyword": "react native",
+      "count": 1,
+      "atsWeight": 2
+    }
+  ],
+  "concepts": [
+    {
+      "rank": 1,
+      "concept": "Operating Systems",
+      "count": 98
+    },
+    {
+      "rank": 2,
+      "concept": "Testing / CI-CD",
+      "count": 70
+    },
+    {
+      "rank": 3,
+      "concept": "Cloud / DevOps",
+      "count": 28
+    },
+    {
+      "rank": 4,
+      "concept": "API / Microservices",
+      "count": 27
+    },
+    {
+      "rank": 5,
+      "concept": "Database Systems",
+      "count": 26
+    },
+    {
+      "rank": 6,
+      "concept": "Full-Stack Development",
+      "count": 25
+    },
+    {
+      "rank": 7,
+      "concept": "Performance Optimization",
+      "count": 21
+    },
+    {
+      "rank": 8,
+      "concept": "Search / Recommendation",
+      "count": 21
+    },
+    {
+      "rank": 9,
+      "concept": "Game AI / Algorithms",
+      "count": 18
+    },
+    {
+      "rank": 10,
+      "concept": "Compilers / Language Design",
+      "count": 16
+    },
+    {
+      "rank": 11,
+      "concept": "Automation / Scraping",
+      "count": 14
+    },
+    {
+      "rank": 12,
+      "concept": "Networking",
+      "count": 12
+    },
+    {
+      "rank": 13,
+      "concept": "Real-time Systems",
+      "count": 10
+    },
+    {
+      "rank": 14,
+      "concept": "Security / Cryptography",
+      "count": 10
+    },
+    {
+      "rank": 15,
+      "concept": "Machine Learning",
+      "count": 10
+    },
+    {
+      "rank": 16,
+      "concept": "Distributed Systems",
+      "count": 9
+    },
+    {
+      "rank": 17,
+      "concept": "Mobile Development",
+      "count": 9
+    },
+    {
+      "rank": 18,
+      "concept": "Data Engineering",
+      "count": 9
+    },
+    {
+      "rank": 19,
+      "concept": "Computer Vision",
+      "count": 8
+    }
+  ],
+  "companies": [
+    {
+      "rank": 1,
+      "company": "Amazon",
+      "count": 6
+    },
+    {
+      "rank": 2,
+      "company": "Salesforce",
+      "count": 3
+    },
+    {
+      "rank": 3,
+      "company": "Intel Corporation",
+      "count": 2
+    },
+    {
+      "rank": 4,
+      "company": "Carnegie Mellon University",
+      "count": 2
+    },
+    {
+      "rank": 5,
+      "company": "Amazon Web Services (AWS)",
+      "count": 2
+    },
+    {
+      "rank": 6,
+      "company": "Apple",
+      "count": 2
+    },
+    {
+      "rank": 7,
+      "company": "United States Space Force",
+      "count": 1
+    },
+    {
+      "rank": 8,
+      "company": "Air Force Materiel Command",
+      "count": 1
+    },
+    {
+      "rank": 9,
+      "company": "ByteDance",
+      "count": 1
+    },
+    {
+      "rank": 10,
+      "company": "TikTok",
+      "count": 1
+    },
+    {
+      "rank": 11,
+      "company": "Sony",
+      "count": 1
+    },
+    {
+      "rank": 12,
+      "company": "Bloomberg",
+      "count": 1
+    },
+    {
+      "rank": 13,
+      "company": "Columbia Bartending Agency",
+      "count": 1
+    },
+    {
+      "rank": 14,
+      "company": "Columbia University",
+      "count": 1
+    },
+    {
+      "rank": 15,
+      "company": "JPMorgan Chase & Co.",
+      "count": 1
+    },
+    {
+      "rank": 16,
+      "company": "University of Puerto Rico-Mayaguez",
+      "count": 1
+    },
+    {
+      "rank": 17,
+      "company": "Lightning Motorcycles",
+      "count": 1
+    },
+    {
+      "rank": 18,
+      "company": "Carnegie Mellon University School of Computer Science",
+      "count": 1
+    },
+    {
+      "rank": 19,
+      "company": "Kuaishou Technology",
+      "count": 1
+    },
+    {
+      "rank": 20,
+      "company": "Juniper Networks",
+      "count": 1
+    },
+    {
+      "rank": 21,
+      "company": "YouTube",
+      "count": 1
+    },
+    {
+      "rank": 22,
+      "company": "Hawx Services, LLC",
+      "count": 1
+    },
+    {
+      "rank": 23,
+      "company": "Seattle University",
+      "count": 1
+    },
+    {
+      "rank": 24,
+      "company": "Facebook",
+      "count": 1
+    },
+    {
+      "rank": 25,
+      "company": "Microsoft",
+      "count": 1
+    },
+    {
+      "rank": 26,
+      "company": "Ivalua",
+      "count": 1
+    },
+    {
+      "rank": 27,
+      "company": "FlexiVan",
+      "count": 1
+    },
+    {
+      "rank": 28,
+      "company": "X, The Moonshot Factory",
+      "count": 1
+    },
+    {
+      "rank": 29,
+      "company": "LinkedIn",
+      "count": 1
+    },
+    {
+      "rank": 30,
+      "company": "Tesla",
+      "count": 1
+    },
+    {
+      "rank": 31,
+      "company": "Mercedes-Benz Research & Development North America, Inc.",
+      "count": 1
+    },
+    {
+      "rank": 32,
+      "company": "University of Florida",
+      "count": 1
+    },
+    {
+      "rank": 33,
+      "company": "谷歌",
+      "count": 1
+    },
+    {
+      "rank": 34,
+      "company": "Google DeepMind",
+      "count": 1
+    },
+    {
+      "rank": 35,
+      "company": "Fi",
+      "count": 1
+    },
+    {
+      "rank": 36,
+      "company": "Ping Identity",
+      "count": 1
+    },
+    {
+      "rank": 37,
+      "company": "Northrop Grumman",
+      "count": 1
+    },
+    {
+      "rank": 38,
+      "company": "Devetry (part of Dept)",
+      "count": 1
+    },
+    {
+      "rank": 39,
+      "company": "Switchboard",
+      "count": 1
+    },
+    {
+      "rank": 40,
+      "company": "Warner Bros. Discovery",
+      "count": 1
+    },
+    {
+      "rank": 41,
+      "company": "HBO Max",
+      "count": 1
+    },
+    {
+      "rank": 42,
+      "company": "Northeastern University",
+      "count": 1
+    },
+    {
+      "rank": 43,
+      "company": "ServiceNow",
+      "count": 1
+    },
+    {
+      "rank": 44,
+      "company": "QuikDox",
+      "count": 1
+    },
+    {
+      "rank": 45,
+      "company": "BlueVector AI",
+      "count": 1
+    },
+    {
+      "rank": 46,
+      "company": "Jadavpur University",
+      "count": 1
+    },
+    {
+      "rank": 47,
+      "company": "Databricks",
+      "count": 1
+    },
+    {
+      "rank": 48,
+      "company": "Directi",
+      "count": 1
+    },
+    {
+      "rank": 49,
+      "company": "Goldman Sachs",
+      "count": 1
+    },
+    {
+      "rank": 50,
+      "company": "Walter Reed Army Institute of Research",
+      "count": 1
+    },
+    {
+      "rank": 51,
+      "company": "Tripadvisor",
+      "count": 1
+    },
+    {
+      "rank": 52,
+      "company": "Netflix",
+      "count": 1
+    },
+    {
+      "rank": 53,
+      "company": "Samsung Electronics",
+      "count": 1
+    },
+    {
+      "rank": 54,
+      "company": "Indian Institute of Technology, Bombay",
+      "count": 1
+    },
+    {
+      "rank": 55,
+      "company": "Bloomberg LP",
+      "count": 1
+    },
+    {
+      "rank": 56,
+      "company": "Tata Consultancy Services",
+      "count": 1
+    },
+    {
+      "rank": 57,
+      "company": "Heritage Institute of Technology",
+      "count": 1
+    },
+    {
+      "rank": 58,
+      "company": "FactSet",
+      "count": 1
+    },
+    {
+      "rank": 59,
+      "company": "National Science Foundation (NSF)",
+      "count": 1
+    },
+    {
+      "rank": 60,
+      "company": "Rewriting the Code",
+      "count": 1
+    },
+    {
+      "rank": 61,
+      "company": "University of Michigan College of Engineering",
+      "count": 1
+    },
+    {
+      "rank": 62,
+      "company": "Verily",
+      "count": 1
+    },
+    {
+      "rank": 63,
+      "company": "IBM",
+      "count": 1
+    }
+  ]
+}
