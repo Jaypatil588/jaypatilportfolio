@@ -18,7 +18,7 @@ export function HeroSection() {
         <div className="w-full h-full">
           <div className="grid lg:grid-cols-2 gap-0 items-stretch min-h-[calc(100vh-6rem)]">
             <motion.div
-              className="flex flex-col justify-center space-y-8 px-6 md:px-12 lg:px-16 xl:px-20 py-10 lg:py-16"
+              className="flex flex-col items-start text-left justify-center space-y-8 px-6 md:px-12 lg:px-16 xl:px-20 py-10 lg:py-16"
               initial={{ opacity: 0, x: -45 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
