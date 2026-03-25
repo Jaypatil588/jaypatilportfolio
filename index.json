@@ -18,5 +18,29 @@
     ],
     "file": "./resumes/test_001_adam_bender.md",
     "featuredResume": false
+  },
+  {
+    "name": "Konstantin Lopyrev",
+    "url": "https://www.linkedin.com/in/klopyrev",
+    "keywords": [
+      "machine learning",
+      "algorithms",
+      "distributed systems"
+    ],
+    "file": "./resumes/batch_konstantin_lopyrev.md",
+    "timestamp": "2026-03-25T01:58:43.147Z"
+  },
+  {
+    "name": "Jacob D.",
+    "url": "https://www.linkedin.com/in/jacobedowney",
+    "keywords": [
+      "java",
+      "python",
+      "c++",
+      "docker",
+      "sql"
+    ],
+    "file": "./resumes/batch_jacob_d_.md",
+    "timestamp": "2026-03-25T01:59:20.103Z"
   }
 ]

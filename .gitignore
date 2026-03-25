@@ -23,3 +23,5 @@ pnpm-debug.log*
 # local data
 # resumes/ excluded previously but re-enabled for tracking
 
+
+resumes/
