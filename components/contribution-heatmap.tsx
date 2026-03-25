@@ -26,7 +26,7 @@ function styleForCell(githubLevel: number, leetcodeLevel: number) {
   const leetcodeShades = ['#8a6a18', '#c89b1f', '#efc62e', '#ffe27a']
 
   if (githubLevel === 0 && leetcodeLevel === 0) {
-    return { className: 'border-[#2e2e2e] bg-[#3d3d3d]', style: undefined as CSSProperties | undefined }
+    return { className: 'border-[#1f3550] bg-[#122033]', style: undefined as CSSProperties | undefined }
   }
 
   // GitHub priority on overlap days
@@ -116,7 +116,7 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
   }, [days])
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-[#1f1f1f] px-4 py-3 shadow-xl">
+    <div className="rounded-2xl border border-[#1f3550] bg-[#0b1423] px-4 py-3 shadow-xl">
       <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
         <div>
           <p className="text-zinc-100 text-3xl font-bold leading-none">
@@ -129,7 +129,7 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
         <div className="flex items-center gap-4 text-sm text-zinc-300">
           <span>Total active days: {stats.activeDays}</span>
           <span>Max streak: {stats.maxStreak}</span>
-          <span className="rounded-md bg-zinc-700/80 px-3 py-1 text-zinc-200">Current</span>
+          <span className="rounded-md bg-[#1a2a3f] px-3 py-1 text-zinc-200">Current</span>
         </div>
       </div>
 
@@ -166,7 +166,7 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
         ))}
       </div>
 
-      <div className="mt-3 rounded-md border border-zinc-700 bg-zinc-900/60 px-3 py-2 text-xs text-zinc-300 min-h-[34px] flex items-center justify-between gap-3">
+      <div className="mt-3 rounded-md border border-[#1f3550] bg-[#0e1b2f]/80 px-3 py-2 text-xs text-zinc-300 min-h-[34px] flex items-center justify-between gap-3">
         {hovered ? (
           <>
             <span>{hovered.date}</span>
