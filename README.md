@@ -22,8 +22,4 @@ GITHUB_USERNAME=Jaypatil588
 # Optional, helps with GitHub API rate limits for showcase widgets
 GITHUB_TOKEN=
 LEETCODE_USERNAME=jaypatil588
-RESEND_API_KEY=
-# Optional (defaults shown)
-CONTACT_TO_EMAIL=jaypatilsde@gmail.com
-CONTACT_FROM_EMAIL="Portfolio <onboarding@resend.dev>"
 ```

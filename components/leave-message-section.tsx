@@ -4,7 +4,7 @@ import { FormEvent, useState } from 'react'
 import { portfolioData } from '@/lib/portfolio-data'
 
 export function LeaveMessageSection() {
-  const [from, setFrom] = useState('')
+  const [name, setName] = useState('')
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState(
     'Dear Jay,\n\nI came across your portfolio and wanted to connect.\n\nRegards,\n'
@@ -18,23 +18,25 @@ export function LeaveMessageSection() {
     setStatusText('')
 
     try {
-      const response = await fetch('/api/message', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ from, subject, message }),
-      })
+      const composedBody = [
+        name ? `From: ${name}` : 'From: Not provided',
+        '',
+        message,
+      ].join('\n')
 
-      const payload = await response.json()
-      if (!response.ok) throw new Error(payload.error || 'Failed to send')
+      const mailto = `mailto:${encodeURIComponent(portfolioData.email)}?subject=${encodeURIComponent(
+        subject
+      )}&body=${encodeURIComponent(composedBody)}`
 
+      window.location.href = mailto
       setStatus('sent')
-      setStatusText('Message sent successfully.')
-      setFrom('')
+      setStatusText('Opened your email client. Please click Send there.')
+      setName('')
       setSubject('')
       setMessage('Dear Jay,\n\nI came across your portfolio and wanted to connect.\n\nRegards,\n')
     } catch (error) {
       setStatus('error')
-      setStatusText(error instanceof Error ? error.message : 'Failed to send message.')
+      setStatusText(error instanceof Error ? error.message : 'Could not open your email client.')
     }
   }
 
@@ -54,14 +56,14 @@ export function LeaveMessageSection() {
                 <p className="text-sm text-foreground">{portfolioData.name} &lt;{portfolioData.email}&gt;</p>
               </div>
               <div className="rounded-xl border border-border/60 bg-background/50 px-4 py-3">
-                <label htmlFor="from" className="text-xs text-muted-foreground block mb-1">
-                  From (optional)
+                <label htmlFor="name" className="text-xs text-muted-foreground block mb-1">
+                  Name (optional)
                 </label>
                 <input
-                  id="from"
-                  value={from}
-                  onChange={(e) => setFrom(e.target.value)}
-                  placeholder="your@email.com"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Your name"
                   className="w-full bg-transparent text-sm text-foreground outline-none"
                 />
               </div>
