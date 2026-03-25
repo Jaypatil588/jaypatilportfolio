@@ -1,6 +1,7 @@
 'use client'
 
 import { Github, Linkedin, Mail, MapPin, FileText, Download, Sparkles } from 'lucide-react'
+import Image from 'next/image'
 import { portfolioData } from '@/lib/portfolio-data'
 import { RagChat } from './rag-chat'
 import { motion } from 'framer-motion'
@@ -31,6 +32,22 @@ export function HeroSection() {
                 >
                   <Sparkles className="w-4 h-4" />
                   {portfolioData.title}
+                </motion.div>
+
+                <motion.div
+                  className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20"
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <Image
+                    src="/mugshot.png"
+                    alt="Jay Patil profile photo"
+                    width={192}
+                    height={192}
+                    className="w-full h-full object-cover"
+                    priority
+                  />
                 </motion.div>
 
                 <motion.h1
