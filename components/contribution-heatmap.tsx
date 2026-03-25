@@ -97,7 +97,21 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
       monthCursor = new Date(monthCursor.getFullYear(), monthCursor.getMonth() + 1, 1)
     }
 
-    return labels
+    const minLabelGapWeeks = 2
+    const result: Array<{ month: string; week: number }> = []
+    let lastPlacedWeek = -9999
+
+    for (let i = 0; i < labels.length; i += 1) {
+      // Skip the first partial month label if the range starts late in the month.
+      if (i === 0 && firstDate.getDate() > 7) continue
+
+      if (labels[i].week - lastPlacedWeek < minLabelGapWeeks) continue
+
+      result.push(labels[i])
+      lastPlacedWeek = labels[i].week
+    }
+
+    return result
   }, [days, weeks])
 
   const monthStartWeeks = useMemo(() => {
