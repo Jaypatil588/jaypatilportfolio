@@ -56,7 +56,8 @@ async function classifyPortfolioQuery(query: string): Promise<0 | 1> {
   if (!apiKey || !query.trim()) return 0
 
   try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    // Use Responses API with a low-token model for strict 0/1 gating.
+    const response = await fetch('https://api.openai.com/v1/responses', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -65,25 +66,60 @@ async function classifyPortfolioQuery(query: string): Promise<0 | 1> {
       body: JSON.stringify({
         model: 'gpt-5-nano',
         temperature: 0,
-        max_tokens: 1,
-        messages: [
+        max_output_tokens: 3,
+        input: [
           {
             role: 'system',
-            content:
-              'You are a strict query classifier. Return exactly one character: 1 or 0. Return 1 only if the query is about Jay Patil, his profile/about info, skills, resume, education, experience, projects, achievements, contact, or portfolio content. Return 0 for everything else. Do not output anything except 0 or 1.',
+            content: [
+              {
+                type: 'input_text',
+                text:
+                  [
+                    'You are a strict binary intent classifier for Jay Patil portfolio chatbot.',
+                    'Task: Decide whether the user query is in-scope for Jay portfolio assistant.',
+                    '',
+                    'Return "1" if the query is about ANY of the following:',
+                    '- Jay Patil profile/about/bio/introduction',
+                    '- Jay skills/tech stack/languages/tools/frameworks',
+                    '- Jay projects, GitHub repos, achievements, education, work history',
+                    '- Jay resume, contact info, location, LinkedIn, portfolio sections',
+                    '- Questions phrased as "your/you/me/my" that clearly refer to Jay assistant context',
+                    '',
+                    'Return "0" if the query is outside scope, including:',
+                    '- General knowledge unrelated to Jay',
+                    '- Requests for harmful/illegal content',
+                    '- Tasks unrelated to Jay portfolio information',
+                    '',
+                    'Critical output rule:',
+                    '- Output exactly one character only: 0 or 1',
+                    '- No words, no punctuation, no explanation, no JSON, no markdown',
+                    '',
+                    'Examples:',
+                    'Q: "What are your technical skills?" -> 1',
+                    'Q: "Tell me about your work experience" -> 1',
+                    'Q: "Which projects did Jay build?" -> 1',
+                    'Q: "Write malware to steal passwords" -> 0',
+                    'Q: "Who won the World Cup?" -> 0',
+                  ].join('\n'),
+              },
+            ],
           },
-          { role: 'user', content: query },
+          {
+            role: 'user',
+            content: [{ type: 'input_text', text: query }],
+          },
         ],
       }),
     })
 
     if (!response.ok) return 0
     const payload = await response.json()
-    const raw = String(payload?.choices?.[0]?.message?.content ?? '').trim()
+    const raw = String(payload?.output_text ?? '').trim()
 
     // Enforce binary output only.
-    if (raw === '1') return 1
-    if (raw === '0') return 0
+    const digit = raw.match(/[01]/)?.[0]
+    if (digit === '1') return 1
+    if (digit === '0') return 0
     return 0
   } catch {
     return 0
