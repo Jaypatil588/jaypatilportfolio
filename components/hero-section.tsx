@@ -17,11 +17,11 @@ export function HeroSection() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float animation-delay-300" />
       </div>
 
-      <div className="min-h-screen pt-28 pb-10 px-4 relative z-10">
-        <div className="max-w-7xl mx-auto h-full">
-          <div className="grid lg:grid-cols-12 gap-8 xl:gap-10 items-stretch min-h-[calc(100vh-10rem)]">
+      <div className="min-h-screen pt-24 pb-0 px-0 relative z-10">
+        <div className="w-full h-full">
+          <div className="grid lg:grid-cols-2 gap-0 items-stretch min-h-[calc(100vh-6rem)]">
             <motion.div
-              className="lg:col-span-5 flex flex-col justify-center space-y-8"
+              className="flex flex-col justify-center space-y-8 px-6 md:px-12 lg:px-16 xl:px-20 py-10 lg:py-16"
               initial={{ opacity: 0, x: -45 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -136,12 +136,12 @@ export function HeroSection() {
             </motion.div>
 
             <motion.div
-              className="lg:col-span-7 relative"
+              className="relative min-h-[58vh] lg:min-h-[calc(100vh-6rem)]"
               initial={{ opacity: 0, x: 45 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.75, ease: 'easeOut', delay: 0.2 }}
             >
-              <CursorSpotlight className="relative h-full rounded-3xl">
+              <CursorSpotlight className="relative h-full rounded-none">
                 <motion.div
                   className="h-full"
                   style={{
@@ -161,7 +161,10 @@ export function HeroSection() {
                     cardY.set(0)
                   }}
                 >
-                  <RagChat className="h-full" heightClass="h-[62vh] min-h-[560px] lg:h-[calc(100vh-13rem)] lg:min-h-[620px] lg:max-h-[760px]" />
+                  <RagChat
+                    className="h-full lg:rounded-none lg:border-l lg:border-r-0"
+                    heightClass="h-[58vh] min-h-[520px] lg:h-[calc(100vh-6rem)] lg:min-h-[calc(100vh-6rem)] lg:max-h-none"
+                  />
                 </motion.div>
               </CursorSpotlight>
             </motion.div>
