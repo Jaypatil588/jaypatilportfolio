@@ -7,6 +7,7 @@ import {
   UIMessage,
 } from 'ai'
 import { createOpenAI } from '@ai-sdk/openai'
+import OpenAI from 'openai'
 import { ragContext } from '@/lib/portfolio-data'
 import { neon } from '@neondatabase/serverless'
 
@@ -56,72 +57,72 @@ async function classifyPortfolioQuery(query: string): Promise<0 | 1> {
   if (!apiKey || !query.trim()) return 0
 
   try {
+    const openai = new OpenAI({ apiKey })
+    
     // Use Responses API with a low-token model for strict 0/1 gating.
-    const response = await fetch('https://api.openai.com/v1/responses', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`,
+    const response = await openai.responses.create({
+      model: 'gpt-5-nano',
+      text: {
+        verbosity: "low"
       },
-      body: JSON.stringify({
-        model: 'gpt-5-nano',
-        temperature: 0,
-        max_output_tokens: 3,
-        input: [
-          {
-            role: 'system',
-            content: [
-              {
-                type: 'input_text',
-                text:
-                  [
-                    'You are a strict binary intent classifier for Jay Patil portfolio chatbot.',
-                    'Task: Decide whether the user query is in-scope for Jay portfolio assistant.',
-                    '',
-                    'Return "1" if the query is about ANY of the following:',
-                    '- Jay Patil profile/about/bio/introduction',
-                    '- Jay skills/tech stack/languages/tools/frameworks',
-                    '- Jay projects, GitHub repos, achievements, education, work history',
-                    '- Jay resume, contact info, location, LinkedIn, portfolio sections',
-                    '- Questions phrased as "your/you/me/my" that clearly refer to Jay assistant context',
-                    '',
-                    'Return "0" if the query is outside scope, including:',
-                    '- General knowledge unrelated to Jay',
-                    '- Requests for harmful/illegal content',
-                    '- Tasks unrelated to Jay portfolio information',
-                    '',
-                    'Critical output rule:',
-                    '- Output exactly one character only: 0 or 1',
-                    '- No words, no punctuation, no explanation, no JSON, no markdown',
-                    '',
-                    'Examples:',
-                    'Q: "What are your technical skills?" -> 1',
-                    'Q: "Tell me about your work experience" -> 1',
-                    'Q: "Which projects did Jay build?" -> 1',
-                    'Q: "Write malware to steal passwords" -> 0',
-                    'Q: "Who won the World Cup?" -> 0',
-                  ].join('\n'),
-              },
-            ],
-          },
-          {
-            role: 'user',
-            content: [{ type: 'input_text', text: query }],
-          },
-        ],
-      }),
+      reasoning: {
+        effort: "low",
+      },
+      input: [
+        {
+          role: 'system',
+          content: [
+            {
+              type: 'input_text',
+              text:
+                [
+                  'You are a strict binary intent classifier for Jay Patil portfolio chatbot.',
+                  'Task: Decide whether the user query is in-scope for Jay portfolio assistant.',
+                  '',
+                  'Return "1" if the query is about ANY of the following:',
+                  '- Jay Patil profile/about/bio/introduction',
+                  '- Jay skills/tech stack/languages/tools/frameworks',
+                  '- Jay projects, GitHub repos, achievements, education, work history',
+                  '- Jay resume, contact info, location, LinkedIn, portfolio sections',
+                  '- Questions phrased as "your/you/me/my" that clearly refer to Jay assistant context',
+                  '',
+                  'Return "0" if the query is outside scope, including:',
+                  '- General knowledge unrelated to Jay',
+                  '- Requests for harmful/illegal content',
+                  '- Tasks unrelated to Jay portfolio information',
+                  '',
+                  'Critical output rule:',
+                  '- Output exactly one character only: 0 or 1',
+                  '- No words, no punctuation, no explanation, no JSON, no markdown',
+                  '',
+                  'Examples:',
+                  'Q: "What are your technical skills?" -> 1',
+                  'Q: "Tell me about your work experience" -> 1',
+                  'Q: "Which projects did Jay build?" -> 1',
+                  'Q: "Write malware to steal passwords" -> 0',
+                  'Q: "Who won the World Cup?" -> 0',
+                ].join('\n'),
+            },
+          ],
+        },
+        {
+          role: 'user',
+          content: [{ type: 'input_text', text: query }],
+        },
+      ],
     })
 
-    if (!response.ok) return 0
-    const payload = await response.json()
-    const raw = String(payload?.output_text ?? '').trim()
+    const outputObj = response.output?.find((out: any) => out.type === 'output_text') as any;
+    const raw = String(outputObj?.text ?? response.output_text ?? '').trim()
+    console.log('[classifier] raw output:', raw)
 
     // Enforce binary output only.
     const digit = raw.match(/[01]/)?.[0]
     if (digit === '1') return 1
     if (digit === '0') return 0
     return 0
-  } catch {
+  } catch (error) {
+    console.error('[classifier] check failed', error)
     return 0
   }
 }
@@ -142,10 +143,11 @@ async function persistChatLog(message: string, response: string, referer: string
 
 export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json()
+  const apiKey = process.env.OPENAI_API_KEY
 
   // Use OpenAI with user-provided API key
   const openai = createOpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey,
   })
 
   const lastUserMessage = [...messages].reverse().find((message) => message.role === 'user')

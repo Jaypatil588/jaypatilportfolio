@@ -135,13 +135,11 @@ export function RagChat({ fullWidth = false, className, heightClass }: RagChatPr
                       if (part.type === 'text') {
                         if (message.role === 'assistant') {
                           return (
-                            <ReactMarkdown
-                              key={partIndex}
-                              remarkPlugins={[remarkGfm]}
-                              className="prose prose-sm prose-invert max-w-none leading-relaxed"
-                            >
-                              {part.text}
-                            </ReactMarkdown>
+                            <div key={partIndex} className="prose prose-sm prose-invert max-w-none leading-relaxed">
+                              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                {part.text}
+                              </ReactMarkdown>
+                            </div>
                           )
                         }
                         return (
