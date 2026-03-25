@@ -4,6 +4,15 @@ import { neon } from '@neondatabase/serverless'
 import { AdminLinkTools } from '@/components/admin-link-tools'
 import { AdminResetVisits } from '@/components/admin-reset-visits'
 
+function decodeLocationValue(value: string | null | undefined) {
+  if (!value) return ''
+  try {
+    return decodeURIComponent(value.replace(/\+/g, ' ')).trim()
+  } catch {
+    return value.trim()
+  }
+}
+
 export default async function AdminRoute() {
   const cookieStore = await cookies()
   const isAuthed = cookieStore.get('portfolio_admin_auth')?.value === '1'
@@ -256,7 +265,11 @@ export default async function AdminRoute() {
                     <td className="py-2 pr-3 whitespace-nowrap">{new Date(row.timestamp).toLocaleString()}</td>
                     <td className="py-2 pr-3">{row.ref_tag || 'direct'}</td>
                     <td className="py-2 pr-3">{row.device_type || '-'}</td>
-                    <td className="py-2 pr-3">{[row.city, row.region, row.country].filter(Boolean).join(', ') || '-'}</td>
+                    <td className="py-2 pr-3">
+                      {[decodeLocationValue(row.city), decodeLocationValue(row.region), decodeLocationValue(row.country)]
+                        .filter(Boolean)
+                        .join(', ') || '-'}
+                    </td>
                     <td className="py-2 pr-3">{row.time_on_page_seconds ?? 0}s</td>
                     <td className="py-2 pr-3">{row.page_url || '-'}</td>
                     <td className="py-2 pr-3">{row.referer || '-'}</td>

@@ -9,6 +9,15 @@ function detectDeviceType(userAgent: string) {
   return 'desktop'
 }
 
+function normalizeGeoValue(value: string | null) {
+  if (!value) return null
+  try {
+    return decodeURIComponent(value.replace(/\+/g, ' ')).trim()
+  } catch {
+    return value.trim()
+  }
+}
+
 export async function GET(request: Request) {
   try {
     const dbUrl = process.env.DATABASE_URL
@@ -24,9 +33,9 @@ export async function GET(request: Request) {
     const userAgent = request.headers.get('user-agent') || ''
     const forwardedFor = request.headers.get('x-forwarded-for') || ''
     const realIp = forwardedFor.split(',')[0]?.trim() || request.headers.get('x-real-ip') || ''
-    const country = request.headers.get('x-vercel-ip-country')
-    const region = request.headers.get('x-vercel-ip-country-region')
-    const city = request.headers.get('x-vercel-ip-city')
+    const country = normalizeGeoValue(request.headers.get('x-vercel-ip-country'))
+    const region = normalizeGeoValue(request.headers.get('x-vercel-ip-country-region'))
+    const city = normalizeGeoValue(request.headers.get('x-vercel-ip-city'))
 
     const ipHash = realIp
       ? createHash('sha256').update(realIp).digest('hex')

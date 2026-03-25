@@ -7,6 +7,8 @@ import { Send, Bot, User, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 interface RagChatProps {
   fullWidth?: boolean
@@ -131,6 +133,17 @@ export function RagChat({ fullWidth = false, className, heightClass }: RagChatPr
                   >
                     {message.parts.map((part, partIndex) => {
                       if (part.type === 'text') {
+                        if (message.role === 'assistant') {
+                          return (
+                            <ReactMarkdown
+                              key={partIndex}
+                              remarkPlugins={[remarkGfm]}
+                              className="prose prose-sm prose-invert max-w-none leading-relaxed"
+                            >
+                              {part.text}
+                            </ReactMarkdown>
+                          )
+                        }
                         return (
                           <span key={partIndex} className="whitespace-pre-wrap leading-relaxed">
                             {part.text}
