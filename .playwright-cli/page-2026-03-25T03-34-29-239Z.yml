@@ -1,0 +1,853 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e6] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e7]:
+      - img [ref=e8]
+    - generic [ref=e11]:
+      - button "Open issues overlay" [ref=e12]:
+        - generic [ref=e13]:
+          - generic [ref=e14]: "0"
+          - generic [ref=e15]: "1"
+        - generic [ref=e16]: Issue
+      - button "Collapse issues badge" [ref=e17]:
+        - img [ref=e18]
+  - main [ref=e20]:
+    - generic [ref=e22]:
+      - link "Jay ." [ref=e23] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e24]: Jay
+        - generic [ref=e25]: .
+      - navigation [ref=e26]:
+        - link "Home" [ref=e27] [cursor=pointer]:
+          - /url: "#"
+        - link "Skills" [ref=e28] [cursor=pointer]:
+          - /url: "#skills"
+        - link "GitHub" [ref=e29] [cursor=pointer]:
+          - /url: "#projects"
+        - link "Experience" [ref=e30] [cursor=pointer]:
+          - /url: "#experience"
+        - link "Resume" [ref=e31] [cursor=pointer]:
+          - /url: /resume.pdf
+      - link "Get in Touch" [ref=e32] [cursor=pointer]:
+        - /url: mailto:jaypatilsde@gmail.com
+    - generic [ref=e36]:
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - img [ref=e41]
+            - text: Software Engineer
+          - img "Jay Patil profile photo" [ref=e45]
+          - heading "Hi, I'm Jay" [level=1] [ref=e46]
+          - paragraph [ref=e47]: I build scalable cloud-native applications
+        - paragraph [ref=e48]: Software Engineer with 4 years of experience building scalable cloud-native applications, specializing in robust backend infrastructure, full-stack development, and integrating applied AI/ML workflows.
+        - generic [ref=e49]:
+          - img [ref=e50]
+          - generic [ref=e53]: Santa Clara, CA
+        - generic [ref=e54]:
+          - link "GitHub" [ref=e55] [cursor=pointer]:
+            - /url: https://github.com/Jaypatil588
+            - img [ref=e56]
+            - generic [ref=e59]: GitHub
+          - link "LinkedIn" [ref=e60] [cursor=pointer]:
+            - /url: https://linkedin.com/in/jaypatil588
+            - img [ref=e61]
+            - generic [ref=e65]: LinkedIn
+          - link "Email" [ref=e66] [cursor=pointer]:
+            - /url: mailto:jaypatilsde@gmail.com
+            - img [ref=e67]
+            - generic [ref=e70]: Email
+        - generic [ref=e71]:
+          - link "View Resume" [ref=e72] [cursor=pointer]:
+            - /url: /resume.pdf
+            - img [ref=e73]
+            - text: View Resume
+          - link "Download PDF" [ref=e76] [cursor=pointer]:
+            - /url: /resume.pdf
+            - img [ref=e77]
+            - text: Download PDF
+      - generic [ref=e81]:
+        - generic [ref=e87]:
+          - img [ref=e88]
+          - generic [ref=e90]: jay-portfolio-assistant
+        - generic [ref=e93]:
+          - img [ref=e96]
+          - heading "What would you like to know about me?" [level=3] [ref=e100]
+          - paragraph [ref=e101]: Ask me about Jay's experience, projects, education, or achievements.
+          - generic [ref=e102]:
+            - button "What are Jay's technical skills?" [ref=e103]
+            - button "Tell me about his work experience" [ref=e104]
+            - button "What projects has Jay built?" [ref=e105]
+            - button "What are Jay's achievements?" [ref=e106]
+            - button "Where did Jay study?" [ref=e107]
+        - generic [ref=e109]:
+          - generic [ref=e110]:
+            - img [ref=e111]
+            - textbox "Ask about my experience, skills, projects..." [ref=e114]
+          - button [disabled]:
+            - img
+    - generic [ref=e117]:
+      - generic [ref=e118]:
+        - generic [ref=e119]: Technical Skills
+        - heading "Technologies I Work With" [level=2] [ref=e120]
+        - paragraph [ref=e121]: A comprehensive toolkit built over 4+ years of building production systems
+      - generic [ref=e122]:
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - img [ref=e126]
+            - heading "Languages" [level=3] [ref=e130]
+          - generic [ref=e131]:
+            - generic [ref=e132]: Python
+            - generic [ref=e133]: Java
+            - generic [ref=e134]: C
+            - generic [ref=e135]: C++
+            - generic [ref=e136]: C#
+            - generic [ref=e137]: JavaScript
+            - generic [ref=e138]: TypeScript
+            - generic [ref=e139]: SQL
+            - generic [ref=e140]: NoSQL
+        - generic [ref=e141]:
+          - generic [ref=e142]:
+            - img [ref=e144]
+            - heading "Frameworks & Libraries" [level=3] [ref=e148]
+          - generic [ref=e149]:
+            - generic [ref=e150]: LangChain
+            - generic [ref=e151]: TensorFlow
+            - generic [ref=e152]: React.js
+            - generic [ref=e153]: .NET
+            - generic [ref=e154]: Spring Boot
+            - generic [ref=e155]: Spring Batch
+            - generic [ref=e156]: ASP.NET Core
+        - generic [ref=e157]:
+          - generic [ref=e158]:
+            - img [ref=e160]
+            - heading "Tools & DevOps" [level=3] [ref=e162]
+          - generic [ref=e163]:
+            - generic [ref=e164]: Ansible
+            - generic [ref=e165]: Docker
+            - generic [ref=e166]: Kubernetes
+            - generic [ref=e167]: Terraform
+            - generic [ref=e168]: Jenkins
+            - generic [ref=e169]: Kafka
+        - generic [ref=e170]:
+          - generic [ref=e171]:
+            - img [ref=e173]
+            - heading "Cloud & Databases" [level=3] [ref=e175]
+          - generic [ref=e176]:
+            - generic [ref=e177]: AWS
+            - generic [ref=e178]: Google Cloud Platform (GCP)
+            - generic [ref=e179]: Azure
+            - generic [ref=e180]: Firebase
+            - generic [ref=e181]: CI/CD
+    - generic [ref=e184]:
+      - generic [ref=e185]:
+        - generic [ref=e186]: Combined Activity Showcase
+        - heading "Last 365 Days, Merged Heatmap" [level=2] [ref=e187]
+        - paragraph [ref=e188]: A single unified timeline from the current date, blending GitHub (green) and LeetCode (yellow) activity.
+      - generic [ref=e189]:
+        - generic [ref=e190]:
+          - generic [ref=e191]:
+            - paragraph [ref=e192]: 1,218activities in the past one year
+            - paragraph [ref=e193]: GitHub + LeetCode Activity • 2025-03-26 to 2026-03-25 • GitHub takes priority on overlap days
+          - generic [ref=e194]:
+            - generic [ref=e195]: "Total active days: 176"
+            - generic [ref=e196]: "Max streak: 10"
+            - generic [ref=e197]: Current
+        - generic [ref=e198]:
+          - generic [ref=e199]:
+            - generic [ref=e200]:
+              - button "Apr 1, 2025 - GitHub 0, LeetCode 0" [ref=e203]
+              - button "Apr 2, 2025 - GitHub 0, LeetCode 0" [ref=e204]
+              - button "Apr 3, 2025 - GitHub 0, LeetCode 0" [ref=e205]
+              - button "Apr 4, 2025 - GitHub 0, LeetCode 0" [ref=e206]
+              - button "Apr 5, 2025 - GitHub 0, LeetCode 0" [ref=e207]
+              - button "Apr 6, 2025 - GitHub 0, LeetCode 0" [ref=e208]
+              - button "Apr 7, 2025 - GitHub 0, LeetCode 0" [ref=e209]
+              - button "Apr 8, 2025 - GitHub 0, LeetCode 0" [ref=e210]
+              - button "Apr 9, 2025 - GitHub 0, LeetCode 0" [ref=e211]
+              - button "Apr 10, 2025 - GitHub 0, LeetCode 0" [ref=e212]
+              - button "Apr 11, 2025 - GitHub 0, LeetCode 0" [ref=e213]
+              - button "Apr 12, 2025 - GitHub 0, LeetCode 0" [ref=e214]
+              - button "Apr 13, 2025 - GitHub 0, LeetCode 0" [ref=e215]
+              - button "Apr 14, 2025 - GitHub 0, LeetCode 0" [ref=e216]
+              - button "Apr 15, 2025 - GitHub 0, LeetCode 0" [ref=e217]
+              - button "Apr 16, 2025 - GitHub 0, LeetCode 0" [ref=e218]
+              - button "Apr 17, 2025 - GitHub 0, LeetCode 0" [ref=e219]
+              - button "Apr 18, 2025 - GitHub 0, LeetCode 0" [ref=e220]
+              - button "Apr 19, 2025 - GitHub 0, LeetCode 0" [ref=e221]
+              - button "Apr 20, 2025 - GitHub 0, LeetCode 0" [ref=e222]
+              - button "Apr 21, 2025 - GitHub 0, LeetCode 0" [ref=e223]
+              - button "Apr 22, 2025 - GitHub 0, LeetCode 0" [ref=e224]
+              - button "Apr 23, 2025 - GitHub 0, LeetCode 0" [ref=e225]
+              - button "Apr 24, 2025 - GitHub 0, LeetCode 0" [ref=e226]
+              - button "Apr 25, 2025 - GitHub 0, LeetCode 0" [ref=e227]
+              - button "Apr 26, 2025 - GitHub 6, LeetCode 1" [ref=e228]
+              - button "Apr 27, 2025 - GitHub 1, LeetCode 0" [ref=e229]
+              - button "Apr 28, 2025 - GitHub 0, LeetCode 0" [ref=e230]
+              - button "Apr 29, 2025 - GitHub 0, LeetCode 0" [ref=e231]
+              - button "Apr 30, 2025 - GitHub 1, LeetCode 0" [ref=e232]
+            - paragraph [ref=e236]: Apr
+          - generic [ref=e237]:
+            - generic [ref=e238]:
+              - button "May 1, 2025 - GitHub 1, LeetCode 0" [ref=e243]
+              - button "May 2, 2025 - GitHub 1, LeetCode 0" [ref=e244]
+              - button "May 3, 2025 - GitHub 0, LeetCode 0" [ref=e245]
+              - button "May 4, 2025 - GitHub 1, LeetCode 0" [ref=e246]
+              - button "May 5, 2025 - GitHub 1, LeetCode 2" [ref=e247]
+              - button "May 6, 2025 - GitHub 1, LeetCode 0" [ref=e248]
+              - button "May 7, 2025 - GitHub 0, LeetCode 0" [ref=e249]
+              - button "May 8, 2025 - GitHub 1, LeetCode 0" [ref=e250]
+              - button "May 9, 2025 - GitHub 0, LeetCode 0" [ref=e251]
+              - button "May 10, 2025 - GitHub 0, LeetCode 0" [ref=e252]
+              - button "May 11, 2025 - GitHub 0, LeetCode 0" [ref=e253]
+              - button "May 12, 2025 - GitHub 0, LeetCode 0" [ref=e254]
+              - button "May 13, 2025 - GitHub 0, LeetCode 0" [ref=e255]
+              - button "May 14, 2025 - GitHub 0, LeetCode 0" [ref=e256]
+              - button "May 15, 2025 - GitHub 0, LeetCode 0" [ref=e257]
+              - button "May 16, 2025 - GitHub 0, LeetCode 0" [ref=e258]
+              - button "May 17, 2025 - GitHub 0, LeetCode 0" [ref=e259]
+              - button "May 18, 2025 - GitHub 0, LeetCode 0" [ref=e260]
+              - button "May 19, 2025 - GitHub 0, LeetCode 0" [ref=e261]
+              - button "May 20, 2025 - GitHub 0, LeetCode 0" [ref=e262]
+              - button "May 21, 2025 - GitHub 0, LeetCode 0" [ref=e263]
+              - button "May 22, 2025 - GitHub 0, LeetCode 0" [ref=e264]
+              - button "May 23, 2025 - GitHub 0, LeetCode 1" [ref=e265]
+              - button "May 24, 2025 - GitHub 0, LeetCode 0" [ref=e266]
+              - button "May 25, 2025 - GitHub 0, LeetCode 0" [ref=e267]
+              - button "May 26, 2025 - GitHub 0, LeetCode 0" [ref=e268]
+              - button "May 27, 2025 - GitHub 3, LeetCode 0" [ref=e269]
+              - button "May 28, 2025 - GitHub 1, LeetCode 0" [ref=e270]
+              - button "May 29, 2025 - GitHub 0, LeetCode 0" [ref=e271]
+              - button "May 30, 2025 - GitHub 0, LeetCode 0" [ref=e272]
+              - button "May 31, 2025 - GitHub 0, LeetCode 0" [ref=e273]
+            - paragraph [ref=e274]: May
+          - generic [ref=e275]:
+            - generic [ref=e276]:
+              - button "Jun 1, 2025 - GitHub 0, LeetCode 0" [ref=e277]
+              - button "Jun 2, 2025 - GitHub 0, LeetCode 0" [ref=e278]
+              - button "Jun 3, 2025 - GitHub 1, LeetCode 1" [ref=e279]
+              - button "Jun 4, 2025 - GitHub 0, LeetCode 0" [ref=e280]
+              - button "Jun 5, 2025 - GitHub 1, LeetCode 0" [ref=e281]
+              - button "Jun 6, 2025 - GitHub 0, LeetCode 0" [ref=e282]
+              - button "Jun 7, 2025 - GitHub 0, LeetCode 0" [ref=e283]
+              - button "Jun 8, 2025 - GitHub 0, LeetCode 1" [ref=e284]
+              - button "Jun 9, 2025 - GitHub 0, LeetCode 4" [ref=e285]
+              - button "Jun 10, 2025 - GitHub 0, LeetCode 0" [ref=e286]
+              - button "Jun 11, 2025 - GitHub 0, LeetCode 0" [ref=e287]
+              - button "Jun 12, 2025 - GitHub 0, LeetCode 0" [ref=e288]
+              - button "Jun 13, 2025 - GitHub 0, LeetCode 0" [ref=e289]
+              - button "Jun 14, 2025 - GitHub 0, LeetCode 0" [ref=e290]
+              - button "Jun 15, 2025 - GitHub 1, LeetCode 0" [ref=e291]
+              - button "Jun 16, 2025 - GitHub 3, LeetCode 0" [ref=e292]
+              - button "Jun 17, 2025 - GitHub 6, LeetCode 0" [ref=e293]
+              - button "Jun 18, 2025 - GitHub 0, LeetCode 0" [ref=e294]
+              - button "Jun 19, 2025 - GitHub 0, LeetCode 0" [ref=e295]
+              - button "Jun 20, 2025 - GitHub 0, LeetCode 0" [ref=e296]
+              - button "Jun 21, 2025 - GitHub 0, LeetCode 0" [ref=e297]
+              - button "Jun 22, 2025 - GitHub 0, LeetCode 0" [ref=e298]
+              - button "Jun 23, 2025 - GitHub 0, LeetCode 0" [ref=e299]
+              - button "Jun 24, 2025 - GitHub 0, LeetCode 0" [ref=e300]
+              - button "Jun 25, 2025 - GitHub 0, LeetCode 0" [ref=e301]
+              - button "Jun 26, 2025 - GitHub 0, LeetCode 0" [ref=e302]
+              - button "Jun 27, 2025 - GitHub 0, LeetCode 0" [ref=e303]
+              - button "Jun 28, 2025 - GitHub 0, LeetCode 0" [ref=e304]
+              - button "Jun 29, 2025 - GitHub 0, LeetCode 0" [ref=e305]
+              - button "Jun 30, 2025 - GitHub 0, LeetCode 0" [ref=e306]
+            - paragraph [ref=e312]: Jun
+          - generic [ref=e313]:
+            - generic [ref=e314]:
+              - button "Jul 1, 2025 - GitHub 0, LeetCode 0" [ref=e317]
+              - button "Jul 2, 2025 - GitHub 0, LeetCode 0" [ref=e318]
+              - button "Jul 3, 2025 - GitHub 0, LeetCode 0" [ref=e319]
+              - button "Jul 4, 2025 - GitHub 0, LeetCode 0" [ref=e320]
+              - button "Jul 5, 2025 - GitHub 0, LeetCode 0" [ref=e321]
+              - button "Jul 6, 2025 - GitHub 0, LeetCode 0" [ref=e322]
+              - button "Jul 7, 2025 - GitHub 0, LeetCode 0" [ref=e323]
+              - button "Jul 8, 2025 - GitHub 0, LeetCode 0" [ref=e324]
+              - button "Jul 9, 2025 - GitHub 6, LeetCode 0" [ref=e325]
+              - button "Jul 10, 2025 - GitHub 1, LeetCode 0" [ref=e326]
+              - button "Jul 11, 2025 - GitHub 0, LeetCode 0" [ref=e327]
+              - button "Jul 12, 2025 - GitHub 0, LeetCode 1" [ref=e328]
+              - button "Jul 13, 2025 - GitHub 0, LeetCode 0" [ref=e329]
+              - button "Jul 14, 2025 - GitHub 0, LeetCode 0" [ref=e330]
+              - button "Jul 15, 2025 - GitHub 1, LeetCode 7" [ref=e331]
+              - button "Jul 16, 2025 - GitHub 1, LeetCode 1" [ref=e332]
+              - button "Jul 17, 2025 - GitHub 0, LeetCode 0" [ref=e333]
+              - button "Jul 18, 2025 - GitHub 0, LeetCode 0" [ref=e334]
+              - button "Jul 19, 2025 - GitHub 0, LeetCode 0" [ref=e335]
+              - button "Jul 20, 2025 - GitHub 0, LeetCode 0" [ref=e336]
+              - button "Jul 21, 2025 - GitHub 0, LeetCode 13" [ref=e337]
+              - button "Jul 22, 2025 - GitHub 0, LeetCode 8" [ref=e338]
+              - button "Jul 23, 2025 - GitHub 0, LeetCode 5" [ref=e339]
+              - button "Jul 24, 2025 - GitHub 0, LeetCode 0" [ref=e340]
+              - button "Jul 25, 2025 - GitHub 0, LeetCode 0" [ref=e341]
+              - button "Jul 26, 2025 - GitHub 0, LeetCode 0" [ref=e342]
+              - button "Jul 27, 2025 - GitHub 1, LeetCode 0" [ref=e343]
+              - button "Jul 28, 2025 - GitHub 10, LeetCode 0" [ref=e344]
+              - button "Jul 29, 2025 - GitHub 3, LeetCode 0" [ref=e345]
+              - button "Jul 30, 2025 - GitHub 0, LeetCode 0" [ref=e346]
+              - button "Jul 31, 2025 - GitHub 0, LeetCode 0" [ref=e347]
+            - paragraph [ref=e350]: Jul
+          - generic [ref=e351]:
+            - generic [ref=e352]:
+              - button "Aug 1, 2025 - GitHub 0, LeetCode 0" [ref=e358]
+              - button "Aug 2, 2025 - GitHub 0, LeetCode 0" [ref=e359]
+              - button "Aug 3, 2025 - GitHub 0, LeetCode 0" [ref=e360]
+              - button "Aug 4, 2025 - GitHub 0, LeetCode 0" [ref=e361]
+              - button "Aug 5, 2025 - GitHub 0, LeetCode 5" [ref=e362]
+              - button "Aug 6, 2025 - GitHub 0, LeetCode 13" [ref=e363]
+              - button "Aug 7, 2025 - GitHub 0, LeetCode 27" [ref=e364]
+              - button "Aug 8, 2025 - GitHub 0, LeetCode 15" [ref=e365]
+              - button "Aug 9, 2025 - GitHub 0, LeetCode 26" [ref=e366]
+              - button "Aug 10, 2025 - GitHub 0, LeetCode 8" [ref=e367]
+              - button "Aug 11, 2025 - GitHub 0, LeetCode 0" [ref=e368]
+              - button "Aug 12, 2025 - GitHub 0, LeetCode 6" [ref=e369]
+              - button "Aug 13, 2025 - GitHub 0, LeetCode 13" [ref=e370]
+              - button "Aug 14, 2025 - GitHub 0, LeetCode 12" [ref=e371]
+              - button "Aug 15, 2025 - GitHub 0, LeetCode 0" [ref=e372]
+              - button "Aug 16, 2025 - GitHub 0, LeetCode 0" [ref=e373]
+              - button "Aug 17, 2025 - GitHub 0, LeetCode 1" [ref=e374]
+              - button "Aug 18, 2025 - GitHub 0, LeetCode 1" [ref=e375]
+              - button "Aug 19, 2025 - GitHub 0, LeetCode 0" [ref=e376]
+              - button "Aug 20, 2025 - GitHub 0, LeetCode 0" [ref=e377]
+              - button "Aug 21, 2025 - GitHub 0, LeetCode 4" [ref=e378]
+              - button "Aug 22, 2025 - GitHub 0, LeetCode 2" [ref=e379]
+              - button "Aug 23, 2025 - GitHub 0, LeetCode 0" [ref=e380]
+              - button "Aug 24, 2025 - GitHub 0, LeetCode 2" [ref=e381]
+              - button "Aug 25, 2025 - GitHub 1, LeetCode 0" [ref=e382]
+              - button "Aug 26, 2025 - GitHub 1, LeetCode 0" [ref=e383]
+              - button "Aug 27, 2025 - GitHub 0, LeetCode 1" [ref=e384]
+              - button "Aug 28, 2025 - GitHub 0, LeetCode 2" [ref=e385]
+              - button "Aug 29, 2025 - GitHub 0, LeetCode 0" [ref=e386]
+              - button "Aug 30, 2025 - GitHub 0, LeetCode 0" [ref=e387]
+              - button "Aug 31, 2025 - GitHub 0, LeetCode 0" [ref=e388]
+            - paragraph [ref=e395]: Aug
+          - generic [ref=e396]:
+            - generic [ref=e397]:
+              - button "Sep 1, 2025 - GitHub 0, LeetCode 0" [ref=e399]
+              - button "Sep 2, 2025 - GitHub 0, LeetCode 0" [ref=e400]
+              - button "Sep 3, 2025 - GitHub 0, LeetCode 0" [ref=e401]
+              - button "Sep 4, 2025 - GitHub 0, LeetCode 6" [ref=e402]
+              - button "Sep 5, 2025 - GitHub 0, LeetCode 0" [ref=e403]
+              - button "Sep 6, 2025 - GitHub 0, LeetCode 0" [ref=e404]
+              - button "Sep 7, 2025 - GitHub 0, LeetCode 0" [ref=e405]
+              - button "Sep 8, 2025 - GitHub 0, LeetCode 0" [ref=e406]
+              - button "Sep 9, 2025 - GitHub 0, LeetCode 1" [ref=e407]
+              - button "Sep 10, 2025 - GitHub 0, LeetCode 0" [ref=e408]
+              - button "Sep 11, 2025 - GitHub 0, LeetCode 0" [ref=e409]
+              - button "Sep 12, 2025 - GitHub 0, LeetCode 7" [ref=e410]
+              - button "Sep 13, 2025 - GitHub 0, LeetCode 2" [ref=e411]
+              - button "Sep 14, 2025 - GitHub 0, LeetCode 1" [ref=e412]
+              - button "Sep 15, 2025 - GitHub 0, LeetCode 7" [ref=e413]
+              - button "Sep 16, 2025 - GitHub 0, LeetCode 0" [ref=e414]
+              - button "Sep 17, 2025 - GitHub 0, LeetCode 13" [ref=e415]
+              - button "Sep 18, 2025 - GitHub 6, LeetCode 16" [ref=e416]
+              - button "Sep 19, 2025 - GitHub 6, LeetCode 0" [ref=e417]
+              - button "Sep 20, 2025 - GitHub 0, LeetCode 0" [ref=e418]
+              - button "Sep 21, 2025 - GitHub 0, LeetCode 0" [ref=e419]
+              - button "Sep 22, 2025 - GitHub 0, LeetCode 0" [ref=e420]
+              - button "Sep 23, 2025 - GitHub 0, LeetCode 0" [ref=e421]
+              - button "Sep 24, 2025 - GitHub 0, LeetCode 2" [ref=e422]
+              - button "Sep 25, 2025 - GitHub 0, LeetCode 2" [ref=e423]
+              - button "Sep 26, 2025 - GitHub 0, LeetCode 4" [ref=e424]
+              - button "Sep 27, 2025 - GitHub 3, LeetCode 0" [ref=e425]
+              - button "Sep 28, 2025 - GitHub 0, LeetCode 0" [ref=e426]
+              - button "Sep 29, 2025 - GitHub 0, LeetCode 0" [ref=e427]
+              - button "Sep 30, 2025 - GitHub 0, LeetCode 2" [ref=e428]
+            - paragraph [ref=e433]: Sep
+          - generic [ref=e434]:
+            - generic [ref=e435]:
+              - button "Oct 1, 2025 - GitHub 0, LeetCode 0" [ref=e439]
+              - button "Oct 2, 2025 - GitHub 0, LeetCode 1" [ref=e440]
+              - button "Oct 3, 2025 - GitHub 0, LeetCode 6" [ref=e441]
+              - button "Oct 4, 2025 - GitHub 10, LeetCode 1" [ref=e442]
+              - button "Oct 5, 2025 - GitHub 1, LeetCode 6" [ref=e443]
+              - button "Oct 6, 2025 - GitHub 0, LeetCode 0" [ref=e444]
+              - button "Oct 7, 2025 - GitHub 0, LeetCode 0" [ref=e445]
+              - button "Oct 8, 2025 - GitHub 0, LeetCode 0" [ref=e446]
+              - button "Oct 9, 2025 - GitHub 0, LeetCode 1" [ref=e447]
+              - button "Oct 10, 2025 - GitHub 1, LeetCode 4" [ref=e448]
+              - button "Oct 11, 2025 - GitHub 0, LeetCode 0" [ref=e449]
+              - button "Oct 12, 2025 - GitHub 1, LeetCode 0" [ref=e450]
+              - button "Oct 13, 2025 - GitHub 10, LeetCode 0" [ref=e451]
+              - button "Oct 14, 2025 - GitHub 0, LeetCode 0" [ref=e452]
+              - button "Oct 15, 2025 - GitHub 1, LeetCode 0" [ref=e453]
+              - button "Oct 16, 2025 - GitHub 1, LeetCode 0" [ref=e454]
+              - button "Oct 17, 2025 - GitHub 1, LeetCode 0" [ref=e455]
+              - button "Oct 18, 2025 - GitHub 0, LeetCode 0" [ref=e456]
+              - button "Oct 19, 2025 - GitHub 0, LeetCode 0" [ref=e457]
+              - button "Oct 20, 2025 - GitHub 0, LeetCode 0" [ref=e458]
+              - button "Oct 21, 2025 - GitHub 0, LeetCode 1" [ref=e459]
+              - button "Oct 22, 2025 - GitHub 0, LeetCode 0" [ref=e460]
+              - button "Oct 23, 2025 - GitHub 0, LeetCode 0" [ref=e461]
+              - button "Oct 24, 2025 - GitHub 0, LeetCode 3" [ref=e462]
+              - button "Oct 25, 2025 - GitHub 3, LeetCode 0" [ref=e463]
+              - button "Oct 26, 2025 - GitHub 1, LeetCode 0" [ref=e464]
+              - button "Oct 27, 2025 - GitHub 0, LeetCode 0" [ref=e465]
+              - button "Oct 28, 2025 - GitHub 1, LeetCode 5" [ref=e466]
+              - button "Oct 29, 2025 - GitHub 0, LeetCode 0" [ref=e467]
+              - button "Oct 30, 2025 - GitHub 0, LeetCode 1" [ref=e468]
+              - button "Oct 31, 2025 - GitHub 0, LeetCode 6" [ref=e469]
+            - paragraph [ref=e471]: Oct
+          - generic [ref=e472]:
+            - generic [ref=e473]:
+              - button "Nov 1, 2025 - GitHub 1, LeetCode 4" [ref=e480]
+              - button "Nov 2, 2025 - GitHub 10, LeetCode 1" [ref=e481]
+              - button "Nov 3, 2025 - GitHub 6, LeetCode 0" [ref=e482]
+              - button "Nov 4, 2025 - GitHub 0, LeetCode 0" [ref=e483]
+              - button "Nov 5, 2025 - GitHub 0, LeetCode 25" [ref=e484]
+              - button "Nov 6, 2025 - GitHub 0, LeetCode 0" [ref=e485]
+              - button "Nov 7, 2025 - GitHub 10, LeetCode 0" [ref=e486]
+              - button "Nov 8, 2025 - GitHub 0, LeetCode 0" [ref=e487]
+              - button "Nov 9, 2025 - GitHub 0, LeetCode 21" [ref=e488]
+              - button "Nov 10, 2025 - GitHub 0, LeetCode 14" [ref=e489]
+              - button "Nov 11, 2025 - GitHub 0, LeetCode 3" [ref=e490]
+              - button "Nov 12, 2025 - GitHub 0, LeetCode 14" [ref=e491]
+              - button "Nov 13, 2025 - GitHub 0, LeetCode 26" [ref=e492]
+              - button "Nov 14, 2025 - GitHub 0, LeetCode 0" [ref=e493]
+              - button "Nov 15, 2025 - GitHub 0, LeetCode 0" [ref=e494]
+              - button "Nov 16, 2025 - GitHub 0, LeetCode 0" [ref=e495]
+              - button "Nov 17, 2025 - GitHub 0, LeetCode 0" [ref=e496]
+              - button "Nov 18, 2025 - GitHub 0, LeetCode 8" [ref=e497]
+              - button "Nov 19, 2025 - GitHub 1, LeetCode 1" [ref=e498]
+              - button "Nov 20, 2025 - GitHub 0, LeetCode 0" [ref=e499]
+              - button "Nov 21, 2025 - GitHub 0, LeetCode 0" [ref=e500]
+              - button "Nov 22, 2025 - GitHub 0, LeetCode 0" [ref=e501]
+              - button "Nov 23, 2025 - GitHub 0, LeetCode 0" [ref=e502]
+              - button "Nov 24, 2025 - GitHub 1, LeetCode 0" [ref=e503]
+              - button "Nov 25, 2025 - GitHub 0, LeetCode 0" [ref=e504]
+              - button "Nov 26, 2025 - GitHub 0, LeetCode 6" [ref=e505]
+              - button "Nov 27, 2025 - GitHub 1, LeetCode 0" [ref=e506]
+              - button "Nov 28, 2025 - GitHub 0, LeetCode 1" [ref=e507]
+              - button "Nov 29, 2025 - GitHub 1, LeetCode 0" [ref=e508]
+              - button "Nov 30, 2025 - GitHub 1, LeetCode 28" [ref=e509]
+            - paragraph [ref=e516]: Nov
+          - generic [ref=e517]:
+            - generic [ref=e518]:
+              - button "Dec 1, 2025 - GitHub 10, LeetCode 3" [ref=e520]
+              - button "Dec 2, 2025 - GitHub 1, LeetCode 0" [ref=e521]
+              - button "Dec 3, 2025 - GitHub 6, LeetCode 14" [ref=e522]
+              - button "Dec 4, 2025 - GitHub 1, LeetCode 0" [ref=e523]
+              - button "Dec 5, 2025 - GitHub 0, LeetCode 17" [ref=e524]
+              - button "Dec 6, 2025 - GitHub 0, LeetCode 0" [ref=e525]
+              - button "Dec 7, 2025 - GitHub 0, LeetCode 17" [ref=e526]
+              - button "Dec 8, 2025 - GitHub 0, LeetCode 1" [ref=e527]
+              - button "Dec 9, 2025 - GitHub 0, LeetCode 0" [ref=e528]
+              - button "Dec 10, 2025 - GitHub 0, LeetCode 3" [ref=e529]
+              - button "Dec 11, 2025 - GitHub 1, LeetCode 3" [ref=e530]
+              - button "Dec 12, 2025 - GitHub 0, LeetCode 0" [ref=e531]
+              - button "Dec 13, 2025 - GitHub 0, LeetCode 3" [ref=e532]
+              - button "Dec 14, 2025 - GitHub 0, LeetCode 7" [ref=e533]
+              - button "Dec 15, 2025 - GitHub 0, LeetCode 2" [ref=e534]
+              - button "Dec 16, 2025 - GitHub 0, LeetCode 0" [ref=e535]
+              - button "Dec 17, 2025 - GitHub 3, LeetCode 10" [ref=e536]
+              - button "Dec 18, 2025 - GitHub 0, LeetCode 4" [ref=e537]
+              - button "Dec 19, 2025 - GitHub 3, LeetCode 4" [ref=e538]
+              - button "Dec 20, 2025 - GitHub 0, LeetCode 2" [ref=e539]
+              - button "Dec 21, 2025 - GitHub 0, LeetCode 16" [ref=e540]
+              - button "Dec 22, 2025 - GitHub 0, LeetCode 0" [ref=e541]
+              - button "Dec 23, 2025 - GitHub 6, LeetCode 8" [ref=e542]
+              - button "Dec 24, 2025 - GitHub 0, LeetCode 24" [ref=e543]
+              - button "Dec 25, 2025 - GitHub 1, LeetCode 38" [ref=e544]
+              - button "Dec 26, 2025 - GitHub 0, LeetCode 20" [ref=e545]
+              - button "Dec 27, 2025 - GitHub 0, LeetCode 11" [ref=e546]
+              - button "Dec 28, 2025 - GitHub 0, LeetCode 2" [ref=e547]
+              - button "Dec 29, 2025 - GitHub 0, LeetCode 24" [ref=e548]
+              - button "Dec 30, 2025 - GitHub 0, LeetCode 1" [ref=e549]
+              - button "Dec 31, 2025 - GitHub 0, LeetCode 0" [ref=e550]
+            - paragraph [ref=e554]: Dec
+          - generic [ref=e555]:
+            - generic [ref=e556]:
+              - button "Jan 1, 2026 - GitHub 0, LeetCode 0" [ref=e561]
+              - button "Jan 2, 2026 - GitHub 0, LeetCode 0" [ref=e562]
+              - button "Jan 3, 2026 - GitHub 0, LeetCode 8" [ref=e563]
+              - button "Jan 4, 2026 - GitHub 0, LeetCode 0" [ref=e564]
+              - button "Jan 5, 2026 - GitHub 0, LeetCode 0" [ref=e565]
+              - button "Jan 6, 2026 - GitHub 0, LeetCode 0" [ref=e566]
+              - button "Jan 7, 2026 - GitHub 0, LeetCode 0" [ref=e567]
+              - button "Jan 8, 2026 - GitHub 0, LeetCode 4" [ref=e568]
+              - button "Jan 9, 2026 - GitHub 0, LeetCode 8" [ref=e569]
+              - button "Jan 10, 2026 - GitHub 0, LeetCode 12" [ref=e570]
+              - button "Jan 11, 2026 - GitHub 0, LeetCode 9" [ref=e571]
+              - button "Jan 12, 2026 - GitHub 0, LeetCode 0" [ref=e572]
+              - button "Jan 13, 2026 - GitHub 1, LeetCode 8" [ref=e573]
+              - button "Jan 14, 2026 - GitHub 0, LeetCode 3" [ref=e574]
+              - button "Jan 15, 2026 - GitHub 0, LeetCode 13" [ref=e575]
+              - button "Jan 16, 2026 - GitHub 0, LeetCode 0" [ref=e576]
+              - button "Jan 17, 2026 - GitHub 0, LeetCode 14" [ref=e577]
+              - button "Jan 18, 2026 - GitHub 0, LeetCode 0" [ref=e578]
+              - button "Jan 19, 2026 - GitHub 0, LeetCode 0" [ref=e579]
+              - button "Jan 20, 2026 - GitHub 0, LeetCode 4" [ref=e580]
+              - button "Jan 21, 2026 - GitHub 0, LeetCode 0" [ref=e581]
+              - button "Jan 22, 2026 - GitHub 1, LeetCode 0" [ref=e582]
+              - button "Jan 23, 2026 - GitHub 0, LeetCode 0" [ref=e583]
+              - button "Jan 24, 2026 - GitHub 0, LeetCode 12" [ref=e584]
+              - button "Jan 25, 2026 - GitHub 0, LeetCode 7" [ref=e585]
+              - button "Jan 26, 2026 - GitHub 0, LeetCode 3" [ref=e586]
+              - button "Jan 27, 2026 - GitHub 0, LeetCode 5" [ref=e587]
+              - button "Jan 28, 2026 - GitHub 0, LeetCode 9" [ref=e588]
+              - button "Jan 29, 2026 - GitHub 0, LeetCode 2" [ref=e589]
+              - button "Jan 30, 2026 - GitHub 0, LeetCode 6" [ref=e590]
+              - button "Jan 31, 2026 - GitHub 0, LeetCode 0" [ref=e591]
+            - paragraph [ref=e592]: Jan
+          - generic [ref=e593]:
+            - generic [ref=e594]:
+              - button "Feb 1, 2026 - GitHub 0, LeetCode 7" [ref=e595]
+              - button "Feb 2, 2026 - GitHub 0, LeetCode 6" [ref=e596]
+              - button "Feb 3, 2026 - GitHub 0, LeetCode 1" [ref=e597]
+              - button "Feb 4, 2026 - GitHub 0, LeetCode 7" [ref=e598]
+              - button "Feb 5, 2026 - GitHub 0, LeetCode 16" [ref=e599]
+              - button "Feb 6, 2026 - GitHub 0, LeetCode 4" [ref=e600]
+              - button "Feb 7, 2026 - GitHub 0, LeetCode 9" [ref=e601]
+              - button "Feb 8, 2026 - GitHub 0, LeetCode 0" [ref=e602]
+              - button "Feb 9, 2026 - GitHub 0, LeetCode 0" [ref=e603]
+              - button "Feb 10, 2026 - GitHub 0, LeetCode 0" [ref=e604]
+              - button "Feb 11, 2026 - GitHub 0, LeetCode 4" [ref=e605]
+              - button "Feb 12, 2026 - GitHub 0, LeetCode 13" [ref=e606]
+              - button "Feb 13, 2026 - GitHub 0, LeetCode 8" [ref=e607]
+              - button "Feb 14, 2026 - GitHub 0, LeetCode 17" [ref=e608]
+              - button "Feb 15, 2026 - GitHub 0, LeetCode 13" [ref=e609]
+              - button "Feb 16, 2026 - GitHub 0, LeetCode 17" [ref=e610]
+              - button "Feb 17, 2026 - GitHub 0, LeetCode 8" [ref=e611]
+              - button "Feb 18, 2026 - GitHub 0, LeetCode 3" [ref=e612]
+              - button "Feb 19, 2026 - GitHub 1, LeetCode 8" [ref=e613]
+              - button "Feb 20, 2026 - GitHub 1, LeetCode 4" [ref=e614]
+              - button "Feb 21, 2026 - GitHub 0, LeetCode 0" [ref=e615]
+              - button "Feb 22, 2026 - GitHub 0, LeetCode 6" [ref=e616]
+              - button "Feb 23, 2026 - GitHub 0, LeetCode 0" [ref=e617]
+              - button "Feb 24, 2026 - GitHub 0, LeetCode 11" [ref=e618]
+              - button "Feb 25, 2026 - GitHub 0, LeetCode 16" [ref=e619]
+              - button "Feb 26, 2026 - GitHub 0, LeetCode 9" [ref=e620]
+              - button "Feb 27, 2026 - GitHub 0, LeetCode 0" [ref=e621]
+              - button "Feb 28, 2026 - GitHub 6, LeetCode 0" [ref=e622]
+            - paragraph [ref=e623]: Feb
+          - generic [ref=e624]:
+            - generic [ref=e625]:
+              - button "Mar 1, 2026 - GitHub 10, LeetCode 0" [ref=e626]
+              - button "Mar 2, 2026 - GitHub 0, LeetCode 0" [ref=e627]
+              - button "Mar 3, 2026 - GitHub 0, LeetCode 0" [ref=e628]
+              - button "Mar 4, 2026 - GitHub 0, LeetCode 0" [ref=e629]
+              - button "Mar 5, 2026 - GitHub 0, LeetCode 0" [ref=e630]
+              - button "Mar 6, 2026 - GitHub 0, LeetCode 5" [ref=e631]
+              - button "Mar 7, 2026 - GitHub 0, LeetCode 5" [ref=e632]
+              - button "Mar 8, 2026 - GitHub 0, LeetCode 13" [ref=e633]
+              - button "Mar 9, 2026 - GitHub 0, LeetCode 2" [ref=e634]
+              - button "Mar 10, 2026 - GitHub 0, LeetCode 4" [ref=e635]
+              - button "Mar 11, 2026 - GitHub 0, LeetCode 0" [ref=e636]
+              - button "Mar 12, 2026 - GitHub 1, LeetCode 0" [ref=e637]
+              - button "Mar 13, 2026 - GitHub 1, LeetCode 0" [ref=e638]
+              - button "Mar 14, 2026 - GitHub 0, LeetCode 3" [ref=e639]
+              - button "Mar 15, 2026 - GitHub 0, LeetCode 5" [ref=e640]
+              - button "Mar 16, 2026 - GitHub 0, LeetCode 0" [ref=e641]
+              - button "Mar 17, 2026 - GitHub 0, LeetCode 0" [ref=e642]
+              - button "Mar 18, 2026 - GitHub 0, LeetCode 0" [ref=e643]
+              - button "Mar 19, 2026 - GitHub 0, LeetCode 0" [ref=e644]
+              - button "Mar 20, 2026 - GitHub 0, LeetCode 0" [ref=e645]
+              - button "Mar 21, 2026 - GitHub 0, LeetCode 2" [ref=e646]
+              - button "Mar 22, 2026 - GitHub 0, LeetCode 0" [ref=e647]
+              - button "Mar 23, 2026 - GitHub 0, LeetCode 0" [ref=e648]
+              - button "Mar 24, 2026 - GitHub 10, LeetCode 0" [ref=e649]
+              - button "Mar 25, 2026 - GitHub 1, LeetCode 0" [ref=e650]
+            - paragraph [ref=e654]: Mar
+        - generic [ref=e656]: Hover any box to see daily stats
+      - generic [ref=e657]:
+        - generic [ref=e658]:
+          - generic [ref=e659]: GitHub Contributions
+          - generic [ref=e660]: "198"
+        - generic [ref=e661]:
+          - generic [ref=e662]: LeetCode Submissions
+          - generic [ref=e663]: "1020"
+        - generic [ref=e664]:
+          - generic [ref=e665]: GitHub Stars
+          - generic [ref=e666]: "2"
+        - generic [ref=e667]:
+          - generic [ref=e668]: LeetCode Active Days
+          - generic [ref=e669]: "134"
+      - generic [ref=e670]:
+        - link "jaypatilportfolio No description provided. TypeScript 0 0 Live Demo" [ref=e671] [cursor=pointer]:
+          - /url: https://github.com/Jaypatil588/jaypatilportfolio
+          - generic [ref=e672]:
+            - heading "jaypatilportfolio" [level=3] [ref=e673]
+            - img [ref=e674]
+          - paragraph [ref=e677]: No description provided.
+          - generic [ref=e678]:
+            - generic [ref=e679]: TypeScript
+            - generic [ref=e680]:
+              - img [ref=e681]
+              - text: "0"
+            - generic [ref=e683]:
+              - img [ref=e684]
+              - text: "0"
+          - generic [ref=e689]:
+            - text: Live Demo
+            - img [ref=e690]
+        - link "PulseFi No description provided. Python 0 0" [ref=e694] [cursor=pointer]:
+          - /url: https://github.com/Jaypatil588/PulseFi
+          - generic [ref=e695]:
+            - heading "PulseFi" [level=3] [ref=e696]
+            - img [ref=e697]
+          - paragraph [ref=e700]: No description provided.
+          - generic [ref=e701]:
+            - generic [ref=e702]: Python
+            - generic [ref=e703]:
+              - img [ref=e704]
+              - text: "0"
+            - generic [ref=e706]:
+              - img [ref=e707]
+              - text: "0"
+        - link "Kidooo No description provided. TypeScript 0 0" [ref=e712] [cursor=pointer]:
+          - /url: https://github.com/Jaypatil588/Kidooo
+          - generic [ref=e713]:
+            - heading "Kidooo" [level=3] [ref=e714]
+            - img [ref=e715]
+          - paragraph [ref=e718]: No description provided.
+          - generic [ref=e719]:
+            - generic [ref=e720]: TypeScript
+            - generic [ref=e721]:
+              - img [ref=e722]
+              - text: "0"
+            - generic [ref=e724]:
+              - img [ref=e725]
+              - text: "0"
+        - link "leetcode-premium-sorter No description provided. JavaScript 0 0 Live Demo" [ref=e730] [cursor=pointer]:
+          - /url: https://github.com/Jaypatil588/leetcode-premium-sorter
+          - generic [ref=e731]:
+            - heading "leetcode-premium-sorter" [level=3] [ref=e732]
+            - img [ref=e733]
+          - paragraph [ref=e736]: No description provided.
+          - generic [ref=e737]:
+            - generic [ref=e738]: JavaScript
+            - generic [ref=e739]:
+              - img [ref=e740]
+              - text: "0"
+            - generic [ref=e742]:
+              - img [ref=e743]
+              - text: "0"
+          - generic [ref=e748]:
+            - text: Live Demo
+            - img [ref=e749]
+        - link "Database-automate-for-ECC No description provided. HTML 0 0" [ref=e753] [cursor=pointer]:
+          - /url: https://github.com/Jaypatil588/Database-automate-for-ECC
+          - generic [ref=e754]:
+            - heading "Database-automate-for-ECC" [level=3] [ref=e755]
+            - img [ref=e756]
+          - paragraph [ref=e759]: No description provided.
+          - generic [ref=e760]:
+            - generic [ref=e761]: HTML
+            - generic [ref=e762]:
+              - img [ref=e763]
+              - text: "0"
+            - generic [ref=e765]:
+              - img [ref=e766]
+              - text: "0"
+        - link "CC-Agents-Simulation No description provided. TypeScript 0 0" [ref=e771] [cursor=pointer]:
+          - /url: https://github.com/Jaypatil588/CC-Agents-Simulation
+          - generic [ref=e772]:
+            - heading "CC-Agents-Simulation" [level=3] [ref=e773]
+            - img [ref=e774]
+          - paragraph [ref=e777]: No description provided.
+          - generic [ref=e778]:
+            - generic [ref=e779]: TypeScript
+            - generic [ref=e780]:
+              - img [ref=e781]
+              - text: "0"
+            - generic [ref=e783]:
+              - img [ref=e784]
+              - text: "0"
+        - link "simple-leetcode-counter Persistant desktop wallpaper counter to keep track of how much leetcode I've solved, and how many to go / 500 Swift 0 0" [ref=e789] [cursor=pointer]:
+          - /url: https://github.com/Jaypatil588/simple-leetcode-counter
+          - generic [ref=e790]:
+            - heading "simple-leetcode-counter" [level=3] [ref=e791]
+            - img [ref=e792]
+          - paragraph [ref=e795]: Persistant desktop wallpaper counter to keep track of how much leetcode I've solved, and how many to go / 500
+          - generic [ref=e796]:
+            - generic [ref=e797]: Swift
+            - generic [ref=e798]:
+              - img [ref=e799]
+              - text: "0"
+            - generic [ref=e801]:
+              - img [ref=e802]
+              - text: "0"
+        - link "ECC_Knowledge_base No description provided. HTML 0 0 Live Demo" [ref=e807] [cursor=pointer]:
+          - /url: https://github.com/Jaypatil588/ECC_Knowledge_base
+          - generic [ref=e808]:
+            - heading "ECC_Knowledge_base" [level=3] [ref=e809]
+            - img [ref=e810]
+          - paragraph [ref=e813]: No description provided.
+          - generic [ref=e814]:
+            - generic [ref=e815]: HTML
+            - generic [ref=e816]:
+              - img [ref=e817]
+              - text: "0"
+            - generic [ref=e819]:
+              - img [ref=e820]
+              - text: "0"
+          - generic [ref=e825]:
+            - text: Live Demo
+            - img [ref=e826]
+        - link "sports-app-fork-jay No description provided. TypeScript 0 0" [ref=e830] [cursor=pointer]:
+          - /url: https://github.com/Jaypatil588/sports-app-fork-jay
+          - generic [ref=e831]:
+            - heading "sports-app-fork-jay" [level=3] [ref=e832]
+            - img [ref=e833]
+          - paragraph [ref=e836]: No description provided.
+          - generic [ref=e837]:
+            - generic [ref=e838]: TypeScript
+            - generic [ref=e839]:
+              - img [ref=e840]
+              - text: "0"
+            - generic [ref=e842]:
+              - img [ref=e843]
+              - text: "0"
+      - generic [ref=e848]:
+        - generic [ref=e849]:
+          - paragraph [ref=e850]: Explore full profiles
+          - paragraph [ref=e851]: See detailed activity and contributions directly on source platforms.
+        - generic [ref=e852]:
+          - link "GitHub Profile" [ref=e853] [cursor=pointer]:
+            - /url: https://github.com/Jaypatil588
+            - img [ref=e854]
+            - text: GitHub Profile
+          - link "LeetCode Profile" [ref=e857] [cursor=pointer]:
+            - /url: https://leetcode.com/jaypatil588/
+            - img [ref=e858]
+            - text: LeetCode Profile
+    - generic [ref=e866]:
+      - generic [ref=e867]:
+        - generic [ref=e868]: My Journey
+        - heading "From Code to Production" [level=2] [ref=e869]
+        - paragraph [ref=e870]: A timeline of my professional journey, from building EV systems to AI-powered applications.
+      - generic [ref=e871]:
+        - heading "Work Experience" [level=3] [ref=e872]:
+          - img [ref=e874]
+          - text: Work Experience
+        - generic [ref=e877]:
+          - generic [ref=e879]:
+            - generic [ref=e880]:
+              - generic [ref=e881]:
+                - 'heading "Software Developer: Full Stack and UI" [level=4] [ref=e882]'
+                - generic [ref=e883]:
+                  - generic [ref=e884]: Santa Clara University
+                  - generic [ref=e885]: "|"
+                  - generic [ref=e886]:
+                    - img [ref=e887]
+                    - text: Santa Clara, CA
+              - generic [ref=e890]:
+                - img [ref=e891]
+                - text: Jun 2025 – Sep 2025
+            - list [ref=e893]:
+              - listitem [ref=e894]: Engineered a finetuned OpenAI RAG chatbot for the Provost's office, improving context accuracy by 15% and search time by 50%.
+              - listitem [ref=e896]: Built an interactive fellowships portal using Firebase and Azure SQL DB, improving data accessibility and search performance by 30%.
+              - listitem [ref=e898]: Enhanced the Off-Campus Living website's searchability and WCAG accessibility using TerminalFour, ReactJS, and HTML.
+          - generic [ref=e901]:
+            - generic [ref=e902]:
+              - generic [ref=e903]:
+                - heading "ECC Lab Research Assistant" [level=4] [ref=e904]
+                - generic [ref=e905]:
+                  - generic [ref=e906]: Santa Clara University
+                  - generic [ref=e907]: "|"
+                  - generic [ref=e908]:
+                    - img [ref=e909]
+                    - text: Santa Clara, CA
+              - generic [ref=e912]:
+                - img [ref=e913]
+                - text: Jan 2025 – Sep 2025
+            - list [ref=e915]:
+              - listitem [ref=e916]: Analyzed 300+ student feedback entries, surfacing grading fairness concerns and influencing curriculum changes.
+              - listitem [ref=e918]: Built an Ansible tool to automate Linux/MariaDB user provisioning, enabling 1-click bulk creation and cutting onboarding to minutes.
+          - generic [ref=e921]:
+            - generic [ref=e922]:
+              - generic [ref=e923]:
+                - heading "Software Engineer – EV and Full Stack" [level=4] [ref=e924]
+                - generic [ref=e926]: Ador Powertron
+              - generic [ref=e927]:
+                - img [ref=e928]
+                - text: Mar 2022 – Aug 2024
+            - list [ref=e930]:
+              - listitem [ref=e931]: Led development of intelligent EV charging systems for CCS chargers, building React.js frontends and OCPP 1.6/OpenAPI backends.
+              - listitem [ref=e933]: Implemented a C# EV emulator and architected dynamic load balancing, reducing testing cycles by 25% and optimizing average charge time by 60%.
+              - listitem [ref=e935]: Constructed REST APIs and integrated OCPP with a React/TypeScript frontend for HMI screens.
+              - listitem [ref=e937]: Created SMTP-NTCIP full-stack IoT software for remote highway signage (VMS) control, reducing traffic incidents by 90%.
+      - generic [ref=e939]:
+        - generic [ref=e940]:
+          - heading "Education" [level=3] [ref=e941]:
+            - img [ref=e943]
+            - text: Education
+          - generic [ref=e946]:
+            - generic [ref=e947]:
+              - heading "Master of Science - Computer Science and Engineering" [level=4] [ref=e948]
+              - paragraph [ref=e949]: Santa Clara University
+              - paragraph [ref=e950]:
+                - img [ref=e951]
+                - text: Sep 2024 – Jun 2026
+            - generic [ref=e953]:
+              - heading "Bachelor of Technology - Computer Science and Engineering" [level=4] [ref=e954]
+              - paragraph [ref=e955]: MIT Art Design & Technology
+              - paragraph [ref=e956]:
+                - img [ref=e957]
+                - text: May 2018 – Aug 2022
+        - generic [ref=e959]:
+          - generic [ref=e960]:
+            - heading "Publications" [level=3] [ref=e961]:
+              - img [ref=e963]
+              - text: Publications
+            - generic [ref=e965]:
+              - heading "Framework for Cloud-Based Messaging System Using MQTT" [level=4] [ref=e966]
+              - paragraph [ref=e967]: Designed scalable AWS IoT solution for two-way device connections using MQTT, published in ACTHPA'22 (IEEE, 2020).
+            - generic [ref=e968]:
+              - heading "Development of a Comparison Based Medicine Purchasing System" [level=4] [ref=e969]
+              - paragraph [ref=e970]: Developed a system to compare medicine prices across platforms, optimizing affordability.
+          - generic [ref=e971]:
+            - heading "Achievements" [level=3] [ref=e972]:
+              - img [ref=e974]
+              - text: Achievements
+            - generic [ref=e977]:
+              - heading "Adobe Systems Hackathon" [level=4] [ref=e978]
+              - paragraph [ref=e979]: 1st Place, Best Developer Feedback
+            - generic [ref=e980]:
+              - heading "Ador Powertron Recognition" [level=4] [ref=e981]
+              - paragraph [ref=e982]: Best Junior Developer for leading EV feature development with measurable impact
+    - generic [ref=e985]:
+      - generic [ref=e986]:
+        - generic [ref=e987]: Resume
+        - heading "View My Full Resume" [level=2] [ref=e988]
+        - paragraph [ref=e989]: Download or view my complete resume with detailed experience and qualifications
+      - generic [ref=e991]:
+        - generic [ref=e992]:
+          - generic [ref=e993]:
+            - img [ref=e995]
+            - generic [ref=e998]:
+              - heading "Jay_Patil_Resume.pdf" [level=3] [ref=e999]
+              - paragraph [ref=e1000]: Software Engineer Resume
+          - generic [ref=e1001]:
+            - link "Open" [ref=e1002] [cursor=pointer]:
+              - /url: /resume.pdf
+              - img [ref=e1003]
+              - text: Open
+            - link "Download" [ref=e1007] [cursor=pointer]:
+              - /url: /resume.pdf
+              - img [ref=e1008]
+              - text: Download
+        - iframe [ref=e1012]:
+          
+    - generic [ref=e1015]:
+      - generic [ref=e1016]:
+        - heading "Jay." [level=3] [ref=e1017]
+        - paragraph [ref=e1018]: Software Engineer
+      - generic [ref=e1019]:
+        - link "GitHub" [ref=e1020] [cursor=pointer]:
+          - /url: https://github.com/Jaypatil588
+          - img [ref=e1021]
+        - link "LinkedIn" [ref=e1024] [cursor=pointer]:
+          - /url: https://linkedin.com/in/jaypatil588
+          - img [ref=e1025]
+        - link "Email" [ref=e1029] [cursor=pointer]:
+          - /url: mailto:jaypatilsde@gmail.com
+          - img [ref=e1030]
+      - generic [ref=e1034]:
+        - paragraph [ref=e1035]:
+          - text: Built with
+          - img [ref=e1036]
+          - text: using Next.js & AI
+        - paragraph [ref=e1038]: © 2026 Jay Patil. All rights reserved.
+      - button "Scroll to top" [ref=e1039]:
+        - img [ref=e1040]
+  - alert [ref=e1042]

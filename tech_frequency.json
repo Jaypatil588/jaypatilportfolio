@@ -1,0 +1,326 @@
+[
+  {
+    "keyword": "java",
+    "count": 25
+  },
+  {
+    "keyword": "api",
+    "count": 16
+  },
+  {
+    "keyword": "python",
+    "count": 16
+  },
+  {
+    "keyword": "javascript",
+    "count": 11
+  },
+  {
+    "keyword": "aws",
+    "count": 8
+  },
+  {
+    "keyword": "react",
+    "count": 7
+  },
+  {
+    "keyword": "c++",
+    "count": 7
+  },
+  {
+    "keyword": "rest api",
+    "count": 6
+  },
+  {
+    "keyword": "scala",
+    "count": 6
+  },
+  {
+    "keyword": "html",
+    "count": 6
+  },
+  {
+    "keyword": "rest apis",
+    "count": 5
+  },
+  {
+    "keyword": "spring",
+    "count": 5
+  },
+  {
+    "keyword": "algorithms",
+    "count": 5
+  },
+  {
+    "keyword": "android",
+    "count": 5
+  },
+  {
+    "keyword": "php",
+    "count": 4
+  },
+  {
+    "keyword": "css",
+    "count": 4
+  },
+  {
+    "keyword": "linux",
+    "count": 4
+  },
+  {
+    "keyword": "mongodb",
+    "count": 4
+  },
+  {
+    "keyword": "data structures",
+    "count": 3
+  },
+  {
+    "keyword": "postgresql",
+    "count": 3
+  },
+  {
+    "keyword": "ci/cd",
+    "count": 3
+  },
+  {
+    "keyword": "docker",
+    "count": 3
+  },
+  {
+    "keyword": "vue.js",
+    "count": 3
+  },
+  {
+    "keyword": "ios",
+    "count": 3
+  },
+  {
+    "keyword": "flask",
+    "count": 3
+  },
+  {
+    "keyword": "machine learning",
+    "count": 3
+  },
+  {
+    "keyword": "react.js",
+    "count": 3
+  },
+  {
+    "keyword": "pytorch",
+    "count": 3
+  },
+  {
+    "keyword": "express",
+    "count": 3
+  },
+  {
+    "keyword": "sql",
+    "count": 3
+  },
+  {
+    "keyword": "typescript",
+    "count": 3
+  },
+  {
+    "keyword": "node.js",
+    "count": 3
+  },
+  {
+    "keyword": "agile",
+    "count": 2
+  },
+  {
+    "keyword": "redis",
+    "count": 2
+  },
+  {
+    "keyword": "spring boot",
+    "count": 2
+  },
+  {
+    "keyword": "kubernetes",
+    "count": 2
+  },
+  {
+    "keyword": ".net",
+    "count": 2
+  },
+  {
+    "keyword": "graphql",
+    "count": 2
+  },
+  {
+    "keyword": "numpy",
+    "count": 2
+  },
+  {
+    "keyword": "perl",
+    "count": 2
+  },
+  {
+    "keyword": "dynamodb",
+    "count": 2
+  },
+  {
+    "keyword": "git",
+    "count": 2
+  },
+  {
+    "keyword": "golang",
+    "count": 2
+  },
+  {
+    "keyword": "grpc",
+    "count": 2
+  },
+  {
+    "keyword": "redux",
+    "count": 2
+  },
+  {
+    "keyword": "heroku",
+    "count": 2
+  },
+  {
+    "keyword": "microservices",
+    "count": 2
+  },
+  {
+    "keyword": "angular",
+    "count": 2
+  },
+  {
+    "keyword": "angularjs",
+    "count": 2
+  },
+  {
+    "keyword": "google cloud",
+    "count": 2
+  },
+  {
+    "keyword": "operating systems",
+    "count": 2
+  },
+  {
+    "keyword": "aes",
+    "count": 2
+  },
+  {
+    "keyword": "nodejs",
+    "count": 1
+  },
+  {
+    "keyword": "scrum",
+    "count": 1
+  },
+  {
+    "keyword": "spark",
+    "count": 1
+  },
+  {
+    "keyword": "matlab",
+    "count": 1
+  },
+  {
+    "keyword": "pandas",
+    "count": 1
+  },
+  {
+    "keyword": "ruby",
+    "count": 1
+  },
+  {
+    "keyword": "kafka",
+    "count": 1
+  },
+  {
+    "keyword": "oauth",
+    "count": 1
+  },
+  {
+    "keyword": "sqlite",
+    "count": 1
+  },
+  {
+    "keyword": "bash",
+    "count": 1
+  },
+  {
+    "keyword": "nosql",
+    "count": 1
+  },
+  {
+    "keyword": "computer vision",
+    "count": 1
+  },
+  {
+    "keyword": "opencv",
+    "count": 1
+  },
+  {
+    "keyword": "reactjs",
+    "count": 1
+  },
+  {
+    "keyword": "transformers",
+    "count": 1
+  },
+  {
+    "keyword": "deep learning",
+    "count": 1
+  },
+  {
+    "keyword": "bert",
+    "count": 1
+  },
+  {
+    "keyword": "terraform",
+    "count": 1
+  },
+  {
+    "keyword": "github actions",
+    "count": 1
+  },
+  {
+    "keyword": "jira",
+    "count": 1
+  },
+  {
+    "keyword": "mysql",
+    "count": 1
+  },
+  {
+    "keyword": "distributed systems",
+    "count": 1
+  },
+  {
+    "keyword": "encryption",
+    "count": 1
+  },
+  {
+    "keyword": "bootstrap",
+    "count": 1
+  },
+  {
+    "keyword": "css3",
+    "count": 1
+  },
+  {
+    "keyword": "html5",
+    "count": 1
+  },
+  {
+    "keyword": "jquery",
+    "count": 1
+  },
+  {
+    "keyword": "django",
+    "count": 1
+  },
+  {
+    "keyword": "react native",
+    "count": 1
+  }
+]

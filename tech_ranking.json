@@ -1,0 +1,517 @@
+[
+  {
+    "rank": 1,
+    "keyword": "java",
+    "peopleCount": 24
+  },
+  {
+    "rank": 2,
+    "keyword": "python",
+    "peopleCount": 19
+  },
+  {
+    "rank": 3,
+    "keyword": "api",
+    "peopleCount": 14
+  },
+  {
+    "rank": 4,
+    "keyword": "javascript",
+    "peopleCount": 13
+  },
+  {
+    "rank": 5,
+    "keyword": "c++",
+    "peopleCount": 12
+  },
+  {
+    "rank": 6,
+    "keyword": "scala",
+    "peopleCount": 10
+  },
+  {
+    "rank": 7,
+    "keyword": "google cloud",
+    "peopleCount": 9
+  },
+  {
+    "rank": 8,
+    "keyword": "android",
+    "peopleCount": 9
+  },
+  {
+    "rank": 9,
+    "keyword": "html",
+    "peopleCount": 8
+  },
+  {
+    "rank": 10,
+    "keyword": "algorithms",
+    "peopleCount": 8
+  },
+  {
+    "rank": 11,
+    "keyword": "machine learning",
+    "peopleCount": 8
+  },
+  {
+    "rank": 12,
+    "keyword": "react",
+    "peopleCount": 7
+  },
+  {
+    "rank": 13,
+    "keyword": "aws",
+    "peopleCount": 7
+  },
+  {
+    "rank": 14,
+    "keyword": "spring",
+    "peopleCount": 7
+  },
+  {
+    "rank": 15,
+    "keyword": "typescript",
+    "peopleCount": 6
+  },
+  {
+    "rank": 16,
+    "keyword": "php",
+    "peopleCount": 6
+  },
+  {
+    "rank": 17,
+    "keyword": "rust",
+    "peopleCount": 5
+  },
+  {
+    "rank": 18,
+    "keyword": "sql",
+    "peopleCount": 5
+  },
+  {
+    "rank": 19,
+    "keyword": "css",
+    "peopleCount": 5
+  },
+  {
+    "rank": 20,
+    "keyword": "angular",
+    "peopleCount": 5
+  },
+  {
+    "rank": 21,
+    "keyword": "angularjs",
+    "peopleCount": 5
+  },
+  {
+    "rank": 22,
+    "keyword": "mongodb",
+    "peopleCount": 5
+  },
+  {
+    "rank": 23,
+    "keyword": "linux",
+    "peopleCount": 5
+  },
+  {
+    "rank": 24,
+    "keyword": "mysql",
+    "peopleCount": 5
+  },
+  {
+    "rank": 25,
+    "keyword": "rest api",
+    "peopleCount": 5
+  },
+  {
+    "rank": 26,
+    "keyword": "rest apis",
+    "peopleCount": 5
+  },
+  {
+    "rank": 27,
+    "keyword": "operating systems",
+    "peopleCount": 4
+  },
+  {
+    "rank": 28,
+    "keyword": "data structures",
+    "peopleCount": 4
+  },
+  {
+    "rank": 29,
+    "keyword": "docker",
+    "peopleCount": 4
+  },
+  {
+    "rank": 30,
+    "keyword": "ios",
+    "peopleCount": 4
+  },
+  {
+    "rank": 31,
+    "keyword": "flask",
+    "peopleCount": 4
+  },
+  {
+    "rank": 32,
+    "keyword": "react.js",
+    "peopleCount": 4
+  },
+  {
+    "rank": 33,
+    "keyword": "perl",
+    "peopleCount": 4
+  },
+  {
+    "rank": 34,
+    "keyword": "distributed systems",
+    "peopleCount": 3
+  },
+  {
+    "rank": 35,
+    "keyword": "pytorch",
+    "peopleCount": 3
+  },
+  {
+    "rank": 36,
+    "keyword": "grpc",
+    "peopleCount": 3
+  },
+  {
+    "rank": 37,
+    "keyword": "node.js",
+    "peopleCount": 3
+  },
+  {
+    "rank": 38,
+    "keyword": "ci/cd",
+    "peopleCount": 3
+  },
+  {
+    "rank": 39,
+    "keyword": "express",
+    "peopleCount": 3
+  },
+  {
+    "rank": 40,
+    "keyword": "html5",
+    "peopleCount": 3
+  },
+  {
+    "rank": 41,
+    "keyword": "postgresql",
+    "peopleCount": 3
+  },
+  {
+    "rank": 42,
+    "keyword": "spring boot",
+    "peopleCount": 3
+  },
+  {
+    "rank": 43,
+    "keyword": "git",
+    "peopleCount": 3
+  },
+  {
+    "rank": 44,
+    "keyword": "agile",
+    "peopleCount": 3
+  },
+  {
+    "rank": 45,
+    "keyword": "scrum",
+    "peopleCount": 3
+  },
+  {
+    "rank": 46,
+    "keyword": "networking",
+    "peopleCount": 2
+  },
+  {
+    "rank": 47,
+    "keyword": "firebase",
+    "peopleCount": 2
+  },
+  {
+    "rank": 48,
+    "keyword": "computer vision",
+    "peopleCount": 2
+  },
+  {
+    "rank": 49,
+    "keyword": "redux",
+    "peopleCount": 2
+  },
+  {
+    "rank": 50,
+    "keyword": "bert",
+    "peopleCount": 2
+  },
+  {
+    "rank": 51,
+    "keyword": "big query",
+    "peopleCount": 2
+  },
+  {
+    "rank": 52,
+    "keyword": "natural language processing",
+    "peopleCount": 2
+  },
+  {
+    "rank": 53,
+    "keyword": "transformers",
+    "peopleCount": 2
+  },
+  {
+    "rank": 54,
+    "keyword": "css3",
+    "peopleCount": 2
+  },
+  {
+    "rank": 55,
+    "keyword": "ruby",
+    "peopleCount": 2
+  },
+  {
+    "rank": 56,
+    "keyword": "heroku",
+    "peopleCount": 2
+  },
+  {
+    "rank": 57,
+    "keyword": "kubernetes",
+    "peopleCount": 2
+  },
+  {
+    "rank": 58,
+    "keyword": "bash",
+    "peopleCount": 2
+  },
+  {
+    "rank": 59,
+    "keyword": "microservices",
+    "peopleCount": 2
+  },
+  {
+    "rank": 60,
+    "keyword": "dynamodb",
+    "peopleCount": 2
+  },
+  {
+    "rank": 61,
+    "keyword": "aes",
+    "peopleCount": 2
+  },
+  {
+    "rank": 62,
+    "keyword": "graphql",
+    "peopleCount": 2
+  },
+  {
+    "rank": 63,
+    "keyword": "numpy",
+    "peopleCount": 2
+  },
+  {
+    "rank": 64,
+    "keyword": "gcp",
+    "peopleCount": 2
+  },
+  {
+    "rank": 65,
+    "keyword": ".net",
+    "peopleCount": 2
+  },
+  {
+    "rank": 66,
+    "keyword": "golang",
+    "peopleCount": 1
+  },
+  {
+    "rank": 67,
+    "keyword": "deep learning",
+    "peopleCount": 1
+  },
+  {
+    "rank": 68,
+    "keyword": "airflow",
+    "peopleCount": 1
+  },
+  {
+    "rank": 69,
+    "keyword": "material design",
+    "peopleCount": 1
+  },
+  {
+    "rank": 70,
+    "keyword": "next.js",
+    "peopleCount": 1
+  },
+  {
+    "rank": 71,
+    "keyword": "onnx",
+    "peopleCount": 1
+  },
+  {
+    "rank": 72,
+    "keyword": "protocol buffers",
+    "peopleCount": 1
+  },
+  {
+    "rank": 73,
+    "keyword": "roberta",
+    "peopleCount": 1
+  },
+  {
+    "rank": 74,
+    "keyword": "vercel",
+    "peopleCount": 1
+  },
+  {
+    "rank": 75,
+    "keyword": "nosql",
+    "peopleCount": 1
+  },
+  {
+    "rank": 76,
+    "keyword": "redis",
+    "peopleCount": 1
+  },
+  {
+    "rank": 77,
+    "keyword": "swift",
+    "peopleCount": 1
+  },
+  {
+    "rank": 78,
+    "keyword": "spark",
+    "peopleCount": 1
+  },
+  {
+    "rank": 79,
+    "keyword": "github actions",
+    "peopleCount": 1
+  },
+  {
+    "rank": 80,
+    "keyword": "react native",
+    "peopleCount": 1
+  },
+  {
+    "rank": 81,
+    "keyword": "vite",
+    "peopleCount": 1
+  },
+  {
+    "rank": 82,
+    "keyword": "nodejs",
+    "peopleCount": 1
+  },
+  {
+    "rank": 83,
+    "keyword": "encryption",
+    "peopleCount": 1
+  },
+  {
+    "rank": 84,
+    "keyword": "reactjs",
+    "peopleCount": 1
+  },
+  {
+    "rank": 85,
+    "keyword": "keras",
+    "peopleCount": 1
+  },
+  {
+    "rank": 86,
+    "keyword": "tensorflow",
+    "peopleCount": 1
+  },
+  {
+    "rank": 87,
+    "keyword": "django",
+    "peopleCount": 1
+  },
+  {
+    "rank": 88,
+    "keyword": "opencv",
+    "peopleCount": 1
+  },
+  {
+    "rank": 89,
+    "keyword": "shell",
+    "peopleCount": 1
+  },
+  {
+    "rank": 90,
+    "keyword": "oauth",
+    "peopleCount": 1
+  },
+  {
+    "rank": 91,
+    "keyword": "sqlite",
+    "peopleCount": 1
+  },
+  {
+    "rank": 92,
+    "keyword": "bootstrap",
+    "peopleCount": 1
+  },
+  {
+    "rank": 93,
+    "keyword": "jquery",
+    "peopleCount": 1
+  },
+  {
+    "rank": 94,
+    "keyword": "terraform",
+    "peopleCount": 1
+  },
+  {
+    "rank": 95,
+    "keyword": "jenkins",
+    "peopleCount": 1
+  },
+  {
+    "rank": 96,
+    "keyword": "jira",
+    "peopleCount": 1
+  },
+  {
+    "rank": 97,
+    "keyword": "bigquery",
+    "peopleCount": 1
+  },
+  {
+    "rank": 98,
+    "keyword": "matlab",
+    "peopleCount": 1
+  },
+  {
+    "rank": 99,
+    "keyword": "pandas",
+    "peopleCount": 1
+  },
+  {
+    "rank": 100,
+    "keyword": "vue.js",
+    "peopleCount": 1
+  },
+  {
+    "rank": 101,
+    "keyword": "nlp",
+    "peopleCount": 1
+  },
+  {
+    "rank": 102,
+    "keyword": "kafka",
+    "peopleCount": 1
+  },
+  {
+    "rank": 103,
+    "keyword": "websocket",
+    "peopleCount": 1
+  }
+]

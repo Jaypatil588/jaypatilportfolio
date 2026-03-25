@@ -1,0 +1,2809 @@
+[
+  {
+    "person": "Albert Yeh",
+    "file": "batch_albert_yeh.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Software Engineer",
+        "type": "",
+        "description": "",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jan 2023 - Present · 3 yrs 3 mos Seattle, Washington, United States Operating Systems, Software Development and +5 skills Contract Manager",
+        "techStack": [
+          "operating systems"
+        ]
+      },
+      {
+        "company": "United States Space Force",
+        "role": "",
+        "type": "Full-time",
+        "description": "Dec 2019 - Jan 2023 · 3 yrs 2 mos Los Angeles, California, United States Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Internship",
+        "description": "Jan 2022 - Apr 2022 · 4 mos Los Angeles, California, United States Google Cloud - Spanner Team Contract Manager United States Air Force Oct 2012 - Dec 2019 · 7 yrs 3 mos Contracting Officer",
+        "techStack": [
+          "google cloud"
+        ]
+      },
+      {
+        "company": "Air Force Materiel Command",
+        "role": "",
+        "type": "Full-time",
+        "description": "Oct 2009 - Oct 2012 · 3 yrs 1 mo Edwards, California, United States ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Alice Zhou",
+    "file": "batch_alice_zhou.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Software Engineer",
+        "type": "",
+        "description": "Google Jun 2023 - Present · 2 yrs 10 mos San Francisco Bay Area · Hybrid - Co-led the design and implementation of the modernization of the Google Cloud Networking's distribution plane infrastructure. Owner of 3+ key components. - Scaled the new system to support 100x growth in total resource size and 10x growth in consumer connections. - Navigated the complexity of system architecture with a focus on feature parity, memory optimization, scalability, and overall integration with the rest of the distributed cloud networking ecosystem. - Spearheaded the horizontal effort to implement access transparency controls to protect customer data and provide access transparency. - Extensive dev-ops and production experience for critical cloud networking services. … more Distributed Systems, Large Scale Systems and +1 skill Software Engineer Intern",
+        "techStack": [
+          "distributed systems",
+          "google cloud",
+          "networking",
+          "scala"
+        ]
+      },
+      {
+        "company": "Intel Corporation",
+        "role": "",
+        "type": "Internship",
+        "description": "Aug 2021 - Jul 2022 · 1 yr San Jose, California, United States - Ran and consistently maintained two (2) hardware collateral blocks for Intel’s FPGA (Field programmable gate array) device and created tickets to track issues with their owners. - Independently implemented and tested five (5) firmware projects that calibrate various clock signals in an IO block. … more C (Programming Language), Embedded Systems and +1 skill Software Engineer Intern",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2021 - Aug 2021 · 4 mos San Francisco Bay Area - Wrote eBPF (Berkeley Packet Filter) programs to identify and collect trace request network packets in the kernel datapath, and provide full visibility of trace information including flow keys, transformations, and paths to the userspace - Worked closely with different network telemetry & control policies to collect trace stats at their exit points - Reduced tech debt by refactoring multiple legacy files across different teams, and deployed code to over 3.5 million production machines … more STEP Intern",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2020 - Aug 2020 · 4 mos - Designed and developed a full stack web application that automatically generates itineraries for travelers, while connecting users with similar travel plans - Proposed key design decisions on project structures, data structures and database choice (Maven, Firebase Realtime Database) and presented professional technical specification document - Utilized Google Maps Platform to query location data using Maps JavaScript API and Place Details API, as well as generating an optimized itinerary using Directions API … more Structural Engineering Research Assistant University of Toronto May 2019 - Aug 2019 · 4 mos Greater Toronto Area, Canada - Modelled concrete beams using Vector3 Software and generated 3D structural behavior at each load stage - Analyzed data to investigate correlation between shear force & torsion … more ---",
+        "techStack": [
+          "api",
+          "data structures",
+          "firebase",
+          "java",
+          "javascript"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Anisha Raju",
+    "file": "batch_anisha_raju.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Not listed.",
+        "type": "",
+        "description": "---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Bili Dong",
+    "file": "batch_bili_dong.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Software Engineer",
+        "type": "",
+        "description": "",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jul 2022 - Present · 3 yrs 9 mos Sunnyvale, California, United States · On-site • Automated Reasoning for SmartNIC • SmartNIC Packet Processing • P4 for SmartNIC … more Software Engineer Intern",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Internship",
+        "description": "Jun 2021 - Sep 2021 · 4 mos California, United States · Remote • SmartNIC Packet Processor Testing Software Engineer Intern",
+        "techStack": []
+      },
+      {
+        "company": "ByteDance",
+        "role": "",
+        "type": "Internship",
+        "description": "Jun 2020 - Sep 2020 · 4 mos Shanghai, China · On-site • Android App Development ---",
+        "techStack": [
+          "android"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Chen Yizhe",
+    "file": "batch_chen_yizhe.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Software Engineer",
+        "type": "",
+        "description": "",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Apr 2025 - Present · 1 yr San Bruno, California, United States Youtube Media Generator, GenAI creator tools, image to image, veo3 image to video, effects. Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "TikTok",
+        "role": "",
+        "type": "Full-time",
+        "description": "May 2024 - Apr 2025 · 1 yr San Jose, California, United States · On-site I contribute to the Advertiser Tiering and Ticket Platform within the Global Monetization - Business Integrity team. Golang, RDS and +8 skills Software Engineer",
+        "techStack": [
+          "golang"
+        ]
+      },
+      {
+        "company": "Sony",
+        "role": "",
+        "type": "Internship",
+        "description": "Jul 2023 - Mar 2024 · 9 mos San Diego, California, United States · On-site I work in the SONY Home Entertainment Team, contributing to both the frontend and backend of the Sony Device Software Updates Management Orchestrator (SUMO) system. This system serves as an over-the-air (OTA) update management platform, enabling Sony engineers to efficiently release and distribute software updates to millions of Sony smart devices. My contributions mainly include: 1.Event Log Viewer 2.Scalable and efficient pagination component for data tables 3.JSON data compare component 4.Retry for the failed software update distribution pipeline API 5.Multiple value filter module … more JavaScript, Gin and +18 skills Software Engineer",
+        "techStack": [
+          "api",
+          "java",
+          "javascript",
+          "scala"
+        ]
+      },
+      {
+        "company": "Carnegie Mellon University",
+        "role": "",
+        "type": "Part-time",
+        "description": "Jul 2021 - Jan 2022 · 7 mos Engaged in Soundcool web department to establish a flexible, web-based platform for collaborative multimedia creation or performance. Here is the link to official website: https://soundcool.org/en/ … more JavaScript, Redux.js and +8 skills Research Assistant Huazhong University of Science and Technology Jan 2021 - Jun 2021 · 6 mos Proposed an efficient human pose estimation network by building bridges between two pyramid networks to learn multi-level features and adding lightweight attention blocks. Efficient Human Pose Estimation by Maximizing Fusion and High-Level Spatial Attention PyTorch, Computer Vision and +2 skills ---",
+        "techStack": [
+          "computer vision",
+          "java",
+          "javascript",
+          "pytorch",
+          "redux"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Fault Location and Transmission Line Type Estimation Based on Transient Waveform",
+        "description": "◦ Developed a PyTorch-based deep learning model utilizing 3D Convolution and ResNet-34 architecture to analyze classified transmission transient waveforms, achieving a fault identification accuracy rate of 92.67%, surpassing manual identification methods. ◦ Developed a CUDA-accelerated lightning location grid search algorithm achieving sub-300m localization accuracy, tested for 10,372 samples on GTX 3090 platform, with overall runtime of 79,712ms and GPU memory usage peaked at 512Mb.",
+        "techStack": [
+          "deep learning",
+          "pytorch"
+        ]
+      },
+      {
+        "name": "CUDA, PyTorch and +3 skills",
+        "description": "Scalable Fault-tolerant SurfStore",
+        "techStack": [
+          "pytorch",
+          "scala"
+        ]
+      },
+      {
+        "name": "Built a distributed, cloud-based file storage service like Dropbox using Golang and gRPC.",
+        "description": "Designed an optimized storage service using block caching, metadata storage service that maps filenames to blocks with SHA-256 hash function and can handle file conflict. Improved the mapping approach using consistent hashing to handle large sevices with thousands of block store servers and implemented the metadata sever based on RAFT protocal to make it stay consistent regardless of failures.",
+        "techStack": [
+          "golang",
+          "grpc"
+        ]
+      },
+      {
+        "name": "RAFT, gRPC and +3 skills",
+        "description": "---",
+        "techStack": [
+          "grpc"
+        ]
+      }
+    ]
+  },
+  {
+    "person": "David Castro",
+    "file": "batch_david_castro.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Software Engineer",
+        "type": "",
+        "description": "",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Mar 2025 - Present · 1 yr 1 mo New York, New York, United States · On-site Trusted Partner Cloud (Go, Typescript, C++) Software Engineer",
+        "techStack": [
+          "c++",
+          "rust",
+          "typescript"
+        ]
+      },
+      {
+        "company": "Bloomberg",
+        "role": "",
+        "type": "Full-time",
+        "description": "Aug 2024 - Mar 2025 · 8 mos New York, New York, United States · On-site Futures and Options Enrichment Team (C++, Python) Executive Board: Full Stack Developer",
+        "techStack": [
+          "c++",
+          "python"
+        ]
+      },
+      {
+        "company": "Columbia Bartending Agency",
+        "role": "",
+        "type": "Part-time",
+        "description": "Aug 2023 - Jun 2024 · 11 mos New York, New York, United States · Hybrid Computer Science Teaching Assistant",
+        "techStack": []
+      },
+      {
+        "company": "Columbia University",
+        "role": "",
+        "type": "Part-time",
+        "description": "Aug 2023 - May 2024 · 10 mos New York, New York, United States · On-site Discrete Mathematics and Artificial Intelligence (AI) Secondary Marketing - Agency Mortgage-backed Securities Summer Analyst",
+        "techStack": []
+      },
+      {
+        "company": "JPMorgan Chase & Co.",
+        "role": "",
+        "type": "Internship",
+        "description": "Jun 2023 - Aug 2023 · 3 mos New York, New York, United States · On-site ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Jacob D.",
+    "file": "batch_jacob_d_.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Google",
+        "type": "",
+        "description": "",
+        "techStack": []
+      },
+      {
+        "company": "Full-time",
+        "role": "",
+        "type": "5 yrs",
+        "description": "Senior Software Engineer May 2025 - Present · 11 mos United States · On-site Software Engineer Apr 2021 - May 2025 · 4 yrs 2 mos Irvine, California, United States Building software infrastructure in Google Cloud Software Engineering Intern",
+        "techStack": [
+          "google cloud"
+        ]
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2020 - Aug 2020 · 4 mos Kirkland, United States Developed a testing infrastructure to decrease testing time by over 95% (> 300 seconds to < 10secs) Implemented a reliable life cycle management system, continuous health checking, automatic resizing of the worker pool, stream-able logs while testing, and a versioning system for future upgrades. Utilized Docker Containers to ensure consistency across various virtual machine images. … more College Of Sciences Representative Associated Students, San Diego State University Aug 2019 - May 2020 · 10 mos San Diego County, California, United States Kappa Sigma Fraternity 1 yr 6 mos Housing Manager Mar 2019 - May 2020 · 1 yr 3 mos Academics Chair Dec 2018 - Apr 2019 · 5 mos San Diego State University Utilized my SDSU Schedule Planner Project to help brothers design optimal class schedules. Held various academic workshops and increased the overall GPA of the fraternity. Google Engineering Practicum Intern Google May 2019 - Aug 2019 · 4 mos Seattle, Washington Worked on back end of Google Maps Mobile to develop a new commute notification in Java. Completed detailed design documents describing project implementation and presented completed project to the larger maps team. Participated in Google Volunteering Groups, Google Allyship, and an Effective Java Reading Group. … more ---",
+        "techStack": [
+          "docker",
+          "java"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "SDSU Schedule Planner",
+        "description": "1.) Created SQL database and used BeautifulSoup to scrap SDSU web portal and RateMyProfessor to store all course information with associated professor rating. 2.) Parses inputted student's degree evaluation to evaluate necessary requirements to graduate. 3.) For each requirement, queries database to gather data on each course fulfilling the requirement and sorts the list based off of professor ratings from RateMyProfessor. 4.) Returns list of requirements to graduate with recommended courses.",
+        "techStack": [
+          "sql"
+        ]
+      },
+      {
+        "name": "Website coming soon :)",
+        "description": "Personal Website I made a personal website to practice front end development with html and css and back end with python to set up a contact feature. ---",
+        "techStack": [
+          "css",
+          "html",
+          "python"
+        ]
+      }
+    ]
+  },
+  {
+    "person": "Jean Carlos Méndez",
+    "file": "batch_jean_carlos_m_ndez.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Software Engineer",
+        "type": "",
+        "description": "",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Aug 2021 - Present · 4 yrs 8 mos New York, United States Googler In Residence",
+        "techStack": []
+      },
+      {
+        "company": "University of Puerto Rico-Mayaguez",
+        "role": "",
+        "type": "Full-time",
+        "description": "Aug 2024 - Dec 2024 · 5 mos Mayagüez, Puerto Rico · On-site Instructor of CIIC 3015 - Introduction to Computer Programming course to freshmen students at the University of Puerto Rico, Mayaguez campus as part of the Google In Residence (GIR) program. … more Computer Science Education Goldman Sachs 5 yrs 2 mos New York Engineering Associate Jan 2020 - Aug 2021 · 1 yr 8 mos Engineering Analyst Jul 2016 - Dec 2019 · 3 yrs 6 mos Software Engineering Co-Op IBM Aug 2015 - May 2016 · 10 mos Austin, Texas Worked primarily as a Node.js developer in the Systems Management Team for WebSphere Application Server (WAS). Developed prototypes for various existing WAS features using JavaScript. These features had focus on security, with emphasis on SSL. … more Technology Summer Analyst Goldman Sachs May 2015 - Aug 2015 · 4 mos Jersey City, New Jersey Software Engineering Intern ---",
+        "techStack": [
+          "java",
+          "javascript",
+          "node.js"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Sentinel - A Campus Alert Application",
+        "description": "Sentinel is a security application currently being developed in the University of Puerto Rico, Mayaguez Campus (UPRM). It consists of Android and iOS applications where students can immediately report an incident in the case of an emergency. All the incidents are stored in a database and administrated by the college police. I am working as the primary developer of both the Android Application and the website where the college police can manage all the reported incidents.",
+        "techStack": [
+          "android",
+          "ios"
+        ]
+      },
+      {
+        "name": "UPRM Career Management System",
+        "description": "The University of Puerto Rico, Mayaguez (UPRM)’s Placement Office currently has a website on which companies can register to the bi annual job fair held at this campus and lets the students see what companies are attending, plus the majors and positions they are looking for. This website has served them well along the years, but it has its shortcomings given that it is almost a decade old and some of the desired essential functionalities were never implemented. Example of the main problems are: the lack of a clearly defined way for companies to add relevant data such as the company logo and brief description, the lack of functionality to upload documents that the companies would like students to see and the lack of an activity calendar for events hosted by companies. ---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "John Chung",
+    "file": "batch_john_chung.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Software Engineer",
+        "type": "",
+        "description": "",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Mar 2023 - Present · 3 yrs 1 mo San Bruno, California, United States YouTube Responsibility Cornell University",
+        "techStack": []
+      },
+      {
+        "company": "Part-time",
+        "role": "",
+        "type": "2 yrs",
+        "description": "Teaching Assistant Aug 2022 - Dec 2022 · 5 mos Ithaca, New York, United States CS 4740: Natural Language Processing - served as a TA and assisted 200+ students in Natural Language Processing class; created and graded assignments as well as exams; offered regular office hours and extra sessions to provide guidance on homework, exams, and lecture materials. … more PyTorch, python and +1 skill Undergraduate Research Assistant 2021 - Dec 2022 · 2 yrs - Conducted research under the supervision of Professor Cardie with a focus on building few-shot named entity recognition models for low resource languages using pre-trained models, including RoBERTa and LUKE, and open-source text datasets. - Summarized and presented research papers on Attention mechanisms, Transformers, pre-trained models, and other NLP-related topics during weekly meetings and discussions to encourage conversation on relevant research topics. … more PyTorch and python Software Engineering Intern Google May 2022 - Aug 2022 · 4 mos Mountain View, California, United States - Built Ping Validator dashboard that enables YouTube engineers to access immediate ping validation results against ping processing pipelines to avoid unexpected production issues when they change ping reporting. - Configured gRPC protocol buffers and proto messages for defining Ping Validator RPC service, built and tested RPC server which handles RPC requests/responses using Google’s internal server development platform with C++. - Built frontend that communicates with RPC server and displays validation results with Python, Typescript, Lit Element and Material Design. … more Web Components, C++ and +3 skills Software Engineering Intern Riiid May 2021 - Aug 2021 · 4 mos - Achieved a 45% decrease in model size and 2/3 decrease in model inference time by applying PyTorch and Onnx quantization to user score prediction models within a language learning app for English exams with 3MM+ global users. - Managed CI/CD of the AI inference server, A/B test dashboard, and OneFlow repositories and implemented integration test automation with lint and test coverage using Github Action to decrease overall time for model deployment. - Developed an in-company dashboard for Riiid that displays company product info, market statistics (KPIs), and HR information using Typescript, React.js, Next.js, Vercel, Airflow, and Notion/Asana/Google Sheets API. - Built an in-company platform that enabled 150 users at Riiid to express opinions on specific parts of online/offline meetings with a web app and helped optimize content for presentations using Typescript, React.js, Next.js, Vercel, and Firebase. … more Flask, PyTorch and +3 skills Founder/Data Engineer/Frontend Developer poner:se Aug 2020 - Jan 2021 · 6 mos - Founded an online female clothing store by building, enhancing, and maintaining a web/mobile eCommerce site that generated $1,500 in monthly profits. - Analyzed user data using Google Analytics/Big Query and conducted multiple A/B tests to optimize product photos, information, and social media content to maximize time spent on landing pages and drive new conversions. - Developed a product naming algorithm for SEO by combining keywords collected from keyword rankings. … more python, React.js and +1 skill ---",
+        "techStack": [
+          "airflow",
+          "bert",
+          "big query",
+          "c++",
+          "ci/cd",
+          "express",
+          "firebase",
+          "flask",
+          "grpc",
+          "material design",
+          "natural language processing",
+          "next.js",
+          "onnx",
+          "protocol buffers",
+          "python",
+          "pytorch",
+          "react",
+          "react.js",
+          "roberta",
+          "transformers",
+          "typescript",
+          "vercel"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Joseph Lambo",
+    "file": "batch_joseph_lambo.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Software Engineer",
+        "type": "",
+        "description": "",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Mar 2023 - Present · 3 yrs 1 mo Mountain View, California, United States Software Engineer Intern",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2022 - Aug 2022 · 4 mos Mountain View, California, United States Working to extend a transformer to incorporate logging of various complex features used for ad classification. Incorporated C++, SQL, and multiple database managing systems. The University of Alabama in Huntsville 2 yrs 10 mos President - National Society of Black Engineers Apr 2020 - May 2022 · 2 yrs 2 mos Front Desk Assistant Part-time Aug 2019 - Jan 2022 · 2 yrs 6 mos Huntsville, Alabama Area Responsible for performing administrative and clerical duties at the various campus halls. Software Development Intern",
+        "techStack": [
+          "c++",
+          "sql"
+        ]
+      },
+      {
+        "company": "Amazon",
+        "role": "",
+        "type": "Internship",
+        "description": "Jun 2021 - Aug 2021 · 3 mos Seattle, Washington, United States •\tDeveloped tools that actively supported and streamlined modeling process for Alexa routing teams. Tools estimated to reduce time required for modeling process from multiple days to a few hours. •\tWorked with various Python, Java, AWS, API’s, NoSQL and CL Scripting interfaces. … more Future Force Hackathon Participant Salesforce Jul 2020 · 1 mo United States Participated in a virtual hackathon where teams were given the task of developing intuitive and creative ways to improve diversity and representation in technology and the tech industry. Developed a Personalized Internship Finder for minorities with my team. … more ---",
+        "techStack": [
+          "aws",
+          "java",
+          "nosql",
+          "python"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Gym Fitness App",
+        "description": "Currently creating an app that records the user's biometric information, current max lifts, and other factors to return personalized fitness advice and information, including max possible lifts, optimal progression path, suggested workouts etc.",
+        "techStack": []
+      },
+      {
+        "name": "Food Storage Application",
+        "description": "Developed an application that reads in the user's biometric information and weight gain/loss goals and calculates the optimal nutrition path to the goal, and suggests various foods to help meet the daily goal. Also acts as a calorie tracker that tracks the user's calorie intake with an extensive database of food items, along with their nutritional value. ---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Konstantin Lopyrev",
+    "file": "batch_konstantin_lopyrev.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Senior Staff Software Engineer",
+        "type": "",
+        "description": "Google Jul 2012 - Present · 13 yrs 9 mos New York, NY - I’m currently working on Gemini training, trying to improve its handling of information after the cut-off date. - I was a core contributor to the ranking formula used for ranking social media results in the What People Are Saying feature on Google Search. - I built an embedding model for social media content ranking on Google Search. - I led several projects to improve the ranking of news results in Top Stories on Google Search. - I designed and built the latest version of Google's news clustering algorithm, which is used in Google News, Google Search, YouTube and Google Trends. - I wrote large parts of the main ranking server used in Google News and Google Discover, including a lot of the core framework. Additionally, I made several improvements to the ranking of results for various topics such as the 2018 US midterm elections topic and topics such as Economics. - I briefly worked on Twitter ranking on Google Search - I built large-scale regression and collaborative filtering models used in Google+ friend and community suggestions. Unfortunately, Google+ is now a dead product. This is my skill set: machine learning (both large and small scale), information retrieval, large-scale data processing (can process a petabyte), distributed systems, middleware, data analysis and database application (I took all the database courses at Stanford). In general, I specialize in algorithms and coding. … more Research Assistant Stanford University Sep 2015 - Jun 2016 · 10 mos I spent 2 quarters working with Percy Liang on implementing a job scheduling system for CodaLab (http://worksheets.codalab.org). I also spent a quarter with him doing dataset analysis and implementing a logistic regression baseline for the Stanford Question Answering Dataset. Yes, we knew the baseline would be pretty crappy going in. Our paper on question answering won the EMNLP best resource paper award. I spent one quarter working with Chris Re, on EmptyHeaded, DeepDive, and recurrent neural networks, among other things. I left his team due to irreconcilable differences (was fired). … more Co-op Analyst, Algorithmic Trading Morgan Stanley Sep 2011 - Dec 2011 · 4 mos New York, NY Software Engineering Intern, Infrastructure Monitoring Google Jan 2011 - Apr 2011 · 4 mos Mountain View, CA Software Engineering Intern, Android Framework Google May 2010 - Aug 2010 · 4 mos Mountain View, CA ---",
+        "techStack": [
+          "algorithms",
+          "android",
+          "distributed systems",
+          "machine learning"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Vincent Carbonaro",
+    "file": "batch_vincent_carbonaro.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Google",
+        "type": "",
+        "description": "10 yrs 8 mos New York City Metropolitan Area Software Engineer Aug 2016 - Present · 9 yrs 8 mos Web Application Developer (Contract) Aug 2015 - Aug 2016 · 1 yr 1 mo Focusing mainly on back end development, I work with Python and Ruby.  Everything is TDD. Web Developer (Contract) Wooter Jul 2015 · 1 mo Staten Island, NY Focused mainly on front end development, I worked with PHP, HTML5, CSS3, and JavaScript to improve the UX. ---",
+        "techStack": [
+          "css3",
+          "html",
+          "html5",
+          "java",
+          "javascript",
+          "php",
+          "python",
+          "ruby"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Yachen (Carl) Yin",
+    "file": "batch_yachen__carl__yin.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Software Engineer",
+        "type": "",
+        "description": "",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Aug 2025 - Present · 8 mos Seattle, Washington, United States · On-site Google Cloud Big query Open Source Developer Apache Iceberg Workshops · Freelance Aug 2023 - Present · 2 yrs 8 mos Remote · Remote Fix D401 pydocstyle issues by TjuAachen · Pull Request #8401 · apache/iceberg iceberg, Open-Source Development and +1 skill Software Dev Engineer",
+        "techStack": [
+          "big query",
+          "google cloud"
+        ]
+      },
+      {
+        "company": "Amazon Web Services (AWS)",
+        "role": "",
+        "type": "Full-time",
+        "description": "May 2024 - Aug 2025 · 1 yr 4 mos Boston, Massachusetts, United States · On-site Working on building, operating, and growing the AWS File Storage services processing massive data sets at up to >100GB/S of throughput, >1,000,000 of IOPS, and <0.001 latencies. Software Dev Intern",
+        "techStack": [
+          "aws"
+        ]
+      },
+      {
+        "company": "Amazon Web Services (AWS)",
+        "role": "",
+        "type": "Full-time",
+        "description": "May 2023 - Aug 2023 · 4 mos Boston, Massachusetts, United States · On-site ● Automated manual patching of 71 steps to only 1 click. ○ Designed and built 2 CI/CD pipelines in Ruby to deploy and activate patching automatically in all 13 regions for AWS OpenZFS filesystem. ○ Developed a ruby script integrated into the approval workflow of each pipeline to invoke the API for patching activation. ○ Tested the pipelines in Gamma stage with 100% success rate, and promoted them to Prod stages reducing the patching time cost from 2 weeks to 1 day. ● Created an API cutting the related error rate to 0% ○ Developed a RPC API in Java to get filesystem hardware configs from PostgreSQL database and thus replace hard-coded and erroneous config files. ○ Designed and defined the request and response data models of the API in XML with least dimensions but highest information efficiency, which were transformed into Java classes using Coral. ○ Implemented the API behavior in Java by AWS Java coding style with input validation, query towards Postgre, and monitoring, which can return accurate hardware configs within ~200ms latency. ○ Performed 12 unit tests for each method, and deployed the code to S3 bucket using CodeDeploy for integration testing in AWS CLI. … more Amazon Web Services (AWS), RPC and +4 skills Software Dev Intern",
+        "techStack": [
+          "api",
+          "aws",
+          "ci/cd",
+          "java",
+          "postgresql",
+          "ruby"
+        ]
+      },
+      {
+        "company": "Lightning Motorcycles",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jan 2023 - Apr 2023 · 4 mos Hollister, California, United States Redux.js, AngularJS and +4 skills ---",
+        "techStack": [
+          "angular",
+          "angularjs",
+          "redux"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "All In Stock: A MERN stock trading application",
+        "description": "Associated with 美国东北大学",
+        "techStack": []
+      },
+      {
+        "name": "React, MongoDB and +1 skill",
+        "description": "The source code for the front end.",
+        "techStack": [
+          "mongodb",
+          "react"
+        ]
+      },
+      {
+        "name": "The GitHub link to the source code of the front end.",
+        "description": "BlogIt: A Full Stack Blog Java Web Application Associated with 美国东北大学 1. Developed RESTful APIs with Spring Boot, enabling user registration, article search, blog writing, image uploads, user comments, etc. 2. Integrated JWT for encrypted token generation, cached frequently accessed data in Redis for optimized performance. 3. Utilized login interceptor, ThreadLocal for temporary user data storage, and asynchronous article view updates via thread pools. 4. Leveraged AWS S3 for image storage, AOP for uniform exception handling, addressed cache consistency issues using RocketMQ. 5. Constructed a back-end management system with Spring Security. 6. Containerized the project using Docker and set up automated CI/CD pipelines with AWS ECS/ CodePipeline",
+        "techStack": [
+          "aws",
+          "ci/cd",
+          "docker",
+          "java",
+          "redis",
+          "spring",
+          "spring boot"
+        ]
+      },
+      {
+        "name": "Docker, Redis and +7 skills",
+        "description": "GitHub - TjuAachen/CS5500_Group9_Blog-It-Web-Application: A Full Stack Blog Web Application ---",
+        "techStack": [
+          "docker",
+          "redis"
+        ]
+      }
+    ]
+  },
+  {
+    "person": "Yicheng Zhang",
+    "file": "batch_yicheng_zhang.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Software Engineer",
+        "type": "",
+        "description": "",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Nov 2024 - Present · 1 yr 5 mos San Bruno, California, United States · On-site ML Efficiency Teaching Assistant for 15440/15640 Distributed Systems",
+        "techStack": [
+          "distributed systems"
+        ]
+      },
+      {
+        "company": "Carnegie Mellon University School of Computer Science",
+        "role": "",
+        "type": "Part-time",
+        "description": "Dec 2022 - Dec 2023 · 1 yr 1 mo Pittsburgh, Pennsylvania, United States · On-site Communication, Distributed Systems and +2 skills Software Dev Engineer Intern",
+        "techStack": [
+          "distributed systems"
+        ]
+      },
+      {
+        "company": "Amazon",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2023 - Aug 2023 · 4 mos Sunnyvale, California, United States · On-site Alexa device CV ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Yiling Y.",
+    "file": "batch_yiling_y_.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Software Engineer",
+        "type": "",
+        "description": "Google Sep 2025 - Present · 7 mos Sunnyvale, California, United States TorchTPU: Native PyTorch experience for TPU Software Engineer Salesforce Jan 2025 - Sep 2025 · 9 mos San Francisco, California, United States Sandbox Software Engineer - CMU Capstone Project Swift Aug 2024 - Dec 2024 · 5 mos • Developed a scalable microservice architecture on AWS cloud, adapting to evolving business needs and reducing operational costs over SWIFT’s on-premise monolithic application • Built a web application using Spring Boot and React, integrated with OpenSearch databases and EventBridge for automated scheduler. • Incorporate Selenium for dynamic testing environments and Service Now for real-time monitoring, optimizing operational efficiency and system responsiveness … more Software Engineer",
+        "techStack": [
+          "aws",
+          "pytorch",
+          "react",
+          "scala",
+          "spring",
+          "spring boot",
+          "swift"
+        ]
+      },
+      {
+        "company": "Salesforce",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2024 - Aug 2024 · 4 mos San Francisco, California, United States • Enhanced service distribution and communication asynchrony across the Sandbox system to worldwide servers using message queues, leveraging Java Spring customized beans for Dependency Injection and Inversion of Control • Built the Targeted Auto Remediation framework to automatically restore failed sandbox creations using cus\u0002tomized rules, incorporating Linux cron jobs for systematic scheduling and SpEL parser. This advancement cut recovery times by 90% and substantially lowered operational costs compared to manual reset actions. • Established centralized rule configuration service using Heroku database. Completed unit and functional tests with 90% coverage, using JUnit framework and Mockito for Java stubbing … more Intern",
+        "techStack": [
+          "heroku",
+          "java",
+          "linux",
+          "spring"
+        ]
+      },
+      {
+        "company": "Kuaishou Technology",
+        "role": "",
+        "type": "Internship",
+        "description": "Nov 2022 - Jan 2023 · 3 mos Beijing, China ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "ETL Optimization and Kubernetes Scheduling - CMU 15719 Advanced Cloud Computing",
+        "description": "• Developed and optimized an ETL pipeline for a distributed LLM model using Go and Apache Spark on AWS, processing large scale dataset with over 800 million features. Enhanced scalable file storage using EBS and HDFS • Advanced data handling by implementing inverted indexes and optimizing joins in RDDs to reduce data shuffling. Solved OOM issues and cut gradient descent training time • Implemented a Kubernetes scheduler with strategic policy adjustment to decrease Job Completion Time",
+        "techStack": [
+          "aws",
+          "kubernetes",
+          "scala",
+          "spark"
+        ]
+      },
+      {
+        "name": "Santorini: Online Board Game - CMU 17514 Principles of Software System Construction",
+        "description": "• Designed in UML and implemented in Java with software design principles for an extensible game architecture, using Single Responsibility Principle • Developed an interactive user interface using TypeScript and React for multi-user shared gameplay • Set up CI/CD pipeline on \\textbf{GitHub Actions} for automated testing, ensuring code quality by 95\\% branch coverage ---",
+        "techStack": [
+          "ci/cd",
+          "github actions",
+          "java",
+          "react",
+          "typescript"
+        ]
+      }
+    ]
+  },
+  {
+    "person": "Akanksha Diwedy",
+    "file": "final_akanksha_diwedy_1774405099037.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer III",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Oct 2024 - Present · 1 yr 6 mos San Francisco Bay Area Amazon Web Services (AWS)",
+        "techStack": [
+          "aws"
+        ]
+      },
+      {
+        "company": "Full-time",
+        "role": "",
+        "type": "3 yrs 6 mos",
+        "description": "Software Development Engineer II Jun 2022 - Oct 2024 · 2 yrs 5 mos Sunnyvale, California, United States Software Development Engineer May 2021 - Jun 2022 · 1 yr 2 mos San Francisco Bay Area Software Engineer 2",
+        "techStack": []
+      },
+      {
+        "company": "Juniper Networks",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jun 2020 - Apr 2021 · 11 mos San Francisco Bay Area Developed new features for monitoring and visualizing user defined metrics using RESTful API and Flask as part of Appformix Team which optimizes enterprise cloud operations with real-time analytics. Created monitoring ability for Openstack Octavia load balancers backend for health checks and alert notifications. Aided in troubleshooting, debugging, reproducing and validating issues at all stages of development. … more Graduate Research Assistant Information Sciences Institute Feb 2019 - Jun 2020 · 1 yr 5 mos Marina Del Ray, California Department : Center of Knowledge Graph Professor : Dr. Pedro Szekely Processed large scale web archives data as part of information retrieval to decode unstructured data, extract and collect excel/CSV files for table to wikidata conversion task. Designed YAML files for mapping tables to json or triples format according to wikidata and also for defining properties(P nodes) for complex databases. … more Software Engineer Intern A10 Networks, Inc May 2019 - Aug 2019 · 4 mos San Jose, California Developed a way to perform regression testing using a predictive model that estimates the likelihood of each test failing for a newly proposed code change. It leverages machine learning and probabilistic analysis for selecting regression tests. This method needs to run only a small subset of tests in order to detect faulty changes even before the code is committed. The model learns a test selection strategy from a large data set of historical code changes and test outcomes along with information about the current code change. Used XGBoost Regression Algorithm for training the model over large scale data to achieve 82% accuracy and eliminate a large number of unnecessary test executions. Optimized and parallelized the model's feature extraction from order of n-squared to order of n, thereby reducing the time of execution from 12 days to 4.5 hours. … more ---",
+        "techStack": [
+          "api",
+          "flask",
+          "machine learning"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "Crowd Analysis by Face Recognition and Expression Detection Associated with University of Southern California",
+        "techStack": [
+          "express"
+        ]
+      },
+      {
+        "name": "Application of Multi-Label Classification.",
+        "description": "Designed Multi-Label Convolutional neural network (CNNs) to perform Face Recognition and Expression Detection using a shared layers model to learn and identify common features of both tasks. Optimized network with learning rate decays, training epochs and dropout to achieve 94% accuracy for face prediction and 89% for expression prediction.",
+        "techStack": [
+          "express"
+        ]
+      },
+      {
+        "name": "Game playing AI agent (PYTHON)",
+        "description": "Associated with University of Southern California Programmed an AI agent to play a non-zero sum game with both players trying to maximize their own score.",
+        "techStack": [
+          "python"
+        ]
+      },
+      {
+        "name": "Given the current state of moves/choices made, the agent tells the next move to make.",
+        "description": "Optimized the minimax algorithm with evaluation function, alpha beta pruning and move ordering to reduce search space by 85% in order to meet time and memory constraints. ---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Ana M.",
+    "file": "final_ana_m__1774404973212.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Google",
+        "techStack": []
+      },
+      {
+        "company": "Full-time",
+        "role": "",
+        "type": "2 yrs 9 mos",
+        "description": "Software Engineer II Nov 2024 - Present · 1 yr 5 mos Software Engineer Jul 2023 - Nov 2024 · 1 yr 5 mos Kirkland, Washington, United States · On-site C++ and Trusted Platform Module Seattle University",
+        "techStack": [
+          "c++",
+          "rust"
+        ]
+      },
+      {
+        "company": "Part-time",
+        "role": "",
+        "type": "10 mos",
+        "description": "Seattle, Washington, United States Graduate Research Assistant Mar 2023 - Jun 2023 · 4 mos Continuing research of published paper \"WTAGraph: Web Tracking and Advertising Detection using Graph Neural Networks\" - https://zhiju.me/assets/files/WtaGraph_SP22.pdf Advisor: Dr. Yang … more Graduate Teaching Assistant Sep 2022 - Jun 2023 · 10 mos Tutor students in Computer Science classes on the topics Computer Systems Principles I and II, Algorithms and Artificial Intelligence. Grade weekly labs and projects, which involves code review and debugging. … more Software Engineer",
+        "techStack": [
+          "algorithms"
+        ]
+      },
+      {
+        "company": "YouTube",
+        "role": "",
+        "type": "Internship",
+        "description": "Jun 2022 - Sep 2022 · 4 mos San Bruno, California, United States Python (Programming Language) and TypeScript Software Engineer",
+        "techStack": [
+          "python",
+          "typescript"
+        ]
+      },
+      {
+        "company": "Hawx Services, LLC",
+        "role": "",
+        "type": "Internship",
+        "description": "Sep 2021 - Jun 2022 · 10 mos React Native, React.js and +2 skills Graduate Teaching Assistant",
+        "techStack": [
+          "react",
+          "react native",
+          "react.js"
+        ]
+      },
+      {
+        "company": "Seattle University",
+        "role": "",
+        "type": "Part-time",
+        "description": "Sep 2021 - Jun 2022 · 10 mos Seattle, Washington, United States Tutor students in Computer Science classes on the topics Java fundamentals, Algorithms and Data Structures. Grade weekly labs and projects, which involves code review and debugging. … more ---",
+        "techStack": [
+          "algorithms",
+          "data structures",
+          "java"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Andrew Benson",
+    "file": "final_andrew_benson_1774404940586.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jul 2017 - Present · 8 yrs 9 mos Mountain View, California Senior Software Engineer, Search / Suggest. https://www.google.com/ I work on Search's front-end stack and infrastructure. My claim to fame is that I wrote the current Google homepage. Tell me if you find a bug, especially accessibility ones outside of the searchbox. If it's on Internet Explorer, I'll make your bug P4 when you're not looking. These days, most of my work is on the searchboxes that appear on various Google Search pages. I also keep up some maintenance on the Google homepage, which I am the domain expert on (tends to happen when you wrote most of the code). I mostly write HTML, CSS, and Turing-complete Google-specific configuration languages. Occasionally I write code in an actual programming language...yeah, sorry, it's JavaScript. On lucky days I get to write TypeScript. Actually, I mostly delete other people's code nowadays.  I realize you probably aren't taking me seriously anymore. I don't know how I became a Senior SWE either. If you want to have a serious technical conversation with me, talk to me outside LinkedIn. I am highly skilled in using Search-specific markup languages, rendering frameworks, build systems, test frameworks, experiment configuration, and Google Closure JS type annotations. (All Search-specific, if that wasn't clear.) I am also highly knowledgable about legacy code on the homepage and searchbox. This makes me really good at doing my job in Search, somewhat clueless elsewhere in Google, and useless at other companies. (I promise I'm still a good programmer - Iet's talk outside LinkedIn.) If you still want to hire me, you're probably also in Search, and good luck convincing me your SRP code is less trash than my homepage code. (But hopefully you'd talk to me internally instead of reading my LinkedIn.) In the past, I've worked on ~Magi~, various homepage and searchbox stuff, and on the search widget on Android phones (provided by the Android Google Search App). … more Stanford University 2 yrs 6 mos Stanford, California, United States Course Assistant Part-time Jan 2020 - Jun 2022 · 2 yrs 6 mos Computer Science Department, Systems courses in the CS Core (CS 107, CS 107A, CS 110). At Stanford, this involves teaching recitation / lab / review sessions, holding office hours, answering Q&A on Piazza / Ed, and grading. For CS 107A, I teach and manage the whole course. CS 107A: Problem-solving Lab for CS107. https://web.stanford.edu/class/cs107a/ Spring 2022, Winter 2022, Fall 2021, Spring 2021, Winter 2021. An adjacent class to CS 107 for students who opt for extra practice and study of CS 107 material. CS 107: Computer Organization & Systems. https://web.stanford.edu/class/cs107/ Autumn 2020, Spring 2020. An overview of computer systems concepts at the C and assembly (x86) level. Covers the C programming language, memory layout (stack/heap/data segments), pointers, generics, assembly, and dynamic memory allocation. CS 110: Principles of Computer Systems. https://web.stanford.edu/class/cs110/ Winter 2020. An overview of computer systems components. Covers filesystems, processes, threads, networking, signals, and more. … more Course Instructor Full-time Jun 2021 - Aug 2021 · 3 mos Computer Science Department, CS 107: Computer Organization & Systems (Summer 2021). https://web.stanford.edu/class/archive/cs/cs107/cs107.1218/ An overview of computer systems concepts at the C and assembly (x86) level. Covers the C programming language, memory layout (stack/heap/data segments), pointers, generics, assembly, and dynamic memory allocation. … more Teaching Assistant",
+        "techStack": [
+          "android",
+          "css",
+          "html",
+          "java",
+          "javascript",
+          "networking",
+          "spring",
+          "typescript"
+        ]
+      },
+      {
+        "company": "Carnegie Mellon University",
+        "role": "",
+        "type": "Part-time",
+        "description": "Jan 2014 - May 2017 · 3 yrs 5 mos Pittsburgh School of Computer Science (SCS), Intro CS sequence (15-251, 15-151, 15-131, 15-122, 15-112). At CMU, this involves teaching recitation, sometimes teaching lectures, holding office hours, answering Q&A on Piazza, proctoring exams, grading, and some other things as they come up. 15-251: Great Theoretical Ideas in Computer Science. Spring 2017. An intense survey of topics in computer science theory. Covers automata, Turing machines, computability, complexity theory, graph theory, boolean circuits, probability theory, randomized algorithms, cryptography, and more. 15-151: Mathematical Foundations for Computer Science. Fall 2016 (Head TA). A rigorous overview of proof-based mathematics and logic. Covers induction, set theory, functions and relations, number theory, combinatorics, probability, and more. 15-131: Great Practical Ideas for Computer Scientists. Fall 2016. A crash course in command-line tooling for first-semester CS majors. Covers the terminal, vim, bash, git, LaTeX, and more. 15-122: Principles of Imperative Computation. Spring 2014, Fall 2014, Fall 2015, Spring 2016 (Head TA). Covers code reasoning, the C programming language, pointers and memory, generics, data structures, simple algorithms, complexity analysis. 15-112: Fundamentals of Programming and Computer Science. Spring 2015. An intensive first course in programming in Python. Covers fundamental programming constructs, the Python language, object-oriented programming, graphics / animation, efficiency and analysis, and basic problem-solving design. … more Software Engineering Intern",
+        "techStack": [
+          "algorithms",
+          "bash",
+          "data structures",
+          "git",
+          "python",
+          "spring"
+        ]
+      },
+      {
+        "company": "Facebook",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2016 - Aug 2016 · 4 mos Menlo Park Facebook Messenger, Social / Photos team. I sped up the Messenger for iOS camera by 2-5x, and developed an unreleased photo sharing feature. Admittedly I sped up iOS messenger by deleting the previous intern's code that didn't work (not even joking, their filter was _that_ slow), so there's a good chance all of my work has been deleted by now as well. At least I had a fun summer and the MPK food was good. … more Software Engineering Intern",
+        "techStack": [
+          "ios"
+        ]
+      },
+      {
+        "company": "Microsoft",
+        "role": "",
+        "type": "Internship",
+        "description": "Jun 2015 - Aug 2015 · 3 mos Redmond Operating Systems Group (OSG), Windows 10 (Windows Phone). I worked on Project Astoria (https://en.wikipedia.org/wiki/Windows_10_Mobile#Project_Astoria), a subsystem of Windows 10 that emulates an Android environment in order to allow Android apps to run on Windows with minimal changes by the developer. It now partially lives on as WSL, the Windows Subsystem for Linux (https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux). My team worked on Android-Windows Phone UI compatibility in Astoria. It's a lot more interesting than it sounds, especially if you liked Windows Phone. Ask me if you're interested. … more ---",
+        "techStack": [
+          "android",
+          "linux",
+          "operating systems"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Anuj Jain",
+    "file": "final_anuj_jain_1774405029349.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Google",
+        "techStack": []
+      },
+      {
+        "company": "Full-time",
+        "role": "",
+        "type": "5 yrs 10 mos",
+        "description": "Mountain View, California, United States Software Engineer II Apr 2022 - Present · 4 yrs Software Engineer I Jun 2020 - Apr 2022 · 1 yr 11 mos University of Southern California Viterbi School of Engineering 10 mos United States Graduate Teaching Assistant (Course Producer) - Algorithms (CSCI 570) Jan 2020 - May 2020 · 5 mos Graduate Teaching Assistant (Course Producer) - Machine Learning (CSCI 567) Aug 2019 - Dec 2019 · 5 mos Software Engineer Intern, Google Analytics Google May 2019 - Aug 2019 · 4 mos United States Graduate Teaching Assistant (Course Producer) - Introduction to Artificial Intelligence (CSCI 360) University of Southern California Viterbi School of Engineering Jan 2019 - May 2019 · 5 mos United States Working as a Course Producer for Introduction to Artificial Intelligence under Profs Andrew Nealen and Chao Wang. Responsibilities: - Design programming assignments (in Java and Python) and their rubrics. - Hold office hours to help students understand AI assignments along with related concepts such as search techniques, logic, game playing agents, bayesian networks etc. - Create automated grading scripts for assignments. … more Snapdeal 3 yrs 1 mo Senior Software Developer Apr 2018 - Jul 2018 · 4 mos Gurugram, Haryana, India Weight Correction - Created min-max weight rules for best selling categories using data science on company’s historical orders. Rectified existing SKUs’ weights, as well as validated new seller listings. Impact  –  extra recovery of 75000$ every month from the sellers Courier Capacity Handler – Mentored new graduates to build a throttling system which discontinues stock keeping units (SKUs) when the capacities of couriers facilitating them have exhausted. Impact – minimizing of customer escalations by 8% due to delayed delivery during Diwali sales TOOLS – Java, Spring, Hibernate, JSP, AJAX, Javascript, Bash, Lucene, MySQL, mongoDB, Aerospike … more Software Developer II Dec 2016 - Mar 2018 · 1 yr 4 mos Gurgaon, India Smart Courier Allocation – Optimized existing courier allocation process by adding Machine Learning on courier's previous performance, delivery time and return percentage data. Impact - monthly savings of 80000$ because of better courier allocation Return To Vendor – Designed a flow for tracking of goods being returned to sellers for reasons such as quality check rejection and customer cancellation single-handedly. Impact – sellers happy to see their goods' status and having an option of accepting or raising a dispute. TOOLS – Java, Spring, Hibernate, JSP, AJAX, Javascript, Bash, Lucene, MySQL, mongoDB, Aerospike … more Software Developer I Jul 2015 - Dec 2016 · 1 yr 6 mos Gurgaon, India Lane Prioritization – Designed frontend and backend logic for creation and prioritization of lanes. This project helped Snapdeal make same day and next day deliveries a big success impacting the company’s bottom line. Better prioritizing of important channels led to higher customer satisfaction. Impact – same day and next day deliveries Reachability Engine – Created a standalone platform which determines serviceability for a product. Used Lucene elastic search in algorithm accounting for variables like couriers, lanes, laws, item type. Impact – 7 % increase in reachability Tax Engine – Built a common platform interacting with all teams across Snapdeal providing the amount of tax to be levied. Impact – Reduction of litigation cases TOOLS – Java, Spring, Hibernate, JSP, AJAX, Javascript, Bash, Lucene, MySQL, mongoDB, Aerospike … more ---",
+        "techStack": [
+          "algorithms",
+          "bash",
+          "java",
+          "javascript",
+          "machine learning",
+          "mongodb",
+          "mysql",
+          "python",
+          "scala",
+          "spring",
+          "vite"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Bharath Gunari",
+    "file": "final_bharath_gunari_1774405018468.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Google 4 yrs 6 mos On-site Software Engineer II Permanent Full-time Nov 2023 - Present · 2 yrs 5 mos Seattle, Washington, United States GPU Fleet Reliability Infra team 1. Building real-time Host health Telemetry pipeline for multi node GPU Machines enabling observability for external customers to monitor accelerator optimized A3+ (H100/H200) and A4 (B200) VM's and for internal teams like SRE and GSupercomputer to help , debug and maintain GPU machine providing exceptional customer experience. 2. Maintaining and developing telemetry services which are used to extract metrics, export logs and monitor millions of VM's … more Software Engineer Full-time Oct 2021 - Nov 2023 · 2 yrs 2 mos Seattle, Vancouver Currently working with Google Compute Engine - Performance, Tools and Telemetry team Customer Application Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Ivalua",
+        "role": "",
+        "type": "Full-time",
+        "description": "Sep 2021 - Oct 2021 · 2 mos Seattle, Washington, United States LinkedIn helped me get this job helped me get this job Part of Run Team Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "FlexiVan",
+        "role": "",
+        "type": "Full-time",
+        "description": "Aug 2019 - Jul 2021 · 2 yrs Scottsdale, Arizona • Worked with an Agile, Scrum methodology to ensure delivery of high-quality work • GPS Infrastructure - Responsible for cleansing and re-structuring of high-volume GPS data (approx. 500k rows per day) eliminating noise and generating various data structures like trip segments, turn times, and round trips which enables BI analysis, customer reports, and invoicing. (Java, PostgreSQL) • Utilize strategies like data partitioning, indexing for PostgreSQL database scaling, and performance improvements bringing about a reduction of overall query execution time by 5 folds. • Mainframe Integration and Sunset - Playing a key role in consolidating mainframe data and applications into our existing application stack which involved understanding of existing implementation and functionalities and deciding the structure of final product based on scalability, robustness, and performance resulting in deprecating the mainframe system and allowing the company to cut operating cost (half a million dollar per year). • GPS Pipeline Integration - Implemented PostGIS-based framework to derive various elements out of GPS data which enabled the company to explore various GPS providers for better accuracy and availability of data. • In-house Mobile Application Support - Developing and Managing systems and apps to run day-to-day operations at our depots (including gate and Maintenance & Repair) which involves gathering and delivering the solutions to the users by coordinating with the Offshore development team. (JavaScript, Php, NodeJS, Ionic Framework) • Data Integration Pipeline - Building an end-to-end framework and EDI 214 data pipeline to collect container pickup and drop events data from 5 different trucking companies and coalesce them together into one feed for our customer and facilitate invoicing based on this feed. Invoicing amount approximately totaling up to million dollars per month. • REST API - Developed REST APIs for exposing the services including processing JSON data formats. … more Software Engineer Intern",
+        "techStack": [
+          "agile",
+          "api",
+          "data structures",
+          "java",
+          "javascript",
+          "nodejs",
+          "php",
+          "postgresql",
+          "rest api",
+          "rest apis",
+          "scala",
+          "scrum"
+        ]
+      },
+      {
+        "company": "FlexiVan",
+        "role": "",
+        "type": "Internship",
+        "description": "Jan 2019 - May 2019 · 5 mos Scottsdale, Arizona • Developed and integrated Automated License plate recognition which helped in eliminating manual data input. • Visibility of waiting times near shipping terminals and depots which resulted in improved customer scheduling and logistics. … more Arizona State University 1 yr 6 mos Tempe, Arizona Graduate Research Assistant (EMIT Lab) Jan 2018 - Feb 2019 · 1 yr 2 mos Computing Support Developer Part-time May 2018 - Jan 2019 · 9 mos Instructional Aide Part-time Sep 2017 - Jan 2019 · 1 yr 5 mos ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "Human Tracking in Quad-copter Associated with Arizona State University Led a team of 3 people to program the Quad-copter Parrot bebop 2 to detect the person and follow the person.Implemented YOLO to detect the person in the image and built an algorithm to automate the guidance to quadcopter to follow the detected person.",
+        "techStack": []
+      },
+      {
+        "name": "DataStorm-FE: A Data- and Decision-Flow and Coordination Engine for Coupled Simulation Ensembles",
+        "description": "Associated with Arizona State University Data analyst on team project “DataStorm: A Data and Decision-Flow and Coordination Engine for Coupled Simulation Ensembles”. This project is being developed under Prof. Selcuk Candan (ASU) funded by NSF and was presented in 2018 44th International Conference on Very Large Data Bases (VLDB) in Brazil. +3 ---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Carlos K.",
+    "file": "final_carlos_k__1774404907615.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Google",
+        "techStack": []
+      },
+      {
+        "company": "Full-time",
+        "role": "",
+        "type": "11 yrs 8 mos",
+        "description": "Staff Software Engineer Aug 2016 - Present · 9 yrs 8 mos Kirkland, WA, USA · Hybrid Bringing meaningful AI features to Chrome users. Technical Leadership, Cross-Functional Collaboration and +3 skills Senior Software Engineer Aug 2014 - Aug 2016 · 2 yrs 1 mo Greater Paris Metropolitan Region · On-site Working with Chrome for Android in the Google's Paris office. During these two years I worked in the PlzNavigate refactoring project, that will improve security, performance and code sanity of the navigation process in Chrome. Drinking wine and eating cheese were not uncommon tasks either. … more Software Development Senior Software Engineer CCP North America Oct 2010 - Apr 2014 · 3 yrs 7 mos Atlanta Metropolitan Area Programming mainly in Python and also in C++ on the World of Darkness MMO project, I delivered new items and improvements for several of its different aspects, like gameplay features, internal tools, automated asset pipelines, client and server codebases, and more. I constantly interacted with our internal clients/users to understand their needs and better fulfill them. Also worked on Incarna, an EVE online expansion released in 2011. … more Software Development Software Engineer & Researcher Audaces Automação e Informática Industrial Ltda Apr 2009 - Sep 2010 · 1 yr 6 mos Developer in a  C++ research project, conciliating good code design with math algorithms research. Worked with linear programming, stochastic population-based algorithms, combinatorial optimization, SIMD operations (using Intel IPP) and computational geometry. … more Software Development Hoplon Infotainment SA 7 yrs 8 mos Project Director May 2008 - Dec 2008 · 8 mos Director of the Taikodom project, managing its leaders of software development, game design, art, tests &amp; QA, user support, operations, marketing and commercial contacts. Executed its national commercial launch, in November 2008. … more Software Development Senior Software Engineer & Coordinator Jan 2004 - Apr 2008 · 4 yrs 4 mos As a senior software engineer, I worked in two important projects: MegaHedron (www.megahedron.com), a multi-player arena space shooter, Java applet game and Taikodom (www.taikodom.com), a sci-fi action MMOG. I heavily collaborated on the design and implementation of many of their server engine features, like client-server communication, server clusterization, path-finding AI and data persistency. I also worked closely with the game design department on several game-play features. Other areas I worked too were client GUI infrastructure, client game logic, path-finding AI, tests development, performance optimization, protocol definition, code generation, Ant build scripting and auxiliary tools creation. We were involved with many different languages, but mainly Java, Python and C++. Being participative in decisions concerning the development process, I began having leading and coordination roles. At different moments I managed teams of engine developers, test developers and server operators. In 2007 I implemented Scrum in the engine team and became its Scrum Master. … more Software Development Software Engineer Intern, Trainee May 2001 - Dec 2003 · 2 yrs 8 mos Working on some small game projects, technology demos and other applications in Java. Became a partner in the end of 2002 and collaborated on the VC search and negotiation process, which kick-started the company. … more Software Development Programmer Intern EduGraf Laboratory - UFSC May 1997 - Sep 1999 · 2 yrs 5 mos Java and web programmer intern, having created educational web games, collaborated on the hiperNet virtual community system and on the HiperL educational programming language. Software Development ---",
+        "techStack": [
+          "algorithms",
+          "android",
+          "c++",
+          "java",
+          "perl",
+          "python",
+          "scrum"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "Google Chrome Associated with Google",
+        "techStack": []
+      },
+      {
+        "name": "The most used web browser in the world.",
+        "description": "goless The goless open source library provides Go programming language semantics built on top of Stackless Python or gevent. ---",
+        "techStack": [
+          "python"
+        ]
+      }
+    ]
+  },
+  {
+    "person": "Charlene Junus",
+    "file": "final_charlene_junus_1774405007515.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "X, The Moonshot Factory",
+        "role": "",
+        "type": "Full-time",
+        "description": "Sep 2025 - Present · 7 mos Mountain View, California, United States · On-site LinkedIn helped me get this job helped me get this job Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Sep 2025 - Present · 7 mos Mountain View, California, United States · On-site Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Amazon Web Services (AWS)",
+        "role": "",
+        "type": "Full-time",
+        "description": "Dec 2023 - Sep 2025 · 1 yr 10 mos Seattle, Washington, United States · On-site Amazon Web Services (AWS), Java and +3 skills Chief Executive Officer, Founder charlenejunusart Jun 2016 - Mar 2024 · 7 yrs 10 mos Greater Jakarta Area, Indonesia Charlenejunusart is a boutique art organization aimed at producing premium artwork including custom painted masks, shoes, cardholders, tote bags, and many more. Our customers include Vice President Bapak Maruf Amin, former governor Bapak Basuki Purnama and former Minister of Tourism Bapak Wishnutama. Instagram: @charlenejunusart Website: www.charlenejunus.com Email: charlenejunusart@gmail.com … more Backend Systems and Infrastructure",
+        "techStack": [
+          "aws",
+          "java"
+        ]
+      },
+      {
+        "company": "LinkedIn",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2023 - Aug 2023 · 4 mos Sunnyvale, California, United States · On-site LinkedIn helped me get this job helped me get this job Search Infrastructure Team - Encryption and Decryption Java, Back-End Web Development and +3 skills ---",
+        "techStack": [
+          "encryption",
+          "java"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Craig Weidert",
+    "file": "final_craig_weidert_1774404896676.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Google 9 yrs 2 mos Senior Software Engineer Full-time Jun 2023 - Present · 2 yrs 10 mos Los Angeles, California, United States · On-site Now as tech lead. Senior Software Engineer Oct 2021 - Present · 4 yrs 6 mos Los Angeles, California, United States My team runs randomized controlled trials to determine how good Google's ads are at driving incremental advertiser-defined conversions such as website visits, purchases, sign-ups, etc.  (That is, we try to estimate the number or proportion of these events that happened _because_ of advertisers' ad campaigns, not just _after_ them.) On the team, I help expand our team's coverage, maintain and improve our analysis pipelines, help ensure that our methodologies are sound, debug issues that come up, mentor new teammates, and dream up ways to try to improve our experimentation infrastructure. … more Software Engineer Part 2 Apr 2018 - Oct 2021 · 3 yrs 7 mos The Angeles, California Still writing that software to evaluate ad campaigns' performance. Software Engineer Feb 2017 - Apr 2018 · 1 yr 3 mos Los Angeles, California I write software with a team that helps advertisers determine how effective their ads are. Math & Computer Science Teacher Los Angeles Unified School District Aug 2011 - Jun 2016 · 4 yrs 11 mos Los Angeles, California I taught AP Statistics, AP Computer Science, and Geometry to high school students. H1N1 Vaccine Coordinator Benton Franklin Health Dept Sep 2009 - Dec 2009 · 4 mos I designed and implemented a system for tracking vaccines for the Benton-Franklin Health Department during the \"swine flu\" craze.  I also helped run clinics to vaccinate folks. ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Ganesh Kurcheti",
+    "file": "final_ganesh_kurcheti_1774404807902.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Senior Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Salesforce",
+        "role": "",
+        "type": "Full-time",
+        "description": "Feb 2024 - Present · 2 yrs 2 mos California, United States · Hybrid -> Orchestrated the enablement of the UI API for the Task entity in Sales Cloud, enhancing user experience for approximately 80,000 customers. -> Directed the migration of core components of Task entity from Aura to LWC, fixing 7+ accessibility bugs and ensuring future scalability. … more Senior Software Engineer",
+        "techStack": [
+          "api",
+          "scala"
+        ]
+      },
+      {
+        "company": "Tesla",
+        "role": "",
+        "type": "Full-time",
+        "description": "May 2023 - Feb 2024 · 10 mos Austin, Texas, United States · On-site -> Scaled line-side software for operators to support building Model Y and Cybertruck, resulting in at least ~10% production increase. -> Improved activity tracking and tool-controller microservices, yielding ~30% less debugging time and doubling data processing speed. … more Software Engineer",
+        "techStack": [
+          "bert",
+          "microservices"
+        ]
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jul 2021 - Mar 2023 · 1 yr 9 mos Mountain View, California, United States · On-site -> Designed and developed Google Assistant’s Arbitration client-side logic for Pixel devices, with early accuracy reaching a high of ~80%. -> Minimized time required for identifying the hearing devices by ~30%, which would increase device selection reliability by at least 10%. -> Improved the overall logging and monitoring in Arbitration service, reducing developer debugging time significantly. … more C++ and Java Software Engineer Intern",
+        "techStack": [
+          "c++",
+          "java"
+        ]
+      },
+      {
+        "company": "Mercedes-Benz Research & Development North America, Inc.",
+        "role": "",
+        "type": "Internship",
+        "description": "Feb 2021 - Apr 2021 · 3 mos Sunnyvale, California, United States · Remote -> Standardized unit test cases for C++ speech assistant services using GTest and GMock which improved overall tests coverage by ~70%. -> Refactored most of the underlying logic for the embedded functions interface and created new component tests framework using Python. … more Student Programmer",
+        "techStack": [
+          "c++",
+          "python"
+        ]
+      },
+      {
+        "company": "University of Florida",
+        "role": "",
+        "type": "Part-time",
+        "description": "Sep 2020 - Feb 2021 · 6 mos Gainesville, Florida, United States · On-site -> Spearheaded the development of a web portal for tracking patients’ data and providing suggestions for diagnosis. -> Consolidated 4+ report generation interfaces to a single generic interface which saved the admin time and effort. -> Pioneered the full-stack development of applications using ReactJS and AWS (lambda, API Gateway, and DynamoDB) … more React.js and JavaScript ---",
+        "techStack": [
+          "api",
+          "aws",
+          "dynamodb",
+          "java",
+          "javascript",
+          "react",
+          "react.js",
+          "reactjs"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Jai Chaudhary",
+    "file": "final_jai_chaudhary_1774407458524.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "SDE",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "",
+        "techStack": []
+      }
+    ],
+    "projects": []
+  },
+  {
+    "person": "Jamarr Lampart",
+    "file": "final_jamarr_lampart_1774404698321.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Mar 2020 - Present · 6 yrs 1 mo San Bruno, California, United States Software Engineer A9.com Jul 2017 - Mar 2020 · 2 yrs 9 mos Palo Alto, California Augmented Reality (AR) Developer https://www.amazon.com/adlp/arview Student Massachusetts Institute of Technology (MIT) Sep 2013 - Jun 2017 · 3 yrs 10 mos Cambridge, MA Computer Science major Software Engineering Intern A9.com May 2016 - Aug 2016 · 4 mos Palo Alto, CA Mobile Development (Android & iOS) software engineer on Visual Search team. Contract Software Engineer StrongLifts Jan 2016 - Feb 2016 · 2 mos Remote Developed automatic and manual reminders feature for StrongLifts 5x5 Android app. ---",
+        "techStack": [
+          "android",
+          "ios"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Jennifer Joe",
+    "file": "final_jennifer_joe_1774404731137.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "谷歌",
+        "role": "",
+        "type": "Full-time",
+        "description": "Mar 2018 - Present · 8 yrs 1 mo ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Juntao Wang - Google",
+    "file": "final_juntao_wang___google_1774407693016.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience & Education",
+        "type": "",
+        "description": "Google ******** ******** ******* ********** ******** ******** ********* ******** **** **** ********** ******** ********* ******* **** ** ******* ****** ** *********** *** ******* ******** ****** ** ********** * *** ******** ******* undefined 2017 - 2022 ******** **** **** ********** ******** ****** ******** ******* 2014 - 2017 View Juntao’s full experience See their title, tenure and more. Sign in or By clicking Continue to join or sign in, you agree to LinkedIn’s User Agreement, Privacy Policy, and Cookie Policy.",
+        "techStack": []
+      }
+    ],
+    "projects": []
+  },
+  {
+    "person": "Mark M",
+    "file": "final_mark_m_1774404741943.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "SDE Google ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Mayank Dandwani",
+    "file": "final_mayank_dandwani_1774404796951.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer III",
+        "techStack": []
+      },
+      {
+        "company": "Google DeepMind",
+        "role": "",
+        "type": "Full-time",
+        "description": "Oct 2025 - Present · 6 mos Google",
+        "techStack": []
+      },
+      {
+        "company": "Full-time",
+        "role": "",
+        "type": "3 yrs 4 mos",
+        "description": "On-site Software Engineer III Sep 2024 - Oct 2025 · 1 yr 2 mos Mountain View, California, United States Software Engineer III May 2024 - Aug 2024 · 4 mos Bengaluru, Karnataka, India Automation, Critical Thinking and +1 skill Software Engineer II Jul 2022 - May 2024 · 1 yr 11 mos Bengaluru, Karnataka, India October 2023 - Present: Android Framework July 2022 - September 2023: Play Monetization … more Automation, Software Design and +7 skills Back End Developer",
+        "techStack": [
+          "android"
+        ]
+      },
+      {
+        "company": "Fi",
+        "role": "",
+        "type": "Internship",
+        "description": "Jan 2022 - May 2022 · 5 mos Learned Go and developed code generators for essential Go classes and methods which were commonly used across multiple teams. Worked with multiple teams to figured out the commonly used services. Created a tool which takes input directly from the command line, boosting developer productivity. … more Teamwork, Collaborative Problem Solving and +2 skills SDE Intern",
+        "techStack": []
+      },
+      {
+        "company": "Ping Identity",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2021 - Jul 2021 · 3 mos India Developed Spring Boot microservices featuring custom Java-based API responses, comprehensive Spring Boot validation, and custom error handling for optimal user experience REST APIs, Data Validation and +3 skills ---",
+        "techStack": [
+          "api",
+          "java",
+          "microservices",
+          "rest api",
+          "rest apis",
+          "spring",
+          "spring boot"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "TRAVELLO",
+        "techStack": []
+      },
+      {
+        "name": "POST, PATCH and GET with REST_API",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Melissa Kohl",
+    "file": "final_melissa_kohl_1774405088107.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer III",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Sep 2019 - Present · 6 yrs 7 mos San Francisco Bay Area · Hybrid Optimize performance across Google’s infrastructure. Python, SQL and +3 skills Physics Fellow Whitman College Jan 2019 - May 2019 · 5 mos Walla Walla, Washington Mentor intro physics students on group problem-solving skills during weekly meetings. LIGO Summer Undergraduate Research Fellow Caltech Apr 2018 - Sep 2018 · 6 mos Pasadena, California Conducted independent research over ten weeks, culminating in a final presentation and independently-authored scientific paper, currently under peer review. Analyzed LIGO detector data glitches using Python and matplotlib to discover new classifications of images of glitches and investigate similarities. Built supervised learning Convolutional Neural Networks using Keras and TensorFlow to find connection between glitch shape and data properties. Built unsupervised learning Variational Auto-Encoder to find clusters of new classifications. … more Machine Learning, Python and +1 skill Computer Science Mentor Whitman College Jan 2017 - May 2018 · 1 yr 5 mos Walla Walla, Washington In an intro computer science class, assisted professor in helping students during exercises by explaining concepts and debugging code. Held weekly office hours outside of class for homework questions, test preparation, and individual tutoring. … more Alpha Phi International Fraternity 1 yr 5 mos Walla Walla, Washington Vice President of Marketing Jan 2017 - Dec 2017 · 1 yr Created and organized a new philanthropy event more relatable and accessible to Whitman students and parents than previous events. Coordinated alumni relations and events, and oversaw merchandise and social media chairs. As part of the Executive Counsel, created preventative social policies for parties, made sexual misconduct reporting systems more accessible, and created scholarships for covering membership fees. … more Director of Academics Aug 2016 - Dec 2016 · 5 mos Organized weekly study sessions and 6 academic events for the chapter, including professor talks, resume building workshops, grad school talks, and class registration events. Received recognition from Alpha Phi Internationals through the Excellence in Scholarship Award, an award given to chapters that excel in chapter GPA and emphasize academics through events. … more ---",
+        "techStack": [
+          "keras",
+          "machine learning",
+          "python",
+          "sql",
+          "tensorflow"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "Fed.Con Associated with Booz Allen Hamilton Developed a middleware product for cross-communication of Runtime Infrastructures (RTIs) to send data between dissimilar military training simulations.",
+        "techStack": []
+      },
+      {
+        "name": "Created an intuitive graphical user interface to implement the product, simplifying the connection.",
+        "description": "Presented our project to company leadership to provoke further investment. +4 ---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Menghan C.",
+    "file": "final_menghan_c__1774404752906.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Research Assistant Purdue University Aug 2017 - Nov 2017 · 4 mos • Implemented a data visualization tool that unifies data across relational and non-relational database • Improved server performance by using COPY command and database server cursors • Developed a UI web portal allowing users to enter and modify data … more SDE Intern, Amazon Amazon Lab126 Jun 2017 - Aug 2017 · 3 mos San Francisco Bay Area • Built internal tools to enhance software build infrastructure • Worked on internal metrics dashboard using AngularJS • Designed Mysql Database schema to represent relation models • Worked with multiple teams to collect different requirements and support their needs according to priority … more Software Engineering Intern Tengfei technology Jun 2016 - Aug 2016 · 3 mos Shanghai, China • analyzed and calculated simulation of Shanghai's vehicle moving and traffics • tested company's 360 algorithm by ingesting traffic data ---",
+        "techStack": [
+          "angular",
+          "angularjs",
+          "mysql"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "Chatting Website • Designed database schema to represent each user and their chatting relationship • Developed a realtime transaction system and authentication system using token based authentication • Used Django MVC framework",
+        "techStack": [
+          "django"
+        ]
+      },
+      {
+        "name": "Imaging recognition system",
+        "description": "• Developed face recognition algorithms to identify human faces in images. • Use OpenCV and C++ to detect the changing process of facial expression on human faces • Used Machine learning skills to train sample images to improve the recognition ---",
+        "techStack": [
+          "algorithms",
+          "c++",
+          "express",
+          "machine learning",
+          "opencv"
+        ]
+      }
+    ]
+  },
+  {
+    "person": "Michael Hansen",
+    "file": "final_michael_hansen_1774404962358.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Feb 2019 - Present · 7 yrs 2 mos Boulder, CO Currently, I am a Software Engineer on the Payments Identity Verification team. My focus has been on back-end software development to enhance the scalability of our identity verification service to support Google's global payments infrastructure. … more Software Engineer",
+        "techStack": [
+          "scala"
+        ]
+      },
+      {
+        "company": "Northrop Grumman",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jul 2017 - Feb 2019 · 1 yr 8 mos Greater Denver Area While at Northrop Grumman, I worked on several different machine learning research and development projects in the Autonomous Intelligence and Robotics Lab. I worked primarily with C++ and Python, and I was part of an Agile Software Development team that competed in the DARPA Spectrum Collaboration Challenge (SC2). SC2, which was a three-year DARPA Grand Challenge, focused on addressing radio frequency (RF) spectrum scarcity with collaborative machine learning agents. Additionally, I supported research projects to apply machine learning to signals processing, object detection, and image classification. … more Mathematics Tutor Private Tutor Apr 2014 - Jun 2017 · 3 yrs 3 mos Denver Metropolitan Area I tutored high school and college students in Mathematics while I was a student at the University of Denver. While tutoring, I strived to explain concepts in an intuitive and easily understood manner. I prepared activities and exercises for students to complete to help boost their performance and confidence in Mathematics classes. We also discussed test taking strategies to help maximize scores. … more Software Engineer Internship Comcast Jun 2016 - Aug 2016 · 3 mos Denver Metropolitan Area I worked as a Software Engineer intern attached to an Agile Software Development team. Much of my work focused on company-wide portals that allow Comcast employees to access and manipulate customer account information. I also wrote programs to help manage data received from customer set-top boxes. Additionally, I collaborated with other interns to design and prototype a \"smart mirror\" to demo and pitch to Comcast leadership. … more Research Assistant University of Denver Aug 2013 - May 2015 · 1 yr 10 mos University of Denver, Denver, CO ---",
+        "techStack": [
+          "agile",
+          "c++",
+          "machine learning",
+          "python"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Michael Stone",
+    "file": "final_michael_stone_1774404885740.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Google 7 yrs 9 mos New York, United States Software Engineer May 2022 - Present · 3 yrs 11 mos Computer Science Coach Part-time Jul 2018 - May 2022 · 3 yrs 11 mos Software Product Sprint Participant Internship Jun 2020 - Aug 2020 · 3 mos Developed leadership abilities by working in a team of other software engineers. Learned about best practices for developing webapps and using​ GitHub. Demonstrated understanding of developer tools such as ​Google Cloud Shell​ as well as APIs such as ​DataStore, Google Translate, and Google Maps ​within 4 weeks of exposure. Applied understanding to build a web app that utilized geolocation to retrieve news articles. … more Software Engineer II",
+        "techStack": [
+          "google cloud",
+          "shell"
+        ]
+      },
+      {
+        "company": "Devetry (part of Dept)",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jun 2021 - May 2022 · 1 yr Denver, Colorado, United States Columbia University in the City of New York 9 mos Lab Programmer (BioelectronicsLab) Jul 2017 - Aug 2017 · 2 mos Columbia University Overhauled a camera system that was designed to monitor bacteria growth to be able to handle dual camera live streaming, while also creating a GUI in Python that allowed graduate students to automatically save data. The data collected was later used in the graduate students thesis paper. During this time I had to self teach myself Python as well as GUI design in a couple days to meet deadlines. … more Lab Programmer (Biomechanics Lab) Dec 2016 - Aug 2017 · 9 mos Columbia University, New York, NY Worked on developing an Android application to help researchers in my lab organize and collect data. Also spent time reverse engineering legacy code in while self teaching myself lab view. ---",
+        "techStack": [
+          "android",
+          "python"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "Android Movie App Utilized both IMDB API and YouTube API to showcase movies currently playing in theaters. Users can view movie trailers, ratings, and descriptions. Implemented and designed complex view adapters to differentiate between popular and less popular movies, even when in portrait or landscape view. Deployed server using ​Herokuapp​ to allow users to signup and login. Built protocol to manage user info and preferences using ​Java​.",
+        "techStack": [
+          "android",
+          "api",
+          "heroku",
+          "java"
+        ]
+      },
+      {
+        "name": "Movie-Link",
+        "description": "Utilized IMDB API, SQLite, ​Python​(​Flask), HTML & CSS, and JavaScript(Ajax)​ to create a web app where users can search up movies by name and can view movie information such as movie summary, rating, and date of release. Users were able to also set up zoom sessions through the web-app to watch movies with friends. Implemented Google OAuth to allow users to login with existing Gmail accounts to ensure security. Integrated ​Flask ​to store user information (movie wishlist, friends list, upcoming sessions, emails, and account settings). Web-app was capable of restoring a user’s session and account information upon login by using ​Ajax ​to make back-end requests for user data. Integrated Unit and coverage testing. Ensuring that tests had over 90% branch coverage. Came up with test cases to ensure that our MVC was air tight and functioned as intended. ---",
+        "techStack": [
+          "api",
+          "css",
+          "flask",
+          "html",
+          "java",
+          "javascript",
+          "oauth",
+          "python",
+          "sqlite"
+        ]
+      }
+    ]
+  },
+  {
+    "person": "Miguel Antochiw 🍿",
+    "file": "final_miguel_antochiw____1774404918549.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Awesome Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Oct 2021 - Present · 4 yrs 6 mos Mountain View, California, United States Seattle Latino Film Festival",
+        "techStack": []
+      },
+      {
+        "company": "Part-time",
+        "role": "",
+        "type": "4 yrs 8 mos",
+        "description": "President of the Board of Directors Mar 2024 - Present · 2 yrs 1 mo Member Board of Directors Aug 2021 - Mar 2024 · 2 yrs 8 mos Advising the organization on a wide range of technological needs, allowing it to reduce costs, become more productive, reach out to more people, and to improve fund raising capabilities. Awesome Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Switchboard",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jan 2021 - Oct 2021 · 10 mos Defining the next generation of collaboration tools by building a sleek and performant user's interface. Sumo Logic 5 yrs 6 mos Staff Software Engineer Feb 2020 - Jan 2021 · 1 yr Senior Software Engineer II Nov 2018 - Feb 2020 · 1 yr 4 mos Senior Software Engineer Aug 2015 - Nov 2018 · 3 yrs 4 mos Redwood City, CA Develop new UI features for the product, investigate and fix bugs, do performance optimizations and apply new technologies to the product as required. My area of expertise in the product are the charts (currently using Highcharts). We use the following JS frameworks: Backbone, AngularJS and RXJS. … more Co-Founder & CTO Startup in Stealth Mode Apr 2015 - Jul 2015 · 4 mos Menlo Park, CA Design the architecture of the product, including data schema, storage, platform, application layers, consumer website, internal dashboard, consumer iPhone app and interaction with partners. During that time, we built more than a prototype of the product. Some of the technologies used were MongoDB, a variation of PHP (Google Cloud Engine), AngularJS and Objective C. Our backend was built on Google Cloud Engine to allow future scaling on demand. … more ---",
+        "techStack": [
+          "angular",
+          "angularjs",
+          "google cloud",
+          "mongodb",
+          "php"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "Outlook.com Associated with Microsoft",
+        "techStack": []
+      },
+      {
+        "name": "Proud developer of the sexiest, simplest and most elegante web-based e-mail out there.",
+        "description": "Outlook.com Calendar Associated with Microsoft",
+        "techStack": []
+      },
+      {
+        "name": "The new Outlook.com calendar’s modern and intuitive interface puts you in control of your schedule.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Mihir Manek",
+    "file": "final_mihir_manek_1774405055335.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Google",
+        "techStack": []
+      },
+      {
+        "company": "Full-time",
+        "role": "",
+        "type": "2 yrs 6 mos",
+        "description": "Kirkland, Washington, United States · Hybrid Software Engineer III Nov 2024 - Present · 1 yr 5 mos Back-End Web Development, Java and +2 skills Software Engineer Oct 2023 - Oct 2024 · 1 yr 1 mo Back-End Web Development and Java Software Engineer",
+        "techStack": [
+          "java"
+        ]
+      },
+      {
+        "company": "Warner Bros. Discovery",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jul 2023 - Oct 2023 · 4 mos Seattle, Washington, United States · Hybrid Docker, Web Technologies and +5 skills Software Engineer Intern",
+        "techStack": [
+          "docker"
+        ]
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Internship",
+        "description": "Sep 2022 - Dec 2022 · 4 mos Kirkland, Washington, United States · On-site JavaScript, TypeScript and +2 skills Software Engineering Intern",
+        "techStack": [
+          "java",
+          "javascript",
+          "typescript"
+        ]
+      },
+      {
+        "company": "HBO Max",
+        "role": "",
+        "type": "Internship",
+        "description": "Jun 2022 - Aug 2022 · 3 mos New York, United States Plasmo, TypeScript and +3 skills Teaching Assistant",
+        "techStack": [
+          "typescript"
+        ]
+      },
+      {
+        "company": "Northeastern University",
+        "role": "",
+        "type": "Part-time",
+        "description": "Jan 2022 - May 2022 · 5 mos Boston, Massachusetts, United States ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "Cloud Oriented Distributed & Encrypted File Storage (CODE-FS) Associated with KJ Somaiya College of Engineering, Vidyavihar The main aim of the project is to provide security to the data that is uploaded by encrypting the files at the client side using strong algorithms like AES, so that the user is in charge of his own data, and split the file into various fragments and store it in a distributed network of nodes, which is a dynamic network, along with real time backup and replication capabilities. Institutions and organizations can utilize our product as a middleware to provide cloud storage facilities to various employees and users in a secure way. We look forward to deploy this product in a commercial manner so that the Government can also utilize it for their needs.",
+        "techStack": [
+          "aes",
+          "algorithms"
+        ]
+      },
+      {
+        "name": "Portal for MatQuiz 2016-17",
+        "description": "Associated with MARK Developers Developed a portal for Indian Institute of Materials Management (http://iimmmumbai.org) for conducting an online quiz competition, which included MCQs, True False Questions, Anagrams, etc. which were generated dynamically for each participant based on a custom hash function.",
+        "techStack": []
+      },
+      {
+        "name": "Concepts Used:-",
+        "description": "PHP, HTML5, JavaScript, jQuery, CSS3, BootStrap, Material UI/UX, Virtual Private Server Hosting ---",
+        "techStack": [
+          "bootstrap",
+          "css3",
+          "html",
+          "html5",
+          "java",
+          "javascript",
+          "jquery",
+          "php"
+        ]
+      }
+    ]
+  },
+  {
+    "person": "Muskan Thakur",
+    "file": "final_muskan_thakur_1774404786138.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jul 2024 - Present · 1 yr 9 mos Bengaluru, Karnataka, India · On-site Search Latency Optimizations Associate Software Engineer Intern",
+        "techStack": []
+      },
+      {
+        "company": "ServiceNow",
+        "role": "",
+        "type": "Internship",
+        "description": "Jan 2024 - Mar 2024 · 3 mos Bengaluru, Karnataka, India · On-site Software Development Engineer Intern",
+        "techStack": []
+      },
+      {
+        "company": "Amazon",
+        "role": "",
+        "type": "Internship",
+        "description": "Aug 2023 - Dec 2023 · 5 mos Bengaluru, Karnataka, India · On-site Software Engineer Intern",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2023 - Jul 2023 · 3 mos Bengaluru, Karnataka, India · On-site Summer Intern",
+        "techStack": []
+      },
+      {
+        "company": "QuikDox",
+        "role": "",
+        "type": "Internship",
+        "description": "Mar 2023 - Apr 2023 · 2 mos Mumbai, Maharashtra, India · Remote LinkedIn helped me get this job helped me get this job ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Nilabhro Chakraborty",
+    "file": "final_nilabhro_chakraborty_1774404996523.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer - II",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jun 2025 - Present · 10 mos On-site Working with Search Ads Team (Smart Alerting). Focused on saving Google from multiple thousand ($) dollar outages in Ads serving with quickest and most reliable alerting possible … more C++, GenAI and +1 skill Software Development Engineer - I",
+        "techStack": [
+          "c++"
+        ]
+      },
+      {
+        "company": "Amazon",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jan 2024 - Jun 2025 · 1 yr 6 mos Bengaluru, Karnataka, India · On-site Worked for CMT Systems Team (ASIN Importer) - Worked with large scale software systems responsible for competitve pricing at Amazon - Took care of full software development cycle, from development to testing to deployment - Developed a new workflow with end goal as automation using SQS, lambda, DDB stream and SNS services - Worked on better utilization of team’s resources on cost front (POC for it) - SME for the team on a service responsible for onboarding competitors into CMT system. Onboarded the entire competitor set for Amazon Now after launching an automated onboarding platform for merchants. Reduced TAT time by more than 50% margins and removed manual touchpoints … more Spring Framework, Java and +1 skill Cloud Engineer",
+        "techStack": [
+          "java",
+          "spring"
+        ]
+      },
+      {
+        "company": "BlueVector AI",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jun 2023 - Dec 2023 · 7 mos Denver, Colorado, United States · Remote Worked as a Cloud Engineer on the SnapApp Product. Some of my responsibilities included - 1. Developing new features for SnapApp product 2. Using Google Cloud Platform for hosting 3. Writing SQL migration files 4. Fixing production issues and bugs … more Workbench, Terraform and +6 skills Mentor JU Code Club",
+        "techStack": [
+          "google cloud",
+          "sql",
+          "terraform"
+        ]
+      },
+      {
+        "company": "Jadavpur University",
+        "role": "",
+        "type": "Part-time",
+        "description": "Oct 2021 - Jun 2023 · 1 yr 9 mos Kolkata, West Bengal, India · On-site Mentored juniors and batchmates on DSA concepts and helping them get a good grasp over general/ complex algorithmic and data structure problems in the role as a “Mentor” at JU CodeClub. Participated in various popular hackathons and coding contests on behalf of Jadavpur University. … more DSA, Mentoring and +1 skill Software Development Engineer Intern",
+        "techStack": []
+      },
+      {
+        "company": "Amazon",
+        "role": "",
+        "type": "Internship",
+        "description": "Jun 2022 - Aug 2022 · 3 mos Bengaluru, Karnataka, India ~Worked with the CMT Systems Team on developing two plugins from scratch named PathFinder Forward and PathFinder Reverse using Javascript, Regex, REST APIs and React (frontend). These plugins were put into production by our team after sending a launch mail. It reduced Benchmarking time by ~60% and ensured seamless user experience for PD audits with very less chances of manual errors. ~Worked on AUROR (Mad-eye), which automated operations of instance fleet clusters like respawing, refreshing and adhoc pausing. Implemented an entire API Gateway including DynamoDB metadata store and 4 lambda's from scratch. Pushed code to production after testing in Beta Stage. Tech used - AWS Services like EMR and S3, DynamoDB, Cloud Formation. ~Made a PoC project on EMR vs EMR Serverless in terms of job execution time and cost of maintenance. Showed distinct contrast among the two with pricing examples on real running clusters ~Made a detailed study on an internal tool of CMT Systems and wrote javaDocs for the complete workflow, data-flow and steps required to onboard new marketplaces ~Received a PPO (Pre Placement Offer) from Amazon for my internship work … more SDE Intern, Bangalore Office In-office Internship Java, Amazon Web Services (AWS) and +4 skills ---",
+        "techStack": [
+          "api",
+          "aws",
+          "dynamodb",
+          "java",
+          "javascript",
+          "react",
+          "rest api",
+          "rest apis"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "Code Editor using React Associated with Jadavpur University, Kolkata Made a code editor using React in which we replicated the features of an existing editor called Code-pen using HTML, CSS and Javascript",
+        "techStack": [
+          "css",
+          "html",
+          "java",
+          "javascript",
+          "react"
+        ]
+      },
+      {
+        "name": "Youtube Transcript Summarizer",
+        "description": "Getting transcripts for a given video ID using a python API. Performing text summarization on obtained transcripts using HuggingFace transformers. Built a Flask Backend REST API to expose the summarization service to client. Developed a chrome extension which utilizes the Backend API to display summarized text to the user ---",
+        "techStack": [
+          "api",
+          "flask",
+          "python",
+          "rest api",
+          "transformers"
+        ]
+      }
+    ]
+  },
+  {
+    "person": "Rahul .",
+    "file": "final_rahul___1774404764159.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer II",
+        "techStack": []
+      },
+      {
+        "company": "Databricks",
+        "role": "",
+        "type": "Full-time",
+        "description": "Sep 2024 - Present · 1 yr 7 mos Bengaluru, Karnataka, India Google",
+        "techStack": []
+      },
+      {
+        "company": "Full-time",
+        "role": "",
+        "type": "2 yrs 3 mos",
+        "description": "Bengaluru, Karnataka, India Software Engineer II May 2024 - Sep 2024 · 5 mos Software Engineer Jul 2022 - Apr 2024 · 1 yr 10 mos Software Developer",
+        "techStack": []
+      },
+      {
+        "company": "Directi",
+        "role": "",
+        "type": "Internship",
+        "description": "Jan 2022 - Jul 2022 · 7 mos Summer Analyst",
+        "techStack": []
+      },
+      {
+        "company": "Goldman Sachs",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2021 - Jul 2021 · 3 mos ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Rhiannan Wackes",
+    "file": "final_rhiannan_wackes_1774404984114.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Sep 2022 - Present · 3 yrs 7 mos Mountain View, California, United States Software Engineering (Site Reliability) Intern",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2021 - Jul 2021 · 3 mos STEP Intern",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2020 - Aug 2020 · 4 mos Intern at the Walter Reed Army Institute of Research",
+        "techStack": []
+      },
+      {
+        "company": "Walter Reed Army Institute of Research",
+        "role": "",
+        "type": "Internship",
+        "description": "Jul 2017 - Aug 2017 · 2 mos Walter Reed Army Institute of Research ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "MIT Online Science, Technology, Engineering Community I was selected to participate in this rigorous, six-month online program offered by MIT Office of Engineering Outreach Programs, where I complete two courses of my choice, an intensive project-based course and a science writing course. I enrolled in Neuroscience and Connectomics, where I analyzed real data via an interactive online interface and contributed to real neuroscience research. I also enrolled in a Science Writing course, where I interviewed researchers and Ph.D candidates and completed an essay on stroke and ongoing research in the field of neuroregeneration that aims to minimize and treat stroke damage. ---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Run Wang",
+    "file": "final_run_wang_1774405152898.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer Google Feb 2022 - Present · 4 yrs 2 mos Mountain View, California, United States Software Development Engineer Amazon Aug 2019 - Feb 2022 · 2 yrs 7 mos Seattle, Washington, United States Technical Intern Logic Solutions, Inc. May 2018 - Aug 2018 · 4 mos Ann Arbor, Michigan, United States ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Ryan Iley",
+    "file": "final_ryan_iley_1774405066291.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Google",
+        "techStack": []
+      },
+      {
+        "company": "Full-time",
+        "role": "",
+        "type": "12 yrs 1 mo",
+        "description": "Software Engineer III - Shopping Query Understanding  / Shopping Attributes Discovery Jan 2019 - Present · 7 yrs 3 mos Greater Pittsburgh Region · Hybrid My team owns some of the pipelines that make Google Shopping Product Data work.  Specifically Attributes Discovery.  (Attributes are related to those chips on the left side of Google Shopping that let you refine your search; we data-mine queries and documents to find new ones.) I'm the recognized expert on my team's infrastructure (database and pipelines).  Senior engineers regularly consult me for help in making decisions when working with our system.  I own large x-team designs for infrastructure migrations.  I set OKRs and guide junior engineers to complete them.  I'm recognized as the most experienced API-level power-user of the new storage platform our org built, up to and including having permissions to push releases despite not being on the owning team. I'm really passionate about the development of high quality software, from making sure the software actually does what we need, to making sure it's implemented in a way that's resource-efficient, to teaching junior engineers how it works so they can maintain it. I do all the standard Google things, like proctor coding interviews, review other people's code and designs, have \"magical hallway conversations\", etc. other highlights that don't seem to fit elsewhere: - I wrote and own a logs pipeline which produces a k-anonymized dataset from identifiable queries. - I owned the development of a UI for our database.  I set the requirements, drew the mocks, insisted on NgRx so we could implement an undo/redo stack easily (the contractor specialized in AngularJs), coordinated with a contractor, and reviewed the code.  I learned enough AngularJs to read it, but it would take me a week or three to be able to write it. Most recent performance review: Outstanding Impact. … more Mentoring, Infrastructure Migration and +3 skills Software Engineer III - DCSW Mar 2017 - Jan 2019 · 1 yr 11 mos Greater Pittsburgh Area · On-site Spent a lot of time focused on building infrastructure for code reusability and testing within a proprietary workflow system. Drove significant features through development to launch, supporting cross-org initiatives that saved millions. … more Software Engineer III - BP Eng Apr 2016 - Mar 2017 · 1 yr Greater Pittsburgh Region · On-site Accepted team lead responsibility for a faltering component of a newly-developed production system in the critical path for ads sales and support.  Triaged daily production issues while designing, implementing, and successfully migrating to reliability improvements. … more Software Engineer II - gTech Eng / BP Eng Mar 2014 - Apr 2016 · 2 yrs 2 mos Greater Pittsburgh Region · On-site Lead a project from Requirements, through Design and Implementation, to Launch, and eventually Hand-off, using several key proprietary technologies, with a team size varying from one to three and eventually five developers, spread between three time zones and two continents, leading to a promotion. Served as either sole contributor or team player, many times strongly influencing design decisions, on a couple different projects, each time providing unique expertise on the critical path. Known on my team as the team expert on a number of proprietary technologies.  Given the fast-changing nature of the proprietary technologies we work with, this list continues to change, as new opportunities arise and old ones are deprecated. … more Build / Packaging Specialist IBM Apr 2013 - Feb 2014 · 11 mos Austin, Texas Metropolitan Area Daily Interfaced with counterparts across the US and in Europe Performed light system administration on production machines in high security data center Designed, Developed and Deployed tool to synchronize two incompatible production servers Automated reports with irregular data sets Filed a patent disclosure Known as team Java expert … more Software Engineer, Intern AtTask, Inc. Oct 2012 - Mar 2013 · 6 mos Lehi, UT Converted build environment from Ant to Maven Configured Jenkins (Testing Automation) to build with Maven Learned Linux terminal; Known as team expert in Git Customized log4j, converting synchronization blocks to ReentrantReadWriteLocks Upgraded IntelliJ Plugins to work with IntelliJ IDEA 12 Researched and demonstrated Drools workflow / rules engine Researched and ruled out MySQL Cluster for internal business application Maintained php intranet site … more Software Engineer, Team Leader, Intern C.R. England Jul 2012 - Sep 2012 · 3 mos Led a team of 4 developers Wrote and optimized a business-critical T-SQL query Implemented application code in several layers Interfaced with Google Maps web services Exposed a RESTful webservice to a mobile app … more Software Developer, Database Developer Mozart Software Sep 2011 - Jan 2012 · 5 mos South Jordan, UT Researched mathematical modeling Implemented multivariate nonlinear regression models Designed MySQL views for data aggregation … more ---",
+        "techStack": [
+          "angular",
+          "angularjs",
+          "git",
+          "java",
+          "jenkins",
+          "linux",
+          "mysql",
+          "php"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "Driver Contractor Dashboard Associated with C.R. England Internal tool for CR England drivers to find runs (truck routes) they want in order to improve driver retention rates.",
+        "techStack": []
+      },
+      {
+        "name": "Created a database query that simplifies a week long process into a 10 second query.",
+        "description": "Exposed a RESTful API for Moki Systems to develop an associated mobile app.",
+        "techStack": [
+          "api"
+        ]
+      },
+      {
+        "name": "Drools Watering App",
+        "description": "Associated with AtTask, Inc.",
+        "techStack": []
+      },
+      {
+        "name": "Watering App is a prototype for a rules engine using Drools.",
+        "description": "It allows developers to fundamentally change logic in the code and apply the changes without restarting the program. ---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Rynah Rodrigues",
+    "file": "final_rynah_rodrigues_1774405120683.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer III",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jan 2021 - Present · 5 yrs 3 mos Cambridge, Massachusetts, United States Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Tripadvisor",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jul 2018 - Jan 2021 · 2 yrs 7 mos Greater Boston Developing server and client side aspects of the website, developing new and modifying existing features mainly associated with Search Engine Optimizations (SEO). Led a major migration of On-Page SEO factors to a standalone Microservice. Designed the architecture, ensuring scalability and optimized performance of the service. Developed an application for E2E testing, conducting comparative analysis and loading testing for the service. Implemented end-to-end internal linking for pages. From designing  a scalable microservice  and integrating it using GraphQL queries to source the web-components on the frontend. Redesigned pages from legacy code to the new advanced code base(Dust/React.js), thus improving responsiveness of the page to support multiple viewports. Designed an internal tool for Project managers using PHP, Javascript and HTML to help visualize and integrate projects from different brands, run and monitor tests, and prioritize projects. Mentoring  developers through the development process of advanced SEO projects and guide them through specific pain points. Performing project management for engineering initiatives, documenting project tasks, requirements and handling project timelines. … more Intern Tata Consultancy Services Jun 2014 - Dec 2014 · 7 mos Modelled and developed domain dictionaries, which focuses on products in social media and analytics space. Worked on text mining engines, proliferating text analytic capabilities through research and collated databases Prepared meta data as inputs to crawlers and assisted in analysis, interpretation, and presentation of the results. … more ---",
+        "techStack": [
+          "graphql",
+          "html",
+          "java",
+          "javascript",
+          "php",
+          "react",
+          "react.js",
+          "scala"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "Teach It To Me Associated with Fr Conceicao Rodrigues College of Engineering Band Stand Bandra (West) Mumbai 400 050 Interactive web application which teaches young children Mathematics and English. It included graphical images and videos. Children could also challenge each other through puzzles, games, and quizzes. The front-end was implemented using HTML, CSS, JavaScript, and back-end was implemented using MySQL database server.",
+        "techStack": [
+          "css",
+          "html",
+          "java",
+          "javascript",
+          "mysql"
+        ]
+      },
+      {
+        "name": "Modeling Movie Data (MongoDB and Node.js)",
+        "description": "Associated with Rochester Institute of Technology This project focused on enhancing the feature of MongoDB over SQL Databases, which displays the movie information in real time to the user, scraping from IMDB using node.js. It also intends to perform User profiling which can be used for recommending similar movies to users. ---",
+        "techStack": [
+          "mongodb",
+          "node.js",
+          "sql"
+        ]
+      }
+    ]
+  },
+  {
+    "person": "Sarika Singh",
+    "file": "final_sarika_singh_1774404775092.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Georgia Institute of Technology 8 mos Atlanta, Georgia, United States Graduate Teaching Assistant Jan 2026 - Present · 3 mos GTA for CS4641 - Machine Learning (Prof. Steve Mussmann) Graduate Student Researcher Aug 2025 - Jan 2026 · 6 mos Core contributor to Vajra - a low-latency distributed LLM inference serving system in the Systems for AI Lab (SAIL) (Prof. Alexey Tumanov) Graduate Teaching Assistant Aug 2025 - Dec 2025 · 5 mos On-site GTA for CS4476 - Introduction to Computer Vision (Prof. Judy Hoffman) SDE Intern",
+        "techStack": [
+          "computer vision",
+          "machine learning"
+        ]
+      },
+      {
+        "company": "Amazon",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2025 - Jul 2025 · 3 mos Bellevue, Washington, United States · On-site Research Assistant Georgia Institute of Technology Feb 2025 - Apr 2025 · 3 mos Atlanta, Georgia, United States · On-site Data Modeling for Zurich Insurance Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jul 2022 - Jul 2024 · 2 yrs 1 mo Bengaluru, Karnataka, India Software Engineer Intern",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "May 2021 - Aug 2021 · 4 mos India ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Shambhavi S.",
+    "file": "final_shambhavi_s__1774405040265.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer II",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jan 2022 - Present · 4 yrs 3 mos Sunnyvale, California, United States - Borglet [2023 - Present] -  Borglet is Google's foundational compute node agent that manages process lifecycles and resource allocation across it's millions of servers. My core focus is building the next generation of scalable ML/AI and compute infrastructure to power high-impact workloads including Google DeepMind, Gemini, Waymo, YouTube, Ads, and Search. -   I am also responsible for developing and delivering Confidential Computing infrastructure to the Google fleet, ensuring a secure and private environment for the future of AI at scale (https://blog.google/technology/ai/google-private-ai-compute). - gVisor [2022 - 2023] -   Worked on developing and maintaining gVisor, Google’s open-source, user-space application kernel that provides a secure isolation boundary for containerized workloads. It powers mission-critical Google Cloud infrastructure, including Cloud Run, Google App Engine, and GKE Sandbox, to safely execute untrusted or multi-tenant code at planetary scale. -   Beyond internal systems, it gave me an opportunity to become a contributor to containerd/go-runc, the Go wrapper for the OCI-standard runc (https://github.com/containerd/go-runc/graphs/contributors). … more C++, Operating Systems and +5 skills Device Ecosystem Software Engineer Intern",
+        "techStack": [
+          "c++",
+          "google cloud",
+          "operating systems",
+          "rust",
+          "scala"
+        ]
+      },
+      {
+        "company": "Netflix",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2021 - Sep 2021 · 5 mos California, United States - Was a part of the first ever Netflix intern cohort. - Orchestrated the deployment of containerized Netflix applications on partner Set-Top Box (STB) hardware, ensuring high availability in a multi-tenant environment. - Implemented strict resource isolation using Linux cgroups to manage CPU quotas and memory limits, preventing application crashes and mitigating OOM (Out of Memory) risks. … more Containerization, Virtualization and +3 skills Software Engineer Adobe Sep 2017 - Dec 2019 · 2 yrs 4 mos Noida, Uttar Pradesh, India • Build Release Install Test Team - Designed and developed the framework for pre-production testing of installers for Adobe Digital Imaging products. - Leveraged the flexibility of installer framework for Adobe Digital Imaging products to create it’s testing API. Thereafter, used the API to create a command line tool Echo with enhanced testing capabilities. - Built, tested, and deployed standalone GUI utility Theo for Mac OS and Windows to evaluate and compare blueprints, and verify codesigning. - Created Atom – a GUI utility to serve as one-stop solution for all development related software requirements of the team. • Adobe Pre - Release Team - Automated various workflows for Prerelease system based on DIY model that enables product teams for easy setup, creation and administration of prerelease program site, content, user access, prerelease build delivery, feedback channels like new age U2U forums, JIRA bug base integration and third-party bug-based connectivity. - Designed intuitive graphical wrapper over batch scripts to augment accessibility for both beta users which increased bug detection by 70%. Adobe Application Streaming : A Virtualization Platform Solution for Adobe Products - Worked on the development of framework for Application Streaming Project to test the applications on different cloud platforms to deliver application experience to users via browser seamlessly. … more C++, Software Infrastructure and +2 skills Summer Intern",
+        "techStack": [
+          "api",
+          "c++",
+          "jira",
+          "linux"
+        ]
+      },
+      {
+        "company": "Samsung Electronics",
+        "role": "",
+        "type": "Internship",
+        "description": "Jun 2015 - Aug 2015 · 3 mos India Created ARM LE Emulation of Raspberry which mainly involved creating a Linux ISO image of the CPU on QEMU and performing all the operations of the operations on it thereby, cutting down the huge amount of cost incurred in the testing of processors under the supervision of Dr. Kaushik Saha. … more Summer Intern",
+        "techStack": [
+          "linux"
+        ]
+      },
+      {
+        "company": "Indian Institute of Technology, Bombay",
+        "role": "",
+        "type": "Internship",
+        "description": "Jun 2014 - Aug 2014 · 3 mos Mumbai Metropolitan Region Designed an Eclipse-based debugger for a Virtual Machine by manipulating an assembly code to augment functionalities in a breakpoint under the supervision of Professor Amitabha Sanyal. ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "Weenix Operating System Associated with University of Southern California",
+        "techStack": []
+      },
+      {
+        "name": "Designing an Operating System in 3 stages:",
+        "description": "Kernel 1: Process and thread creation, management of thread lifecycle, mutex locks for thread safety,",
+        "techStack": []
+      },
+      {
+        "name": "context switching and scheduler functionality.",
+        "description": "Kernel 2: Implementation of Virtual file system, management of inodes, and their reference counts.",
+        "techStack": []
+      },
+      {
+        "name": "Kernel 3: Implementation of Virtual Memory, managing Page Faults, v-nodes, shadow, and",
+        "description": "anonymous objects. Performing kernel read and write operations.",
+        "techStack": []
+      },
+      {
+        "name": "Classify handwritten digits on MNIST dataset",
+        "description": "Associated with University of Southern California - Classified handwritten digits on MNIST dataset using Artificial Neural Network (i.e. Multi-Layer Perceptron Neural Network) by implementing both feedforward and backpropagation from scratch. - The prediction accuracy achieved was 95%. - Python, NumPy, Multi-Layer Perceptron Neural Network ---",
+        "techStack": [
+          "numpy",
+          "python"
+        ]
+      }
+    ]
+  },
+  {
+    "person": "Shawn Fuller",
+    "file": "final_shawn_fuller_1774404720220.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jun 2022 - Present · 3 yrs 10 mos Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2021 - Aug 2021 · 4 mos Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2020 - Aug 2020 · 4 mos Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2019 - Aug 2019 · 4 mos Boulder, Colorado, United States ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Soumita Das",
+    "file": "final_soumita_das_1774405131666.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Google",
+        "techStack": []
+      },
+      {
+        "company": "Full-time",
+        "role": "",
+        "type": "4 yrs 6 mos",
+        "description": "Seattle, Washington, United States Software Engineer III Nov 2023 - Present · 2 yrs 5 mos Software Engineer II Oct 2021 - Oct 2023 · 2 yrs 1 mo Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Bloomberg LP",
+        "role": "",
+        "type": "Full-time",
+        "description": "Apr 2021 - Oct 2021 · 7 mos New York City Metropolitan Area Graduate Research Assistant University at Buffalo School of Engineering and Applied Sciences Mar 2020 - Dec 2020 · 10 mos Buffalo, New York, United States ● Implemented ​Transformer​ and ​Seq2Seq​ models to predict masked locations in user trajectories leveraging their ​WiFi ​traces. ● Achieved an accuracy of​ 82%​ for missing locations and ​93%​ for recreating the entire trajectories. ● Experimenting on identifying events on campus and social relationships among users from the predicted locations. … more Software Engineer Intern",
+        "techStack": []
+      },
+      {
+        "company": "Tata Consultancy Services",
+        "role": "",
+        "type": "Internship",
+        "description": "Dec 2018 - Feb 2019 · 3 mos Greater Kolkata Area ● Developed a ​4-layer classifier to identify inclusion and exclusion criteria in biomedical text combining Convolution Neural Network (CNN)​, Recurrent Neural Network ​(RNN)​ and Bi-directional Long Short Term Memory Network ​(LSTM)​ with ​Attention​ Layer. ● Utilized a combination of ​word2vec​ and Class-Specific Embeddings to boost the precision upto ​82% ​and F-1 Score upto ​83%​. … more Undergraduate Research Assistant",
+        "techStack": []
+      },
+      {
+        "company": "Heritage Institute of Technology",
+        "role": "",
+        "type": "Part-time",
+        "description": "Sep 2018 - Jan 2019 · 5 mos Kolkata, West Bengal, India ● Analysed tags from ​MovieLens​ ​(20-million)​ dataset based on​ WordNet​ similarity and combined to form group tag clouds. ● Developed a recommender engine having a precision of ​90%​ for highly cohesive groups and ​78%​ for dissimilar groups. … more Tag_Cloud_Recommendation.pdf ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "Modified Transformer model for artistic style transfer Associated with University at Buffalo Designed a Pizza structured Transformer for converting modern English language to Shakespearean style. Reduced the trainable parameters by 70% and training time by 50% as compared to traditional Transformer. Achieved a higher BLEU score than traditional Transformer and Seq2Seq models.",
+        "techStack": []
+      },
+      {
+        "name": "Generative Neural Networks for MNIST handwritten digits",
+        "description": "Associated with University at Buffalo Implemented and compared the performance of Restricted Boltzmann Machine(RBM), Variational Autoencoder (VAE) and Generative Adversarial Network(GAN). ---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Steve Fung",
+    "file": "final_steve_fung_1774407871752.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer Google Oct 2013 - Present · 12 yrs 6 mos - Chrome OS: system services - Android: system services - Android Things: build, system services, crash reporting, and metrics - Cobalt: differential privacy-based metrics, server infrastructure and scaling, Fuchsia client … more Software Engineer Cisco Systems Aug 2007 - Sep 2012 · 5 yrs 2 mos Working for the Digital Media Systems business unit.  Previously worked on the Enterprise TV project to create an application for navigating and viewing video on demand as well as a live programming guide.  I am now currently working on the firmware development team for the Digital Media Player.. … more Applications Development Engineer Intern KLA-Tencor May 2006 - Aug 2006 · 4 mos Wrote internal data processing applications for the Wafer Inspection Group Demo center.  The applications would parse through raw data output from the silicon wafer scanners, and accumulate statistics into a database and create automatic graphs, charts, and reports for analysis. … more Programmer UC Berkeley Energy and Resources Group Jan 2006 - May 2006 · 5 mos Helped develop a differential evolutionary simulation program for a graduate researcher in the Energy and Resources Department.",
+        "techStack": [
+          "android"
+        ]
+      }
+    ],
+    "projects": []
+  },
+  {
+    "person": "Tanvir Islam",
+    "file": "final_tanvir_islam_1774404709198.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jul 2021 - Present · 4 yrs 9 mos Mountain View, California, United States · Hybrid Geo Data Products & Platform (2025 - current) • Founding engineer in Street View Imagery Insights for AI-powered infrastructure management. Drove adoption from scratch to 10+ enterprise clients, delivering $4M in total booked revenue GCP BigQuery (2024 - 2025): • OSS compatible metastore (BigLake Metastore) for modern data lakehouses on BigQuery • Metadata caching (CMETA) for hive partitioned query acceleration • Apache Iceberg REST catalog GCE Resource & Service Orchestration (2021 - 2024): • GPU demand planning and allocation for customer ML workloads • Instance Lifecycle and Upgrade Management Infra • GCE Schedulable Capacity Simulation … more Software Development Engineer",
+        "techStack": [
+          "bigquery",
+          "gcp"
+        ]
+      },
+      {
+        "company": "Amazon",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jun 2021 - Jul 2021 · 2 mos New York, United States Worked with the Amazon Ads Exchange (AAX) team on streamlining the process of onboarding a new ads source and instituting a way to collect analytics on the total time spent on the process. I worked on creating a thorough standard operation protocol (SOP) for source onboarding to decrease the amount of time required to add and configure a new source. … more Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "FactSet",
+        "role": "",
+        "type": "Full-time",
+        "description": "Jul 2019 - Apr 2021 · 1 yr 10 mos Norwalk, Connecticut, United States · On-site • Worked on designing a Point-in-Time database that incorporated post-processed company/securities data generated from the raw archived data of past twenty years • Created robust RESTful and GraphQL APIs to make data concurrently accessible to a large number of clients • Worked as the engineer on-call for production related issues on a rotational basis • Developed an internally used product ground-up using .NET, PostgreSQL, GraphQL and Vue.js to maintain thousands of security-linked metadata, to provide a reliable UI for maintaining these records, and to expose the data through APIs serving a large throughput of clients • Worked on creating a new data workflow pipeline using Python (pandas, numpy, sqlalchemy) that improved the runtime of existing ingest/update jobs by more than 20% • Optimized memory footprints of Python workflows dealing with anywhere between 10 - 20 million database rows by half that resulted into significantly cutting the cloud storage cost • Conducted lunch-interviews and partook in interviewer panels for engineering applicants … more University of Connecticut 2 yrs 9 mos Storrs, Connecticut, United States Technical Support Specialist Sep 2017 - May 2019 · 1 yr 9 mos • Designed and maintained the websites for University of Connecticut School of Fine Arts and Benton Museum • Administered the content management system for Benton Museum's record database • Provided IT support to faculties, classrooms, and exhibitions to ensure a reliable technical platform • Trained new hires to get them up-to-speed with the internally used software and technologies … more Research Assistant Sep 2016 - Aug 2018 · 2 yrs I collaborated with Dr. John Ayers on researching better performing growth-platforms for semiconductor devices. In my work, I simulated and analyzed novel growth platforms for InGaAs/GaAs semiconductor devices. I implemented numerous simulation algorithms on MATLAB to analyze chirped and unchirped superlattice structures and quantify their performances. We simulated characteristics such as the average and surface strain, the surface in-plane lattice constant and threading dislocation density profiles for different superlattice structures. From our studies, we showed that - Chirped superlattices can serve as growth-platform with a 7%-46% Indium composition - Compositionally-chirped superlattices allow a wide range of surface in-plane lattice constant for the growth of devices while incorporating alternating local strains to enable dislocation filtering. - Thickness-modulated chirped superlattice can outperform unchirped superlattices and linearly-graded layers as dislocation filters. Based on the research, I authored four research papers that were published in IJHSES CMOC Journal, Journal of the Electrochemical Society (ECS), and International Journal of High Speed Electronics and Systems. I also presented research posters on our findings at the MIT IEEE Undergraduate Research Technology Conference in 2017 and at the Connecticut Optoelectronics and Microelectronics (CMOC) conference in 2017 and 2019. Find my publications on Google Scholar: http://scholar.google.com/citations?user=VLMVgH4AAAAJ … more REU Fellow",
+        "techStack": [
+          ".net",
+          "algorithms",
+          "graphql",
+          "matlab",
+          "numpy",
+          "pandas",
+          "perl",
+          "postgresql",
+          "python",
+          "vue.js"
+        ]
+      },
+      {
+        "company": "National Science Foundation (NSF)",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2018 - Aug 2018 · 4 mos Storrs, Connecticut, United States During this summer research opportunity, I investigated the use of Software Defined Radio (SDR) for real-time communication systems under the supervision of Dr. Shengli Zhou and Dr. Song Han at the University of Connecticut. I worked on developing a wireless ad-hoc network system capable of inter-computer message transfer by implementing IEEE 802.15.4 with AES Cipher Block Chaining (CBC) security protocol on an SDR platform. I used C++ (Boost, SWIG) to program signal-processing blocks on GNURadio to build the system's PHY and MAC layer. Python was used to implement the APP layer for the network. … more ---",
+        "techStack": [
+          "aes",
+          "c++",
+          "python"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "Covid-Athenaeum",
+        "techStack": []
+      },
+      {
+        "name": "A visualization of global coronavirus data.",
+        "description": "The app displays a time-series view of the virus spread for all countries across the world, and also offers RESTful API endpoints to access data. Back-end of this app was developed using Node.js and MongoDB, and the data visualizations were generated using D3.js and Vue.js.",
+        "techStack": [
+          "api",
+          "mongodb",
+          "node.js",
+          "vue.js"
+        ]
+      },
+      {
+        "name": "Raw data is collected from JHU CSSE COVID-19 dataset.",
+        "description": "GitFiddle",
+        "techStack": []
+      },
+      {
+        "name": "An interactive educational tool to learn Git.",
+        "description": "The web application allows users to input various Git commands and generates a tree-view of it. Users can also link a GitHub repository and the app will use GitHub's REST APIs to generate a commit tree of that repo. Visualizations are done using Vue.js and p5.js. ---",
+        "techStack": [
+          "git",
+          "rest api",
+          "rest apis",
+          "vue.js"
+        ]
+      }
+    ]
+  },
+  {
+    "person": "Thanos Ariyanayagam",
+    "file": "final_thanos_ariyanayagam_1774405077196.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Google",
+        "techStack": []
+      },
+      {
+        "company": "Full-time",
+        "role": "",
+        "type": "1 yr 8 mos",
+        "description": "Sunnyvale, California, United States Software Engineer III Oct 2025 - Present · 6 mos Current Focus Areas - Tech Lead, Borg Isolation Commitment: Securing Google’s workloads by transparently converting untrusted jobs to run inside isolated VMs. - Tech Lead, TI-VM Virtualized Next-Gen Runtime: Architecting and optimizing the future of virtualized execution environments. - Tech Lead (Node), AI/ML Infrastructure: Leading node-level runtime architecture for a confidential project supporting Google’s rapid AI growth. AI & Infrastructure - Delivering secure, reliable, and high-performance planet-scale systems, machine learning and infrastructure that power Google’s Cloud, Gemini and major internet services - Delivered infrastructure cost savings equivalent to 56.7+ SWE years (and counting), by driving fleet-wide efficiencies through the architecture of the next-generation node runtime framework and TI-VM performance optimizations. - Maximized global fleet capacity, unlocking seamless compute fungibility for Gemini and Waymo, by engineering infrastructure that allows high-demand ML workloads to run efficiently across Google's entire compute footprint. - Fortified ecosystem security via the transparent migration of untrusted workloads with optimized performance overheads, by leading the Borg Isolation Commitment to execute jobs inside VMs while rigorously balancing isolation standards with system efficiency. … more C++, Kernel-based Virtual Machine (KVM) and +6 skills Software Engineer II Aug 2024 - Oct 2025 · 1 yr 3 mos - 2025 Gold Perfy Award Winner - \"User Package Parallelization in Borg\" - 2025 Silver Perfy Award Winner - \"TI-VM Startup Latency Improvements\" - Designed and implemented a novel VM Package Hotplugging system to seamlessly plug and unplug NVMe devices from VMs without relying on passthrough systems or in-VM dependencies, unlocking native host-level performance with the absolute minimum in-VM overhead and resolving complex filesystem bottlenecks. - Led the architectural design and C++ implementation of the VM resource management parity initiative, enabling seamless telemetry extraction and in-place VM updates to execute complex, untrusted ML workloads at scale. … more C++, Operating Systems and +5 skills Software Engineer Intern",
+        "techStack": [
+          "c++",
+          "machine learning",
+          "operating systems",
+          "rust"
+        ]
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2023 - Aug 2023 · 4 mos Sunnyvale, California, United States - ML, Systems and Cloud AI - Borglet Architecture - Engineered a high-throughput, multithread-safe C++ API in Borglet for task lifecycle management, leveraging lock-free programming techniques to minimize contention and improve reliability at Google-scale. - Designed and deployed a novel data-sharing solution for modularizing fleet-wide features into autonomous services, enabling secure, hierarchical dependency sharing within the Borg cluster manager. https://research.google/pubs/pub43438/ … more C++, Systems Programming and +8 skills Software Engineer Intern",
+        "techStack": [
+          "api",
+          "c++"
+        ]
+      },
+      {
+        "company": "Intel Corporation",
+        "role": "",
+        "type": "Internship",
+        "description": "Sep 2022 - Apr 2023 · 8 mos Toronto, Ontario, Canada - Enhanced Intel FPGA AI Suite efficiency as measured by an 11% increase in ML model throughput, by architecting critical C++ compiler optimizations including graph-level operator fusion, memory layout transformations, and mixed-precision (INT8) quantization. - Unlocked FPGA acceleration for complex action recognition domains as measured by a pending patent (Pub #20230237014), by engineering a novel CoreDLA compiler extension to support 3D compute graphs and convolutions. - Modernized platform architecture as measured by the successful end-to-end migration to OpenVINO 2022.3.0 LTS, by spearheading the large-scale testing and verification of the entire CoreDLA compiler and runtime stack. - Accelerated client innovation cycles as measured by the deployment of bespoke FPGA solutions, by partnering with key customers to architect and optimize workloads tailored to their specific AI product requirements. … more Perl, Operating Systems and +6 skills Software Engineer Intern",
+        "techStack": [
+          "c++",
+          "operating systems",
+          "perl"
+        ]
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2022 - Aug 2022 · 4 mos Waterloo, Ontario, Canada - Healthcare and Life Sciences AI Applications - Healthcare Natural Language Processing - Designed and implemented Python scripts for comprehensive machine-learning experiments, revealing model strengths and weaknesses while producing essential quality metrics. - Investigated and employed diverse ensembling techniques, integrating predictions from multiple entity-extracting ML models via insightful analysis, leading to enhanced NLP API output quality. - Pioneered an ensembling library in C++ within a healthcare custom Docker container, successfully integrating external model predictions and boosting NLP API medication-related F1 score by 4.28% while cutting medication-related annotation errors by approximately 50%. - Effectively contributed to the Healthcare NLP system, implementing code changes in C++ and Go to ensure seamless compatibility of external predictions and ensemble outputs for onward model compatibility. - Worked with Google Cloud Storage, VertexAI, Custom Docker Containers, Workbench, Proto Buffers, prod APIs, gRPC and more. … more Go (Programming Language), Google Cloud Platform (GCP) and +6 skills Software Engineer - Planning Team aUToronto Aug 2021 - May 2022 · 10 mos - The University of Toronto’s Self Driving Car Team - 1st Place - Global GM/SAE AutoDrive Challenge ---",
+        "techStack": [
+          "api",
+          "c++",
+          "docker",
+          "gcp",
+          "google cloud",
+          "grpc",
+          "natural language processing",
+          "nlp",
+          "python"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Trinitee R.",
+    "file": "final_trinitee_r__1774404951485.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Not listed.",
+        "type": "",
+        "description": "---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Valentina B.",
+    "file": "final_valentina_b__1774405109892.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "YouTube",
+        "techStack": []
+      },
+      {
+        "company": "Full-time",
+        "role": "",
+        "type": "3 yrs 9 mos",
+        "description": "Software Engineer 3 Nov 2024 - Present · 1 yr 5 mos San Bruno, California, United States · On-site Working to make Site Infrastructure @ YouTube even better! Software Engineer 2 Jul 2022 - Nov 2024 · 2 yrs 5 mos Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Apple",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2021 - Aug 2021 · 4 mos RTC Fellow",
+        "techStack": []
+      },
+      {
+        "company": "Rewriting the Code",
+        "role": "",
+        "type": "Part-time",
+        "description": "Jun 2020 - Jun 2021 · 1 yr 1 mo Student Assistant College of Computing at Georgia Tech Sep 2018 - Apr 2021 · 2 yrs 8 mos Software Engineer Intern",
+        "techStack": []
+      },
+      {
+        "company": "Salesforce",
+        "role": "",
+        "type": "Full-time",
+        "description": "May 2020 - Aug 2020 · 4 mos ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Vedant G.",
+    "file": "final_vedant_g__1774405141936.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Google",
+        "techStack": []
+      },
+      {
+        "company": "Full-time",
+        "role": "",
+        "type": "4 yrs 4 mos",
+        "description": "Software Engineer III Dec 2021 - Present · 4 yrs 4 mos Bengaluru, Karnataka, India Working at Google Napa, Google’s exabyte scale data store for analytics. Backend engineer developing and designing components for supporting the data store for Google's Trusted Partner Cloud initative. Working on a 20% side project for making a graphical programming language. … more Go (Programming Language) Software Engineer Dec 2021 - Present · 4 yrs 4 mos Mountain View, California, United States Backend engineer for Google Stadia and AR, owned gamelet messaging and health monitoring systems. Designed flume pipelines for Kronos, YouTube’s video processing platform, for real time debugging. … more Software Engineer",
+        "techStack": [
+          "rust"
+        ]
+      },
+      {
+        "company": "Apple",
+        "role": "",
+        "type": "Full-time",
+        "description": "Feb 2020 - Dec 2021 · 1 yr 11 mos Cupertino, California, United States •  Worked on a crash analytics Python Kafka client running on Kubernetes •  Designed Postgres backed REST APIs for crash related queries, including correlations based on signatures •  Developed an iOS animated exercise app for testing accessory motion API •  Created custom XML template language with features like inheritance for reducing Splunk code duplication … more Software Engineer Intern",
+        "techStack": [
+          "api",
+          "ios",
+          "kafka",
+          "kubernetes",
+          "python",
+          "rest api",
+          "rest apis"
+        ]
+      },
+      {
+        "company": "Apple",
+        "role": "",
+        "type": "Internship",
+        "description": "May 2019 - Aug 2019 · 4 mos Cupertino, California, United States •\tAdvanced in-house source-to-source compiler for optimizations and performing code path analysis •\tDesigned and implemented algorithm for identifying memory leaks in the Java Card runtime at compile time •\tDeveloped automated compile-time code report generation and code path visualization •\tImplemented testing suite for testing function of tools and secure Java Card applets •\tReviewed software source code to identify bugs and performance issues … more Embedded Software Developer",
+        "techStack": [
+          "java"
+        ]
+      },
+      {
+        "company": "University of Michigan College of Engineering",
+        "role": "",
+        "type": "Part-time",
+        "description": "May 2017 - Apr 2019 · 2 yrs Ann Arbor, Michigan, United States • Built a low-cost indoor localization system to be used for interactive learning in classrooms of 20 to 30 students • Designed and implemented algorithm for tracking through reverse time difference of arrival • Facilitated concurrency, flexibility, versatility and replaceability through software design and in-house wireless protocols The link to the GitHub repository containing the code for ranging is here: https://github.com/VVHack/STM32F411E-DW1000 … more Embedded Development, Soldering and +1 skill Engineering Intern Molex May 2018 - Aug 2018 · 4 mos Rochester Hills, Michigan • Developed a spreadsheet driven motion simulation software within Siemens NX CAD software using NX Open .Net API • Worked on a VB .Net desktop application that controls servo motors based on user input … more ---",
+        "techStack": [
+          ".net",
+          "api"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Xavier Lamphere",
+    "file": "final_xavier_lamphere_1774404929429.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Google",
+        "techStack": []
+      },
+      {
+        "company": "Full-time",
+        "role": "",
+        "type": "5 yrs 6 mos",
+        "description": "Software Engineer Sep 2021 - Present · 4 yrs 7 mos Software Engineering Resident Oct 2020 - Sep 2021 · 1 yr ECS Computing Services - IT Consulting Assistant California State University, Sacramento Sep 2015 - Jan 2019 · 3 yrs 5 mos Greater Sacramento - Help Desk. End user support for basic troubleshooting needs in ECS Open Labs. - System Support. Worked on Faculty support, Lab support, and direct assistant to ECS Computing Services staff. - System Support - Special Projects. Long term or specialized projects such as updating OS deployment solutions, creating special lab deployments, and managing specific professors software needs. … more IT Support Assistant California State University, Sacramento Sep 2013 - Aug 2014 · 1 yr Amador Hall ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Projects",
+        "description": "Tic-Tac-Toe Made on February 24-25 in my free time between classes to test my skills. Hadn't yet learned how to make a GUI in Java so everything in the game ran through the console. Simply draws and redraws a Tic-Tac-Toe ascii box each time a move is made updated with who owns which squares. Simple small program but also my first.",
+        "techStack": [
+          "java"
+        ]
+      },
+      {
+        "name": "Java Card Game Compilation",
+        "description": "A small suit of basic card games including Blackjack, Solitaire, and Go Fish. Made in Java. ---",
+        "techStack": [
+          "java"
+        ]
+      }
+    ]
+  },
+  {
+    "person": "Xiaowei Cheng - 谷歌",
+    "file": "final_xiaowei_cheng______1774407645332.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience & Education",
+        "type": "",
+        "description": "谷歌 ******** ******** ******** ******** ******** **** ******** ******** ********** ** ******** ********** ****** ** ******* ****** ******** ******* undefined 2017 - 2019 ******** ********** ******** ** *********** * ** ********** *********** 2013 - 2017 View Xiaowei’s full experience See their title, tenure and more. Sign in or By clicking Continue to join or sign in, you agree to LinkedIn’s User Agreement, Privacy Policy, and Cookie Policy.",
+        "techStack": []
+      }
+    ],
+    "projects": []
+  },
+  {
+    "person": "Xun Xue",
+    "file": "final_xun_xue_1774404818774.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Google 5 yrs 3 mos Software Engineer Aug 2025 - Present · 8 mos Sunnyvale, California, United States Software Engineer Oct 2022 - Present · 3 yrs 6 mos New York, New York, United States Software Engineer Full-time Jan 2021 - Oct 2022 · 1 yr 10 mos Pudong, Shanghai, China Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Verily",
+        "role": "",
+        "type": "Full-time",
+        "description": "Oct 2020 - Jan 2021 · 4 mos Pudong, Shanghai, China Software Engineer",
+        "techStack": []
+      },
+      {
+        "company": "Google",
+        "role": "",
+        "type": "Full-time",
+        "description": "Dec 2019 - Oct 2020 · 11 mos San Francisco Bay Area Software Developer",
+        "techStack": []
+      },
+      {
+        "company": "IBM",
+        "role": "",
+        "type": "Full-time",
+        "description": "Apr 2018 - Dec 2019 · 1 yr 9 mos San Francisco Bay Area Software Engineer Internship Sizung Jun 2017 - Aug 2017 · 3 mos Greater New york city Area ---",
+        "techStack": []
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  },
+  {
+    "person": "Adam Bender",
+    "file": "test_001_adam_bender.md",
+    "experience": [
+      {
+        "company": "",
+        "role": "Experience",
+        "type": "",
+        "description": "Google",
+        "techStack": []
+      },
+      {
+        "company": "Full-time",
+        "role": "",
+        "type": "13 yrs 6 mos",
+        "description": "Principal Engineer Oct 2022 - Present · 3 yrs 6 mos Sunnyvale, California, United States 2025: Tech Lead, Enterprise Platforms. Owner of platform strategy for internal enterprise systems (more than 1000 individual services), including the work to align AI capability with enterprise reality. I'm also responsible for the senior IC career path for my organization of ~2500 people. 2018-2025: Tech Lead/Manager of fullstack developer experience team (~50 ppl) to hundreds of internal teams and 1000s of internal engineers. We attack productivity problems at the root with a focus on excellent developer experience and high quality engineering. We like to say we harness planet scale systems to solve human scale problems. As part of this role I work with other senior leads to establish engineering culture and best practices for a department of more than 1000 engineers. Forever: And because I can't quit a good thing, I am the tech lead for Google's engineering practices library.  I also created the most popular internal TL training course. To date we have trained more than 1000 TLs, both junior and senior. … more Senior Staff Software Engineer Oct 2020 - Oct 2022 · 2 yrs 1 mo Sunnyvale, California, United States I built and run a team that develops infrastructure, best practices, and reusable components to support the development of high quality user experiences across a large internal organization. My team is responsible for supporting 1000+ engineers across 100s of diverse applications. We work to increase standardization, reduce duplicated effort, and try to take the toil out of front end development. … more Staff Software Engineer Feb 2017 - Oct 2020 · 3 yrs 9 mos Mountain View Continued to grow our contact center platform by creating a high performance configuration storage engine. I also took responsibility for most aspects of the engineering culture of the 70+ person organization I was part of. I began a new role on an infrastructure team during this time, but before I left, our contact center platform handled the majority of all customer support calls for the company. … more Senior Software Engineer Oct 2014 - Feb 2017 · 2 yrs 5 mos Mountain View, California Building and leading teams tasked with developing software to create a customer support experience for a company with over 1 Billion customers. Customer support applications are where you turn when everything is going wrong so they have to work. In order to ensure that they do just that, I focus on high reliability and low latency all while using web standards. I led & managed multiple teams (15+ people) through the development of a WebRTC soft phone, and the configuration management & serving system - both with SLAs at 99.99%. We worked closely with UX, Product Managers, and our internal customers to ensure the kind of fit and finish you'd expect from a public product. I also drove several cross cutting efforts like the day-to-day development process we use, getting to daily releases with a million line code base, creation of a reliable on-call rotation, and general engineering culture on the team. In addition, I have taught thousands of Googlers how to write clean, testable, code and I am helping to figure out how to ensure the health of Google's very large codebase. … more Software Engineer Oct 2012 - Oct 2014 · 2 yrs 1 mo Mountain View, California, United States Green Energy Corp 2 yrs 3 mos Software Architect Oct 2010 - Oct 2012 · 2 yrs 1 mo Led a team of six through the architecture, design and implementation of a next-generation SCADA human-machine interface (HMI) for smart grid system controls as part of the GreenBus product line. The role of this application was to enable substation automation and real-time monitoring of overall grid health. This application had strict performance and security requirements and required a variety of tools and technologies to be successful including: Java, JavaScript, Scala, GWT, AngularJS, Comet, Jetty, Spring, Maven, AMQP,  as well as HTML5 APIs like Canvas, SVG and WebSockets. Core responsibilities included leading front end development, designing middleware APIs, code reviews, running daily scrum meetings and working with power system engineers to gain domain expertise quickly and identify and implement key requirements. … more Senior Software Engineer Aug 2010 - Oct 2010 · 3 mos Same job, new title. Continuing to lead software development teams while developing internal training materials in OO design, testing, web development and other technologies. Magpie Telecom Insiders 5 yrs Technical Lead Sep 2007 - Aug 2010 · 3 yrs Led an agile team of four to design and develop a highly interactive web application using Flex, Java and MySQL. Responsibilities included collaborating with the customers designers to achieve the look, feel and user interactions of the website. Designed and implemented a large scale distributed JMS-based messaging system. Designed and implemented consumer web application using Flex, Java and MySQL. Lead daily stand up meetings, planned sprints, and negotiated requirements with the customer. … more Software Developer Sep 2005 - Sep 2007 · 2 yrs 1 mo Several agile projects including: * Leading an agile team of 5 to research, design, and implement an automated testing framework to support Swingbased Java application. Responsibilities included initial prototyping and design, lead developer and acting as lead customer contact. Web based dashboard was implemented using the GWT and RESTful web service. * Upgraded Java-based SAN management software to support new FiberChannel hardware interfaces. * Designed and implemented a Perl-based backup verification tool set to support large voicemail systems. * Designed and documented automated installation and upgrade procedures for an Linux-based IPTV Set top box solution. * Worked to develop web based VOIP prototype using the GWT and SIP and H323 protocols. … more ---",
+        "techStack": [
+          "agile",
+          "angular",
+          "angularjs",
+          "html",
+          "html5",
+          "java",
+          "javascript",
+          "linux",
+          "mysql",
+          "perl",
+          "scala",
+          "scrum",
+          "spring",
+          "websocket"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Not listed.",
+        "description": "---",
+        "techStack": []
+      }
+    ]
+  }
+]

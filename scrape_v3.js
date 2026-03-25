@@ -1,113 +1,145 @@
 const puppeteer = require('puppeteer-core');
 const fs = require('fs');
 
-const TECH_KEYWORDS = [
-    'java', 'python', 'c++', 'c#', 'javascript', 'typescript', 'go', 'golang', 'rust', 'ruby', 'swift', 'kotlin',
-    'react', 'angular', 'vue', 'node.js', 'express', 'django', 'flask', 'spring', 'spring boot', 'aws', 'gcp', 'azure',
-    'docker', 'kubernetes', 'jenkins', 'ci/cd', 'sql', 'mysql', 'postgresql', 'mongodb', 'redis', 'cassandra',
-    'kafka', 'rabbitmq', 'elasticsearch', 'graphql', 'rest api', 'machine learning', 'tensorflow', 'pytorch',
-    'data structures', 'algorithms', 'distributed systems', 'microservices', 'git', 'linux', 'unix', 'bash'
-];
-
 (async () => {
     console.log("Connecting to browser...");
     const browser = await puppeteer.connect({ browserURL: 'http://localhost:9222' });
     const page = await browser.newPage();
     
-    // Load blacklist
-    let blacklist = [];
+    // Randomized delay helper
+    const jitterWait = (min, max) => new Promise(r => setTimeout(r, Math.floor(Math.random() * (max - min + 1) + min)));
+    
+    // Load blacklist + existing index to avoid duplicates
+    let skipNames = new Set();
     if (fs.existsSync('./blacklist.json')) {
-        blacklist = JSON.parse(fs.readFileSync('./blacklist.json')).map(item => item.name.toLowerCase());
+        const blacklist = JSON.parse(fs.readFileSync('./blacklist.json'));
+        blacklist.forEach(item => skipNames.add(item.name.toLowerCase()));
+    }
+    
+    let existingUrls = new Set();
+    if (fs.existsSync('./index.json')) {
+        const indexData = JSON.parse(fs.readFileSync('./index.json'));
+        indexData.forEach(item => {
+            if (item.url) existingUrls.add(item.url.toLowerCase().split('?')[0].replace(/\/$/, ''));
+            if (item.name) skipNames.add(item.name.toLowerCase());
+        });
     }
 
-    console.log("Searching Google for Google SDEs...");
+    console.log("Searching Google for Google SDEs (I, II, III)...");
     const searchUrls = [
-        'https://www.google.com/search?q=site:linkedin.com/in+intitle:"Software+Engineer+at+Google"&num=50',
-        'https://www.google.com/search?q=site:linkedin.com/in+intitle:"Software+Engineer+at+Google"&num=50&start=50'
+        'https://www.google.com/search?q=site:linkedin.com/in+"Software+Engineer"+google+"Mountain+View"+-senior+-staff+-principal&num=100',
+        'https://www.google.com/search?q=site:linkedin.com/in+"Software+Engineer"+google+"New+York"+-senior+-staff+-principal&num=100',
+        'https://www.google.com/search?q=site:linkedin.com/in+"Software+Engineer"+google+"Seattle"+-senior+-staff+-principal&num=100',
+        'https://www.google.com/search?q=site:linkedin.com/in+"Software+Engineer"+google+"London"+-senior+-staff+-principal&num=100',
+        'https://www.google.com/search?q=site:linkedin.com/in+"Software+Engineer"+google+"University"+-senior+-staff+-principal&num=100',
+        'https://www.google.com/search?q=site:linkedin.com/in+"Software+Engineer"+google+"Internship"+-senior+-staff+-principal&num=100',
+        'https://www.google.com/search?q=site:linkedin.com/in+"SDE"+google+"L3"+-senior+-staff+-principal&num=100',
+        'https://www.google.com/search?q=site:linkedin.com/in+"SDE"+google+"L4"+-senior+-staff+-principal&num=100'
     ];
     
     let allProfileUrls = [];
     for (const sUrl of searchUrls) {
-        await page.goto(sUrl, { waitUntil: 'domcontentloaded' });
-        await new Promise(r => setTimeout(r, 2000));
-        const urls = await page.evaluate(() => {
-            const links = [];
-            document.querySelectorAll('a[jsname="UWckNb"]').forEach(a => {
-                if (a.href.includes('linkedin.com/in/') && !a.href.includes('/pub/dir')) {
-                    let u = a.href.split('?')[0];
-                    if (u.endsWith('/')) u = u.slice(0, -1);
-                    links.push(u);
-                }
+        try {
+            await page.goto(sUrl, { waitUntil: 'domcontentloaded' });
+            await new Promise(r => setTimeout(r, 2000));
+            const urls = await page.evaluate(() => {
+                const links = [];
+                document.querySelectorAll('a[jsname="UWckNb"]').forEach(a => {
+                    if (a.href.includes('linkedin.com/in/') && !a.href.includes('/pub/dir')) {
+                        let u = a.href.split('?')[0];
+                        if (u.endsWith('/')) u = u.slice(0, -1);
+                        links.push(u);
+                    }
+                });
+                return links;
             });
-            return links;
-        });
-        allProfileUrls = allProfileUrls.concat(urls);
+            allProfileUrls = allProfileUrls.concat(urls);
+        } catch (e) {
+            console.log(`Search error for ${sUrl}: ${e.message}`);
+        }
     }
 
     const uniqueUrls = [...new Set(allProfileUrls)];
     console.log(`Found ${uniqueUrls.length} potential profiles.`);
 
-    const globalKeywordCounts = {};
     let processedCount = 0;
-    const limit = 20; // Process up to 20 per run
+    const limit = 100; // New target batch size
 
     for (const url of uniqueUrls) {
         if (processedCount >= limit) break;
+        
+        const normalizedUrl = url.toLowerCase().split('?')[0].replace(/\/$/, '');
+        if (existingUrls.has(normalizedUrl)) {
+            console.log(`Skipping already scraped URL: ${url}`);
+            continue;
+        }
 
-        console.log(`\n--- [${processedCount + 1}/${limit}] crawling: ${url} ---`);
+        console.log(`\n--- [${processedCount + 1}] crawling: ${url} ---`);
         
         try {
-            await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
-            await new Promise(r => setTimeout(r, 2000));
+            await jitterWait(5000, 15000); // 5-15s delay between profiles
+            await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+            await jitterWait(4000, 8000); // wait for initial render
             
-            const name = await page.evaluate(() => document.title.split(' | ')[0] || 'Unknown');
-            if (blacklist.includes(name.toLowerCase())) {
-                console.log(`Skipping blacklisted profile: ${name}`);
+            const rawName = await page.evaluate(() => document.title.split(' | ')[0] || 'Unknown');
+            if (skipNames.has(rawName.toLowerCase()) && rawName !== 'Unknown') {
+                console.log(`Skipping blacklisted/existing name: ${rawName}`);
                 continue;
             }
 
-            // Fast scroll to load lazy sections
+            const titleStr = await page.evaluate(() => {
+                const titleElement = document.querySelector('.text-body-medium.break-words') || document.querySelector('h1 + div');
+                return titleElement ? titleElement.innerText.toLowerCase() : "";
+            });
+
+            const forbidden = ['senior', 'staff', 'principal', 'lead', 'manager', 'director', 'vp', 'head'];
+            if (forbidden.some(word => titleStr.includes(word))) {
+                console.log(`Skipping profile due to role title: "${titleStr}"`);
+                continue;
+            }
+
+            // Scroll to load all sections
             await page.evaluate(async () => {
                 await new Promise((resolve) => {
                     let totalHeight = 0;
-                    let distance = 500;
+                    let distance = 300; // Slower scroll
                     let timer = setInterval(() => {
                         window.scrollBy(0, distance);
                         totalHeight += distance;
-                        if (totalHeight > 10000) {
+                        if (totalHeight > 12000) {
                             clearInterval(timer);
                             resolve();
                         }
-                    }, 100);
+                    }, 400); // Slower interval (400ms)
                 });
             });
 
-            // Expand inline descriptions
+            // Expand all descriptions
             await page.evaluate(() => {
                 const buttons = Array.from(document.querySelectorAll('button'));
-                const matches = buttons.filter(b => b.innerText && b.innerText.toLowerCase().trim() === 'see more');
+                const matches = buttons.filter(b => b.innerText && b.innerText.toLowerCase().trim().includes('see more'));
                 matches.forEach(btn => { try { btn.click(); } catch(e) {} });
             });
-            await new Promise(r => setTimeout(r, 1000));
+            await new Promise(r => setTimeout(r, 1500));
 
-            // Extract Data
+            // Extract detailed structure
             const profileData = await page.evaluate(() => {
                 const nameText = document.title.split(' | ')[0] || 'Unknown';
+                const fullText = document.body.innerText;
 
                 const extractSectionTexts = (sectionName) => {
                     const h2s = Array.from(document.querySelectorAll('h2, h3'));
-                    const header = h2s.find(h => h.innerText.trim().toLowerCase() === sectionName.toLowerCase());
+                    const header = h2s.find(h => h.innerText.trim().toLowerCase().includes(sectionName.toLowerCase()));
                     if (!header) return "Not listed.";
                     
                     const section = header.closest('section') || header.closest('div.pvs-list__container');
                     if (!section) return "Not listed.";
                     
-                    const ignoreWords = ['show all', 'see more', sectionName.toLowerCase(), 'skills', 'experience', 'education', 'projects'];
+                    const ignoreWords = ['show all', 'see more'];
                     const lines = section.innerText.split('\n')
                         .map(line => line.trim())
                         .filter(line => line.length > 0)
-                        .filter(line => !ignoreWords.some(w => line.toLowerCase() === w || line.toLowerCase().includes('show all')))
-                        .filter(line => line !== 'Experience' && line !== 'Education' && line !== 'Projects');
+                        .filter(line => !ignoreWords.some(w => line.toLowerCase().includes(w)));
                     
                     return lines.length ? lines.join('\n') : "Not listed.";
                 };
@@ -117,10 +149,10 @@ const TECH_KEYWORDS = [
                     const header = h2s.find(h => h.innerText.trim().toLowerCase() === 'featured');
                     if (!header) return "No featured section.";
                     const section = header.closest('section');
-                    if (!section) return "Featured section container missing.";
+                    if (!section) return "Featured section missing.";
                     const anchors = Array.from(section.querySelectorAll('a'));
                     const resumeLink = anchors.find(a => a.innerText.toLowerCase().includes('resume') || (a.href && a.href.toLowerCase().includes('resume')));
-                    return resumeLink ? `Found potential resume link in Featured: ${resumeLink.href} (Text: ${resumeLink.innerText.trim()})` : "No resume link in featured.";
+                    return resumeLink ? `Potential resume found: ${resumeLink.href}` : "No obvious resume link.";
                 };
 
                 return {
@@ -129,41 +161,21 @@ const TECH_KEYWORDS = [
                     about: extractSectionTexts('about'),
                     experience: extractSectionTexts('experience'),
                     education: extractSectionTexts('education'),
+                    projects: extractSectionTexts('projects'),
                     skills: extractSectionTexts('skills'),
-                    projects: extractSectionTexts('projects')
+                    fullPageDump: fullText
                 };
             });
 
-            // Keyword analysis
-            const fullText = (profileData.about + " " + profileData.experience + " " + profileData.education + " " + profileData.projects + " " + profileData.skills).toLowerCase();
-            const localKeywordCounts = {};
-            TECH_KEYWORDS.forEach(kw => {
-                let regex;
-                if (kw === 'c++') regex = /c\+\+/g;
-                else if (kw === 'c#') regex = /c\#/g;
-                else regex = new RegExp(`\\b${kw.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}\\b`, 'g');
-                
-                const count = (fullText.match(regex) || []).length;
-                if (count > 0) {
-                    localKeywordCounts[kw] = count;
-                    globalKeywordCounts[kw] = (globalKeywordCounts[kw] || 0) + count;
-                }
-            });
-
-            const sortedKeywords = Object.entries(localKeywordCounts).sort((a,b) => b[1] - a[1]);
-            const keywordStr = sortedKeywords.map(k => `${k[0]}: ${k[1]}`).join(', ');
-
-            // Markdown creation
+            // Save Markdown
+            const safeName = profileData.name.toLowerCase().replace(/[^a-z0-9]/g, '_');
+            const filename = `./resumes/final_${safeName}_${Date.now()}.md`;
+            
             const md = `# ${profileData.name}
 
 ## Profile
 - **LinkedIn:** ${url}
-- **Featured Resume Info:** ${profileData.featured}
-
----
-
-## Top Keywords
-${keywordStr || "None detected."}
+- **Featured Info:** ${profileData.featured}
 
 ---
 
@@ -189,37 +201,38 @@ ${profileData.projects}
 
 ## Skills
 ${profileData.skills}
+
+---
+
+## Additional Info (Full Page Extraction)
+${profileData.fullPageDump}
 `;
-            
+
             if (!fs.existsSync('./resumes')) fs.mkdirSync('./resumes');
-            const safeName = profileData.name.toLowerCase().replace(/[^a-z0-9]/g, '_');
-            const filename = `./resumes/batch_${safeName}.md`;
             fs.writeFileSync(filename, md);
             console.log(`Saved: ${filename}`);
 
-            // Update index.json
+            // Update index
             let indexData = [];
             if (fs.existsSync('./index.json')) indexData = JSON.parse(fs.readFileSync('./index.json'));
             indexData.push({
                 name: profileData.name,
                 url: url,
-                keywords: sortedKeywords.slice(0, 5).map(k => k[0]),
                 file: filename,
+                level: titleStr,
                 timestamp: new Date().toISOString()
             });
             fs.writeFileSync('./index.json', JSON.stringify(indexData, null, 2));
 
             processedCount++;
-            await new Promise(r => setTimeout(r, 3000)); // Politeness delay
+            await new Promise(r => setTimeout(r, 4000)); // Politeness
 
         } catch (e) {
-            console.log(`Error crawling ${url}: ${e.message}`);
+            console.log(`Failed for ${url}: ${e.message}`);
         }
     }
 
-    console.log("\n--- BATCH COMPLETE ---");
-    console.log("Global Tech Stats:", Object.entries(globalKeywordCounts).sort((a,b) => b[1] - a[1]).slice(0, 10));
-    
+    console.log(`\n--- Batch Complete: Processed ${processedCount} new profiles ---`);
     await page.close();
     browser.disconnect();
 })();

@@ -5,8 +5,24 @@ import Image from 'next/image'
 import { portfolioData } from '@/lib/portfolio-data'
 import { RagChat } from './rag-chat'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
+import { useRef } from 'react'
 
 export function HeroSection() {
+  const router = useRouter()
+  const clickTimesRef = useRef<number[]>([])
+
+  const handleProfileClick = () => {
+    const now = Date.now()
+    const recentClicks = [...clickTimesRef.current, now].filter((timestamp) => now - timestamp < 1200)
+    clickTimesRef.current = recentClicks
+
+    if (recentClicks.length >= 3) {
+      clickTimesRef.current = []
+      router.push('/admin')
+    }
+  }
+
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -35,8 +51,18 @@ export function HeroSection() {
                   {portfolioData.title}
                 </motion.div>
 
-                <motion.div
-                  className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20 mx-auto"
+                <motion.button
+                  type="button"
+                  onClick={handleProfileClick}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault()
+                      handleProfileClick()
+                    }
+                  }}
+                  title="Triple-click to open auth"
+                  aria-label="Profile photo. Triple-click to open auth"
+                  className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20 mx-auto cursor-pointer transition-all hover:scale-[1.03] hover:border-primary/70 focus:outline-none focus:ring-2 focus:ring-primary/60"
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -50,7 +76,7 @@ export function HeroSection() {
                     sizes="(max-width: 768px) 160px, 192px"
                     priority
                   />
-                </motion.div>
+                </motion.button>
 
                 <motion.h1
                   className="text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-balance text-center"
