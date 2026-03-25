@@ -10,6 +10,7 @@ const navLinks = [
   { label: 'Home', href: '#' },
   { label: 'Skills', href: '#skills' },
   { label: 'GitHub', href: '#projects' },
+  { label: 'Dashboard', href: '/auth' },
   { label: 'Experience', href: '#experience' },
   { label: 'Resume', href: '/resume.pdf' },
 ]
@@ -59,7 +60,7 @@ export function Header() {
               rel={link.href === '/resume.pdf' ? 'noopener noreferrer' : undefined}
               className={cn(
                 "px-4 py-2 text-sm rounded-lg transition-all",
-                link.label === 'Resume' 
+                link.label === 'Resume' || link.label === 'Dashboard'
                   ? "text-primary font-medium hover:bg-primary/10" 
                   : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
               )}

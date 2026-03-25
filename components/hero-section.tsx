@@ -19,7 +19,7 @@ export function HeroSection() {
 
     if (recentClicks.length >= 3) {
       clickTimesRef.current = []
-      router.push('/admin')
+      router.push('/auth')
     }
   }
 
