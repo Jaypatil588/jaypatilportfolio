@@ -22,8 +22,8 @@ interface RenderCell {
 }
 
 function styleForCell(githubLevel: number, leetcodeLevel: number) {
-  const githubShades = ['#123924', '#1f7a3d', '#2dbf5c', '#67f58e']
-  const leetcodeShades = ['#4a3b10', '#8e6e12', '#d8a719', '#ffe066']
+  const githubShades = ['#0f4d2f', '#0fa34a', '#1fe16b', '#7bffab']
+  const leetcodeShades = ['#0d2a63', '#1454d2', '#1f7dff', '#73b4ff']
 
   if (githubLevel === 0 && leetcodeLevel === 0) {
     return { className: 'border-[#2e2e2e] bg-[#3d3d3d]', style: undefined as CSSProperties | undefined }
@@ -171,7 +171,7 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
           <>
             <span>{hovered.date}</span>
             <span className="text-emerald-300">GitHub: {hovered.githubCount}</span>
-            <span className="text-amber-300">LeetCode: {hovered.leetcodeCount}</span>
+            <span className="text-sky-300">LeetCode: {hovered.leetcodeCount}</span>
           </>
         ) : (
           <span>Hover any box to see daily stats</span>
