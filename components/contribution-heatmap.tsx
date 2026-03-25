@@ -17,6 +17,8 @@ interface ContributionHeatmapProps {
 }
 
 const weekdayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const weekColumnWidth = 18
+const monthGapWidth = 8
 
 function styleForCell(githubLevel: number, leetcodeLevel: number) {
   const githubShades = ['#123924', '#1f7a3d', '#2dbf5c', '#67f58e']
@@ -98,6 +100,15 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
     return labels
   }, [days, weeks])
 
+  const monthStartWeeks = useMemo(() => {
+    return monthStarts.map((item) => item.week).filter((week, index) => index > 0)
+  }, [monthStarts])
+
+  const weekLeft = (week: number) => {
+    const boundariesBefore = monthStartWeeks.filter((startWeek) => startWeek < week).length
+    return week * weekColumnWidth + boundariesBefore * monthGapWidth
+  }
+
   const totals = useMemo(() => {
     return days.reduce(
       (acc, day) => {
@@ -122,13 +133,13 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
       </div>
 
       <div className="overflow-x-auto">
-        <div className="min-w-[780px]">
+        <div className="min-w-[940px]">
           <div className="relative h-6 ml-8">
             {monthStarts.map((item) => (
               <span
                 key={`${item.month}-${item.week}`}
                 className="absolute text-xs text-muted-foreground"
-                style={{ left: `${item.week * 14}px` }}
+                style={{ left: `${weekLeft(item.week)}px` }}
               >
                 {item.month}
               </span>
@@ -146,7 +157,10 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
 
             <div className="grid grid-flow-col auto-cols-max gap-1">
               {weeks.map((week, colIndex) => (
-                <div key={colIndex} className="grid grid-rows-7 gap-1">
+                <div
+                  key={colIndex}
+                  className={`grid grid-rows-7 gap-1 ${monthStartWeeks.includes(colIndex) ? 'ml-2' : ''}`}
+                >
                   {week.map((day) => {
                     const cellStyle = styleForCell(day.githubLevel, day.leetcodeLevel)
                     const titleText = `${day.date}: GitHub ${day.githubCount}, LeetCode ${day.leetcodeCount}`
