@@ -1,6 +1,6 @@
 'use client'
 
-import { Github, Linkedin, Mail, MapPin, FileText, Download, Sparkles } from 'lucide-react'
+import { Github, Linkedin, Mail, MapPin, FileText, Download } from 'lucide-react'
 import Image from 'next/image'
 import { portfolioData } from '@/lib/portfolio-data'
 import { RagChat } from './rag-chat'
@@ -41,16 +41,6 @@ export function HeroSection() {
             >
               <div className="w-full max-w-[620px] flex flex-col items-center text-center space-y-8">
                 <div className="space-y-4 flex flex-col items-center">
-                <motion.div
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary font-medium"
-                  initial={{ opacity: 0, y: 18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15 }}
-                >
-                  <Sparkles className="w-4 h-4" />
-                  {portfolioData.title}
-                </motion.div>
-
                 <motion.button
                   type="button"
                   onClick={handleProfileClick}
