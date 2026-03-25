@@ -16,12 +16,17 @@ interface ContributionHeatmapProps {
   days: CombinedDay[]
 }
 
+interface RenderCell {
+  key: string
+  day?: CombinedDay
+}
+
 function styleForCell(githubLevel: number, leetcodeLevel: number) {
   const githubShades = ['#123924', '#1f7a3d', '#2dbf5c', '#67f58e']
   const leetcodeShades = ['#4a3b10', '#8e6e12', '#d8a719', '#ffe066']
 
   if (githubLevel === 0 && leetcodeLevel === 0) {
-    return { className: 'border-[#1c2a38] bg-[#0b1621]', style: undefined as CSSProperties | undefined }
+    return { className: 'border-[#2e2e2e] bg-[#3d3d3d]', style: undefined as CSSProperties | undefined }
   }
 
   // GitHub priority on overlap days
@@ -34,82 +39,132 @@ function styleForCell(githubLevel: number, leetcodeLevel: number) {
   return { className: 'border-transparent', style: { background: color } }
 }
 
+function formatNumber(value: number) {
+  return new Intl.NumberFormat('en-US').format(value)
+}
+
+function computeMaxStreak(days: CombinedDay[]) {
+  let best = 0
+  let running = 0
+
+  for (const day of days) {
+    if (day.githubCount > 0 || day.leetcodeCount > 0) {
+      running += 1
+      if (running > best) best = running
+    } else {
+      running = 0
+    }
+  }
+
+  return best
+}
+
 export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatmapProps) {
   const [hovered, setHovered] = useState<CombinedDay | null>(null)
 
-  const months = useMemo(() => {
-    const groups = new Map<string, { label: string; days: CombinedDay[] }>()
+  const monthBlocks = useMemo(() => {
+    const monthMap = new Map<string, { month: string; days: CombinedDay[] }>()
 
     for (const day of days) {
       const dt = new Date(`${day.date}T00:00:00`)
       const key = `${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, '0')}`
-      const label = dt.toLocaleString('en-US', { month: 'short' })
+      const month = dt.toLocaleString('en-US', { month: 'short' })
 
-      if (!groups.has(key)) {
-        groups.set(key, { label, days: [] })
-      }
-
-      groups.get(key)!.days.push(day)
+      if (!monthMap.has(key)) monthMap.set(key, { month, days: [] })
+      monthMap.get(key)!.days.push(day)
     }
 
-    return Array.from(groups.entries()).map(([key, value]) => ({ key, ...value }))
+    const entries = Array.from(monthMap.entries()).map(([key, value]) => ({ key, ...value }))
+
+    // Match the reference style: skip the tiny first partial month in a rolling year window.
+    if (entries.length > 1 && entries[0].days.length < 10) {
+      return entries.slice(1)
+    }
+
+    return entries
   }, [days])
 
-  const totals = useMemo(() => {
-    return days.reduce(
-      (acc, day) => {
-        acc.github += day.githubCount
-        acc.leetcode += day.leetcodeCount
-        return acc
-      },
-      { github: 0, leetcode: 0 }
-    )
+  const renderMonths = useMemo(() => {
+    return monthBlocks.map((block) => {
+      const firstDate = new Date(`${block.days[0].date}T00:00:00`)
+      const leading = firstDate.getDay()
+      const cells: RenderCell[] = []
+
+      for (let i = 0; i < leading; i += 1) {
+        cells.push({ key: `${block.key}-blank-${i}` })
+      }
+
+      for (const day of block.days) {
+        cells.push({ key: day.date, day })
+      }
+
+      const trailing = (7 - (cells.length % 7)) % 7
+      for (let i = 0; i < trailing; i += 1) {
+        cells.push({ key: `${block.key}-tail-${i}` })
+      }
+
+      return { key: block.key, month: block.month, cells }
+    })
+  }, [monthBlocks])
+
+  const stats = useMemo(() => {
+    const total = days.reduce((acc, day) => acc + day.githubCount + day.leetcodeCount, 0)
+    const activeDays = days.filter((day) => day.githubCount > 0 || day.leetcodeCount > 0).length
+    const maxStreak = computeMaxStreak(days)
+
+    return { total, activeDays, maxStreak }
   }, [days])
 
   return (
-    <div className="rounded-2xl glass p-6">
-      <div className="mb-4">
-        <h3 className="text-xl font-semibold text-foreground">{title}</h3>
-        <p className="text-sm text-muted-foreground">{subtitle}</p>
-        <p className="text-xs text-muted-foreground mt-1">
-          <span className="text-emerald-300">{totals.github} GitHub</span>
-          {' • '}
-          <span className="text-amber-300">{totals.leetcode} LeetCode</span>
-        </p>
-      </div>
+    <div className="rounded-2xl border border-white/10 bg-[#1f1f1f] px-4 py-3 shadow-xl">
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+        <div>
+          <h3 className="text-white text-2xl font-bold leading-none">{formatNumber(stats.total)}</h3>
+          <p className="text-zinc-300 text-sm">activities in the past one year</p>
+          <p className="text-[11px] text-zinc-400 mt-1">{title} • {subtitle}</p>
+        </div>
 
-      <div onMouseLeave={() => setHovered(null)}>
-        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-3 pb-2">
-          {months.map((month) => (
-            <div key={month.key} className="min-w-0">
-              <p className="text-[10px] text-muted-foreground mb-1">{month.label}</p>
-              <div className="grid grid-cols-7 gap-1">
-                {month.days.map((day) => {
-                  const cellStyle = styleForCell(day.githubLevel, day.leetcodeLevel)
-                  const dateText = new Date(`${day.date}T00:00:00`).toLocaleDateString('en-US', {
-                    month: 'short',
-                    day: 'numeric',
-                    year: 'numeric',
-                  })
-
-                  return (
-                    <button
-                      key={day.date}
-                      type="button"
-                      className={`h-2.5 w-2.5 rounded-[2px] border transition-transform hover:scale-125 ${cellStyle.className}`}
-                      style={cellStyle.style}
-                      onMouseEnter={() => setHovered(day)}
-                      aria-label={`${dateText} - GitHub ${day.githubCount}, LeetCode ${day.leetcodeCount}`}
-                    />
-                  )
-                })}
-              </div>
-            </div>
-          ))}
+        <div className="flex items-center gap-4 text-sm text-zinc-300">
+          <span>Total active days: {stats.activeDays}</span>
+          <span>Max streak: {stats.maxStreak}</span>
+          <span className="rounded-md bg-zinc-700/80 px-3 py-1 text-zinc-200">Current</span>
         </div>
       </div>
 
-      <div className="mt-4 rounded-lg border border-border/60 bg-background/40 px-3 py-2 text-xs text-muted-foreground min-h-[40px] flex items-center justify-between gap-3">
+      <div className="grid grid-cols-12 gap-x-3 gap-y-2" onMouseLeave={() => setHovered(null)}>
+        {renderMonths.map((month) => (
+          <div key={month.key} className="min-w-0">
+            <div className="grid grid-rows-7 grid-flow-col auto-cols-max gap-[2px]">
+              {month.cells.map((cell) => {
+                if (!cell.day) {
+                  return <span key={cell.key} className="h-2 w-2 rounded-[2px] opacity-0" />
+                }
+
+                const cellStyle = styleForCell(cell.day.githubLevel, cell.day.leetcodeLevel)
+                const dateText = new Date(`${cell.day.date}T00:00:00`).toLocaleDateString('en-US', {
+                  month: 'short',
+                  day: 'numeric',
+                  year: 'numeric',
+                })
+
+                return (
+                  <button
+                    key={cell.key}
+                    type="button"
+                    className={`h-2 w-2 rounded-[2px] border transition-transform hover:scale-125 ${cellStyle.className}`}
+                    style={cellStyle.style}
+                    onMouseEnter={() => setHovered(cell.day!)}
+                    aria-label={`${dateText} - GitHub ${cell.day.githubCount}, LeetCode ${cell.day.leetcodeCount}`}
+                  />
+                )
+              })}
+            </div>
+            <p className="mt-1 text-[11px] text-zinc-300 text-center">{month.month}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-3 rounded-md border border-zinc-700 bg-zinc-900/60 px-3 py-2 text-xs text-zinc-300 min-h-[34px] flex items-center justify-between gap-3">
         {hovered ? (
           <>
             <span>{hovered.date}</span>
@@ -117,27 +172,8 @@ export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatm
             <span className="text-amber-300">LeetCode: {hovered.leetcodeCount}</span>
           </>
         ) : (
-          <span>Hover a box to see daily stats</span>
+          <span>Hover any box to see daily stats</span>
         )}
-      </div>
-
-      <div className="mt-4 flex flex-wrap items-center justify-end gap-2 text-xs text-muted-foreground">
-        <span>GitHub</span>
-        {[1, 2, 3, 4].map((level) => (
-          <span
-            key={`g-${level}`}
-            className="h-3 w-3 rounded-[3px]"
-            style={{ background: ['#123924', '#1f7a3d', '#2dbf5c', '#67f58e'][level - 1] }}
-          />
-        ))}
-        <span className="ml-2">LeetCode</span>
-        {[1, 2, 3, 4].map((level) => (
-          <span
-            key={`l-${level}`}
-            className="h-3 w-3 rounded-[3px]"
-            style={{ background: ['#4a3b10', '#8e6e12', '#d8a719', '#ffe066'][level - 1] }}
-          />
-        ))}
       </div>
     </div>
   )
