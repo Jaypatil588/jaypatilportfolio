@@ -16,8 +16,6 @@ interface ContributionHeatmapProps {
   days: CombinedDay[]
 }
 
-const weekdayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-
 function styleForCell(githubLevel: number, leetcodeLevel: number) {
   const githubShades = ['#123924', '#1f7a3d', '#2dbf5c', '#67f58e']
   const leetcodeShades = ['#4a3b10', '#8e6e12', '#d8a719', '#ffe066']
@@ -26,23 +24,16 @@ function styleForCell(githubLevel: number, leetcodeLevel: number) {
     return { className: 'border-[#1c2a38] bg-[#0b1621]', style: undefined as CSSProperties | undefined }
   }
 
-  if (githubLevel > 0 && leetcodeLevel === 0) {
+  if (githubLevel > 0) {
     const color = githubShades[Math.max(githubLevel - 1, 0)] || githubShades[3]
     return { className: 'border-transparent', style: { background: color } }
   }
 
-  if (leetcodeLevel > 0 && githubLevel === 0) {
+  if (leetcodeLevel > 0) {
     const color = leetcodeShades[Math.max(leetcodeLevel - 1, 0)] || leetcodeShades[3]
     return { className: 'border-transparent', style: { background: color } }
   }
-
-  const green = githubShades[Math.max(githubLevel - 1, 0)] || githubShades[3]
-  const yellow = leetcodeShades[Math.max(leetcodeLevel - 1, 0)] || leetcodeShades[3]
-
-  return {
-    className: 'border-transparent',
-    style: { background: `linear-gradient(135deg, ${green} 0%, ${green} 48%, ${yellow} 52%, ${yellow} 100%)` },
-  }
+  return { className: 'border-[#1c2a38] bg-[#0b1621]', style: undefined as CSSProperties | undefined }
 }
 
 export function ContributionHeatmap({ title, subtitle, days }: ContributionHeatmapProps) {

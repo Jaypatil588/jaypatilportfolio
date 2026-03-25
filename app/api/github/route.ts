@@ -23,48 +23,49 @@ interface GithubProfile {
   html_url: string
 }
 
-function commitLevel(count: number): number {
-  if (count === 0) return 0
-  if (count <= 2) return 1
-  if (count <= 5) return 2
-  if (count <= 9) return 3
-  return 4
+const LEVEL_TO_COUNT = [0, 1, 3, 6, 10]
+
+function toRelativeLevel(value: number, maxValue: number) {
+  if (value <= 0 || maxValue <= 0) return 0
+  return Math.min(Math.max(Math.ceil((value / maxValue) * 4), 1), 4)
 }
 
-function buildRollingDays(from: string, to: string, counts: Map<string, number>) {
+function buildRollingDays(from: string, to: string, sourceLevels: Map<string, number>) {
   const days: Array<{ date: string; count: number; level: number }> = []
   const start = new Date(`${from}T00:00:00Z`)
   const end = new Date(`${to}T00:00:00Z`)
+  let maxCount = 0
 
   for (let cursor = new Date(start); cursor <= end; cursor.setUTCDate(cursor.getUTCDate() + 1)) {
     const date = cursor.toISOString().slice(0, 10)
-    const count = counts.get(date) ?? 0
-    days.push({ date, count, level: commitLevel(count) })
+    const rawLevel = sourceLevels.get(date) ?? 0
+    const count = LEVEL_TO_COUNT[rawLevel] ?? 0
+    if (count > maxCount) maxCount = count
+    days.push({ date, count, level: 0 })
   }
 
-  return days
+  return days.map((day) => ({
+    ...day,
+    level: toRelativeLevel(day.count, maxCount),
+  }))
 }
 
-function extractContributionsFromSvg(svg: string) {
-  const counts = new Map<string, number>()
-  const regexDateFirst = /<rect[^>]*data-date="(\d{4}-\d{2}-\d{2})"[^>]*data-count="(\d+)"[^>]*>/g
-  const regexCountFirst = /<rect[^>]*data-count="(\d+)"[^>]*data-date="(\d{4}-\d{2}-\d{2})"[^>]*>/g
+function extractDailyLevels(html: string) {
+  const levels = new Map<string, number>()
+  const dayCellRegex = /<td[^>]*class="ContributionCalendar-day"[^>]*>/g
 
-  let match = regexDateFirst.exec(svg)
+  let match = dayCellRegex.exec(html)
   while (match) {
-    const [, date, count] = match
-    counts.set(date, Number(count))
-    match = regexDateFirst.exec(svg)
+    const tag = match[0]
+    const dateMatch = tag.match(/data-date="(\d{4}-\d{2}-\d{2})"/)
+    const levelMatch = tag.match(/data-level="([0-4])"/)
+    if (dateMatch && levelMatch) {
+      levels.set(dateMatch[1], Number(levelMatch[1]))
+    }
+    match = dayCellRegex.exec(html)
   }
 
-  match = regexCountFirst.exec(svg)
-  while (match) {
-    const [, count, date] = match
-    counts.set(date, Number(count))
-    match = regexCountFirst.exec(svg)
-  }
-
-  return counts
+  return levels
 }
 
 function getLastYearRange() {
@@ -105,13 +106,10 @@ export async function GET(request: NextRequest) {
       next: { revalidate: 3600 },
     })
 
-    const contributionsPromise = fetch(
-      `https://github.com/users/${username}/contributions?from=${from}&to=${to}`,
-      {
-        headers: { 'User-Agent': 'jaypatilportfolio' },
-        next: { revalidate: 3600 },
-      }
-    )
+    const contributionsPromise = fetch(`https://github.com/users/${username}/contributions`, {
+      headers: { 'User-Agent': 'jaypatilportfolio' },
+      next: { revalidate: 3600 },
+    })
 
     const [profileResponse, reposResponse, contributionsResponse] = await Promise.all([
       profilePromise,
@@ -142,10 +140,9 @@ export async function GET(request: NextRequest) {
 
     const profile = (await profileResponse.json()) as GithubProfile
     const repos = (await reposResponse.json()) as GithubRepo[]
-    const contributionsSvg = await contributionsResponse.text()
-
-    const contributionCounts = extractContributionsFromSvg(contributionsSvg)
-    const heatmap = buildRollingDays(from, to, contributionCounts)
+    const contributionsHtml = await contributionsResponse.text()
+    const dailyLevels = extractDailyLevels(contributionsHtml)
+    const heatmap = buildRollingDays(from, to, dailyLevels)
 
     const ownRepos = repos.filter((repo) => !repo.fork)
     const totalStars = ownRepos.reduce((sum, repo) => sum + repo.stargazers_count, 0)

@@ -1,25 +1,27 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-function levelFromCount(count: number): number {
-  if (count === 0) return 0
-  if (count <= 1) return 1
-  if (count <= 3) return 2
-  if (count <= 6) return 3
-  return 4
+function levelFromCount(count: number, maxCount: number): number {
+  if (count <= 0 || maxCount <= 0) return 0
+  return Math.min(Math.max(Math.ceil((count / maxCount) * 4), 1), 4)
 }
 
 function buildRollingDays(from: string, to: string, counts: Map<string, number>) {
   const days: Array<{ date: string; count: number; level: number }> = []
   const start = new Date(`${from}T00:00:00Z`)
   const end = new Date(`${to}T00:00:00Z`)
+  let maxCount = 0
 
   for (let cursor = new Date(start); cursor <= end; cursor.setUTCDate(cursor.getUTCDate() + 1)) {
     const date = cursor.toISOString().slice(0, 10)
     const count = counts.get(date) ?? 0
-    days.push({ date, count, level: levelFromCount(count) })
+    if (count > maxCount) maxCount = count
+    days.push({ date, count, level: 0 })
   }
 
-  return days
+  return days.map((day) => ({
+    ...day,
+    level: levelFromCount(day.count, maxCount),
+  }))
 }
 
 function getLastYearRange() {

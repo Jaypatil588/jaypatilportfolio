@@ -155,7 +155,7 @@ export function ProjectsSection() {
           <>
             <ContributionHeatmap
               title="GitHub + LeetCode Activity"
-              subtitle={`${githubData.range.from} to ${githubData.range.to}`}
+              subtitle={`${githubData.range.from} to ${githubData.range.to} • GitHub takes priority on overlap days`}
               days={mergedHeatmap}
             />
 
