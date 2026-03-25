@@ -6,6 +6,7 @@ import {
 } from 'ai'
 import { createOpenAI } from '@ai-sdk/openai'
 import { ragContext } from '@/lib/portfolio-data'
+import { neon } from '@neondatabase/serverless'
 
 export const maxDuration = 30
 const VECTOR_STORE_ID = 'vs_69c34c0041148191a9bc58aff18cbee6'
@@ -48,6 +49,20 @@ async function fetchVectorContext(query: string): Promise<string> {
   return snippets.join('\n\n').slice(0, 12000)
 }
 
+async function persistChatLog(message: string, response: string, referer: string | null) {
+  try {
+    const dbUrl = process.env.DATABASE_URL
+    if (!dbUrl) return
+    const sql = neon(dbUrl)
+    await sql`
+      INSERT INTO chat_logs (user_id, referer, message, response)
+      VALUES (1, ${referer}, ${message}, ${response})
+    `
+  } catch (error) {
+    console.error('Failed to persist chat log:', error)
+  }
+}
+
 export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json()
 
@@ -59,6 +74,7 @@ export async function POST(req: Request) {
   const lastUserMessage = [...messages].reverse().find((message) => message.role === 'user')
   const userQuery = lastUserMessage ? extractUserText(lastUserMessage) : ''
   const vectorContext = await fetchVectorContext(userQuery)
+  const referer = req.headers.get('referer') || null
 
   const systemPrompt = `You are Jay Patil's AI assistant on his portfolio website. You answer questions about Jay based on his resume and portfolio information.
 
@@ -88,5 +104,14 @@ Remember: You represent Jay's portfolio. Be helpful and showcase his expertise!`
   return result.toUIMessageStreamResponse({
     originalMessages: messages,
     consumeSseStream: consumeStream,
+    onFinish: async ({ responseMessage }) => {
+      const responseText = responseMessage.parts
+        .filter((part) => part.type === 'text')
+        .map((part) => part.text.trim())
+        .filter(Boolean)
+        .join('\n')
+
+      await persistChatLog(userQuery || '', responseText || '', referer)
+    },
   })
 }

@@ -220,82 +220,8 @@ tbody td { padding: 10px 12px; font-size: 0.78rem; vertical-align: top; }
   .hero h1 { font-size: 1.5rem; }
   .top10-grid { grid-template-columns: 1fr; }
   .filter-bar input { width: 100%; }
-  .analyzer-grid { grid-template-columns: 1fr; }
 }
 
-/* Resume Analyzer */
-.upload-zone {
-  border: 2px dashed var(--card-border); border-radius: 14px;
-  padding: 2.5rem; text-align: center; cursor: pointer;
-  transition: all 0.3s; background: var(--card); position: relative;
-}
-.upload-zone:hover, .upload-zone.dragover {
-  border-color: var(--accent); background: rgba(99,102,241,0.04);
-}
-.upload-zone .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
-.upload-zone .main-text { font-size: 1rem; font-weight: 600; }
-.upload-zone .sub-text { font-size: 0.8rem; color: var(--text-dim); margin-top: 4px; }
-.upload-zone input { display: none; }
-.upload-zone .file-name {
-  margin-top: 8px; font-size: 0.8rem; color: var(--green); font-weight: 500;
-}
-.analyzing {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 1.5rem; color: var(--accent-light); font-weight: 600;
-}
-.analyzing .spinner {
-  width: 20px; height: 20px; border: 2px solid var(--card-border);
-  border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.analyzer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; }
-.analysis-card {
-  background: var(--card); border: 1px solid var(--card-border); border-radius: 14px;
-  padding: 1.25rem;
-}
-.analysis-card h3 {
-  font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem;
-  display: flex; align-items: center; gap: 0.4rem;
-}
-
-/* Score gauge */
-.gauge-wrap { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem; }
-.gauge {
-  width: 100px; height: 100px; border-radius: 50%; position: relative;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.gauge .score { font-family: 'JetBrains Mono',monospace; font-size: 1.8rem; font-weight: 800; }
-.gauge .label { font-size: 0.6rem; color: var(--text-dim); position: absolute; bottom: 16px; }
-.gauge-info { font-size: 0.8rem; color: var(--text-dim); line-height: 1.6; }
-
-/* Gap items */
-.gap-item {
-  display: flex; align-items: center; gap: 8px; padding: 6px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.02); font-size: 0.8rem;
-}
-.gap-item:last-child { border-bottom: none; }
-.gap-icon { font-size: 0.9rem; flex-shrink: 0; }
-.gap-kw { font-weight: 600; width: 140px; flex-shrink: 0; }
-.gap-note { color: var(--text-dim); font-size: 0.75rem; flex: 1; }
-.gap-status { font-family: 'JetBrains Mono',monospace; font-size: 0.65rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
-.gap-found { background: rgba(34,197,94,0.15); color: var(--green); }
-.gap-missing { background: rgba(239,68,68,0.15); color: var(--red); }
-
-/* Recommendation bullets */
-.rec-list { list-style: none; }
-.rec-bullet {
-  padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.02);
-  font-size: 0.8rem; line-height: 1.5; display: flex; gap: 8px;
-}
-.rec-bullet:last-child { border-bottom: none; }
-.rec-bullet .num {
-  font-family: 'JetBrains Mono',monospace; font-size: 0.65rem; font-weight: 800;
-  color: var(--accent-light); width: 20px; flex-shrink: 0; padding-top: 2px;
-}
-.rec-bullet .txt { color: var(--text-dim); }
-.rec-bullet strong { color: var(--text); }
 </style>
 </head>
 <body>
@@ -307,19 +233,6 @@ tbody td { padding: 10px 12px; font-size: 0.78rem; vertical-align: top; }
 </div>
 
 <div class="container">
-  <!-- RESUME ANALYZER -->
-  <div class="section">
-    <div class="section-title">🧠 <span class="hl">AI Resume Analyzer</span> — Upload yours, get Google-optimized suggestions</div>
-    <div class="upload-zone" id="uploadZone">
-      <div class="icon">📄</div>
-      <div class="main-text">Drop your resume here or click to upload</div>
-      <div class="sub-text">Supports PDF, TXT, or MD files</div>
-      <input type="file" id="fileInput" accept=".pdf,.txt,.md,.doc,.docx">
-      <div class="file-name" id="fileName"></div>
-    </div>
-    <div id="analysisResults" style="display:none;"></div>
-  </div>
-
   <!-- TOP 10 RECOMMENDATIONS -->
   <div class="section">
     <div class="section-title">⭐ <span class="hl">Top 10 Projects</span> to Put on Your Resume for Max ATS Match</div>
@@ -378,9 +291,7 @@ tbody td { padding: 10px 12px; font-size: 0.78rem; vertical-align: top; }
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
 let DATA = [];
 let sortCol = 'rank';
@@ -395,7 +306,6 @@ Promise.all([
   DIST = dist;
   init();
   buildDistributions();
-  setupUploader();
 });
 
 function init() {
@@ -554,211 +464,6 @@ function buildDistributions() {
     </div>`).join('');
 }
 
-// ========== RESUME ANALYZER ==========
-const ATS_KEYWORDS = {
-  'python':5,'java':5,'c++':5,'golang':4,'javascript':3,'typescript':3,'rust':3,'scala':2,'kotlin':2,'swift':2,
-  'distributed systems':8,'microservices':5,'kubernetes':5,'docker':4,'grpc':6,'protocol buffers':6,
-  'google cloud':5,'gcp':5,'bigquery':4,
-  'machine learning':7,'deep learning':6,'tensorflow':7,'pytorch':5,'transformers':6,'bert':6,'nlp':5,
-  'natural language processing':5,'computer vision':5,
-  'sql':3,'nosql':3,'api':2,'rest api':3,'graphql':3,'redis':3,'mongodb':2,'postgresql':3,'firebase':3,'spark':4,'kafka':4,
-  'algorithms':6,'data structures':6,'operating systems':4,'compilers':5,'networking':3,
-  'react':2,'angular':2,'vue':2,'node.js':2,'flask':2,'django':2,'spring':3,
-  'aws':3,'azure':2,'ci/cd':3,'terraform':3,'linux':3,
-  'android':3,'ios':2,'react native':2,'flutter':2,
-};
-
-function setupUploader() {
-  const zone = document.getElementById('uploadZone');
-  const input = document.getElementById('fileInput');
-
-  zone.addEventListener('click', () => input.click());
-  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
-  zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
-  zone.addEventListener('drop', e => {
-    e.preventDefault(); zone.classList.remove('dragover');
-    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
-  });
-  input.addEventListener('change', () => { if (input.files.length) handleFile(input.files[0]); });
-}
-
-async function handleFile(file) {
-  document.getElementById('fileName').textContent = `📂 ${file.name}`;
-  const results = document.getElementById('analysisResults');
-  results.style.display = 'block';
-  results.innerHTML = '<div class="analyzing"><div class="spinner"></div> Analyzing your resume...</div>';
-
-  let text = '';
-  if (file.name.endsWith('.pdf')) {
-    text = await extractPDF(file);
-  } else {
-    text = await file.text();
-  }
-
-  setTimeout(() => analyzeResume(text), 400);
-}
-
-async function extractPDF(file) {
-  const arrayBuffer = await file.arrayBuffer();
-  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-  let text = '';
-  for (let i = 1; i <= pdf.numPages; i++) {
-    const page = await pdf.getPage(i);
-    const content = await page.getTextContent();
-    text += content.items.map(item => item.str).join(' ') + '\n';
-  }
-  return text;
-}
-
-function analyzeResume(text) {
-  const lower = text.toLowerCase();
-  const results = document.getElementById('analysisResults');
-
-  // 1. Detect keywords in resume
-  const found = {};
-  const missing = {};
-  for (const [kw, weight] of Object.entries(ATS_KEYWORDS)) {
-    if (kw.length <= 3) {
-      const re = new RegExp(`(?:^|[\\s,;()\\[\\]|/])${kw.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}(?:$|[\\s,;()\\[\\]|/])`, 'i');
-      if (re.test(lower)) found[kw] = weight; else missing[kw] = weight;
-    } else {
-      if (lower.includes(kw)) found[kw] = weight; else missing[kw] = weight;
-    }
-  }
-
-  // 2. Score
-  const foundScore = Object.values(found).reduce((a,b) => a+b, 0);
-  const totalScore = Object.values(ATS_KEYWORDS).reduce((a,b) => a+b, 0);
-  const pct = Math.round((foundScore / totalScore) * 100);
-
-  // 3. Compare against Google SDE distribution
-  const topKws = DIST.techKeywords.slice(0, 20);
-  const topMissing = topKws.filter(k => !found[k.keyword]).sort((a,b) => (ATS_KEYWORDS[b.keyword]||0) - (ATS_KEYWORDS[a.keyword]||0));
-  const topMatched = topKws.filter(k => found[k.keyword]);
-
-  // 4. Concept gaps
-  const CONCEPT_PATTERNS = [
-    {p:/distribut|replicate|shard|consensus|raft/i, c:'Distributed Systems'},
-    {p:/machine learn|deep learn|neural|model.*train/i, c:'Machine Learning'},
-    {p:/nlp|natural language|sentiment|named entity/i, c:'NLP'},
-    {p:/computer vision|image.*recogni|object detect/i, c:'Computer Vision'},
-    {p:/web.*app|full.*stack|frontend|backend|dashboard/i, c:'Full-Stack Dev'},
-    {p:/api|rest|microservice/i, c:'API / Microservices'},
-    {p:/mobile|android.*app|ios.*app|react.*native/i, c:'Mobile Dev'},
-    {p:/data.*pipeline|etl|data.*process/i, c:'Data Engineering'},
-    {p:/security|encrypt|auth|oauth/i, c:'Security'},
-    {p:/cloud|aws|gcp|azure|docker|kubernet/i, c:'Cloud / DevOps'},
-    {p:/database|sql|nosql|mongo|redis|storage/i, c:'Databases'},
-    {p:/algorithm|data structure|graph|tree|sort/i, c:'Algorithms & DS'},
-    {p:/test|ci.*cd|pipeline|deploy/i, c:'Testing / CI-CD'},
-    {p:/optimi|performance|latency|throughput|scale/i, c:'Performance'},
-  ];
-  const userConcepts = CONCEPT_PATTERNS.filter(({p}) => p.test(lower)).map(({c}) => c);
-  const allConcepts = CONCEPT_PATTERNS.map(({c}) => c);
-  const missingConcepts = allConcepts.filter(c => !userConcepts.includes(c));
-
-  // 5. Generate recommendations
-  const recs = [];
-  // Missing high-weight keywords
-  const criticalMissing = Object.entries(missing).filter(([k,w]) => w >= 5).sort((a,b) => b[1]-a[1]);
-  if (criticalMissing.length > 0) {
-    recs.push(`<strong>Add these high-value keywords</strong> that ${criticalMissing.slice(0,5).map(([k])=>k).join(', ')} Google SDEs commonly list. Even mentioning them in a project description helps.`);
-  }
-  if (!found['distributed systems'] && !found['microservices']) {
-    recs.push(`<strong>Build a distributed systems project</strong> — this is the #1 concept across Google SDE profiles. A replicated key-value store, Raft consensus, or distributed file system would score extremely high.`);
-  }
-  if (!found['machine learning'] && !found['tensorflow'] && !found['pytorch']) {
-    recs.push(`<strong>Add an ML project</strong> — Machine Learning appears in 8 of our scraped Google SDE profiles. Even a simple classifier with TensorFlow/PyTorch shows competence.`);
-  }
-  if (!found['docker'] && !found['kubernetes'] && !found['ci/cd']) {
-    recs.push(`<strong>Containerize your projects</strong> — Docker + CI/CD pipelines show production-readiness. Add a Dockerfile and GitHub Actions workflow to your existing projects.`);
-  }
-  if (!found['grpc'] && !found['protocol buffers']) {
-    recs.push(`<strong>Use gRPC + Protocol Buffers</strong> in a project — these are Google's internal backbone tech and carry extremely high ATS weight (×6 each).`);
-  }
-  if (!found['golang'] && !found['c++'] && !found['java']) {
-    recs.push(`<strong>Learn a systems language</strong> — Java, C++, or Go are the top 3 languages at Google. Having at least one is critical.`);
-  } else {
-    const langs = ['java','c++','python','golang','typescript','rust'].filter(l => found[l]);
-    if (langs.length < 3) recs.push(`You know <strong>${langs.join(', ')}</strong> — consider adding <strong>${['java','c++','python','golang'].filter(l=>!found[l]).slice(0,2).join(' or ')}</strong> to broaden your match.`);
-  }
-  if (!found['sql'] && !found['postgresql'] && !found['mongodb']) {
-    recs.push(`<strong>Mention your database experience</strong> — SQL and database work appears in many Google SDE resumes. Make sure to call out specific databases.`);
-  }
-  if (!found['algorithms'] && !found['data structures']) {
-    recs.push(`<strong>Highlight algorithmic work</strong> — Mention data structures, algorithms, and competitive programming explicitly. Google values strong CS fundamentals.`);
-  }
-  if (!found['api'] && !found['rest api'] && !found['graphql']) {
-    recs.push(`<strong>Describe APIs you've built</strong> — REST APIs and service design show up in most Google SDE profiles. Frame your backend work in terms of APIs.`);
-  }
-  // Generic strong recs
-  recs.push(`<strong>Quantify your impact</strong> — Use numbers like "reduced latency by 40%" or "served 10K users". Google SDE profiles that score highest always include metrics.`);
-
-  // 6. Gauge color
-  let gaugeColor, gaugeGrade;
-  if (pct >= 60) { gaugeColor = 'var(--green)'; gaugeGrade = 'Strong'; }
-  else if (pct >= 35) { gaugeColor = 'var(--amber)'; gaugeGrade = 'Moderate'; }
-  else { gaugeColor = 'var(--red)'; gaugeGrade = 'Needs Work'; }
-
-  // 7. Render
-  results.innerHTML = `
-    <div class="analyzer-grid">
-      <div class="analysis-card">
-        <h3>🎯 ATS Match Score</h3>
-        <div class="gauge-wrap">
-          <div class="gauge" style="background: conic-gradient(${gaugeColor} ${pct*3.6}deg, rgba(255,255,255,0.05) 0deg);">
-            <span class="score" style="color:${gaugeColor}">${pct}%</span>
-          </div>
-          <div class="gauge-info">
-            <strong style="color:${gaugeColor}">${gaugeGrade}</strong><br>
-            ${Object.keys(found).length} of ${Object.keys(ATS_KEYWORDS).length} keywords matched<br>
-            Score: ${foundScore} / ${totalScore} pts (weighted)
-          </div>
-        </div>
-        <h3>✅ Keywords Found (${Object.keys(found).length})</h3>
-        <div style="max-height:180px;overflow-y:auto;">
-          ${Object.entries(found).sort((a,b)=>b[1]-a[1]).map(([k,w]) => `
-            <div class="gap-item">
-              <span class="gap-icon">✅</span>
-              <span class="gap-kw">${k}</span>
-              <span class="gap-status gap-found">×${w}</span>
-            </div>`).join('')}
-        </div>
-      </div>
-      <div class="analysis-card">
-        <h3>❌ Missing High-Value Keywords (${Object.keys(missing).length})</h3>
-        <div style="max-height:300px;overflow-y:auto;">
-          ${Object.entries(missing).sort((a,b)=>b[1]-a[1]).map(([k,w]) => `
-            <div class="gap-item">
-              <span class="gap-icon">❌</span>
-              <span class="gap-kw">${k}</span>
-              <span class="gap-note">Used by ${(DIST.techKeywords.find(t=>t.keyword===k)?.count||0)} Google SDEs</span>
-              <span class="gap-status gap-missing">×${w}</span>
-            </div>`).join('')}
-        </div>
-      </div>
-      <div class="analysis-card">
-        <h3>🧠 Concept Coverage</h3>
-        <div>
-          ${allConcepts.map(c => {
-            const has = userConcepts.includes(c);
-            return `<div class="gap-item">
-              <span class="gap-icon">${has ? '✅' : '❌'}</span>
-              <span class="gap-kw">${c}</span>
-              <span class="gap-status ${has?'gap-found':'gap-missing'}">${has?'Found':'Missing'}</span>
-            </div>`;
-          }).join('')}
-        </div>
-      </div>
-      <div class="analysis-card">
-        <h3>💡 Personalized Recommendations</h3>
-        <ul class="rec-list">
-          ${recs.map((r,i) => `<li class="rec-bullet"><span class="num">${i+1}.</span><span class="txt">${r}</span></li>`).join('')}
-        </ul>
-      </div>
-    </div>
-  `;
-}
 </script>
 </body>
 </html>

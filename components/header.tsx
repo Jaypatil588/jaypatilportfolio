@@ -10,7 +10,6 @@ const navLinks = [
   { label: 'Home', href: '#' },
   { label: 'Skills', href: '#skills' },
   { label: 'GitHub', href: '#projects' },
-  { label: 'Dashboard', href: '/auth' },
   { label: 'Experience', href: '#experience' },
   { label: 'Resume', href: '/resume.pdf' },
 ]
@@ -60,7 +59,7 @@ export function Header() {
               rel={link.href === '/resume.pdf' ? 'noopener noreferrer' : undefined}
               className={cn(
                 "px-4 py-2 text-sm rounded-lg transition-all",
-                link.label === 'Resume' || link.label === 'Dashboard'
+                link.label === 'Resume'
                   ? "text-primary font-medium hover:bg-primary/10" 
                   : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
               )}
@@ -75,12 +74,12 @@ export function Header() {
         </nav>
 
         <motion.a
-          href={`mailto:${portfolioData.email}`}
+          href="/dashboard.html"
           className="hidden md:flex px-5 py-2.5 text-sm font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Get in Touch
+          Company Analytics
         </motion.a>
 
         {/* Mobile Menu Button */}
@@ -111,10 +110,10 @@ export function Header() {
               </a>
             ))}
             <a
-              href={`mailto:${portfolioData.email}`}
+              href="/dashboard.html"
               className="px-4 py-3 text-sm font-semibold rounded-lg bg-primary text-primary-foreground text-center mt-2"
             >
-              Get in Touch
+              Company Analytics
             </a>
           </nav>
         </motion.div>
