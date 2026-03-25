@@ -3,13 +3,9 @@
 import { Github, Linkedin, Mail, MapPin, FileText, Download, Sparkles } from 'lucide-react'
 import { portfolioData } from '@/lib/portfolio-data'
 import { RagChat } from './rag-chat'
-import { motion, useMotionTemplate, useMotionValue } from 'framer-motion'
-import { CursorSpotlight } from './cursor-spotlight'
+import { motion } from 'framer-motion'
 
 export function HeroSection() {
-  const cardX = useMotionValue(0)
-  const cardY = useMotionValue(0)
-
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -141,32 +137,10 @@ export function HeroSection() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.75, ease: 'easeOut', delay: 0.2 }}
             >
-              <CursorSpotlight className="relative h-full rounded-none">
-                <motion.div
-                  className="h-full"
-                  style={{
-                    rotateX: useMotionTemplate`${cardY}deg`,
-                    rotateY: useMotionTemplate`${cardX}deg`,
-                    transformPerspective: '1200px',
-                  }}
-                  onMouseMove={(event) => {
-                    const bounds = event.currentTarget.getBoundingClientRect()
-                    const px = (event.clientX - bounds.left) / bounds.width
-                    const py = (event.clientY - bounds.top) / bounds.height
-                    cardX.set((px - 0.5) * 7)
-                    cardY.set((0.5 - py) * 7)
-                  }}
-                  onMouseLeave={() => {
-                    cardX.set(0)
-                    cardY.set(0)
-                  }}
-                >
-                  <RagChat
-                    className="h-full lg:rounded-none lg:border-l lg:border-r-0"
-                    heightClass="h-[58vh] min-h-[520px] lg:h-[calc(100vh-6rem)] lg:min-h-[calc(100vh-6rem)] lg:max-h-none"
-                  />
-                </motion.div>
-              </CursorSpotlight>
+              <RagChat
+                className="h-full lg:rounded-none lg:border-l lg:border-r-0"
+                heightClass="h-[58vh] min-h-[520px] lg:h-[calc(100vh-6rem)] lg:min-h-[calc(100vh-6rem)] lg:max-h-none"
+              />
             </motion.div>
           </div>
         </div>

@@ -16,7 +16,7 @@ interface RagChatProps {
 
 export function RagChat({ fullWidth = false, className, heightClass }: RagChatProps) {
   const [input, setInput] = useState('')
-  const messagesEndRef = useRef<HTMLDivElement>(null)
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const { messages, sendMessage, status } = useChat({
@@ -26,7 +26,9 @@ export function RagChat({ fullWidth = false, className, heightClass }: RagChatPr
   const isLoading = status === 'streaming' || status === 'submitted'
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    const container = messagesContainerRef.current
+    if (!container) return
+    container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' })
   }, [messages])
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -72,7 +74,7 @@ export function RagChat({ fullWidth = false, className, heightClass }: RagChatPr
         <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
       </div>
 
-      <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-background/30">
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-6 space-y-4 bg-background/30">
         <AnimatePresence mode="popLayout">
           {messages.length === 0 ? (
             <motion.div
@@ -91,7 +93,7 @@ export function RagChat({ fullWidth = false, className, heightClass }: RagChatPr
                   transition={{ duration: 2, repeat: Infinity }}
                 />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Welcome! I&apos;m Jay&apos;s AI Assistant</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-2">What would you like to know about me?</h3>
               <p className="text-sm text-muted-foreground mb-6 max-w-md">
                 Ask me about Jay&apos;s experience, projects, education, or achievements.
               </p>
@@ -170,7 +172,6 @@ export function RagChat({ fullWidth = false, className, heightClass }: RagChatPr
                   </div>
                 </motion.div>
               )}
-              <div ref={messagesEndRef} />
             </>
           )}
         </AnimatePresence>
