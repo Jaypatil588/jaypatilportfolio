@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { useChat } from '@ai-sdk/react'
 import { DefaultChatTransport } from 'ai'
-import { Send, Bot, User, Sparkles, Terminal } from 'lucide-react'
+import { Send, Bot, User, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -61,19 +61,6 @@ export function RagChat({ fullWidth = false, className, heightClass }: RagChatPr
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.45 }}
     >
-      <div className="flex items-center gap-3 px-5 py-4 border-b border-border/50 bg-secondary/50">
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-red-500" />
-          <div className="w-3 h-3 rounded-full bg-yellow-500" />
-          <div className="w-3 h-3 rounded-full bg-green-500" />
-        </div>
-        <div className="flex-1 flex items-center justify-center gap-2">
-          <Terminal className="w-4 h-4 text-primary" />
-          <span className="text-sm font-mono text-muted-foreground">jay-portfolio-assistant</span>
-        </div>
-        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-      </div>
-
       <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-6 space-y-4 bg-background/30">
         <AnimatePresence mode="popLayout">
           {messages.length === 0 ? (
@@ -83,17 +70,16 @@ export function RagChat({ fullWidth = false, className, heightClass }: RagChatPr
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
             >
-              <div className="relative mb-6">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center">
-                  <Bot className="w-10 h-10 text-primary" />
+              <div className="w-full max-w-2xl mb-8">
+                <div className="flex items-start gap-3 justify-start">
+                  <div className="flex items-start justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary/30 to-accent/30 shrink-0">
+                    <Bot className="w-5 h-5 text-primary mt-2.5" />
+                  </div>
+                  <div className="bg-secondary/80 text-foreground rounded-2xl rounded-tl-sm px-5 py-4 border border-border/50 text-left">
+                    <p className="text-xl md:text-2xl font-semibold leading-tight">What would you like to know about me?</p>
+                  </div>
                 </div>
-                <motion.div
-                  className="absolute -inset-2 rounded-2xl border-2 border-primary/30"
-                  animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">What would you like to know about me?</h3>
               <p className="text-sm text-muted-foreground mb-6 max-w-md">
                 Ask me about Jay&apos;s experience, projects, education, or achievements.
               </p>
