@@ -39,12 +39,12 @@ export function RagChat({ fullWidth = false, className, heightClass }: RagChatPr
   }
 
   const suggestedQuestions = [
-    "What are Jay's technical skills?",
-    'Tell me about his work experience',
-    'What projects has Jay built?',
-    "What are Jay's achievements?",
-    'Where did Jay study?',
-    'How can I contact Jay?',
+    'What are your technical skills?',
+    'Tell me about your work experience',
+    'What projects have you built?',
+    'What are your achievements?',
+    'Where did you study?',
+    'How can I contact you?',
   ]
 
   const chatHeightClass =
@@ -65,25 +65,16 @@ export function RagChat({ fullWidth = false, className, heightClass }: RagChatPr
         <AnimatePresence mode="popLayout">
           {messages.length === 0 ? (
             <motion.div
-              className="flex flex-col items-center justify-center h-full text-center"
+              className="flex flex-col h-full text-center"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
             >
-              <div className="w-full max-w-2xl mb-8">
-                <div className="flex items-start gap-3 justify-start">
-                  <div className="flex items-start justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary/30 to-accent/30 shrink-0">
-                    <Bot className="w-5 h-5 text-primary mt-2.5" />
-                  </div>
-                  <div className="bg-secondary/80 text-foreground rounded-2xl rounded-tl-sm px-5 py-4 border border-border/50 text-left">
-                    <p className="text-xl md:text-2xl font-semibold leading-tight">What would you like to know about me?</p>
-                  </div>
-                </div>
-              </div>
-              <p className="text-sm text-muted-foreground mb-6 max-w-md">
-                Ask me about Jay&apos;s experience, projects, education, or achievements.
-              </p>
-              <div className={cn('flex flex-wrap gap-2 justify-center', fullWidth ? 'max-w-2xl' : 'max-w-md')}>
+              <div className="w-full flex flex-col items-center pt-6">
+                <p className="text-sm text-muted-foreground mb-6 max-w-md">
+                  Ask me about my experience, projects, education, or achievements.
+                </p>
+                <div className={cn('flex flex-wrap gap-2 justify-center', fullWidth ? 'max-w-2xl' : 'max-w-md')}>
                 {suggestedQuestions.slice(0, fullWidth ? 6 : 5).map((question, i) => (
                   <motion.button
                     key={question}
@@ -101,6 +92,18 @@ export function RagChat({ fullWidth = false, className, heightClass }: RagChatPr
                     {question}
                   </motion.button>
                 ))}
+                </div>
+              </div>
+
+              <div className="w-full max-w-2xl mt-auto mb-2">
+                <div className="flex items-start gap-3 justify-start">
+                  <div className="flex items-start justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary/30 to-accent/30 shrink-0">
+                    <Bot className="w-5 h-5 text-primary mt-2.5" />
+                  </div>
+                  <div className="bg-secondary/80 text-foreground rounded-2xl rounded-tl-sm px-5 py-4 border border-border/50 text-left">
+                    <p className="text-xl md:text-2xl font-semibold leading-tight">What would you like to know about me?</p>
+                  </div>
+                </div>
               </div>
             </motion.div>
           ) : (
