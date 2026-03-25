@@ -1,0 +1,257 @@
+[
+  {
+    "name": "Ankit Goyal",
+    "file": "001_ankit_goyal.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Bashu Tiwari",
+    "file": "002_bashu_tiwari.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Shambhavi Srivastava",
+    "file": "003_shambhavi_srivastava.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Ronak Shah",
+    "file": "004_ronak_shah.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Ira Aggarwal",
+    "file": "005_ira_aggarwal.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Andrej Korman",
+    "file": "006_andrej_korman.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Ayush Garg",
+    "file": "007_ayush_garg.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Shampi Sri Potluri",
+    "file": "008_shampi_sri_potluri.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Janvi Patel",
+    "file": "009_janvi_patel.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Karinna Iniguez",
+    "file": "010_karinna_iniguez.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Unknown",
+    "file": "011_unknown_1774398446119.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Vineet Joshi",
+    "file": "011_vineet_joshi.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Christopher Wright",
+    "file": "012_christopher_wright.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Ivy Wu",
+    "file": "013_ivy_wu.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Brandon Young",
+    "file": "014_brandon_young.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Steven Goetter",
+    "file": "015_steven_goetter.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Daniel Okazaki",
+    "file": "016_daniel_okazaki.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Travis Chen",
+    "file": "017_travis_chen.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Elia Döhler",
+    "file": "018_elia_d_hler.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Chen (Sarah) Song",
+    "file": "019_chen__sarah__song.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Vrushabh Deogirikar",
+    "file": "020_vrushabh_deogirikar.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Adam Bender",
+    "file": "021_adam_bender.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Gazi J.",
+    "file": "022_gazi_j_.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Justin Sweeney",
+    "file": "023_justin_sweeney.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Justin McCandless",
+    "file": "024_justin_mccandless.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Lucas Radaelli",
+    "file": "025_lucas_radaelli.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Logan Thorneloe",
+    "file": "026_logan_thorneloe.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Ciera Jaspan",
+    "file": "027_ciera_jaspan.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Joseph Cox",
+    "file": "028_joseph_cox.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Alex Lementuev",
+    "file": "029_alex_lementuev.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Yiqin (Adam) Xu",
+    "file": "030_yiqin__adam__xu.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Jason C.",
+    "file": "031_jason_c_.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Craig Tiller",
+    "file": "032_craig_tiller.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Stanley H.",
+    "file": "033_stanley_h_.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Akhil Job",
+    "file": "034_akhil_job.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Kristen Gee",
+    "file": "035_kristen_gee.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Andrew Green",
+    "file": "036_andrew_green.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Marko Milicevic",
+    "file": "037_marko_milicevic.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Gaurav Jain",
+    "file": "038_gaurav_jain.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Manuel Govea",
+    "file": "039_manuel_govea.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Jinal Parikh",
+    "file": "040_jinal_parikh.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "David Andersen",
+    "file": "041_david_andersen.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Freddy Demiane",
+    "file": "042_freddy_demiane.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "📱Nick Brice",
+    "file": "043___nick_brice.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Joe Bolinger",
+    "file": "044_joe_bolinger.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Eric Lewis",
+    "file": "045_eric_lewis.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Mickie (Ping-Tsung) Hsu",
+    "file": "046_mickie__ping_tsung__hsu.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "marius dragus",
+    "file": "047_marius_dragus.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Garrett Short",
+    "file": "048_garrett_short.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Victor Tang",
+    "file": "049_victor_tang.md",
+    "reason": "low_information_gain"
+  },
+  {
+    "name": "Anoop P Oommen",
+    "file": "050_anoop_p_oommen.md",
+    "reason": "low_information_gain"
+  }
+]
