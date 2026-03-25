@@ -3,6 +3,8 @@
 import { FormEvent, useState } from 'react'
 import { portfolioData } from '@/lib/portfolio-data'
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mlgorpjo'
+
 export function LeaveMessageSection() {
   const [name, setName] = useState('')
   const [subject, setSubject] = useState('')
@@ -18,25 +20,33 @@ export function LeaveMessageSection() {
     setStatusText('')
 
     try {
-      const composedBody = [
-        name ? `From: ${name}` : 'From: Not provided',
-        '',
-        message,
-      ].join('\n')
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: name || 'Not provided',
+          subject,
+          message,
+          _subject: `Portfolio message: ${subject}`,
+        }),
+      })
 
-      const mailto = `mailto:${encodeURIComponent(portfolioData.email)}?subject=${encodeURIComponent(
-        subject
-      )}&body=${encodeURIComponent(composedBody)}`
+      if (!response.ok) {
+        const errorPayload = await response.json().catch(() => null)
+        throw new Error(errorPayload?.error || 'Failed to send message.')
+      }
 
-      window.location.href = mailto
       setStatus('sent')
-      setStatusText('Opened your email client. Please click Send there.')
+      setStatusText('Message sent. Thank you!')
       setName('')
       setSubject('')
       setMessage('Dear Jay,\n\nI came across your portfolio and wanted to connect.\n\nRegards,\n')
     } catch (error) {
       setStatus('error')
-      setStatusText(error instanceof Error ? error.message : 'Could not open your email client.')
+      setStatusText(error instanceof Error ? error.message : 'Could not send message.')
     }
   }
 
