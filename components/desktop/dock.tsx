@@ -1,13 +1,12 @@
 'use client'
 
-import { User, MessageSquare, FolderGit2, Briefcase, Activity, FileText, Mail, Github } from 'lucide-react'
+import { User, FolderGit2, Briefcase, Activity, FileText, Mail, Github } from 'lucide-react'
 import { portfolioData } from '@/lib/portfolio-data'
 import { useWindowManager } from './window-manager'
 import { cn } from '@/lib/utils'
 
 const windowItems = [
-  { id: 'about', icon: <User className="w-5 h-5" />, label: 'About Me', gradient: 'from-[#ff9a9e] to-[#fecfef]' },
-  { id: 'chat', icon: <MessageSquare className="w-5 h-5" />, label: 'Ask Jay', gradient: 'from-[#a8edea] to-[#fed6e3]' },
+  { id: 'main', icon: <User className="w-5 h-5" />, label: 'Portfolio', gradient: 'from-[#4a90d9] to-[#357abd]' },
   { id: 'projects', icon: <FolderGit2 className="w-5 h-5" />, label: 'Projects', gradient: 'from-[#667eea] to-[#764ba2]' },
   { id: 'experience', icon: <Briefcase className="w-5 h-5" />, label: 'Experience', gradient: 'from-[#f093fb] to-[#f5576c]' },
   { id: 'heatmap', icon: <Activity className="w-5 h-5" />, label: 'Activity', gradient: 'from-[#43e97b] to-[#38f9d7]' },

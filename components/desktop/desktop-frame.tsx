@@ -38,8 +38,8 @@ export function DesktopFrame({ children }: DesktopFrameProps) {
           <span className="hover:bg-white/10 px-2 py-0.5 rounded cursor-pointer">Help</span>
         </div>
         <div className="ml-auto flex items-center gap-3 text-[11px] text-white/80">
-          <span>{date}</span>
-          <span className="font-medium">{time}</span>
+          {date && <span>{date}</span>}
+          {time && <span className="font-medium">{time}</span>}
         </div>
       </div>
 
