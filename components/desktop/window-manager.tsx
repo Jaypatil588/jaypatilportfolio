@@ -29,7 +29,21 @@ const WindowManagerContext = createContext<WindowManagerContextType | null>(null
 export function useWindowManager() {
   const context = useContext(WindowManagerContext)
   if (!context) {
-    throw new Error('useWindowManager must be used within a WindowManagerProvider')
+    // Return a no-op context instead of throwing, so stale or orphaned components don't crash the app.
+    // This can happen during hot-reload when a deleted file's module is still mounted.
+    const noop = () => {}
+    return {
+      windows: new Map(),
+      activeWindowId: null,
+      openWindow: noop,
+      minimizeWindow: noop,
+      maximizeWindow: noop,
+      closeWindow: noop,
+      focusWindow: noop,
+      getWindowState: () => 'open' as const,
+      isWindowLoading: () => false,
+      setWindowLoading: noop,
+    }
   }
   return context
 }
