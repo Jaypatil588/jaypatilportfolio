@@ -1,17 +1,17 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ExternalLink, Github, Star } from 'lucide-react'
+import { ExternalLink, Star } from 'lucide-react'
 import { OSWindow } from './os-window'
 
 interface GithubProject {
   id: number
   name: string
-  description: string
+  description: string | null
   url: string
-  language: string
+  language: string | null
   stars: number
-  topics: string[]
+  forks: number
 }
 
 export function ProjectsWindow() {
@@ -26,7 +26,7 @@ export function ProjectsWindow() {
         const response = await fetch('/api/github')
         if (!response.ok) throw new Error('Failed to fetch projects')
         const data = await response.json()
-        setProjects(data)
+        setProjects(data.repos || [])
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load projects')
       } finally {
@@ -94,19 +94,6 @@ export function ProjectsWindow() {
                     </span>
                   )}
                 </div>
-
-                {project.topics.length > 0 && (
-                  <div className="flex gap-1 flex-wrap">
-                    {project.topics.slice(0, 3).map(topic => (
-                      <span key={topic} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
-                        #{topic}
-                      </span>
-                    ))}
-                    {project.topics.length > 3 && (
-                      <span className="text-xs text-gray-500">+{project.topics.length - 3}</span>
-                    )}
-                  </div>
-                )}
               </a>
             ))
           )}
