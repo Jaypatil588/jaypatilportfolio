@@ -29,8 +29,7 @@ const WindowManagerContext = createContext<WindowManagerContextType | null>(null
 export function useWindowManager() {
   const context = useContext(WindowManagerContext)
   if (!context) {
-    // Return a no-op context instead of throwing, so stale or orphaned components don't crash the app.
-    // This can happen during hot-reload when a deleted file's module is still mounted.
+    // Return a safe no-op fallback for stale cached components or hot-reload artifacts
     const noop = () => {}
     return {
       windows: new Map(),
@@ -44,6 +43,9 @@ export function useWindowManager() {
       isWindowLoading: () => false,
       setWindowLoading: noop,
     }
+  }
+  return context
+}
   }
   return context
 }

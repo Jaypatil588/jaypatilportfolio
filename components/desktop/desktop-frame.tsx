@@ -37,14 +37,14 @@ export function DesktopFrame({ children }: DesktopFrameProps) {
           ))}
         </div>
 
-        {/* Date + Time — only rendered client-side to avoid hydration mismatch */}
+        {/* Date + Time — only render after hydration to avoid mismatch */}
         <div className="ml-auto flex items-center gap-3 text-[11px] text-white/80">
-          {mounted && (
+          {mounted ? (
             <>
               <span suppressHydrationWarning>{date}</span>
               <span className="font-medium" suppressHydrationWarning>{time}</span>
             </>
-          )}
+          ) : null}
         </div>
       </div>
 

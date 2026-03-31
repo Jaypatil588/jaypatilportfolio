@@ -90,12 +90,12 @@ export function MainWindow() {
       </div>
 
       {/* ── Body ── */}
-      <div className="flex flex-1 overflow-hidden bg-[#1c1c1e]">
+      <div className="flex flex-1 overflow-hidden bg-[#1c1c1e] flex-col lg:flex-row">
 
         {/* ── Sidebar ── */}
-        <aside className="w-52 bg-[#161618] flex flex-col shrink-0 border-r border-white/[0.06]">
+        <aside className="w-52 bg-[#161618] flex flex-col shrink-0 border-r border-white/[0.06] lg:border-r lg:border-b-0 border-b lg:border-b-0 max-h-32 lg:max-h-none lg:w-52 w-full overflow-x-auto lg:overflow-y-auto">
           {/* Profile block */}
-          <div className="p-4 border-b border-white/[0.06]">
+          <div className="p-4 border-b border-white/[0.06] lg:border-b lg:border-r-0 border-r lg:border-b hidden lg:block">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-full overflow-hidden ring-2 ring-white/10 shrink-0">
                 <Image
@@ -114,14 +114,14 @@ export function MainWindow() {
           </div>
 
           {/* Nav */}
-          <nav className="flex-1 overflow-y-auto py-2 space-y-0.5 px-2">
+          <nav className="flex-1 overflow-y-auto py-2 space-y-0.5 px-2 lg:space-y-0.5 flex lg:flex-col gap-1 lg:gap-0 overflow-x-auto lg:overflow-x-hidden">
             <p className="text-[10px] font-semibold text-white/30 uppercase tracking-widest px-2 pt-2 pb-1">Menu</p>
             {NAV_LINKS.map(link => (
               <button
                 key={link.id}
                 onClick={() => setView(link.id)}
                 className={cn(
-                  'w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium transition-all text-left',
+                  'w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium transition-all text-left whitespace-nowrap lg:whitespace-normal',
                   view === link.id
                     ? 'bg-white/10 text-white'
                     : 'text-white/50 hover:text-white/80 hover:bg-white/5'
@@ -129,7 +129,7 @@ export function MainWindow() {
               >
                 <span className={view === link.id ? 'text-white' : 'text-white/40'}>{link.icon}</span>
                 {link.label}
-                {view === link.id && <ChevronRight className="w-3 h-3 ml-auto text-white/40" />}
+                {view === link.id && <ChevronRight className="w-3 h-3 ml-auto text-white/40 hidden lg:block" />}
               </button>
             ))}
 
@@ -185,10 +185,10 @@ export function MainWindow() {
 
           {/* HOME — About left + Ask Jay right */}
           {view === 'home' && (
-            <div className="flex flex-1 overflow-hidden">
+            <div className="flex flex-1 overflow-hidden flex-col lg:flex-row">
 
               {/* Left: About */}
-              <div className="flex-1 overflow-y-auto p-7 border-r border-white/[0.06] min-w-0">
+              <div className="flex-1 overflow-y-auto p-7 border-r border-white/[0.06] min-w-0 lg:border-r lg:border-b-0 border-b lg:border-b-0 order-2 lg:order-1">
                 {/* Hero */}
                 <div className="flex items-center gap-5 mb-7">
                   <div className="w-16 h-16 rounded-2xl overflow-hidden ring-1 ring-white/10 shrink-0">
@@ -278,7 +278,7 @@ export function MainWindow() {
               </div>
 
               {/* Right: Ask Jay */}
-              <div className="w-72 flex flex-col shrink-0 bg-[#161618]">
+              <div className="w-72 flex flex-col shrink-0 bg-[#161618] lg:w-72 w-full order-1 lg:order-2 lg:max-h-none max-h-64 lg:border-0 border-b border-white/[0.06]">
                 <div className="px-4 py-3 border-b border-white/[0.06] flex items-center gap-2 shrink-0">
                   <div className="w-6 h-6 rounded-md bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
                     <Bot className="w-3.5 h-3.5 text-white" />
