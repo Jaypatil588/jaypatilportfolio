@@ -245,3 +245,157 @@
 ::-webkit-scrollbar-thumb:hover {
   background: oklch(0.4 0.03 250);
 }
+
+/* Desktop OS specific styles */
+.desktop-window {
+  background: oklch(0.95 0.01 250);
+  border: 2px solid oklch(0.8 0.02 250);
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  position: absolute;
+  cursor: move;
+  user-select: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.desktop-window.active {
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 30px oklch(0.65 0.2 250 / 0.2);
+  z-index: 50;
+}
+
+.desktop-window-header {
+  background: linear-gradient(to bottom, oklch(0.95 0.02 250), oklch(0.85 0.02 250));
+  border-bottom: 1px solid oklch(0.75 0.02 250);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: move;
+  border-radius: 6px 6px 0 0;
+  user-select: none;
+}
+
+.window-controls {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.window-control-btn {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.window-control-btn:hover {
+  transform: scale(1.1);
+}
+
+.window-control-close {
+  background: oklch(0.65 0.2 0);
+}
+
+.window-control-minimize {
+  background: oklch(0.65 0.2 60);
+}
+
+.window-control-maximize {
+  background: oklch(0.65 0.2 120);
+}
+
+/* Grid pattern background */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent);
+  background-size: 50px 50px;
+}
+
+/* Dock styling */
+.dock {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: oklch(0.15 0.02 250 / 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid oklch(0.3 0.03 250 / 0.5);
+  border-radius: 20px;
+  padding: 8px;
+  display: flex;
+  gap: 6px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.dock-item {
+  width: 48px;
+  height: 48px;
+  background: oklch(0.3 0.05 250 / 0.5);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 24px;
+}
+
+.dock-item:hover {
+  background: oklch(0.4 0.06 250 / 0.7);
+  transform: scale(1.1) translateY(-4px);
+}
+
+.dock-item.active {
+  background: oklch(0.65 0.2 250 / 0.6);
+  box-shadow: 0 0 15px oklch(0.65 0.2 250 / 0.3);
+}
+
+/* Sticky notes style */
+.sticky-note {
+  position: absolute;
+  padding: 12px;
+  background: linear-gradient(135deg, oklch(0.9 0.15 60), oklch(0.85 0.12 50));
+  border: 2px solid oklch(0.8 0.1 50);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), -2px 2px 0 rgba(0, 0, 0, 0.1);
+  transform: rotate(-2deg);
+  font-size: 12px;
+  color: oklch(0.2 0.05 250);
+}
+
+.sticky-note:nth-child(2) {
+  transform: rotate(1deg);
+}
+
+.sticky-note:nth-child(3) {
+  transform: rotate(-1.5deg);
+}
+
+/* Physical elements */
+.physical-element {
+  position: absolute;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+.clock {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  border: 8px solid oklch(0.3 0.03 250);
+  box-shadow: 0 0 0 2px oklch(0.6 0.15 30), inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flower-pot {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, oklch(0.5 0.15 30), oklch(0.6 0.12 20));
+  border-radius: 0 0 50% 50%;
+  position: relative;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}

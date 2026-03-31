@@ -1,10 +1,12 @@
+'use client'
+
 import { DesktopFrame } from '@/components/desktop/desktop-frame'
 import { AboutWindow } from '@/components/desktop/about-window'
 import { RAGWindow } from '@/components/desktop/rag-window'
 import { ProjectsWindow } from '@/components/desktop/projects-window'
 import { Dock } from '@/components/desktop/dock'
 
-export default function Home() {
+export default function DesktopPage() {
   return (
     <div className="w-full h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden flex items-center justify-center p-4">
       <DesktopFrame>

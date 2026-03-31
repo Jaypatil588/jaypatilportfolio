@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: '👋',
-  description: 'Software Engineer with 4 years of experience building scalable cloud-native applications, specializing in backend infrastructure, full-stack development, and AI/ML workflows.',
+  title: 'Jay Patil - Interactive Portfolio',
+  description: 'Explore my portfolio through an interactive desktop computer interface. Software Engineer with 4 years of experience building scalable cloud-native applications.',
   generator: 'Self',
   icons: {
     icon: [
