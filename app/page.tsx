@@ -1,10 +1,7 @@
 import { Header } from '@/components/header'
 import { HeroSection } from '@/components/hero-section'
-import { LeaveMessageSection } from '@/components/leave-message-section'
-import { SkillsSection } from '@/components/skills-section'
 import { ProjectsSection } from '@/components/projects-section'
 import { ExperienceSection } from '@/components/experience-section'
-import { ResumeSection } from '@/components/resume-section'
 import { Footer } from '@/components/footer'
 import { VisitorTracker } from '@/components/visitor-tracker'
 
@@ -14,20 +11,11 @@ export default function Home() {
       <VisitorTracker />
       <Header />
       <HeroSection />
-      <section id="message">
-        <LeaveMessageSection />
-      </section>
-      <section id="skills">
-        <SkillsSection />
-      </section>
-      <section id="projects">
-        <ProjectsSection />
-      </section>
       <section id="experience">
         <ExperienceSection />
       </section>
-      <section id="resume">
-        <ResumeSection />
+      <section id="projects">
+        <ProjectsSection />
       </section>
       <Footer />
     </main>
