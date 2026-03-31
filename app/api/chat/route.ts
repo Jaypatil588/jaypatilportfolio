@@ -1,13 +1,9 @@
 import {
-  createUIMessageStream,
-  createUIMessageStreamResponse,
-  consumeStream,
   convertToModelMessages,
   streamText,
+  generateText,
   UIMessage,
 } from 'ai'
-import { createOpenAI } from '@ai-sdk/openai'
-import OpenAI from 'openai'
 import { ragContext } from '@/lib/portfolio-data'
 import { neon } from '@neondatabase/serverless'
 
@@ -27,103 +23,70 @@ async function fetchVectorContext(query: string): Promise<string> {
   const apiKey = process.env.OPENAI_API_KEY
   if (!apiKey || !query.trim()) return ''
 
-  const response = await fetch(`https://api.openai.com/v1/vector_stores/${VECTOR_STORE_ID}/search`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      query,
-      max_num_results: 5,
-      rewrite_query: true,
-    }),
-  })
+  try {
+    const response = await fetch(`https://api.openai.com/v1/vector_stores/${VECTOR_STORE_ID}/search`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        query,
+        max_num_results: 5,
+        rewrite_query: true,
+      }),
+    })
 
-  if (!response.ok) return ''
+    if (!response.ok) return ''
 
-  const payload = await response.json()
-  const snippets = (payload?.data ?? [])
-    .flatMap((item: { content?: Array<{ type: string; text?: string }> }) => item.content ?? [])
-    .filter((entry: { type?: string; text?: string }) => entry.type === 'text' && entry.text)
-    .map((entry: { text?: string }) => entry.text?.trim())
-    .filter(Boolean)
+    const payload = await response.json()
+    const snippets = (payload?.data ?? [])
+      .flatMap((item: { content?: Array<{ type: string; text?: string }> }) => item.content ?? [])
+      .filter((entry: { type?: string; text?: string }) => entry.type === 'text' && entry.text)
+      .map((entry: { text?: string }) => entry.text?.trim())
+      .filter(Boolean)
 
-  return snippets.join('\n\n').slice(0, 12000)
+    return snippets.join('\n\n').slice(0, 12000)
+  } catch {
+    return ''
+  }
 }
 
 async function classifyPortfolioQuery(query: string): Promise<0 | 1> {
-  const apiKey = process.env.OPENAI_API_KEY
-  if (!apiKey || !query.trim()) return 0
+  if (!query.trim()) return 1 // Allow empty queries to proceed
 
   try {
-    const openai = new OpenAI({ apiKey })
-    
-    // Use Responses API with a low-token model for strict 0/1 gating.
-    const response = await openai.responses.create({
-      model: 'gpt-5-nano',
-      text: {
-        verbosity: "low"
-      },
-      reasoning: {
-        effort: "low",
-      },
-      input: [
-        {
-          role: 'system',
-          content: [
-            {
-              type: 'input_text',
-              text:
-                [
-                  'You are a strict binary intent classifier for Jay Patil portfolio chatbot.',
-                  'Task: Decide whether the user query is in-scope for Jay portfolio assistant.',
-                  '',
-                  'Return "1" if the query is about ANY of the following:',
-                  '- Jay Patil profile/about/bio/introduction',
-                  '- Jay skills/tech stack/languages/tools/frameworks',
-                  '- Jay projects, GitHub repos, achievements, education, work history',
-                  '- Jay resume, contact info, location, LinkedIn, portfolio sections',
-                  '- Questions phrased as "your/you/me/my" that clearly refer to Jay assistant context',
-                  '',
-                  'Return "0" if the query is outside scope, including:',
-                  '- General knowledge unrelated to Jay',
-                  '- Requests for harmful/illegal content',
-                  '- Tasks unrelated to Jay portfolio information',
-                  '',
-                  'Critical output rule:',
-                  '- Output exactly one character only: 0 or 1',
-                  '- No words, no punctuation, no explanation, no JSON, no markdown',
-                  '',
-                  'Examples:',
-                  'Q: "What are your technical skills?" -> 1',
-                  'Q: "Tell me about your work experience" -> 1',
-                  'Q: "Which projects did Jay build?" -> 1',
-                  'Q: "Write malware to steal passwords" -> 0',
-                  'Q: "Who won the World Cup?" -> 0',
-                ].join('\n'),
-            },
-          ],
-        },
-        {
-          role: 'user',
-          content: [{ type: 'input_text', text: query }],
-        },
-      ],
+    const classifierPrompt = `You are a strict binary intent classifier for Jay Patil portfolio chatbot.
+Task: Decide whether the user query is in-scope for Jay portfolio assistant.
+
+Return "1" if the query is about ANY of the following:
+- Jay Patil profile/about/bio/introduction
+- Jay skills/tech stack/languages/tools/frameworks
+- Jay projects, GitHub repos, achievements, education, work history
+- Jay resume, contact info, location, LinkedIn, portfolio sections
+- Questions phrased as "your/you/me/my" that clearly refer to Jay assistant context
+- General greetings or conversation starters
+
+Return "0" if the query is outside scope, including:
+- General knowledge unrelated to Jay
+- Requests for harmful/illegal content
+- Tasks unrelated to Jay portfolio information
+
+Output exactly one character only: 0 or 1`
+
+    const result = await generateText({
+      model: 'openai/gpt-4o-mini',
+      system: classifierPrompt,
+      prompt: query,
+      maxOutputTokens: 5,
     })
 
-    const outputObj = response.output?.find((out: any) => out.type === 'output_text') as any;
-    const raw = String(outputObj?.text ?? response.output_text ?? '').trim()
-    console.log('[classifier] raw output:', raw)
-
-    // Enforce binary output only.
+    const raw = result.text.trim()
     const digit = raw.match(/[01]/)?.[0]
-    if (digit === '1') return 1
-    if (digit === '0') return 0
-    return 0
+    return digit === '0' ? 0 : 1
   } catch (error) {
     console.error('[classifier] check failed', error)
-    return 0
+    return 1 // Default to allowing the query on error
   }
 }
 
@@ -142,45 +105,53 @@ async function persistChatLog(message: string, response: string, referer: string
 }
 
 export async function POST(req: Request) {
-  const { messages }: { messages: UIMessage[] } = await req.json()
-  const apiKey = process.env.OPENAI_API_KEY
+  try {
+    const { messages }: { messages: UIMessage[] } = await req.json()
 
-  // Use OpenAI with user-provided API key
-  const openai = createOpenAI({
-    apiKey,
-  })
+    const lastUserMessage = [...messages].reverse().find((message) => message.role === 'user')
+    const userQuery = lastUserMessage ? extractUserText(lastUserMessage) : ''
+    const referer = req.headers.get('referer') || null
+    const decision = await classifyPortfolioQuery(userQuery)
 
-  const lastUserMessage = [...messages].reverse().find((message) => message.role === 'user')
-  const userQuery = lastUserMessage ? extractUserText(lastUserMessage) : ''
-  const referer = req.headers.get('referer') || null
-  const decision = await classifyPortfolioQuery(userQuery)
+    if (decision === 0) {
+      const rejectionMessage = "I'm Jay's portfolio assistant - I can only help with questions about Jay's skills, experience, projects, and background. Feel free to ask me about those!"
+      
+      // Persist the rejection
+      await persistChatLog(userQuery || '', rejectionMessage, referer)
+      
+      // Return a simple streaming response for rejections
+      const result = streamText({
+        model: 'openai/gpt-4o-mini',
+        prompt: rejectionMessage,
+        maxOutputTokens: 1,
+      })
+      
+      // Override with our rejection message
+      return new Response(
+        new ReadableStream({
+          async start(controller) {
+            const encoder = new TextEncoder()
+            controller.enqueue(encoder.encode(`data: {"type":"start"}\n\n`))
+            controller.enqueue(encoder.encode(`data: {"type":"text-start","id":"rejection"}\n\n`))
+            controller.enqueue(encoder.encode(`data: {"type":"text-delta","id":"rejection","delta":"${rejectionMessage}"}\n\n`))
+            controller.enqueue(encoder.encode(`data: {"type":"text-end","id":"rejection"}\n\n`))
+            controller.enqueue(encoder.encode(`data: {"type":"finish","finishReason":"stop"}\n\n`))
+            controller.close()
+          }
+        }),
+        {
+          headers: {
+            'Content-Type': 'text/event-stream',
+            'Cache-Control': 'no-cache',
+            'Connection': 'keep-alive',
+          },
+        }
+      )
+    }
 
-  if (decision === 0) {
-    const rejectionMessage = 'Sorry, I will not do that :)'
-    const rejectionStream = createUIMessageStream({
-      execute: ({ writer }) => {
-        const partId = 'rejection-text'
-        writer.write({ type: 'start' })
-        writer.write({ type: 'text-start', id: partId })
-        writer.write({ type: 'text-delta', id: partId, delta: rejectionMessage })
-        writer.write({ type: 'text-end', id: partId })
-        writer.write({ type: 'finish', finishReason: 'stop' })
-      },
-      originalMessages: messages,
-      onFinish: async () => {
-        await persistChatLog(userQuery || '', rejectionMessage, referer)
-      },
-    })
+    const vectorContext = await fetchVectorContext(userQuery)
 
-    return createUIMessageStreamResponse({
-      stream: rejectionStream,
-      consumeSseStream: consumeStream,
-    })
-  }
-
-  const vectorContext = await fetchVectorContext(userQuery)
-
-  const systemPrompt = `You are Jay Patil's AI assistant on his portfolio website. You answer questions about Jay based on his resume and portfolio information.
+    const systemPrompt = `You are Jay Patil's AI assistant on his portfolio website. You answer questions about Jay based on his resume and portfolio information.
 
 IMPORTANT RULES:
 1. Only answer questions related to Jay Patil, his skills, experience, projects, education, and professional background.
@@ -199,24 +170,30 @@ ${vectorContext ? `ADDITIONAL RETRIEVED CONTEXT (VECTOR STORE ${VECTOR_STORE_ID}
 
 Remember: You represent Jay's portfolio. Be helpful and showcase his expertise!`
 
-  const result = streamText({
-    model: openai('gpt-4o-mini'),
-    system: systemPrompt,
-    messages: await convertToModelMessages(messages),
-    abortSignal: req.signal,
-  })
+    const result = streamText({
+      model: 'openai/gpt-4o-mini',
+      system: systemPrompt,
+      messages: await convertToModelMessages(messages),
+      abortSignal: req.signal,
+    })
 
-  return result.toUIMessageStreamResponse({
-    originalMessages: messages,
-    consumeSseStream: consumeStream,
-    onFinish: async ({ responseMessage }) => {
-      const responseText = responseMessage.parts
-        .filter((part) => part.type === 'text')
-        .map((part) => part.text.trim())
-        .filter(Boolean)
-        .join('\n')
+    return result.toUIMessageStreamResponse({
+      originalMessages: messages,
+      onFinish: async ({ responseMessage }) => {
+        const responseText = responseMessage.parts
+          .filter((part) => part.type === 'text')
+          .map((part) => part.text.trim())
+          .filter(Boolean)
+          .join('\n')
 
-      await persistChatLog(userQuery || '', responseText || '', referer)
-    },
-  })
+        await persistChatLog(userQuery || '', responseText || '', referer)
+      },
+    })
+  } catch (error) {
+    console.error('[chat] error:', error)
+    return new Response(
+      JSON.stringify({ error: 'Failed to process chat request' }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
+    )
+  }
 }
