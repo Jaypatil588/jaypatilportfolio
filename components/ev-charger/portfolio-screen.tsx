@@ -2,197 +2,189 @@
 
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
-import { Linkedin, Github, FileText, MessageSquare, Send, X, ArrowLeft, Briefcase, Code, Mail, User } from 'lucide-react'
+import { Linkedin, Github, FileText, MessageSquare, Send, ArrowLeft, Briefcase, Code, Mail, User } from 'lucide-react'
 
 type CardType = 'about' | 'projects' | 'experience' | 'contact' | null
 
 export function PortfolioScreen() {
   const [activeCard, setActiveCard] = useState<CardType>(null)
 
-  const closeCard = () => setActiveCard(null)
-
   return (
     <div className="w-full h-full bg-white flex overflow-hidden relative">
-      {/* Floating decorative elements */}
+
+      {/* ── Bounded decorative background ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-10 right-10 w-20 h-20 border-2 border-sky-100 rounded-full animate-spin-slow" />
-        <div className="absolute bottom-20 left-10 w-16 h-16 border border-blue-100 rounded-full animate-spin-slow-reverse" />
-        <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-sky-200 rounded-full animate-float" />
-        <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-blue-200 rounded-full animate-float animation-delay-300" />
+        <div
+          className="absolute top-8 right-8 w-24 h-24 rounded-full border-2 border-sky-100 opacity-60"
+          style={{ animation: 'spin 20s linear infinite' }}
+        />
+        <div
+          className="absolute bottom-16 left-8 w-16 h-16 rounded-full border border-blue-100 opacity-50"
+          style={{ animation: 'spin 25s linear infinite reverse' }}
+        />
+        <div
+          className="absolute top-1/2 left-1/4 w-2 h-2 bg-sky-200 rounded-full"
+          style={{ animation: 'bounce 3s ease-in-out infinite' }}
+        />
+        <div
+          className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-blue-200 rounded-full"
+          style={{ animation: 'bounce 2.5s ease-in-out infinite 0.5s' }}
+        />
       </div>
 
-      {/* Left side - Profile & Cards (60%) */}
-      <div className="w-[60%] h-full p-8 flex flex-col relative z-10">
-        {/* Profile Section */}
-        <div className="flex items-start gap-6 mb-8">
-          {/* Profile Photo */}
-          <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-sky-100 to-blue-100 border-2 border-sky-200 flex items-center justify-center shadow-lg overflow-hidden">
-            <div className="w-20 h-20 bg-gradient-to-br from-slate-300 to-slate-400 rounded-xl flex items-center justify-center">
-              <User className="w-12 h-12 text-white" />
+      {/* ── Main layout: col on mobile, row on desktop ── */}
+      <div className="flex flex-col lg:flex-row w-full h-full relative z-10">
+
+        {/* Left / Top — Profile + Cards (60% desktop, full mobile) */}
+        <div className="flex flex-col lg:w-[60%] h-auto lg:h-full p-5 lg:p-8 gap-5 lg:gap-6 overflow-hidden">
+
+          {/* Profile row */}
+          <div className="flex items-center gap-4 shrink-0">
+            <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-2xl bg-gradient-to-br from-sky-100 to-blue-100 border-2 border-sky-200 flex items-center justify-center shadow-lg shrink-0 overflow-hidden">
+              <User className="w-8 h-8 lg:w-10 lg:h-10 text-sky-400" />
+            </div>
+            <div className="min-w-0">
+              <h1 className="text-xl lg:text-3xl font-bold text-slate-800 truncate">Jay Patil</h1>
+              <p className="text-slate-500 text-xs lg:text-sm mb-2">Software Engineer</p>
+              <div className="flex gap-2">
+                {[
+                  { icon: Linkedin, color: 'text-sky-600', bg: 'bg-sky-50 hover:bg-sky-100 border-sky-200', label: 'LinkedIn' },
+                  { icon: Github, color: 'text-slate-700', bg: 'bg-slate-50 hover:bg-slate-100 border-slate-200', label: 'GitHub' },
+                  { icon: FileText, color: 'text-blue-600', bg: 'bg-blue-50 hover:bg-blue-100 border-blue-200', label: 'Resume' },
+                ].map(({ icon: Icon, color, bg, label }) => (
+                  <a
+                    key={label}
+                    href="#"
+                    className={cn('w-9 h-9 rounded-xl border flex items-center justify-center transition-all hover:scale-110 hover:shadow-md', bg)}
+                    aria-label={label}
+                  >
+                    <Icon className={cn('w-4 h-4', color)} />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Name & Links */}
-          <div className="flex-1">
-            <h1 className="text-3xl font-bold text-slate-800 mb-1">Jay Patil</h1>
-            <p className="text-slate-500 text-sm mb-4">Software Engineer</p>
-            
-            {/* Icon row */}
-            <div className="flex gap-3">
-              <a href="#" className="w-10 h-10 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-sky-200/50">
-                <Linkedin className="w-5 h-5 text-sky-600" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg">
-                <Github className="w-5 h-5 text-slate-700" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-blue-200/50">
-                <FileText className="w-5 h-5 text-blue-600" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* 2x2 Card Grid */}
-        <div className="flex-1 grid grid-cols-2 gap-4">
-          {/* About Me Card */}
-          <button
-            onClick={() => setActiveCard('about')}
-            className="group bg-gradient-to-br from-sky-50 to-sky-100 border border-sky-200 rounded-2xl p-6 text-left transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-sky-200/50 hover:border-sky-300"
-          >
-            <div className="w-12 h-12 rounded-xl bg-sky-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <User className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-800 mb-2">About Me</h3>
-            <p className="text-sm text-slate-500 line-clamp-2">Learn about my background, skills, and interests</p>
-          </button>
-
-          {/* Projects Card */}
-          <button
-            onClick={() => setActiveCard('projects')}
-            className="group bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-2xl p-6 text-left transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-blue-200/50 hover:border-blue-300"
-          >
-            <div className="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <Code className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-800 mb-2">Projects</h3>
-            <p className="text-sm text-slate-500 line-clamp-2">Showcase of my featured work and side projects</p>
-          </button>
-
-          {/* Experience Card */}
-          <button
-            onClick={() => setActiveCard('experience')}
-            className="group bg-gradient-to-br from-indigo-50 to-indigo-100 border border-indigo-200 rounded-2xl p-6 text-left transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-indigo-200/50 hover:border-indigo-300"
-          >
-            <div className="w-12 h-12 rounded-xl bg-indigo-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <Briefcase className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-800 mb-2">Experience</h3>
-            <p className="text-sm text-slate-500 line-clamp-2">My professional journey and career timeline</p>
-          </button>
-
-          {/* Contact Card */}
-          <button
-            onClick={() => setActiveCard('contact')}
-            className="group bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-2xl p-6 text-left transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-slate-200/50 hover:border-slate-300"
-          >
-            <div className="w-12 h-12 rounded-xl bg-slate-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <Mail className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-800 mb-2">Contact Me</h3>
-            <p className="text-sm text-slate-500 line-clamp-2">Get in touch for opportunities or collaborations</p>
-          </button>
-        </div>
-      </div>
-
-      {/* Right side - RAG Chat (40%) */}
-      <div className="w-[40%] h-full bg-gradient-to-b from-slate-50 to-slate-100 border-l border-slate-200 flex flex-col">
-        {/* Chat header */}
-        <div className="p-4 border-b border-slate-200 bg-white">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center">
-              <MessageSquare className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <h3 className="font-bold text-slate-800">Ask Jay</h3>
-              <p className="text-xs text-slate-500">AI-powered assistant</p>
-            </div>
-            <div className="ml-auto flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-xs text-green-600">Online</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Chat messages area */}
-        <div className="flex-1 p-4 overflow-y-auto">
-          {/* Welcome message */}
-          <div className="flex gap-3 mb-4">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center shrink-0">
-              <MessageSquare className="w-4 h-4 text-white" />
-            </div>
-            <div className="bg-white rounded-2xl rounded-tl-none p-4 shadow-sm border border-slate-100 max-w-[85%]">
-              <p className="text-sm text-slate-700">
-                Hi! I&apos;m Jay&apos;s AI assistant. Ask me anything about his skills, experience, or projects!
-              </p>
-            </div>
-          </div>
-
-          {/* Suggested questions */}
-          <div className="space-y-2 mb-4">
-            <p className="text-xs text-slate-400 uppercase tracking-wider">Suggested questions</p>
+          {/* 2x2 card grid — fills remaining space */}
+          <div className="grid grid-cols-2 gap-3 lg:gap-4 flex-1 min-h-0">
             {[
-              'What are your main skills?',
-              'Tell me about your experience',
-              'What projects have you worked on?'
-            ].map((q, i) => (
+              { id: 'about' as CardType, label: 'About Me', desc: 'Background, skills & interests', icon: User, from: 'from-sky-50', to: 'to-sky-100', border: 'border-sky-200 hover:border-sky-400', iconBg: 'bg-sky-500' },
+              { id: 'projects' as CardType, label: 'Projects', desc: 'Featured work & side projects', icon: Code, from: 'from-blue-50', to: 'to-blue-100', border: 'border-blue-200 hover:border-blue-400', iconBg: 'bg-blue-500' },
+              { id: 'experience' as CardType, label: 'Experience', desc: 'Career timeline & roles', icon: Briefcase, from: 'from-indigo-50', to: 'to-indigo-100', border: 'border-indigo-200 hover:border-indigo-400', iconBg: 'bg-indigo-500' },
+              { id: 'contact' as CardType, label: 'Contact Me', desc: 'Get in touch', icon: Mail, from: 'from-slate-50', to: 'to-slate-100', border: 'border-slate-200 hover:border-slate-400', iconBg: 'bg-slate-700' },
+            ].map(({ id, label, desc, icon: Icon, from, to, border, iconBg }) => (
               <button
-                key={i}
-                className="block w-full text-left text-sm bg-white hover:bg-sky-50 border border-slate-200 hover:border-sky-300 rounded-xl px-4 py-2.5 transition-all text-slate-600 hover:text-sky-700"
+                key={id}
+                onClick={() => setActiveCard(id)}
+                className={cn(
+                  'group bg-gradient-to-br rounded-2xl p-4 lg:p-5 text-left border transition-all duration-200',
+                  'hover:scale-[1.03] hover:shadow-xl active:scale-[0.98]',
+                  from, to, border
+                )}
               >
-                {q}
+                <div className={cn('w-10 h-10 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-md', iconBg)}>
+                  <Icon className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="font-bold text-slate-800 text-sm lg:text-base mb-1">{label}</h3>
+                <p className="text-xs text-slate-500 line-clamp-2">{desc}</p>
               </button>
             ))}
           </div>
         </div>
 
-        {/* Chat input */}
-        <div className="p-4 border-t border-slate-200 bg-white">
-          <div className="flex gap-2">
-            <input
-              type="text"
-              placeholder="Type your question..."
-              className="flex-1 px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
-            />
-            <button className="w-12 h-12 bg-gradient-to-r from-sky-500 to-blue-600 rounded-xl flex items-center justify-center hover:from-sky-400 hover:to-blue-500 transition-all hover:scale-105 shadow-lg shadow-sky-300/30">
-              <Send className="w-5 h-5 text-white" />
-            </button>
+        {/* Right / Bottom — Ask Jay RAG chat (40%) */}
+        <div className="lg:w-[40%] flex flex-col bg-gradient-to-b from-slate-50 to-slate-100 border-t lg:border-t-0 lg:border-l border-slate-200 shrink-0 h-64 lg:h-full">
+          {/* Chat header */}
+          <div className="px-4 py-3 border-b border-slate-200 bg-white shrink-0 flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center shadow-md shrink-0">
+              <MessageSquare className="w-4 h-4 text-white" />
+            </div>
+            <div className="min-w-0">
+              <h3 className="font-bold text-slate-800 text-sm">Ask Jay</h3>
+              <p className="text-[10px] text-slate-500">AI-powered assistant</p>
+            </div>
+            <div className="ml-auto flex items-center gap-1.5 shrink-0">
+              <div className="w-2 h-2 bg-green-400 rounded-full" style={{ animation: 'pulse 1.5s ease-in-out infinite' }} />
+              <span className="text-[10px] text-green-600 font-medium">Online</span>
+            </div>
+          </div>
+
+          {/* Messages area */}
+          <div className="flex-1 p-4 overflow-y-auto space-y-3 min-h-0">
+            {/* Bot greeting */}
+            <div className="flex gap-2">
+              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center shrink-0 shadow-sm">
+                <MessageSquare className="w-3.5 h-3.5 text-white" />
+              </div>
+              <div className="bg-white rounded-2xl rounded-tl-none px-4 py-3 shadow-sm border border-slate-100 max-w-[85%]">
+                <p className="text-xs text-slate-700">Hi! I&apos;m Jay&apos;s AI assistant. Ask me anything about his skills, experience, or projects!</p>
+              </div>
+            </div>
+
+            {/* Suggested questions */}
+            <div className="space-y-1.5">
+              <p className="text-[10px] text-slate-400 uppercase tracking-wider px-1">Suggested</p>
+              {[
+                'What are your main skills?',
+                'Tell me about your experience',
+                'What projects have you worked on?',
+              ].map((q) => (
+                <button
+                  key={q}
+                  className="block w-full text-left text-xs bg-white hover:bg-sky-50 border border-slate-200 hover:border-sky-300 rounded-xl px-3 py-2 transition-all text-slate-600 hover:text-sky-700"
+                >
+                  {q}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Input */}
+          <div className="p-3 border-t border-slate-200 bg-white shrink-0">
+            <div className="flex gap-2">
+              <input
+                type="text"
+                placeholder="Type your question..."
+                className="flex-1 px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300 min-w-0"
+              />
+              <button className="w-10 h-10 bg-gradient-to-r from-sky-500 to-blue-600 rounded-xl flex items-center justify-center hover:from-sky-400 hover:to-blue-500 transition-all hover:scale-105 shadow-md shadow-sky-300/30 shrink-0">
+                <Send className="w-4 h-4 text-white" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Card Popup Overlay */}
+      {/* ── Card Popup Overlay ── */}
       {activeCard && (
         <div
-          className="absolute inset-0 bg-white/80 backdrop-blur-sm z-50 flex items-center justify-center animate-fade-in"
-          onClick={closeCard}
+          className="absolute inset-0 bg-white/75 backdrop-blur-sm z-50 flex items-center justify-center"
+          style={{ animation: 'fadeIn 0.2s ease-out' }}
+          onClick={() => setActiveCard(null)}
         >
           <div
-            className="w-[80%] max-h-[90%] bg-white rounded-3xl shadow-2xl overflow-hidden animate-slide-up"
+            className="w-[88%] lg:w-[80%] bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col border border-slate-100"
+            style={{ maxHeight: '88%', animation: 'cardPop 0.25s ease-out' }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Popup Header */}
-            <div className="flex items-center gap-4 p-6 border-b border-slate-100">
+            {/* Popup header */}
+            <div className="flex items-center gap-3 px-6 py-4 border-b border-slate-100 shrink-0 bg-gradient-to-r from-sky-500 to-blue-600">
               <button
-                onClick={closeCard}
-                className="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
+                onClick={() => setActiveCard(null)}
+                className="w-9 h-9 rounded-xl bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors shrink-0"
               >
-                <ArrowLeft className="w-5 h-5 text-slate-600" />
+                <ArrowLeft className="w-4 h-4 text-white" />
               </button>
-              <h2 className="text-2xl font-bold text-slate-800 capitalize">{activeCard}</h2>
+              <h2 className="text-lg font-bold text-white capitalize">
+                {activeCard === 'experience' ? 'Resume & Experience' : activeCard}
+              </h2>
             </div>
 
-            {/* Popup Content */}
-            <div className="p-8 overflow-y-auto max-h-[calc(90vh-100px)]">
+            {/* Popup content */}
+            <div className={cn(
+              'p-6 lg:p-8',
+              activeCard === 'about' ? 'overflow-y-auto flex-1' : 'overflow-hidden flex-1 flex flex-col'
+            )}>
               {activeCard === 'about' && <AboutContent />}
               {activeCard === 'projects' && <ProjectsContent />}
               {activeCard === 'experience' && <ExperienceContent />}
@@ -201,78 +193,98 @@ export function PortfolioScreen() {
           </div>
         </div>
       )}
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes cardPop {
+          from { opacity: 0; transform: scale(0.9) translateY(16px); }
+          to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+      `}</style>
     </div>
   )
 }
 
+/* ── About ── scrollable, expand freely */
 function AboutContent() {
   return (
-    <div className="prose prose-slate max-w-none">
-      <div className="flex gap-8">
-        {/* Main content */}
-        <div className="flex-1">
-          <h3 className="text-xl font-bold text-slate-800 mb-4">Background</h3>
-          <p className="text-slate-600 mb-6">
-            Software Engineer with 4+ years of experience building scalable cloud-native applications. 
-            Passionate about creating elegant solutions to complex problems and continuously learning new technologies.
-          </p>
-
-          <h3 className="text-xl font-bold text-slate-800 mb-4">Skills</h3>
-          <div className="flex flex-wrap gap-2 mb-6">
-            {['TypeScript', 'React', 'Next.js', 'Node.js', 'Python', 'AWS', 'Docker', 'PostgreSQL', 'GraphQL', 'Tailwind CSS'].map(skill => (
-              <span key={skill} className="px-3 py-1 bg-sky-50 text-sky-700 rounded-full text-sm border border-sky-200">
-                {skill}
-              </span>
-            ))}
+    <div className="space-y-6">
+      <div className="flex flex-col lg:flex-row gap-6">
+        <div className="flex-1 space-y-5">
+          <div>
+            <h3 className="text-base font-bold text-slate-800 mb-2">Background</h3>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Software Engineer with 4+ years of experience building scalable cloud-native applications.
+              Passionate about creating elegant solutions to complex problems. <span className="text-slate-400 italic">[More detail coming soon]</span>
+            </p>
           </div>
-
-          <h3 className="text-xl font-bold text-slate-800 mb-4">Education</h3>
-          <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
-            <p className="font-semibold text-slate-800">Bachelor of Science in Computer Science</p>
-            <p className="text-slate-500 text-sm">University Name, 2020</p>
+          <div>
+            <h3 className="text-base font-bold text-slate-800 mb-3">Skills</h3>
+            <div className="flex flex-wrap gap-2">
+              {['TypeScript', 'React', 'Next.js', 'Node.js', 'Python', 'AWS', 'Docker', 'PostgreSQL', 'GraphQL', 'Tailwind CSS'].map(skill => (
+                <span key={skill} className="px-3 py-1 bg-sky-50 text-sky-700 rounded-full text-xs border border-sky-200">{skill}</span>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="text-base font-bold text-slate-800 mb-3">Education</h3>
+            <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
+              <p className="font-semibold text-slate-800 text-sm">Bachelor of Science in Computer Science</p>
+              <p className="text-slate-500 text-xs mt-1">University Name • 2020</p>
+            </div>
+          </div>
+          <div className="bg-sky-50 border border-sky-100 rounded-xl p-4">
+            <p className="text-xs text-sky-600 italic">More content will be added here — this section is scrollable.</p>
           </div>
         </div>
 
-        {/* Sidebar with quick stats */}
-        <div className="w-64 space-y-4">
-          <div className="bg-sky-50 rounded-xl p-4 border border-sky-200">
-            <p className="text-3xl font-bold text-sky-600">4+</p>
-            <p className="text-sm text-slate-600">Years Experience</p>
-          </div>
-          <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
-            <p className="text-3xl font-bold text-blue-600">20+</p>
-            <p className="text-sm text-slate-600">Projects Completed</p>
-          </div>
-          <div className="bg-indigo-50 rounded-xl p-4 border border-indigo-200">
-            <p className="text-3xl font-bold text-indigo-600">5+</p>
-            <p className="text-sm text-slate-600">Technologies</p>
-          </div>
+        <div className="flex flex-row lg:flex-col gap-3 lg:w-48 shrink-0">
+          {[
+            { val: '4+', label: 'Years Experience', bg: 'bg-sky-50 border-sky-200', text: 'text-sky-600' },
+            { val: '20+', label: 'Projects Built', bg: 'bg-blue-50 border-blue-200', text: 'text-blue-600' },
+            { val: '10+', label: 'Technologies', bg: 'bg-indigo-50 border-indigo-200', text: 'text-indigo-600' },
+          ].map(s => (
+            <div key={s.label} className={cn('flex-1 lg:flex-none rounded-xl p-4 border text-center', s.bg)}>
+              <p className={cn('text-2xl font-bold', s.text)}>{s.val}</p>
+              <p className="text-xs text-slate-600 mt-0.5">{s.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   )
 }
 
+/* ── Projects ── no scroll, 2x2 grid that fits the popup */
 function ProjectsContent() {
   const projects = [
-    { title: 'Project Alpha', description: 'Project description placeholder - will be connected to database' },
-    { title: 'Project Beta', description: 'Project description placeholder - will be connected to database' },
-    { title: 'Project Gamma', description: 'Project description placeholder - will be connected to database' },
-    { title: 'Project Delta', description: 'Project description placeholder - will be connected to database' },
+    { title: 'Project Alpha', tech: 'React / Node.js' },
+    { title: 'Project Beta', tech: 'Python / AWS' },
+    { title: 'Project Gamma', tech: 'Next.js / PostgreSQL' },
+    { title: 'Project Delta', tech: 'TypeScript / Docker' },
   ]
 
   return (
-    <div className="grid grid-cols-2 gap-6">
+    <div className="grid grid-cols-2 gap-4 h-full">
       {projects.map((project, i) => (
-        <div key={i} className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 hover:shadow-lg hover:border-sky-300 transition-all group">
-          {/* Project image placeholder */}
-          <div className="h-40 bg-gradient-to-br from-sky-100 to-blue-100 flex items-center justify-center">
-            <Code className="w-12 h-12 text-sky-400 group-hover:scale-110 transition-transform" />
+        <div
+          key={i}
+          className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 hover:border-sky-300 hover:shadow-lg transition-all group flex flex-col"
+        >
+          {/* Image placeholder */}
+          <div className="h-28 bg-gradient-to-br from-sky-100 to-blue-100 flex items-center justify-center shrink-0">
+            <Code className="w-10 h-10 text-sky-400 group-hover:scale-110 transition-transform" />
           </div>
-          {/* Project info */}
-          <div className="p-4">
-            <h4 className="font-bold text-slate-800 mb-2">{project.title}</h4>
-            <p className="text-sm text-slate-500">{project.description}</p>
+          {/* Info */}
+          <div className="p-3 flex-1 flex flex-col justify-between">
+            <div>
+              <h4 className="font-bold text-slate-800 text-sm">{project.title}</h4>
+              <p className="text-xs text-slate-400 mt-0.5">{project.tech}</p>
+            </div>
+            <p className="text-xs text-slate-500 mt-2 italic">Description coming from database...</p>
           </div>
         </div>
       ))}
@@ -280,78 +292,64 @@ function ProjectsContent() {
   )
 }
 
+/* ── Experience ── vertical timeline, fits popup */
 function ExperienceContent() {
   const experiences = [
-    { role: 'Senior Software Engineer', company: 'Company A', period: '2022 - Present', description: 'Experience description placeholder' },
-    { role: 'Software Engineer', company: 'Company B', period: '2020 - 2022', description: 'Experience description placeholder' },
-    { role: 'Junior Developer', company: 'Company C', period: '2019 - 2020', description: 'Experience description placeholder' },
+    { role: 'Senior Software Engineer', company: 'Company A', period: '2022 – Present', desc: 'Experience description placeholder — will be updated.' },
+    { role: 'Software Engineer', company: 'Company B', period: '2020 – 2022', desc: 'Experience description placeholder — will be updated.' },
+    { role: 'Junior Developer', company: 'Company C', period: '2019 – 2020', desc: 'Experience description placeholder — will be updated.' },
   ]
 
   return (
-    <div className="relative">
-      {/* Timeline line */}
-      <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-400 to-blue-500" />
-
-      <div className="space-y-8">
-        {experiences.map((exp, i) => (
-          <div key={i} className="relative flex gap-6 pl-12">
-            {/* Timeline dot */}
-            <div className="absolute left-4 w-5 h-5 rounded-full bg-white border-4 border-sky-400 -translate-x-1/2" />
-            
-            {/* Content */}
-            <div className="flex-1 bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:shadow-lg transition-all">
-              <div className="flex justify-between items-start mb-2">
-                <div>
-                  <h4 className="font-bold text-slate-800">{exp.role}</h4>
-                  <p className="text-sky-600 font-medium">{exp.company}</p>
+    <div className="flex flex-col gap-4 overflow-y-auto flex-1 pr-1">
+      <div className="relative pl-8">
+        {/* Timeline line */}
+        <div className="absolute left-3 top-2 bottom-2 w-0.5 bg-gradient-to-b from-sky-400 to-blue-500 rounded-full" />
+        <div className="space-y-4">
+          {experiences.map((exp, i) => (
+            <div key={i} className="relative">
+              {/* Dot */}
+              <div className="absolute -left-5 top-4 w-4 h-4 rounded-full bg-white border-[3px] border-sky-400 shadow-sm" />
+              <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 hover:shadow-md hover:border-sky-200 transition-all">
+                <div className="flex items-start justify-between gap-2 mb-1">
+                  <div>
+                    <h4 className="font-bold text-slate-800 text-sm">{exp.role}</h4>
+                    <p className="text-sky-600 font-medium text-xs">{exp.company}</p>
+                  </div>
+                  <span className="text-[10px] text-slate-400 bg-slate-100 px-2 py-1 rounded-full whitespace-nowrap shrink-0">{exp.period}</span>
                 </div>
-                <span className="text-sm text-slate-400 bg-slate-100 px-3 py-1 rounded-full">{exp.period}</span>
+                <p className="text-xs text-slate-500 mt-2">{exp.desc}</p>
               </div>
-              <p className="text-sm text-slate-500">{exp.description}</p>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   )
 }
 
+/* ── Contact ── UI only */
 function ContactContent() {
   return (
-    <div className="max-w-xl mx-auto">
-      <p className="text-slate-600 mb-8 text-center">
-        I&apos;d love to hear from you! Fill out the form below and I&apos;ll get back to you as soon as possible.
-      </p>
-
-      <div className="space-y-4">
+    <div className="flex flex-col gap-4 max-w-lg mx-auto w-full">
+      <p className="text-sm text-slate-500 text-center">Get in touch — I&apos;d love to hear from you.</p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-2">Name</label>
-          <input
-            type="text"
-            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
-            placeholder="Your name"
-          />
+          <label className="block text-xs font-semibold text-slate-700 mb-1.5">Name</label>
+          <input type="text" placeholder="Your name" className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
-          <input
-            type="email"
-            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
-            placeholder="your@email.com"
-          />
+          <label className="block text-xs font-semibold text-slate-700 mb-1.5">Email</label>
+          <input type="email" placeholder="your@email.com" className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300" />
         </div>
-        <div>
-          <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
-          <textarea
-            rows={4}
-            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300 resize-none"
-            placeholder="Your message..."
-          />
-        </div>
-        <button className="w-full py-4 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold rounded-xl hover:from-sky-400 hover:to-blue-500 transition-all hover:scale-[1.02] shadow-lg shadow-sky-300/30">
-          Send Message
-        </button>
       </div>
+      <div>
+        <label className="block text-xs font-semibold text-slate-700 mb-1.5">Message</label>
+        <textarea rows={4} placeholder="Your message..." className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300 resize-none" />
+      </div>
+      <button className="w-full py-3.5 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold rounded-xl hover:from-sky-400 hover:to-blue-500 transition-all hover:scale-[1.02] shadow-lg shadow-sky-300/30 text-sm">
+        Send Message
+      </button>
     </div>
   )
 }
