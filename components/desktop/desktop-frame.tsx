@@ -1,28 +1,12 @@
 'use client'
 
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode } from 'react'
 
 interface DesktopFrameProps {
   children: ReactNode
 }
 
 export function DesktopFrame({ children }: DesktopFrameProps) {
-  const [mounted, setMounted] = useState(false)
-  const [time, setTime] = useState('')
-  const [date, setDate] = useState('')
-
-  useEffect(() => {
-    setMounted(true)
-    const updateDateTime = () => {
-      const now = new Date()
-      setTime(now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }))
-      setDate(now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }))
-    }
-    updateDateTime()
-    const interval = setInterval(updateDateTime, 1000)
-    return () => clearInterval(interval)
-  }, [])
-
   return (
     <div className="w-full h-screen bg-gradient-to-b from-[#2d1f3d] via-[#1a1a2e] to-[#0f0f1a] flex flex-col overflow-hidden">
       {/* Top Menu Bar — macOS style */}
@@ -35,16 +19,6 @@ export function DesktopFrame({ children }: DesktopFrameProps) {
           {['File', 'Edit', 'View', 'Window', 'Help'].map(m => (
             <span key={m} className="hover:bg-white/10 px-2 py-0.5 rounded cursor-pointer">{m}</span>
           ))}
-        </div>
-
-        {/* Date + Time — only render after hydration to avoid mismatch */}
-        <div className="ml-auto flex items-center gap-3 text-[11px] text-white/80">
-          {mounted ? (
-            <>
-              <span suppressHydrationWarning>{date}</span>
-              <span className="font-medium" suppressHydrationWarning>{time}</span>
-            </>
-          ) : null}
         </div>
       </div>
 

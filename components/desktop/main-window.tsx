@@ -52,12 +52,12 @@ export function MainWindow() {
   return (
     <div
       className={cn(
-        'flex flex-col overflow-hidden rounded-xl shadow-[0_32px_64px_rgba(0,0,0,0.6)]',
-        isMaximized ? 'fixed inset-4' : 'absolute'
+        'flex flex-col overflow-hidden rounded-lg md:rounded-xl shadow-[0_32px_64px_rgba(0,0,0,0.6)]',
+        isMaximized ? 'fixed inset-2 md:inset-4' : 'absolute'
       )}
       style={isMaximized
         ? { zIndex: 50 }
-        : { left: 24, top: 0, width: 'calc(100% - 48px)', height: 'calc(100% - 28px)', zIndex: 20 }
+        : { left: 'max(12px, 2vw)', top: 0, width: 'calc(100% - max(24px, 4vw))', height: 'calc(100% - 28px)', zIndex: 20 }
       }
     >
       {/* ── macOS Title Bar ── */}

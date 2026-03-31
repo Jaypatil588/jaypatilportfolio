@@ -9,6 +9,8 @@ interface WindowInfo {
   state: WindowState
   zIndex: number
   isLoading: boolean
+  }
+  return context
 }
 
 interface WindowManagerContextType {
