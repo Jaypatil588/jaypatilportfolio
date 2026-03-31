@@ -1,7 +1,6 @@
 'use client'
 
-import { ReactNode, useState } from 'react'
-import { motion } from 'framer-motion'
+import { ReactNode, useState, useRef, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 
 interface OSWindowProps {
@@ -12,11 +11,7 @@ interface OSWindowProps {
   windowClassName?: string
   headerColor?: string
   defaultPosition?: { x: number; y: number }
-  isActive?: boolean
-  onFocus?: () => void
-  zIndex?: number
-  minimized?: boolean
-  onMinimize?: () => void
+  defaultSize?: { width: number; height: number }
   onClose?: () => void
 }
 
@@ -27,35 +22,71 @@ export function OSWindow({
   className,
   windowClassName,
   headerColor = 'bg-gradient-to-r from-[#ff6b9d]/90 via-[#c44cce]/90 to-[#5e60ce]/90',
-  isActive = true,
-  onFocus,
-  zIndex = 10,
-  onMinimize,
+  defaultPosition = { x: 0, y: 0 },
+  defaultSize,
   onClose,
 }: OSWindowProps) {
+  const [position, setPosition] = useState(defaultPosition)
   const [isDragging, setIsDragging] = useState(false)
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 })
+  const windowRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!isDragging) return
+
+    const handleMouseMove = (e: MouseEvent) => {
+      setPosition({
+        x: e.clientX - dragOffset.x,
+        y: e.clientY - dragOffset.y,
+      })
+    }
+
+    const handleMouseUp = () => {
+      setIsDragging(false)
+    }
+
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseup', handleMouseUp)
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove)
+      document.removeEventListener('mouseup', handleMouseUp)
+    }
+  }, [isDragging, dragOffset])
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (windowRef.current) {
+      const rect = windowRef.current.getBoundingClientRect()
+      setDragOffset({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      })
+      setIsDragging(true)
+    }
+  }
 
   return (
-    <motion.div
+    <div
+      ref={windowRef}
       className={cn(
-        'absolute rounded-xl overflow-hidden shadow-2xl',
-        isDragging ? 'cursor-grabbing' : 'cursor-grab',
-        !isActive && 'opacity-95',
+        'absolute rounded-xl overflow-hidden shadow-2xl transition-shadow duration-200',
+        isDragging ? 'cursor-grabbing shadow-3xl' : 'cursor-default',
+        'animate-in fade-in zoom-in-95 duration-300',
         windowClassName
       )}
-      style={{ zIndex }}
-      drag
-      dragMomentum={false}
-      onDragStart={() => setIsDragging(true)}
-      onDragEnd={() => setIsDragging(false)}
-      onPointerDown={onFocus}
-      initial={{ scale: 0.9, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-      whileHover={{ boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4)' }}
+      style={{ 
+        left: position.x,
+        top: position.y,
+        width: defaultSize?.width,
+        height: defaultSize?.height,
+        zIndex: isDragging ? 50 : 10,
+      }}
     >
       {/* Window header with traffic lights */}
-      <div className={cn('flex items-center gap-2 px-3 py-2 backdrop-blur-xl', headerColor)}>
+      <div 
+        className={cn('flex items-center gap-2 px-3 py-2 backdrop-blur-xl cursor-grab select-none', headerColor)}
+        onMouseDown={handleMouseDown}
+      >
         {/* Traffic lights */}
         <div className="flex items-center gap-1.5">
           <button
@@ -69,10 +100,6 @@ export function OSWindow({
             <span className="hidden group-hover:block text-[8px] text-[#4d0000] font-bold">x</span>
           </button>
           <button
-            onClick={(e) => {
-              e.stopPropagation()
-              onMinimize?.()
-            }}
             className="w-3 h-3 rounded-full bg-[#febc2e] hover:bg-[#febc2e]/80 transition-colors border border-[#dea123]/50 flex items-center justify-center group"
             aria-label="Minimize"
           >
@@ -94,6 +121,6 @@ export function OSWindow({
       <div className={cn('bg-white/95 backdrop-blur-xl', className)}>
         {children}
       </div>
-    </motion.div>
+    </div>
   )
 }

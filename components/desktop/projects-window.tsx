@@ -24,11 +24,18 @@ export function ProjectsWindow() {
       try {
         setIsLoading(true)
         const response = await fetch('/api/github')
-        if (!response.ok) throw new Error('Failed to fetch projects')
         const data = await response.json()
-        setProjects(data.repos || [])
+        
+        if (!response.ok) {
+          throw new Error(data.error || 'Failed to fetch projects')
+        }
+        
+        // Ensure repos is an array
+        const repos = Array.isArray(data.repos) ? data.repos : []
+        setProjects(repos)
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load projects')
+        setProjects([]) // Ensure projects is always an array
       } finally {
         setIsLoading(false)
       }
@@ -38,7 +45,13 @@ export function ProjectsWindow() {
   }, [])
 
   return (
-    <OSWindow title="Projects" icon="🚀" defaultPosition={{ x: 100, y: 280 }} defaultSize={{ width: 360, height: 380 }}>
+    <OSWindow 
+      title="Projects" 
+      icon="🚀" 
+      defaultPosition={{ x: 840, y: 20 }}
+      defaultSize={{ width: 380, height: 520 }}
+      headerColor="bg-gradient-to-r from-[#667eea]/90 to-[#764ba2]/90"
+    >
       <div className="h-full flex flex-col bg-gradient-to-br from-amber-50 to-orange-50">
         {/* Header */}
         <div className="px-4 py-3 border-b border-gray-200 bg-white">
@@ -59,12 +72,8 @@ export function ProjectsWindow() {
             <div className="flex items-center justify-center h-full">
               <p className="text-sm text-red-600 text-center">{error}</p>
             </div>
-          ) : projects.length === 0 ? (
-            <div className="flex items-center justify-center h-full">
-              <p className="text-sm text-gray-600 text-center">No projects found</p>
-            </div>
-          ) : (
-            projects.map(project => (
+          ) : projects.length > 0 ? (
+            projects.map((project) => (
               <a
                 key={project.id}
                 href={project.url}
@@ -96,6 +105,10 @@ export function ProjectsWindow() {
                 </div>
               </a>
             ))
+          ) : (
+            <div className="flex items-center justify-center h-full">
+              <p className="text-sm text-gray-600 text-center">No projects found</p>
+            </div>
           )}
         </div>
       </div>

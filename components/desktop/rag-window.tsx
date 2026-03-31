@@ -73,7 +73,13 @@ export function RAGWindow() {
   }
 
   return (
-    <OSWindow title="Ask Jay" icon="💬" defaultPosition={{ x: 480, y: 100 }} defaultSize={{ width: 420, height: 480 }}>
+    <OSWindow 
+      title="Ask Jay" 
+      icon="💬" 
+      defaultPosition={{ x: 420, y: 20 }}
+      defaultSize={{ width: 400, height: 480 }}
+      headerColor="bg-gradient-to-r from-[#a8edea]/90 to-[#fed6e3]/90"
+    >
       <div className="flex flex-col h-full bg-gradient-to-br from-blue-50 to-indigo-50">
         {/* Chat messages */}
         <div className="flex-1 overflow-y-auto p-4 space-y-3">

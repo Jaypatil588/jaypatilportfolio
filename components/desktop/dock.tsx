@@ -1,92 +1,43 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { User, MessageSquare, FolderGit2, Briefcase, FileText, Mail } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { User, MessageSquare, FolderGit2, FileText, Mail, Github } from 'lucide-react'
+import { portfolioData } from '@/lib/portfolio-data'
 
-interface DockItem {
-  id: string
-  icon: React.ReactNode
-  label: string
-  isActive?: boolean
-  onClick?: () => void
-}
-
-interface DockProps {
-  items?: DockItem[]
-  activeWindows?: string[]
-  onItemClick?: (id: string) => void
-}
-
-const defaultItems: DockItem[] = [
-  { id: 'about', icon: <User className="w-6 h-6" />, label: 'About Me' },
-  { id: 'chat', icon: <MessageSquare className="w-6 h-6" />, label: 'Ask Me' },
-  { id: 'projects', icon: <FolderGit2 className="w-6 h-6" />, label: 'Projects' },
-  { id: 'experience', icon: <Briefcase className="w-6 h-6" />, label: 'Experience' },
-  { id: 'resume', icon: <FileText className="w-6 h-6" />, label: 'Resume' },
-  { id: 'contact', icon: <Mail className="w-6 h-6" />, label: 'Contact' },
+const dockItems = [
+  { id: 'about', icon: <User className="w-5 h-5" />, label: 'About Me', gradient: 'from-[#ff9a9e] to-[#fecfef]' },
+  { id: 'chat', icon: <MessageSquare className="w-5 h-5" />, label: 'Ask Me', gradient: 'from-[#a8edea] to-[#fed6e3]' },
+  { id: 'github', icon: <Github className="w-5 h-5" />, label: 'GitHub', gradient: 'from-[#667eea] to-[#764ba2]', href: portfolioData.github },
+  { id: 'resume', icon: <FileText className="w-5 h-5" />, label: 'Resume', gradient: 'from-[#4facfe] to-[#00f2fe]', href: '/resume.pdf' },
+  { id: 'contact', icon: <Mail className="w-5 h-5" />, label: 'Contact', gradient: 'from-[#43e97b] to-[#38f9d7]', href: `mailto:${portfolioData.email}` },
 ]
 
-export function Dock({ items = defaultItems, activeWindows = [], onItemClick }: DockProps) {
+export function Dock() {
   return (
-    <motion.div
-      className="absolute bottom-3 left-1/2 -translate-x-1/2 z-50"
-      initial={{ y: 100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ delay: 0.3, type: 'spring', damping: 20 }}
-    >
-      <div className="flex items-end gap-1 px-2 py-1.5 rounded-2xl bg-white/20 backdrop-blur-xl border border-white/30 shadow-2xl">
-        {items.map((item, index) => {
-          const isActive = activeWindows.includes(item.id)
-          
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[100]">
+      <div className="flex items-end gap-1 px-3 py-2 rounded-2xl bg-white/20 backdrop-blur-xl border border-white/30 shadow-2xl">
+        {dockItems.map((item) => {
+          const Component = item.href ? 'a' : 'button'
           return (
-            <motion.button
+            <Component
               key={item.id}
-              onClick={() => onItemClick?.(item.id)}
-              className={cn(
-                'relative flex flex-col items-center justify-center p-2 rounded-xl transition-all',
-                'hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50',
-                'group'
-              )}
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.4 + index * 0.05 }}
-              whileHover={{ y: -8, scale: 1.15 }}
-              whileTap={{ scale: 0.95 }}
+              href={item.href}
+              target={item.href?.startsWith('http') ? '_blank' : undefined}
+              rel={item.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className="relative flex flex-col items-center justify-center p-2 rounded-xl transition-all duration-200 hover:bg-white/30 focus:outline-none group hover:-translate-y-2 hover:scale-110"
+              title={item.label}
             >
-              {/* Icon container with gradient background */}
-              <div className={cn(
-                'w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center shadow-lg transition-all',
-                'bg-gradient-to-br',
-                item.id === 'about' && 'from-[#ff9a9e] to-[#fecfef]',
-                item.id === 'chat' && 'from-[#a8edea] to-[#fed6e3]',
-                item.id === 'projects' && 'from-[#667eea] to-[#764ba2]',
-                item.id === 'experience' && 'from-[#f093fb] to-[#f5576c]',
-                item.id === 'resume' && 'from-[#4facfe] to-[#00f2fe]',
-                item.id === 'contact' && 'from-[#43e97b] to-[#38f9d7]',
-              )}>
+              <div className={`w-10 h-10 md:w-11 md:h-11 rounded-xl flex items-center justify-center shadow-lg bg-gradient-to-br ${item.gradient}`}>
                 <span className="text-white drop-shadow-sm">{item.icon}</span>
               </div>
               
-              {/* Active indicator dot */}
-              {isActive && (
-                <motion.div
-                  className="absolute -bottom-0.5 w-1 h-1 rounded-full bg-white shadow-lg"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                />
-              )}
-              
               {/* Tooltip */}
-              <motion.span
-                className="absolute -top-8 px-2 py-1 text-xs font-medium text-white bg-black/70 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none"
-              >
+              <span className="absolute -top-8 px-2 py-1 text-xs font-medium text-white bg-black/70 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                 {item.label}
-              </motion.span>
-            </motion.button>
+              </span>
+            </Component>
           )
         })}
       </div>
-    </motion.div>
+    </div>
   )
 }
