@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ExternalLink, Star, GitFork, ChevronLeft, ChevronRight } from 'lucide-react'
-import { OSWindow } from './os-window'
+import Image from 'next/image'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useWindowManager } from './window-manager'
 import { cn } from '@/lib/utils'
 
@@ -14,21 +14,8 @@ interface GithubProject {
   language: string | null
   stars: number
   forks: number
-}
-
-const languageColors: Record<string, string> = {
-  TypeScript: '#3178c6',
-  JavaScript: '#f7df1e',
-  Python: '#3572A5',
-  Java: '#b07219',
-  'C++': '#f34b7d',
-  C: '#555555',
-  'C#': '#178600',
-  Go: '#00ADD8',
-  Rust: '#dea584',
-  HTML: '#e34c26',
-  CSS: '#1572B6',
-  default: '#6e7681',
+  topics: string[]
+  image?: string
 }
 
 export function ProjectsWindow() {
@@ -36,7 +23,12 @@ export function ProjectsWindow() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [activeIndex, setActiveIndex] = useState(0)
-  const { setWindowLoading } = useWindowManager()
+  const [isDragging, setIsDragging] = useState(false)
+  const [dragStart, setDragStart] = useState(0)
+  const { setWindowLoading, getWindowState } = useWindowManager()
+  
+  const windowState = getWindowState('projects')
+  const isMaximized = windowState === 'maximized'
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -46,8 +38,7 @@ export function ProjectsWindow() {
         const response = await fetch('/api/github')
         
         if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}))
-          throw new Error(errorData.error || 'Failed to fetch projects')
+          throw new Error('Failed to fetch projects')
         }
         
         const data = await response.json()
@@ -66,195 +57,174 @@ export function ProjectsWindow() {
     fetchProjects()
   }, [setWindowLoading])
 
-  const projectsList = Array.isArray(projects) ? projects : []
-
-  const nextCard = () => {
-    if (projectsList.length === 0) return
-    setActiveIndex((prev) => (prev + 1) % projectsList.length)
+  const handlePrev = () => {
+    if (projects.length === 0) return
+    setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length)
   }
 
-  const prevCard = () => {
-    if (projectsList.length === 0) return
-    setActiveIndex((prev) => (prev - 1 + projectsList.length) % projectsList.length)
+  const handleNext = () => {
+    if (projects.length === 0) return
+    setActiveIndex((prev) => (prev + 1) % projects.length)
   }
 
-  const getCardStyle = (index: number) => {
-    if (projectsList.length === 0) return { transform: 'none', opacity: 0, zIndex: 0 }
-    const diff = index - activeIndex
-    const normalizedDiff = ((diff % projectsList.length) + projectsList.length) % projectsList.length
-    const isBack = normalizedDiff > projectsList.length / 2
-    const adjustedDiff = isBack ? normalizedDiff - projectsList.length : normalizedDiff
-    
-    const translateX = adjustedDiff * 30
-    const translateZ = -Math.abs(adjustedDiff) * 60
-    const rotateY = adjustedDiff * -8
-    const scale = 1 - Math.abs(adjustedDiff) * 0.08
-    const opacity = Math.abs(adjustedDiff) <= 3 ? 1 - Math.abs(adjustedDiff) * 0.2 : 0
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true)
+    setDragStart(e.clientX)
+  }
 
-    return {
-      transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
-      opacity,
-      zIndex: 10 - Math.abs(adjustedDiff),
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (!isDragging) return
+    setIsDragging(false)
+    const dragEnd = e.clientX
+    const diff = dragStart - dragEnd
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) handleNext()
+      else handlePrev()
     }
   }
 
+  if (windowState === 'minimized' || windowState === 'closed') return null
+
   return (
-    <OSWindow 
-      id="projects"
-      title="Projects" 
-      icon="🚀" 
-      defaultPosition={{ x: 100, y: 80 }}
-      defaultSize={{ width: 600, height: 480 }}
-      headerColor="bg-gradient-to-r from-[#667eea]/90 to-[#764ba2]/90"
+    <div
+      className="fixed inset-0 bg-[#0f0f1a] z-40 flex flex-col"
+      style={isMaximized ? { zIndex: 40 } : {}}
     >
-      <div className="h-full flex flex-col bg-gradient-to-br from-[#0f172a] to-[#1e293b] overflow-hidden">
-        {/* Header */}
-        <div className="px-5 py-4 border-b border-white/10">
-          <h2 className="text-lg font-bold text-white">Selected Work</h2>
-          <p className="text-xs text-white/60 mt-1">My GitHub repositories</p>
-        </div>
-
-        {/* Content */}
-        <div className="flex-1 relative overflow-hidden">
-          {isLoading ? (
-            <div className="flex items-center justify-center h-full">
-              <div className="text-center">
-                <div className="w-10 h-10 border-4 border-white/20 border-t-purple-500 rounded-full animate-spin mx-auto mb-3" />
-                <p className="text-sm text-white/70">Loading projects...</p>
-              </div>
-            </div>
-          ) : error ? (
-            <div className="flex items-center justify-center h-full">
-              <p className="text-sm text-red-400 text-center px-4">{error}</p>
-            </div>
-          ) : projectsList.length > 0 ? (
-            <div className="h-full flex flex-col">
-              {/* 3D Card Stack */}
-              <div className="flex-1 relative flex items-center justify-center" style={{ perspective: '1000px' }}>
-                <div className="relative w-64 h-80" style={{ transformStyle: 'preserve-3d' }}>
-                  {projectsList.slice(0, 10).map((project, index) => {
-                    const style = getCardStyle(index)
-                    const langColor = languageColors[project.language || ''] || languageColors.default
-                    
-                    return (
-                      <a
-                        key={project.id}
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={cn(
-                          'absolute inset-0 rounded-xl overflow-hidden transition-all duration-500 cursor-pointer',
-                          'bg-gradient-to-br from-white to-gray-100 shadow-2xl',
-                          'hover:scale-105 hover:shadow-purple-500/30',
-                          index === activeIndex ? 'pointer-events-auto' : 'pointer-events-none'
-                        )}
-                        style={style}
-                        onClick={(e) => {
-                          if (index !== activeIndex) {
-                            e.preventDefault()
-                            setActiveIndex(index)
-                          }
-                        }}
-                      >
-                        {/* Card gradient header */}
-                        <div 
-                          className="h-28 bg-gradient-to-br from-[#667eea] via-[#764ba2] to-[#f093fb] relative"
-                          style={{
-                            backgroundImage: `linear-gradient(135deg, ${langColor}33 0%, ${langColor}66 100%)`
-                          }}
-                        >
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="text-5xl opacity-30">
-                              {project.language === 'Python' ? '🐍' : 
-                               project.language === 'TypeScript' ? '📘' :
-                               project.language === 'JavaScript' ? '📒' :
-                               project.language === 'Java' ? '☕' :
-                               project.language === 'C++' ? '⚡' : '💻'}
-                            </span>
-                          </div>
-                        </div>
-                        
-                        {/* Card content */}
-                        <div className="p-4 bg-white">
-                          {/* Language badge */}
-                          {project.language && (
-                            <div className="flex items-center gap-2 mb-2">
-                              <span 
-                                className="w-3 h-3 rounded-full"
-                                style={{ backgroundColor: langColor }}
-                              />
-                              <span className="text-xs font-medium text-gray-600">
-                                {project.language}
-                              </span>
-                            </div>
-                          )}
-                          
-                          <h3 className="font-bold text-gray-900 mb-2 line-clamp-1 text-lg">
-                            {project.name}
-                          </h3>
-                          
-                          <p className="text-xs text-gray-600 line-clamp-2 mb-3 min-h-[32px]">
-                            {project.description || 'No description available'}
-                          </p>
-                          
-                          {/* Stats */}
-                          <div className="flex items-center gap-4 text-xs text-gray-500">
-                            <span className="flex items-center gap-1">
-                              <Star size={12} className="text-yellow-500" />
-                              {project.stars}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <GitFork size={12} />
-                              {project.forks}
-                            </span>
-                            <ExternalLink size={12} className="ml-auto text-purple-500" />
-                          </div>
-                        </div>
-                      </a>
-                    )
-                  })}
-                </div>
-              </div>
-
-              {/* Navigation */}
-              <div className="flex items-center justify-center gap-4 pb-4">
-                <button
-                  onClick={prevCard}
-                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
-                >
-                  <ChevronLeft size={20} />
-                </button>
-                
-                <div className="flex items-center gap-1.5">
-                  {projectsList.slice(0, 10).map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveIndex(index)}
-                      className={cn(
-                        'w-2 h-2 rounded-full transition-all',
-                        index === activeIndex 
-                          ? 'bg-purple-500 w-6' 
-                          : 'bg-white/30 hover:bg-white/50'
-                      )}
-                    />
-                  ))}
-                </div>
-                
-                <button
-                  onClick={nextCard}
-                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
-                >
-                  <ChevronRight size={20} />
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div className="flex items-center justify-center h-full">
-              <p className="text-sm text-white/60 text-center">No projects found</p>
-            </div>
-          )}
-        </div>
+      {/* Header */}
+      <div className="h-12 bg-[#1a1a2e]/90 backdrop-blur-xl border-b border-white/[0.06] flex items-center px-6 justify-between shrink-0">
+        <h1 className="text-lg font-semibold text-white">Projects</h1>
+        <span className="text-sm text-white/50">
+          {projects.length > 0 ? `${activeIndex + 1} / ${projects.length}` : 'Loading...'}
+        </span>
       </div>
-    </OSWindow>
+
+      {/* Main Carousel */}
+      <div className="flex-1 overflow-hidden relative">
+        {isLoading ? (
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="text-center">
+              <div className="w-12 h-12 border-4 border-white/20 border-t-purple-500 rounded-full animate-spin mx-auto mb-4" />
+              <p className="text-white/70">Loading projects...</p>
+            </div>
+          </div>
+        ) : error ? (
+          <div className="w-full h-full flex items-center justify-center">
+            <p className="text-red-400 text-center px-8">{error}</p>
+          </div>
+        ) : projects.length === 0 ? (
+          <div className="w-full h-full flex items-center justify-center">
+            <p className="text-white/60">No projects found</p>
+          </div>
+        ) : (
+          <>
+            {/* Left Nav Area */}
+            <button
+              onClick={handlePrev}
+              className="absolute left-0 top-0 bottom-0 w-32 flex items-center justify-start pl-6 hover:bg-gradient-to-r hover:from-black/30 hover:to-transparent group z-10 transition-all"
+            >
+              <ChevronLeft className="w-12 h-12 text-white/20 group-hover:text-white/60 transition-colors" />
+            </button>
+
+            {/* Right Nav Area */}
+            <button
+              onClick={handleNext}
+              className="absolute right-0 top-0 bottom-0 w-32 flex items-center justify-end pr-6 hover:bg-gradient-to-l hover:from-black/30 hover:to-transparent group z-10 transition-all"
+            >
+              <ChevronRight className="w-12 h-12 text-white/20 group-hover:text-white/60 transition-colors" />
+            </button>
+
+            {/* Cards Container */}
+            <div 
+              className="w-full h-full flex items-center justify-center px-32 select-none"
+              onMouseDown={handleMouseDown}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={() => setIsDragging(false)}
+            >
+              {projects.map((project, idx) => {
+                const diff = idx - activeIndex
+                const normalizedDiff = ((diff % projects.length) + projects.length) % projects.length
+                const isBack = normalizedDiff > projects.length / 2
+                const adjustedDiff = isBack ? normalizedDiff - projects.length : normalizedDiff
+
+                const opacity = adjustedDiff === 0 ? 1 : Math.max(0, 1 - Math.abs(adjustedDiff) * 0.3)
+                const scale = adjustedDiff === 0 ? 1 : 0.85 - Math.abs(adjustedDiff) * 0.05
+                const translateX = adjustedDiff * 50
+
+                return (
+                  <a
+                    key={project.id}
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      'absolute w-80 h-96 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500',
+                      'bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-white/[0.06]',
+                      adjustedDiff === 0 ? 'cursor-pointer hover:shadow-purple-500/30 hover:border-purple-500/30' : 'pointer-events-none'
+                    )}
+                    style={{
+                      opacity,
+                      transform: `translateX(${translateX}px) scale(${scale})`,
+                      zIndex: 10 - Math.abs(adjustedDiff),
+                    }}
+                  >
+                    {/* Image Section */}
+                    <div className="w-full h-48 bg-gradient-to-br from-purple-600/20 to-pink-600/20 relative overflow-hidden group">
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#16213e]" />
+                      <div className="absolute inset-0 flex items-center justify-center text-6xl opacity-30">
+                        {project.language === 'TypeScript' ? '📘' :
+                         project.language === 'JavaScript' ? '📒' :
+                         project.language === 'Python' ? '🐍' :
+                         project.language === 'Go' ? '🐹' :
+                         project.language === 'Rust' ? '🦀' :
+                         '💻'}
+                      </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="p-6 h-48 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-xl font-bold text-white mb-2 line-clamp-2">
+                          {project.name}
+                        </h3>
+                        <p className="text-sm text-white/60 line-clamp-3 min-h-[60px]">
+                          {project.description || 'Project description will be added from database'}
+                        </p>
+                      </div>
+
+                      {/* Footer */}
+                      <div className="flex items-center justify-between pt-4 border-t border-white/[0.06]">
+                        <div className="flex gap-4 text-xs text-white/50">
+                          <span>⭐ {project.stars}</span>
+                          <span>🔀 {project.forks}</span>
+                        </div>
+                        {project.language && (
+                          <span className="text-xs font-medium text-purple-400 bg-purple-500/10 px-2 py-1 rounded">
+                            {project.language}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </a>
+                )
+              })}
+            </div>
+
+            {/* Bottom Indicator */}
+            <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 pointer-events-none">
+              {projects.slice(0, Math.min(10, projects.length)).map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveIndex(idx)}
+                  className={cn(
+                    'w-2 h-2 rounded-full transition-all pointer-events-auto',
+                    idx === activeIndex ? 'bg-purple-500 w-6' : 'bg-white/30 hover:bg-white/50'
+                  )}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </div>
   )
 }

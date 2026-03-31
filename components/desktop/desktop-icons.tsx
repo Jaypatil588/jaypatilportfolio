@@ -49,7 +49,7 @@ export function DesktopIcons() {
   const { openWindow } = useWindowManager()
 
   return (
-    <div className="absolute top-4 right-4 flex flex-col gap-1 z-10 pointer-events-auto">
+    <div className="absolute top-6 left-4 flex flex-col gap-2 z-10 pointer-events-auto">
       {APP_ICONS.map((item) => {
         const Icon = item.icon
         const content = (

@@ -57,7 +57,7 @@ export function MainWindow() {
       )}
       style={isMaximized
         ? { zIndex: 50 }
-        : { left: 'max(12px, 2vw)', top: 0, width: 'calc(100% - max(24px, 4vw))', height: 'calc(100% - 28px)', zIndex: 20 }
+        : { left: '100px', top: 0, width: '80%', height: 'calc(100% - 28px)', zIndex: 20 }
       }
     >
       {/* ── macOS Title Bar ── */}

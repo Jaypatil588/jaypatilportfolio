@@ -47,7 +47,7 @@ export function useWindowManager() {
   return context
 }
 
-// Window manager context type definition
+// Window Manager Provider — manages z-index and window states
 interface WindowManagerProviderProps {
   children: ReactNode
   initialWindows?: { id: string; state: WindowState; isLoading?: boolean }[]
