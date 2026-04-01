@@ -1,218 +1,184 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { cn } from '@/lib/utils'
 
 interface ChargerSceneProps {
   onStart: () => void
 }
 
+// Canvas dimensions from scene-map.json
+const W = 5440
+const H = 3072
+
+const pct = (val: number, total: number) => `${((val / total) * 100).toFixed(4)}%`
+
+const BATTERY_LEVELS = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
 export function ChargerScene({ onStart }: ChargerSceneProps) {
-  const [batteryLevel, setBatteryLevel] = useState(20)
+  const [batteryIdx, setBatteryIdx] = useState(0)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setBatteryLevel(prev => {
-        if (prev >= 95) return 20
-        return prev + 1
-      })
-    }, 150)
-    return () => clearInterval(interval)
+    const id = setInterval(() => {
+      setBatteryIdx(prev => (prev + 1) % BATTERY_LEVELS.length)
+    }, 600)
+    return () => clearInterval(id)
   }, [])
 
+  const batteryLevel = BATTERY_LEVELS[batteryIdx]
+
   return (
-    <div className="w-full h-screen bg-gradient-to-br from-sky-100 via-white to-blue-50 flex items-center justify-center overflow-hidden relative">
-      {/* Floating animated elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Electric particles */}
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-sky-400 rounded-full animate-float opacity-60"
-            style={{
-              left: `${10 + (i * 7)}%`,
-              top: `${20 + (i % 5) * 15}%`,
-              animationDelay: `${i * 0.2}s`,
-              animationDuration: `${2 + (i % 3)}s`
-            }}
+    <div className="w-full h-screen overflow-hidden relative select-none">
+
+      {/* ── WALLPAPER: full-screen source image ── */}
+      <img
+        src="/ev-scene-bg.png"
+        alt="EV charging scene"
+        className="absolute inset-0 w-full h-full object-cover"
+        draggable={false}
+      />
+
+      {/* ── SVG OVERLAYS: exact positions from scene-map.json ── */}
+      <div className="absolute inset-0">
+
+        {/* car-body  x:0 y:780 w:3600 h:2292 */}
+        <img
+          src="/extracted-assets/car-body.svg"
+          alt=""
+          className="absolute"
+          style={{
+            left:   pct(0,    W),
+            top:    pct(780,  H),
+            width:  pct(3600, W),
+            height: pct(2292, H),
+          }}
+          draggable={false}
+        />
+
+        {/* headlight-left  x:1180 y:2260 w:980 h:710 */}
+        <img
+          src="/extracted-assets/headlight-left.svg"
+          alt=""
+          className="absolute"
+          style={{
+            left:   pct(1180, W),
+            top:    pct(2260, H),
+            width:  pct(980,  W),
+            height: pct(710,  H),
+          }}
+          draggable={false}
+        />
+
+        {/* headlight-right  x:4550 y:2320 w:570 h:550 */}
+        <img
+          src="/extracted-assets/headlight-right.svg"
+          alt=""
+          className="absolute"
+          style={{
+            left:   pct(4550, W),
+            top:    pct(2320, H),
+            width:  pct(570,  W),
+            height: pct(550,  H),
+          }}
+          draggable={false}
+        />
+
+        {/* cable  x:1880 y:480 w:1520 h:1720 */}
+        <img
+          src="/extracted-assets/cable.svg"
+          alt=""
+          className="absolute"
+          style={{
+            left:   pct(1880, W),
+            top:    pct(480,  H),
+            width:  pct(1520, W),
+            height: pct(1720, H),
+          }}
+          draggable={false}
+        />
+
+        {/* plug  x:1680 y:2020 w:940 h:440 */}
+        <img
+          src="/extracted-assets/plug.svg"
+          alt=""
+          className="absolute"
+          style={{
+            left:   pct(1680, W),
+            top:    pct(2020, H),
+            width:  pct(940,  W),
+            height: pct(440,  H),
+          }}
+          draggable={false}
+        />
+
+        {/* charger-body  x:3220 y:40 w:1580 h:3010 */}
+        <img
+          src="/extracted-assets/charger-body.svg"
+          alt=""
+          className="absolute"
+          style={{
+            left:   pct(3220, W),
+            top:    pct(40,   H),
+            width:  pct(1580, W),
+            height: pct(3010, H),
+          }}
+          draggable={false}
+        />
+
+        {/* charger-monitor  x:2890 y:560 w:1830 h:1000 — clickable portal */}
+        <div
+          className="absolute"
+          style={{
+            left:   pct(2890, W),
+            top:    pct(560,  H),
+            width:  pct(1830, W),
+            height: pct(1000, H),
+          }}
+        >
+          <img
+            src="/extracted-assets/charger-monitor.svg"
+            alt=""
+            className="w-full h-full"
+            draggable={false}
           />
-        ))}
-        
-        {/* Lightning bolts */}
-        <svg className="absolute top-20 left-20 w-8 h-8 text-sky-300 animate-pulse" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" />
-        </svg>
-        <svg className="absolute top-40 right-32 w-6 h-6 text-blue-300 animate-pulse animation-delay-300" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" />
-        </svg>
-        <svg className="absolute bottom-32 left-40 w-10 h-10 text-sky-200 animate-pulse animation-delay-500" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" />
-        </svg>
-
-        {/* Floating circles */}
-        <div className="absolute top-1/4 right-1/4 w-32 h-32 border-2 border-sky-200 rounded-full animate-spin-slow opacity-30" />
-        <div className="absolute bottom-1/4 left-1/5 w-24 h-24 border border-blue-200 rounded-full animate-spin-slow-reverse opacity-40" />
-      </div>
-
-      {/* Main scene container */}
-      <div className="relative flex items-end gap-4 z-10">
-        
-        {/* EV Charger */}
-        <div className="relative">
-          {/* Charger body */}
-          <div className="w-48 h-80 bg-gradient-to-b from-slate-800 to-slate-900 rounded-t-3xl rounded-b-lg shadow-2xl relative overflow-hidden">
-            {/* Top accent */}
-            <div className="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-sky-400 to-blue-500" />
-            
-            {/* Screen / Display */}
-            <div className="absolute top-8 left-4 right-4 h-40 bg-slate-950 rounded-xl border-4 border-slate-700 overflow-hidden">
-              {/* Screen content */}
-              <div className="w-full h-full bg-gradient-to-br from-slate-900 to-slate-800 p-3 flex flex-col">
-                {/* Status bar */}
-                <div className="flex justify-between items-center mb-2">
-                  <div className="flex gap-1">
-                    <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-                    <div className="w-1.5 h-1.5 bg-sky-400 rounded-full" />
-                  </div>
-                  <span className="text-[8px] text-sky-400 font-mono">READY</span>
-                </div>
-                
-                {/* Battery indicator */}
-                <div className="flex-1 flex flex-col items-center justify-center gap-2">
-                  <div className="relative w-16 h-8 border-2 border-sky-400 rounded-md overflow-hidden">
-                    <div 
-                      className="absolute inset-y-0 left-0 bg-gradient-to-r from-sky-400 to-green-400 transition-all duration-300"
-                      style={{ width: `${batteryLevel}%` }}
-                    />
-                    <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-1 h-3 bg-sky-400 rounded-r" />
-                  </div>
-                  <span className="text-sky-400 font-mono text-lg font-bold">{batteryLevel}%</span>
-                </div>
-
-                {/* Start button */}
-                <button
-                  onClick={onStart}
-                  className="w-full py-2 bg-gradient-to-r from-sky-500 to-blue-600 rounded-lg text-white font-bold text-xs uppercase tracking-wider hover:from-sky-400 hover:to-blue-500 transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-sky-500/30"
-                >
-                  Start
-                </button>
-              </div>
-            </div>
-
-            {/* Cable port */}
-            <div className="absolute bottom-24 left-1/2 -translate-x-1/2 w-12 h-12 bg-slate-700 rounded-full border-4 border-slate-600 flex items-center justify-center">
-              <div className="w-6 h-6 bg-sky-400 rounded-full animate-pulse" />
-            </div>
-
-            {/* Branding */}
-            <div className="absolute bottom-8 left-0 right-0 text-center">
-              <span className="text-sky-400 font-bold text-xs tracking-widest">EV POWER</span>
-            </div>
-          </div>
-
-          {/* Charger base */}
-          <div className="w-56 h-6 bg-slate-700 rounded-lg -ml-4 shadow-xl" />
-        </div>
-
-        {/* Charging cable with electricity */}
-        <div className="relative w-40 h-20 -mb-6">
-          {/* Cable path */}
-          <svg className="w-full h-full" viewBox="0 0 160 80">
-            <path
-              d="M 0 40 Q 40 60 80 40 Q 120 20 160 40"
-              fill="none"
-              stroke="#1e293b"
-              strokeWidth="8"
-              strokeLinecap="round"
-            />
-            {/* Electricity effect */}
-            <path
-              d="M 0 40 Q 40 60 80 40 Q 120 20 160 40"
-              fill="none"
-              stroke="url(#electricGradient)"
-              strokeWidth="4"
-              strokeLinecap="round"
-              className="animate-pulse"
-              strokeDasharray="10 5"
+          <button
+            onClick={onStart}
+            className="absolute inset-0 flex flex-col items-center justify-center gap-[6%] group"
+            aria-label="Enter portfolio"
+          >
+            <div className="absolute inset-[6%] rounded-xl bg-sky-400/0 group-hover:bg-sky-400/10 transition-colors duration-300" />
+            <span
+              className="relative z-10 font-bold tracking-[0.25em] uppercase text-white drop-shadow-lg"
+              style={{ fontSize: 'clamp(9px, 1.4vw, 20px)' }}
             >
-              <animate
-                attributeName="stroke-dashoffset"
-                values="0;30"
-                dur="0.5s"
-                repeatCount="indefinite"
-              />
-            </path>
-            <defs>
-              <linearGradient id="electricGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#38bdf8" />
-                <stop offset="50%" stopColor="#3b82f6" />
-                <stop offset="100%" stopColor="#38bdf8" />
-              </linearGradient>
-            </defs>
-          </svg>
-          
-          {/* Sparks */}
-          {[...Array(3)].map((_, i) => (
+              TAP TO ENTER
+            </span>
             <div
-              key={i}
-              className="absolute w-1 h-1 bg-yellow-300 rounded-full animate-ping"
-              style={{
-                left: `${30 + i * 30}%`,
-                top: `${40 + (i % 2) * 20}%`,
-                animationDelay: `${i * 0.2}s`
-              }}
-            />
-          ))}
+              className="relative z-10 rounded-full border-2 border-white/60 flex items-center justify-center animate-pulse group-hover:border-sky-300 transition-colors"
+              style={{ width: 'clamp(20px, 2.8vw, 44px)', aspectRatio: '1' }}
+            >
+              <div
+                className="rounded-full bg-white/25 group-hover:bg-sky-300/40 transition-colors"
+                style={{ width: '55%', aspectRatio: '1' }}
+              />
+            </div>
+          </button>
         </div>
 
-        {/* Electric Car */}
-        <div className="relative">
-          {/* Car body */}
-          <div className="relative w-72 h-32">
-            {/* Main body */}
-            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-r from-slate-800 to-slate-700 rounded-xl rounded-bl-3xl" />
-            
-            {/* Roof */}
-            <div className="absolute bottom-16 left-12 right-12 h-16 bg-gradient-to-r from-slate-700 to-slate-600 rounded-t-2xl" />
-            
-            {/* Windows */}
-            <div className="absolute bottom-18 left-14 right-14 h-12 bg-gradient-to-br from-sky-200 to-sky-300 rounded-t-xl top-4" style={{ top: '16px' }} />
-            
-            {/* Headlights */}
-            <div className="absolute bottom-6 left-2 w-6 h-3 bg-yellow-200 rounded-full animate-pulse" />
-            <div className="absolute bottom-6 right-2 w-6 h-3 bg-red-400 rounded-full" />
-            
-            {/* Charging port glow */}
-            <div className="absolute bottom-10 left-8 w-4 h-4 bg-sky-400 rounded-full animate-pulse shadow-lg shadow-sky-400/50" />
-            
-            {/* Wheels */}
-            <div className="absolute -bottom-2 left-8 w-12 h-12 bg-slate-900 rounded-full border-4 border-slate-600">
-              <div className="w-full h-full rounded-full border-2 border-slate-500 flex items-center justify-center">
-                <div className="w-3 h-3 bg-slate-400 rounded-full" />
-              </div>
-            </div>
-            <div className="absolute -bottom-2 right-8 w-12 h-12 bg-slate-900 rounded-full border-4 border-slate-600">
-              <div className="w-full h-full rounded-full border-2 border-slate-500 flex items-center justify-center">
-                <div className="w-3 h-3 bg-slate-400 rounded-full" />
-              </div>
-            </div>
+        {/* battery (animated)  x:3490 y:1940 w:520 h:720 */}
+        <img
+          src={`/extracted-assets/battery-${batteryLevel}.svg`}
+          alt={`Battery ${batteryLevel}%`}
+          className="absolute object-contain"
+          style={{
+            left:   pct(3490, W),
+            top:    pct(1940, H),
+            width:  pct(520,  W),
+            height: pct(720,  H),
+          }}
+          draggable={false}
+        />
 
-            {/* EV badge */}
-            <div className="absolute bottom-8 right-16 bg-sky-500 text-white text-[8px] font-bold px-2 py-0.5 rounded">
-              EV
-            </div>
-          </div>
-
-          {/* Car shadow */}
-          <div className="w-64 h-4 bg-slate-300/50 rounded-full blur-sm mx-auto -mt-1" />
-        </div>
       </div>
-
-      {/* Ground */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-200 to-transparent" />
-      
-      {/* Ground line */}
-      <div className="absolute bottom-20 left-0 right-0 h-1 bg-slate-300" />
     </div>
   )
 }
