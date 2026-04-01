@@ -124,14 +124,14 @@ export function ChargerScene({ onStart }: ChargerSceneProps) {
           draggable={false}
         />
 
-        {/* charger-monitor  x:2890 y:560 w:1830 h:1000 — clickable portal */}
+        {/* charger-monitor — expanded to lower-right, increased size */}
         <div
           className="absolute"
           style={{
             left:   pct(2890, W),
             top:    pct(560,  H),
-            width:  pct(1830, W),
-            height: pct(1000, H),
+            width:  pct(2200, W),
+            height: pct(1300, H),
           }}
         >
           <img
