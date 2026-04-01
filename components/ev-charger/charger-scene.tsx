@@ -140,12 +140,17 @@ export function ChargerScene({ onStart }: ChargerSceneProps) {
             className="w-full h-full"
             draggable={false}
           />
+          {/*
+            Dark screen starts at y=111 out of 1000px SVG height (11.1% from top).
+            Button covers only the dark screen area, not the silver bezel above.
+          */}
           <button
             onClick={onStart}
-            className="absolute inset-0 flex flex-col items-center justify-center gap-[6%] group"
+            className="absolute left-0 right-0 bottom-0 flex flex-col items-center justify-center gap-[6%] group"
+            style={{ top: '11.1%' }}
             aria-label="Enter portfolio"
           >
-            <div className="absolute inset-[6%] rounded-xl bg-sky-400/0 group-hover:bg-sky-400/10 transition-colors duration-300" />
+            <div className="absolute inset-[4%] rounded-xl bg-sky-400/0 group-hover:bg-sky-400/10 transition-colors duration-300" />
             <span
               className="relative z-10 font-bold tracking-[0.25em] uppercase text-white drop-shadow-lg"
               style={{ fontSize: 'clamp(9px, 1.4vw, 20px)' }}
