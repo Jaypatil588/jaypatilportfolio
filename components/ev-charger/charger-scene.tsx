@@ -82,33 +82,7 @@ export function ChargerScene({ onStart }: ChargerSceneProps) {
           draggable={false}
         />
 
-        {/* cable  x:1880 y:480 w:1520 h:1720 */}
-        <img
-          src="/extracted-assets/cable.svg"
-          alt=""
-          className="absolute"
-          style={{
-            left:   pct(1880, W),
-            top:    pct(480,  H),
-            width:  pct(1520, W),
-            height: pct(1720, H),
-          }}
-          draggable={false}
-        />
 
-        {/* plug  x:1680 y:2020 w:940 h:440 */}
-        <img
-          src="/extracted-assets/plug.svg"
-          alt=""
-          className="absolute"
-          style={{
-            left:   pct(1680, W),
-            top:    pct(2020, H),
-            width:  pct(940,  W),
-            height: pct(440,  H),
-          }}
-          draggable={false}
-        />
 
         {/* charger-body  x:3220 y:40 w:1580 h:3010 */}
         <img
@@ -168,6 +142,35 @@ export function ChargerScene({ onStart }: ChargerSceneProps) {
             </div>
           </button>
         </div>
+
+        {/* cable + plug rendered ABOVE monitor so wire is always visible */}
+        {/* cable  x:1880 y:480 w:1520 h:1720 */}
+        <img
+          src="/extracted-assets/cable.svg"
+          alt=""
+          className="absolute"
+          style={{
+            left:   pct(1880, W),
+            top:    pct(480,  H),
+            width:  pct(1520, W),
+            height: pct(1720, H),
+          }}
+          draggable={false}
+        />
+
+        {/* plug  x:1680 y:2020 w:940 h:440 */}
+        <img
+          src="/extracted-assets/plug.svg"
+          alt=""
+          className="absolute"
+          style={{
+            left:   pct(1680, W),
+            top:    pct(2020, H),
+            width:  pct(940,  W),
+            height: pct(440,  H),
+          }}
+          draggable={false}
+        />
 
         {/* battery (animated)  x:3490 y:1940 w:520 h:720 */}
         <img
