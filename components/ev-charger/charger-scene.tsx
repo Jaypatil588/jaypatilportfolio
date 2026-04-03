@@ -98,14 +98,14 @@ export function ChargerScene({ onStart }: ChargerSceneProps) {
           draggable={false}
         />
 
-        {/* charger-monitor — expanded to lower-right, increased size */}
+        {/* charger-monitor  x:2890 y:560 w:1830 h:1000 */}
         <div
           className="absolute"
           style={{
             left:   pct(2890, W),
             top:    pct(560,  H),
-            width:  pct(2200, W),
-            height: pct(1300, H),
+            width:  pct(1830, W),
+            height: pct(1000, H),
           }}
         >
           <img
