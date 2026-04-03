@@ -18,6 +18,10 @@ export function EVPortfolio() {
     }, 800)
   }
 
+  const handleBackToCharger = () => {
+    setState('charger')
+  }
+
   return (
     <div className="w-full h-screen overflow-hidden relative">
       {/* Charger Scene */}
@@ -43,13 +47,23 @@ export function EVPortfolio() {
         {/* Charger screen bezel frame */}
         <div className="w-full h-full bg-gradient-to-b from-slate-800 to-slate-900 p-4">
           {/* Screen border glow */}
-          <div className="w-full h-full rounded-2xl border-4 border-slate-600 overflow-hidden shadow-[inset_0_0_30px_rgba(56,189,248,0.1)] relative">
+          <div className="w-full h-full rounded-2xl overflow-hidden shadow-[inset_0_0_30px_rgba(56,189,248,0.1)] relative">
             {/* Screen reflection effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none z-10" />
             
             {/* Screen status bar */}
             <div className="absolute top-0 left-0 right-0 h-8 bg-slate-900/80 backdrop-blur flex items-center justify-between px-4 z-20">
               <div className="flex items-center gap-2">
+                {state === 'portfolio' && (
+                  <button
+                    type="button"
+                    onClick={handleBackToCharger}
+                    className="inline-flex items-center justify-center text-sky-300 hover:text-white transition-colors"
+                    aria-label="Back to charger scene"
+                  >
+                    ←
+                  </button>
+                )}
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                 <span className="text-[10px] text-sky-400 font-mono">CONNECTED</span>
               </div>
