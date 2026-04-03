@@ -228,6 +228,22 @@
   100% { transform: scale(1) translateY(0); opacity: 1; }
 }
 
+@keyframes headlight-pulse {
+  0%, 100% {
+    opacity: 0.82;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.35));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.78));
+  }
+}
+
+@keyframes cable-sway {
+  0%, 100% { transform: rotate(-0.9deg) translateY(0); }
+  50% { transform: rotate(1deg) translateY(0.3%); }
+}
+
 .animate-electric-pulse {
   animation: electric-pulse 1s ease-in-out infinite;
 }
@@ -242,6 +258,14 @@
 
 .animate-card-pop {
   animation: card-pop 0.4s ease-out forwards;
+}
+
+.animate-headlight-pulse {
+  animation: headlight-pulse 1.8s ease-in-out infinite;
+}
+
+.animate-cable-sway {
+  animation: cable-sway 2.8s ease-in-out infinite;
 }
 
 .duration-800 {

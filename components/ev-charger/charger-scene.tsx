@@ -1,7 +1,5 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-
 interface ChargerSceneProps {
   onStart: () => void
 }
@@ -12,20 +10,7 @@ const H = 3072
 
 const pct = (val: number, total: number) => `${((val / total) * 100).toFixed(4)}%`
 
-const BATTERY_LEVELS = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-
 export function ChargerScene({ onStart }: ChargerSceneProps) {
-  const [batteryIdx, setBatteryIdx] = useState(0)
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setBatteryIdx(prev => (prev + 1) % BATTERY_LEVELS.length)
-    }, 600)
-    return () => clearInterval(id)
-  }, [])
-
-  const batteryLevel = BATTERY_LEVELS[batteryIdx]
-
   return (
     <div className="w-full h-screen overflow-hidden relative select-none">
 
@@ -58,7 +43,7 @@ export function ChargerScene({ onStart }: ChargerSceneProps) {
         <img
           src="/extracted-assets/headlight-left.svg"
           alt=""
-          className="absolute"
+          className="absolute animate-headlight-pulse"
           style={{
             left:   pct(1180, W),
             top:    pct(2260, H),
@@ -72,12 +57,13 @@ export function ChargerScene({ onStart }: ChargerSceneProps) {
         <img
           src="/extracted-assets/headlight-right.svg"
           alt=""
-          className="absolute"
+          className="absolute animate-headlight-pulse"
           style={{
             left:   pct(4550, W),
             top:    pct(2320, H),
             width:  pct(570,  W),
             height: pct(550,  H),
+            animationDelay: '350ms',
           }}
           draggable={false}
         />
@@ -148,12 +134,13 @@ export function ChargerScene({ onStart }: ChargerSceneProps) {
         <img
           src="/extracted-assets/cable.svg"
           alt=""
-          className="absolute"
+          className="absolute animate-cable-sway"
           style={{
             left:   pct(1880, W),
             top:    pct(480,  H),
             width:  pct(1520, W),
             height: pct(1720, H),
+            transformOrigin: '83% 16%',
           }}
           draggable={false}
         />
@@ -162,29 +149,42 @@ export function ChargerScene({ onStart }: ChargerSceneProps) {
         <img
           src="/extracted-assets/plug.svg"
           alt=""
-          className="absolute"
+          className="absolute animate-cable-sway"
           style={{
             left:   pct(1680, W),
             top:    pct(2020, H),
             width:  pct(940,  W),
             height: pct(440,  H),
+            transformOrigin: '80% 10%',
+            animationDelay: '200ms',
           }}
           draggable={false}
         />
 
-        {/* battery (animated)  x:3490 y:1940 w:520 h:720 */}
-        <img
-          src={`/extracted-assets/battery-${batteryLevel}.svg`}
-          alt={`Battery ${batteryLevel}%`}
-          className="absolute object-contain"
+        {/* battery charging indicator (no percentage text)  x:3490 y:1940 w:520 h:720 */}
+        <div
+          className="absolute pointer-events-none flex items-center justify-center"
           style={{
             left:   pct(3490, W),
             top:    pct(1940, H),
             width:  pct(520,  W),
             height: pct(720,  H),
           }}
-          draggable={false}
-        />
+        >
+          <div className="relative w-[54%] h-[68%]">
+            <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[36%] h-[9%] rounded-t-[0.5vw] bg-slate-700" />
+            <div className="absolute inset-x-0 top-[6%] bottom-0 rounded-[0.7vw] border-[0.25vw] border-slate-700 bg-slate-100/70 shadow-[0_0_16px_rgba(14,165,233,0.2)] overflow-hidden">
+              <div className="absolute inset-[8%] rounded-[0.45vw] border border-slate-500/40 bg-slate-900/10 overflow-hidden">
+                <div className="absolute inset-x-0 bottom-0 h-[68%] bg-gradient-to-t from-emerald-500 via-lime-400 to-lime-300 animate-electric-pulse" />
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" className="w-[38%] h-[38%] text-slate-900/80 animate-pulse" fill="currentColor" aria-hidden="true">
+                  <path d="M13 2L4 14h6l-1 8 11-13h-6l1-7z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
