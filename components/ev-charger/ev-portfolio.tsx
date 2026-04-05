@@ -44,8 +44,8 @@ export function EVPortfolio() {
         className={cn(
           'absolute inset-0 transition-all duration-800 ease-out',
           state === 'charger' && 'opacity-100 scale-100',
-          state === 'zooming' && 'opacity-100 scale-[3.6]',
-          state === 'portfolio' && 'opacity-0 scale-[5] pointer-events-none'
+          state === 'zooming' && 'opacity-100 scale-[2.2]',
+          state === 'portfolio' && 'opacity-0 scale-[2.8] pointer-events-none'
         )}
         style={{ transformOrigin: zoomOrigin }}
       >
