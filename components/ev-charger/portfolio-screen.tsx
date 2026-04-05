@@ -108,6 +108,27 @@ export function PortfolioScreen() {
     'What projects have you worked on?',
   ]
 
+  const summaryAndSkills = (
+    <div className="min-w-0">
+      <p className="text-[0.92rem] sm:text-[15px] leading-relaxed text-slate-600">
+        Building scalable cloud-native apps with strong backend systems, full-stack delivery, and practical AI/ML integration.
+      </p>
+      <div className="mt-3 flex flex-wrap gap-2 sm:gap-1.5">
+        {SCREEN_SUMMARY_KEYWORDS.map((keyword, index) => (
+          <span
+            key={keyword}
+            className={cn(
+              'inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] sm:text-[11px] font-medium',
+              SCREEN_KEYWORD_COLOR_CLASSES[index % SCREEN_KEYWORD_COLOR_CLASSES.length]
+            )}
+          >
+            {keyword}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+
   return (
     <div
       className={cn(
@@ -123,79 +144,63 @@ export function PortfolioScreen() {
         )}
       >
         {/* Profile Section */}
-        <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-5 sm:mb-7 lg:mb-8">
+        <div className="mb-5 sm:mb-7 lg:mb-8">
           {/* Profile Photo */}
-          <button
-            type="button"
-            onClick={handleProfileClick}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault()
-                handleProfileClick()
-              }
-            }}
-            title="Triple-click to open auth"
-            aria-label="Profile photo. Triple-click to open auth"
-            className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 shrink-0 rounded-2xl bg-gradient-to-br from-sky-100 to-blue-100 border-2 border-sky-200 p-0 flex items-center justify-center shadow-lg overflow-hidden cursor-pointer transition-all hover:scale-[1.03] hover:border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-300/70"
-          >
-            <div className="w-full h-full rounded-[0.875rem] overflow-hidden">
-              <Image
-                src="/mugshot.jpeg"
-                alt="Jay Patil profile photo"
-                width={320}
-                height={320}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
-          </button>
+          <div className="flex flex-row items-start gap-3 sm:gap-6">
+            <button
+              type="button"
+              onClick={handleProfileClick}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault()
+                  handleProfileClick()
+                }
+              }}
+              title="Triple-click to open auth"
+              aria-label="Profile photo. Triple-click to open auth"
+              className="w-36 h-36 sm:w-36 sm:h-36 lg:w-36 lg:h-36 shrink-0 rounded-2xl bg-gradient-to-br from-sky-100 to-blue-100 border-2 border-sky-200 p-0 flex items-center justify-center shadow-lg overflow-hidden cursor-pointer transition-all hover:scale-[1.03] hover:border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-300/70"
+            >
+              <div className="w-full h-full rounded-[0.875rem] overflow-hidden">
+                <Image
+                  src="/mugshot.jpeg"
+                  alt="Jay Patil profile photo"
+                  width={320}
+                  height={320}
+                  className="w-full h-full object-cover object-[center_22%]"
+                  priority
+                />
+              </div>
+            </button>
 
-          {/* Name, Links, Summary */}
-          <div className="flex-1 min-w-0">
-            <div className="flex flex-col md:flex-row md:items-start gap-3 md:gap-3 w-full">
-              <div className="min-w-0 md:min-w-[15.5rem]">
-                <h1 className="text-[2.15rem] sm:text-4xl font-bold text-slate-800 mb-0.5 whitespace-nowrap">Jay Patil</h1>
-                <p className="text-slate-500 text-base mb-3">Software Engineer</p>
+            {/* Name, Links, Email */}
+            <div className="flex-1 min-w-0 md:min-w-[15.5rem]">
+              <h1 className="text-[1.95rem] sm:text-4xl font-bold text-slate-800 mb-0.5 sm:whitespace-nowrap">Jay Patil</h1>
+              <p className="text-slate-500 text-base mb-3">Software Engineer</p>
 
-                {/* Icon row */}
-                <div className="flex gap-2.5">
-                  <a href={portfolioData.linkedin} target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-sky-200/50">
-                    <Linkedin className="w-5 h-5 text-sky-600" />
-                  </a>
-                  <a href={portfolioData.github} target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg">
-                    <Github className="w-5 h-5 text-slate-700" />
-                  </a>
-                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-blue-200/50">
-                    <FileText className="w-5 h-5 text-blue-600" />
-                  </a>
-                </div>
-                <a
-                  href={`mailto:${portfolioData.email}`}
-                  className="mt-1.5 inline-flex text-sm text-slate-600 hover:text-sky-700 transition-colors break-all"
-                >
-                  {portfolioData.email}
+              {/* Icon row */}
+              <div className="flex gap-2.5">
+                <a href={portfolioData.linkedin} target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-sky-200/50">
+                  <Linkedin className="w-5 h-5 text-sky-600" />
+                </a>
+                <a href={portfolioData.github} target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg">
+                  <Github className="w-5 h-5 text-slate-700" />
+                </a>
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-blue-200/50">
+                  <FileText className="w-5 h-5 text-blue-600" />
                 </a>
               </div>
-
-              <div className="flex-1 min-w-0 md:-ml-2 md:pt-0.5 mt-1 sm:mt-0">
-                <p className="text-[0.92rem] sm:text-[15px] leading-relaxed text-slate-600">
-                  Building scalable cloud-native apps with strong backend systems, full-stack delivery, and practical AI/ML integration.
-                </p>
-                <div className="mt-3 flex flex-wrap gap-2 sm:gap-1.5">
-                  {SCREEN_SUMMARY_KEYWORDS.map((keyword, index) => (
-                    <span
-                      key={keyword}
-                      className={cn(
-                        'inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] sm:text-[11px] font-medium',
-                        SCREEN_KEYWORD_COLOR_CLASSES[index % SCREEN_KEYWORD_COLOR_CLASSES.length]
-                      )}
-                    >
-                      {keyword}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <a
+                href={`mailto:${portfolioData.email}`}
+                className="mt-1.5 inline-flex text-sm text-slate-600 hover:text-sky-700 transition-colors break-all"
+              >
+                {portfolioData.email}
+              </a>
             </div>
+          </div>
+
+          {/* Summary full-width below profile row */}
+          <div className="mt-3">
+            {summaryAndSkills}
           </div>
         </div>
 
