@@ -305,7 +305,10 @@ export function PortfolioScreen() {
         </div>
 
         {/* Chat messages area */}
-        <div ref={messagesContainerRef} className="flex-1 min-h-0 p-4 overflow-hidden md:overflow-y-auto md:no-scrollbar space-y-3">
+        <div
+          ref={messagesContainerRef}
+          className="flex-1 min-h-0 p-4 overflow-y-auto no-scrollbar overscroll-contain touch-pan-y space-y-3"
+        >
           {messages.length === 0 && (
             <>
               <div className="flex gap-3 mb-4">
