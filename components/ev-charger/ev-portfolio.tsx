@@ -50,7 +50,7 @@ export function EVPortfolio() {
           <div className="w-full h-full rounded-2xl overflow-hidden shadow-[inset_0_0_30px_rgba(56,189,248,0.1)] relative">
             {/* Screen reflection effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none z-10" />
-            
+
             {/* Screen status bar */}
             <div className="absolute top-0 left-0 right-0 h-8 bg-slate-900/80 backdrop-blur flex items-center justify-between px-4 z-20">
               <div className="flex items-center gap-2">
@@ -58,10 +58,10 @@ export function EVPortfolio() {
                   <button
                     type="button"
                     onClick={handleBackToCharger}
-                    className="inline-flex items-center justify-center text-sky-300 hover:text-white transition-colors"
+                    className="inline-flex items-center justify-center rounded px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide bg-red-600 text-white hover:bg-red-500 transition-colors"
                     aria-label="Back to charger scene"
                   >
-                    ←
+                    {'<-- exit'}
                   </button>
                 )}
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
