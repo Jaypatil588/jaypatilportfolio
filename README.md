@@ -1,5 +1,9 @@
 # jaypatilportfolio
 
+## Draft Showcase
+
+Initial wireplan idea (PDF draft): [`portfolio-initial-wireplan-idea.pdf`](./portfolio-initial-wireplan-idea.pdf)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
 
 ## Getting Started
