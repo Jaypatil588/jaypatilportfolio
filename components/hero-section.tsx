@@ -58,7 +58,7 @@ export function HeroSection() {
                   transition={{ delay: 0.2 }}
                 >
                   <Image
-                    src="/mugshot.webp"
+                    src="/mugshot.jpeg"
                     alt="Jay Patil profile photo"
                     width={192}
                     height={192}

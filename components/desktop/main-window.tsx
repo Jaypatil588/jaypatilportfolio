@@ -47,7 +47,7 @@ export function MainWindow() {
   const windowState = getWindowState('main')
   const isMaximized = windowState === 'maximized'
 
-  if (windowState === 'minimized' || windowState === 'closed') return null
+  if (windowState === 'minimized') return null
 
   return (
     <div
@@ -99,7 +99,7 @@ export function MainWindow() {
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-full overflow-hidden ring-2 ring-white/10 shrink-0">
                 <Image
-                  src="/mugshot.webp"
+                  src="/mugshot.jpeg"
                   alt={portfolioData.name}
                   width={36} height={36}
                   className="w-full h-full object-cover object-[50%_28%]"
@@ -193,7 +193,7 @@ export function MainWindow() {
                 <div className="flex items-center gap-5 mb-7">
                   <div className="w-16 h-16 rounded-2xl overflow-hidden ring-1 ring-white/10 shrink-0">
                     <Image
-                      src="/mugshot.webp"
+                      src="/mugshot.jpeg"
                       alt={portfolioData.name}
                       width={64} height={64}
                       className="w-full h-full object-cover object-[50%_28%]"

@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { readFile } from 'fs/promises'
+import path from 'path'
 
 interface GithubRepo {
   id: number
@@ -13,6 +15,19 @@ interface GithubRepo {
   fork: boolean
 }
 
+interface ProjectCardRepo {
+  id: number
+  name: string
+  description: string | null
+  language: string | null
+  stars: number
+  forks: number
+  url: string
+  homepage: string | null
+  pushedAt: string
+  image: string | null
+}
+
 interface GithubProfile {
   login: string
   name: string | null
@@ -21,6 +36,16 @@ interface GithubProfile {
   following: number
   public_repos: number
   html_url: string
+}
+
+interface RepoCatalogEntry {
+  project_name: string
+  picture?: string
+  description?: string
+}
+
+interface RepoCatalogPayload {
+  repositories?: RepoCatalogEntry[]
 }
 
 const LEVEL_TO_COUNT = [0, 1, 3, 6, 10]
@@ -79,6 +104,18 @@ function getLastYearRange() {
   }
 }
 
+async function loadRepoCatalog() {
+  try {
+    const catalogPath = path.join(process.cwd(), 'public', 'projects', 'repos', 'repositories.json')
+    const file = await readFile(catalogPath, 'utf8')
+    const parsed = JSON.parse(file) as RepoCatalogPayload
+    const repositories = Array.isArray(parsed.repositories) ? parsed.repositories : []
+    return new Map(repositories.map((repo) => [repo.project_name, repo]))
+  } catch {
+    return new Map<string, RepoCatalogEntry>()
+  }
+}
+
 export async function GET(request: NextRequest) {
   const username =
     request.nextUrl.searchParams.get('username')?.trim() || process.env.GITHUB_USERNAME || 'Jaypatil588'
@@ -96,6 +133,7 @@ export async function GET(request: NextRequest) {
   const { from, to } = getLastYearRange()
 
   try {
+    const catalogPromise = loadRepoCatalog()
     const profilePromise = fetch(`https://api.github.com/users/${username}`, {
       headers,
       next: { revalidate: 3600 },
@@ -111,7 +149,8 @@ export async function GET(request: NextRequest) {
       next: { revalidate: 3600 },
     })
 
-    const [profileResponse, reposResponse, contributionsResponse] = await Promise.all([
+    const [catalog, profileResponse, reposResponse, contributionsResponse] = await Promise.all([
+      catalogPromise,
       profilePromise,
       reposPromise,
       contributionsPromise,
@@ -150,6 +189,26 @@ export async function GET(request: NextRequest) {
 
     const totalContributions = heatmap.reduce((sum, day) => sum + day.count, 0)
 
+    const projectRepos: ProjectCardRepo[] = ownRepos
+      .sort((a, b) => new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime())
+      .slice(0, 9)
+      .map((repo) => {
+        const catalogEntry = catalog.get(repo.name)
+
+        return {
+          id: repo.id,
+          name: repo.name,
+          description: catalogEntry?.description || repo.description,
+          language: repo.language,
+          stars: repo.stargazers_count,
+          forks: repo.forks_count,
+          url: repo.html_url,
+          homepage: repo.homepage,
+          pushedAt: repo.pushed_at,
+          image: catalogEntry?.picture ? `/projects/repos/${catalogEntry.picture}` : null,
+        }
+      })
+
     const response = {
       username,
       range: { from, to },
@@ -169,20 +228,7 @@ export async function GET(request: NextRequest) {
         totalContributions,
       },
       heatmap,
-      repos: ownRepos
-        .sort((a, b) => new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime())
-        .slice(0, 9)
-        .map((repo) => ({
-          id: repo.id,
-          name: repo.name,
-          description: repo.description,
-          language: repo.language,
-          stars: repo.stargazers_count,
-          forks: repo.forks_count,
-          url: repo.html_url,
-          homepage: repo.homepage,
-          pushedAt: repo.pushed_at,
-        })),
+      repos: projectRepos,
       dataSource: {
         hasToken: Boolean(token),
         note: `GitHub contribution graph from ${from} to ${to}.`,

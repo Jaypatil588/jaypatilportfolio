@@ -1,59 +1,147 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState, type FormEvent } from 'react'
+import { DefaultChatTransport } from 'ai'
+import { useChat } from '@ai-sdk/react'
+import Image from 'next/image'
+import { Linkedin, Github, FileText, MessageSquare, Send, ArrowLeft, Briefcase, Code, Mail, User, Trophy, ExternalLink, GraduationCap, Star, Users, TrendingUp, Cpu, Sparkles } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { cn } from '@/lib/utils'
-import { Linkedin, Github, FileText, MessageSquare, Send, X, ArrowLeft, Briefcase, Code, Mail, User } from 'lucide-react'
+import { portfolioData } from '@/lib/portfolio-data'
 
 type CardType = 'about' | 'projects' | 'experience' | 'contact' | null
+const CONTACT_FORMSPREE_ENDPOINT = 'https://formspree.io/f/mlgorpjo'
 
 export function PortfolioScreen() {
+  const router = useRouter()
   const [activeCard, setActiveCard] = useState<CardType>(null)
+  const [chatInput, setChatInput] = useState('')
+  const clickTimesRef = useRef<number[]>([])
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
+
+  const { messages, sendMessage, status } = useChat({
+    transport: new DefaultChatTransport({ api: '/api/chat' }),
+  })
+
+  const isLoading = status === 'streaming' || status === 'submitted'
 
   const closeCard = () => setActiveCard(null)
+  const handleProfileClick = () => {
+    const now = Date.now()
+    const recentClicks = [...clickTimesRef.current, now].filter((timestamp) => now - timestamp < 1200)
+    clickTimesRef.current = recentClicks
+
+    if (recentClicks.length >= 3) {
+      clickTimesRef.current = []
+      router.push('/auth')
+    }
+  }
+
+  useEffect(() => {
+    console.log('[rag-ui] status/messages update', { status, messages: messages.length })
+    const el = messagesContainerRef.current
+    if (!el) return
+
+    const scrollToBottom = (behavior: ScrollBehavior = 'smooth') => {
+      el.scrollTo({ top: el.scrollHeight, behavior })
+    }
+
+    // Immediate scroll on message/status changes.
+    scrollToBottom('auto')
+    const raf = requestAnimationFrame(() => scrollToBottom('smooth'))
+
+    // Keep pinned while assistant is streaming token deltas.
+    let interval: ReturnType<typeof setInterval> | undefined
+    if (status === 'streaming') {
+      interval = setInterval(() => scrollToBottom('auto'), 120)
+    }
+
+    return () => {
+      cancelAnimationFrame(raf)
+      if (interval) clearInterval(interval)
+    }
+  }, [messages, status])
+
+  const suggestedQuestions = [
+    'What are your main skills?',
+    'Tell me about your experience',
+    'What projects have you worked on?',
+  ]
 
   return (
-    <div className="w-full h-full bg-white flex overflow-hidden relative">
-      {/* Floating decorative elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-10 right-10 w-20 h-20 border-2 border-sky-100 rounded-full animate-spin-slow" />
-        <div className="absolute bottom-20 left-10 w-16 h-16 border border-blue-100 rounded-full animate-spin-slow-reverse" />
-        <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-sky-200 rounded-full animate-float" />
-        <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-blue-200 rounded-full animate-float animation-delay-300" />
-      </div>
-
+    <div
+      className={cn(
+        'w-full h-full bg-white flex flex-col lg:flex-row relative',
+        activeCard ? 'overflow-hidden' : 'overflow-y-auto no-scrollbar lg:overflow-hidden'
+      )}
+    >
       {/* Left side - Profile & Cards (60%) */}
-      <div className="w-[60%] h-full p-8 flex flex-col relative z-10">
+      <div
+        className={cn(
+          'w-full lg:w-[60%] h-auto lg:h-full p-4 sm:p-6 lg:p-8 flex flex-col relative z-10',
+          activeCard ? 'overflow-hidden' : 'overflow-visible lg:overflow-y-auto no-scrollbar'
+        )}
+      >
         {/* Profile Section */}
-        <div className="flex items-start gap-6 mb-8">
+        <div className="flex items-start gap-4 sm:gap-6 mb-5 sm:mb-7 lg:mb-8">
           {/* Profile Photo */}
-          <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-sky-100 to-blue-100 border-2 border-sky-200 flex items-center justify-center shadow-lg overflow-hidden">
-            <div className="w-20 h-20 bg-gradient-to-br from-slate-300 to-slate-400 rounded-xl flex items-center justify-center">
-              <User className="w-12 h-12 text-white" />
+          <button
+            type="button"
+            onClick={handleProfileClick}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault()
+                handleProfileClick()
+              }
+            }}
+            title="Triple-click to open auth"
+            aria-label="Profile photo. Triple-click to open auth"
+            className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 shrink-0 rounded-2xl bg-gradient-to-br from-sky-100 to-blue-100 border-2 border-sky-200 p-0 flex items-center justify-center shadow-lg overflow-hidden cursor-pointer transition-all hover:scale-[1.03] hover:border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-300/70"
+          >
+            <div className="w-full h-full rounded-[0.875rem] overflow-hidden">
+              <Image
+                src="/mugshot.jpeg"
+                alt="Jay Patil profile photo"
+                width={320}
+                height={320}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
-          </div>
+          </button>
 
-          {/* Name & Links */}
-          <div className="flex-1">
-            <h1 className="text-3xl font-bold text-slate-800 mb-1">Jay Patil</h1>
-            <p className="text-slate-500 text-sm mb-4">Software Engineer</p>
-            
-            {/* Icon row */}
-            <div className="flex gap-3">
-              <a href="#" className="w-10 h-10 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-sky-200/50">
-                <Linkedin className="w-5 h-5 text-sky-600" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg">
-                <Github className="w-5 h-5 text-slate-700" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-blue-200/50">
-                <FileText className="w-5 h-5 text-blue-600" />
-              </a>
+          {/* Name, Links, Summary */}
+          <div className="flex-1 min-w-0">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-6">
+              <div className="min-w-0 md:min-w-[17rem]">
+                <h1 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-1 whitespace-nowrap">Jay Patil</h1>
+                <p className="text-slate-500 text-base mb-4">Software Engineer</p>
+
+                {/* Icon row */}
+                <div className="flex gap-3">
+                  <a href="#" className="w-10 h-10 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-sky-200/50">
+                    <Linkedin className="w-5 h-5 text-sky-600" />
+                  </a>
+                  <a href="#" className="w-10 h-10 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg">
+                    <Github className="w-5 h-5 text-slate-700" />
+                  </a>
+                  <a href="#" className="w-10 h-10 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-blue-200/50">
+                    <FileText className="w-5 h-5 text-blue-600" />
+                  </a>
+                </div>
+              </div>
+
+              <p className="text-sm sm:text-[15px] leading-relaxed text-slate-600 max-w-[28rem] md:pt-1">
+                Building scalable cloud-native apps with strong backend systems, full-stack delivery, and practical AI/ML integration.
+              </p>
             </div>
           </div>
         </div>
 
         {/* 2x2 Card Grid */}
-        <div className="flex-1 grid grid-cols-2 gap-4">
+        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           {/* About Me Card */}
           <button
             onClick={() => setActiveCard('about')}
@@ -62,8 +150,8 @@ export function PortfolioScreen() {
             <div className="w-12 h-12 rounded-xl bg-sky-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <User className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-lg font-bold text-slate-800 mb-2">About Me</h3>
-            <p className="text-sm text-slate-500 line-clamp-2">Learn about my background, skills, and interests</p>
+            <h3 className="text-xl font-bold text-slate-800 mb-2">About Me</h3>
+            <p className="text-base text-slate-500 line-clamp-2">Learn about my background, skills, and interests</p>
           </button>
 
           {/* Projects Card */}
@@ -74,8 +162,8 @@ export function PortfolioScreen() {
             <div className="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <Code className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-lg font-bold text-slate-800 mb-2">Projects</h3>
-            <p className="text-sm text-slate-500 line-clamp-2">Showcase of my featured work and side projects</p>
+            <h3 className="text-xl font-bold text-slate-800 mb-2">Projects</h3>
+            <p className="text-base text-slate-500 line-clamp-2">Showcase of my featured work and side projects</p>
           </button>
 
           {/* Experience Card */}
@@ -86,8 +174,8 @@ export function PortfolioScreen() {
             <div className="w-12 h-12 rounded-xl bg-indigo-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <Briefcase className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-lg font-bold text-slate-800 mb-2">Experience</h3>
-            <p className="text-sm text-slate-500 line-clamp-2">My professional journey and career timeline</p>
+            <h3 className="text-xl font-bold text-slate-800 mb-2">Experience</h3>
+            <p className="text-base text-slate-500 line-clamp-2">My professional journey and career timeline</p>
           </button>
 
           {/* Contact Card */}
@@ -98,14 +186,14 @@ export function PortfolioScreen() {
             <div className="w-12 h-12 rounded-xl bg-slate-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <Mail className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-lg font-bold text-slate-800 mb-2">Contact Me</h3>
-            <p className="text-sm text-slate-500 line-clamp-2">Get in touch for opportunities or collaborations</p>
+            <h3 className="text-xl font-bold text-slate-800 mb-2">Contact Me</h3>
+            <p className="text-base text-slate-500 line-clamp-2">Get in touch for opportunities or collaborations</p>
           </button>
         </div>
       </div>
 
       {/* Right side - RAG Chat (40%) */}
-      <div className="w-[40%] h-full bg-gradient-to-b from-slate-50 to-slate-100 border-l border-slate-200 flex flex-col">
+      <div className="w-full lg:w-[40%] h-auto lg:h-full min-h-[38%] bg-gradient-to-b from-slate-50 to-slate-100 border-t lg:border-t-0 lg:border-l border-slate-200 flex flex-col">
         {/* Chat header */}
         <div className="p-4 border-b border-slate-200 bg-white">
           <div className="flex items-center gap-3">
@@ -113,61 +201,130 @@ export function PortfolioScreen() {
               <MessageSquare className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h3 className="font-bold text-slate-800">Ask Jay</h3>
-              <p className="text-xs text-slate-500">AI-powered assistant</p>
+              <h3 className="text-xl font-bold text-slate-800">Ask Jay</h3>
+              <p className="text-sm text-slate-500">Use the chat to discover cool things about me!</p>
             </div>
             <div className="ml-auto flex items-center gap-2">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-xs text-green-600">Online</span>
+              <span className="text-sm text-green-600">Online</span>
             </div>
           </div>
         </div>
 
         {/* Chat messages area */}
-        <div className="flex-1 p-4 overflow-y-auto">
-          {/* Welcome message */}
-          <div className="flex gap-3 mb-4">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center shrink-0">
-              <MessageSquare className="w-4 h-4 text-white" />
-            </div>
-            <div className="bg-white rounded-2xl rounded-tl-none p-4 shadow-sm border border-slate-100 max-w-[85%]">
-              <p className="text-sm text-slate-700">
-                Hi! I&apos;m Jay&apos;s AI assistant. Ask me anything about his skills, experience, or projects!
-              </p>
-            </div>
-          </div>
+        <div ref={messagesContainerRef} className="flex-1 p-4 overflow-y-auto no-scrollbar space-y-3">
+          {messages.length === 0 && (
+            <>
+              <div className="flex gap-3 mb-4">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center shrink-0">
+                  <MessageSquare className="w-4 h-4 text-white" />
+                </div>
+                <div className="bg-white rounded-2xl rounded-tl-none p-4 shadow-sm border border-slate-100 max-w-[92%]">
+                  <p className="text-base text-slate-700">
+                    Hello! What would you like to know?
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-2 mb-4">
+                <p className="text-sm text-slate-400 uppercase tracking-wider">Suggested questions</p>
+                {suggestedQuestions.map((q) => (
+                  <button
+                    key={q}
+                    onClick={() => {
+                      if (isLoading) return
+                      console.log('[rag-ui] send suggested question', { question: q })
+                      sendMessage({ text: q })
+                    }}
+                    className="block w-full text-left text-base bg-white hover:bg-sky-50 border border-slate-200 hover:border-sky-300 rounded-xl px-4 py-3 transition-all text-slate-600 hover:text-sky-700"
+                  >
+                    {q}
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
 
-          {/* Suggested questions */}
-          <div className="space-y-2 mb-4">
-            <p className="text-xs text-slate-400 uppercase tracking-wider">Suggested questions</p>
-            {[
-              'What are your main skills?',
-              'Tell me about your experience',
-              'What projects have you worked on?'
-            ].map((q, i) => (
-              <button
-                key={i}
-                className="block w-full text-left text-sm bg-white hover:bg-sky-50 border border-slate-200 hover:border-sky-300 rounded-xl px-4 py-2.5 transition-all text-slate-600 hover:text-sky-700"
-              >
-                {q}
-              </button>
-            ))}
-          </div>
+          {messages.map((message) => {
+            const text = message.parts
+              .filter((part) => part.type === 'text')
+              .map((part) => part.text)
+              .join('\n')
+              .trim()
+
+            if (!text) return null
+
+            const isUser = message.role === 'user'
+            return (
+              <div key={message.id} className={`flex ${isUser ? 'justify-end' : 'justify-start'} gap-3`}>
+                {!isUser && (
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center shrink-0">
+                    <MessageSquare className="w-4 h-4 text-white" />
+                  </div>
+                )}
+                <div
+                  className={
+                    isUser
+                      ? 'max-w-[90%] bg-blue-600 text-white rounded-2xl rounded-tr-none p-4 text-base shadow-sm'
+                      : 'max-w-[92%] bg-white rounded-2xl rounded-tl-none p-4 shadow-sm border border-slate-100 text-base text-slate-700'
+                  }
+                >
+                  {isUser ? (
+                    <p className="whitespace-pre-wrap">{text}</p>
+                  ) : (
+                    <div className="leading-relaxed [&_p]:my-2 [&_p:first-child]:mt-0 [&_p:last-child]:mb-0 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-1 [&_strong]:font-semibold [&_a]:text-sky-700 [&_a]:underline [&_code]:rounded [&_code]:bg-slate-100 [&_code]:px-1 [&_code]:py-0.5 [&_pre]:overflow-x-auto [&_pre]:rounded-lg [&_pre]:bg-slate-100 [&_pre]:p-3">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>{text}</ReactMarkdown>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )
+          })}
+
+          {isLoading && (
+            <div className="flex gap-3">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center shrink-0">
+                <MessageSquare className="w-4 h-4 text-white" />
+              </div>
+              <div className="bg-white rounded-2xl rounded-tl-none p-4 shadow-sm border border-slate-100">
+                <div className="flex gap-1.5">
+                  <span className="w-2.5 h-2.5 bg-sky-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                  <span className="w-2.5 h-2.5 bg-sky-400 rounded-full animate-bounce" style={{ animationDelay: '120ms' }} />
+                  <span className="w-2.5 h-2.5 bg-sky-400 rounded-full animate-bounce" style={{ animationDelay: '240ms' }} />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Chat input */}
-        <div className="p-4 border-t border-slate-200 bg-white">
+        <form
+          className="p-4 border-t border-slate-200 bg-white"
+          onSubmit={(e) => {
+            e.preventDefault()
+            const q = chatInput.trim()
+            if (!q || isLoading) return
+            console.log('[rag-ui] submit question', { question: q })
+            sendMessage({ text: q })
+            setChatInput('')
+          }}
+        >
           <div className="flex gap-2">
             <input
               type="text"
-              placeholder="Type your question..."
-              className="flex-1 px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
+              value={chatInput}
+              onChange={(e) => setChatInput(e.target.value)}
+            placeholder="Ask me anything!"
+              className="flex-1 px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
             />
-            <button className="w-12 h-12 bg-gradient-to-r from-sky-500 to-blue-600 rounded-xl flex items-center justify-center hover:from-sky-400 hover:to-blue-500 transition-all hover:scale-105 shadow-lg shadow-sky-300/30">
+            <button
+              type="submit"
+              disabled={isLoading || !chatInput.trim()}
+              className="w-12 h-12 bg-gradient-to-r from-sky-500 to-blue-600 rounded-xl flex items-center justify-center hover:from-sky-400 hover:to-blue-500 transition-all hover:scale-105 shadow-lg shadow-sky-300/30 disabled:opacity-50 disabled:hover:scale-100"
+            >
               <Send className="w-5 h-5 text-white" />
             </button>
           </div>
-        </div>
+        </form>
       </div>
 
       {/* Card Popup Overlay */}
@@ -177,11 +334,11 @@ export function PortfolioScreen() {
           onClick={closeCard}
         >
           <div
-            className="w-[80%] max-h-[90%] bg-white rounded-3xl shadow-2xl overflow-hidden animate-slide-up"
+            className="w-[94%] md:w-[88%] lg:w-[80%] h-[92%] bg-white rounded-3xl shadow-2xl overflow-hidden animate-slide-up flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Popup Header */}
-            <div className="flex items-center gap-4 p-6 border-b border-slate-100">
+            <div className="flex items-center gap-4 p-5 md:p-6 border-b border-slate-100 shrink-0">
               <button
                 onClick={closeCard}
                 className="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
@@ -192,10 +349,22 @@ export function PortfolioScreen() {
             </div>
 
             {/* Popup Content */}
-            <div className="p-8 overflow-y-auto max-h-[calc(90vh-100px)]">
-              {activeCard === 'about' && <AboutContent />}
-              {activeCard === 'projects' && <ProjectsContent />}
-              {activeCard === 'experience' && <ExperienceContent />}
+            <div className="flex-1 p-5 md:p-8 min-h-0 overscroll-contain">
+              {activeCard === 'about' && (
+                <div className="h-full overflow-y-auto no-scrollbar overscroll-contain">
+                  <AboutContent />
+                </div>
+              )}
+              {activeCard === 'projects' && (
+                <div className="h-full overflow-y-auto no-scrollbar overscroll-contain">
+                  <ProjectsContent />
+                </div>
+              )}
+              {activeCard === 'experience' && (
+                <div className="h-full overflow-y-auto no-scrollbar overscroll-contain">
+                  <ExperienceContent />
+                </div>
+              )}
               {activeCard === 'contact' && <ContactContent />}
             </div>
           </div>
@@ -254,80 +423,378 @@ function AboutContent() {
 }
 
 function ProjectsContent() {
-  const projects = [
-    { title: 'Project Alpha', description: 'Project description placeholder - will be connected to database' },
-    { title: 'Project Beta', description: 'Project description placeholder - will be connected to database' },
-    { title: 'Project Gamma', description: 'Project description placeholder - will be connected to database' },
-    { title: 'Project Delta', description: 'Project description placeholder - will be connected to database' },
-  ]
+  const [projects, setProjects] = useState<
+    Array<{ id: number; name: string; title: string; description: string; url: string; image: string | null }>
+  >([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const rankOrder = ['PulseFi', 'CC-Agents-Simulation', 'leetcode-premium-sorter', 'jaypatilportfolio'] as const
+    const titleMap: Record<(typeof rankOrder)[number], string> = {
+      PulseFi: 'PulseFi',
+      'CC-Agents-Simulation': 'Collaborative AI Agents Simulation',
+      'leetcode-premium-sorter': 'LeetCode Premium Problem Sorter',
+      jaypatilportfolio: 'EV Portfolio OS (This Project)',
+    }
+
+    const loadProjects = async () => {
+      try {
+        setLoading(true)
+        const response = await fetch('/api/github')
+        if (!response.ok) {
+          throw new Error(`Failed to fetch projects: ${response.status}`)
+        }
+
+        const data = await response.json()
+        const repos = Array.isArray(data?.repos) ? data.repos : []
+        const repoMap = new Map<string, any>(repos.map((repo: any) => [String(repo.name), repo]))
+        const ranked = rankOrder
+          .map((name) => repoMap.get(name))
+          .filter(Boolean)
+          .map((repo: any) => ({
+            id: Number(repo.id),
+            name: String(repo.name),
+            title: titleMap[repo.name as keyof typeof titleMap] ?? String(repo.name),
+            description: String(repo.description || 'No description available'),
+            url: String(repo.url || '#'),
+            image: repo.image ? String(repo.image) : null,
+          }))
+
+        setProjects(ranked)
+      } catch (error) {
+        console.error('[projects-content] failed to load ranked projects', error)
+        setProjects([])
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadProjects()
+  }, [])
+  const rankBadgeClasses = [
+    'bg-yellow-100/95 border-yellow-300 text-yellow-800',
+    'bg-slate-100/95 border-slate-300 text-slate-700',
+    'bg-orange-100/95 border-orange-300 text-orange-800',
+    'bg-sky-100/95 border-sky-300 text-sky-800',
+  ] as const
 
   return (
-    <div className="grid grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+      {loading && (
+        <div className="col-span-full text-center text-slate-500 py-8">Loading ranked projects...</div>
+      )}
+      {!loading && projects.length === 0 && (
+        <div className="col-span-full text-center text-slate-500 py-8">Unable to load ranked projects.</div>
+      )}
       {projects.map((project, i) => (
-        <div key={i} className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 hover:shadow-lg hover:border-sky-300 transition-all group">
+        <a
+          key={project.id}
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 hover:shadow-lg hover:border-sky-300 transition-all group block"
+        >
+          <div
+            className={cn(
+              'absolute top-3 left-3 z-10 inline-flex items-center gap-1 rounded-full border px-2 py-1 text-[11px] font-semibold shadow-sm',
+              rankBadgeClasses[i] ?? rankBadgeClasses[3]
+            )}
+          >
+            <Trophy className="w-3 h-3" />
+            <span>#{i + 1}</span>
+          </div>
           {/* Project image placeholder */}
-          <div className="h-40 bg-gradient-to-br from-sky-100 to-blue-100 flex items-center justify-center">
-            <Code className="w-12 h-12 text-sky-400 group-hover:scale-110 transition-transform" />
+          <div className="h-32 md:h-40 bg-gradient-to-br from-sky-100 to-blue-100 flex items-center justify-center relative">
+            {project.image ? (
+              <Image
+                src={project.image}
+                alt={`${project.title} preview`}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                unoptimized
+              />
+            ) : (
+              <Code className="w-12 h-12 text-sky-400 group-hover:scale-110 transition-transform" />
+            )}
           </div>
           {/* Project info */}
           <div className="p-4">
-            <h4 className="font-bold text-slate-800 mb-2">{project.title}</h4>
-            <p className="text-sm text-slate-500">{project.description}</p>
+            <h4 className="font-bold text-slate-800 mb-2 line-clamp-2">{project.title}</h4>
+            <p className="text-sm text-slate-500 line-clamp-5">{project.description}</p>
+            <div className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-sky-700">
+              Open project
+              <ExternalLink className="w-3 h-3" />
+            </div>
           </div>
-        </div>
+        </a>
       ))}
     </div>
   )
 }
 
 function ExperienceContent() {
-  const experiences = [
-    { role: 'Senior Software Engineer', company: 'Company A', period: '2022 - Present', description: 'Experience description placeholder' },
-    { role: 'Software Engineer', company: 'Company B', period: '2020 - 2022', description: 'Experience description placeholder' },
-    { role: 'Junior Developer', company: 'Company C', period: '2019 - 2020', description: 'Experience description placeholder' },
-  ]
+  const kindMeta = {
+    experience: { label: 'Work Experience', Icon: Briefcase },
+    recognition: { label: 'Recognition', Icon: Star },
+    education: { label: 'Education', Icon: GraduationCap },
+    leadership: { label: 'Leadership', Icon: Users },
+  } as const
+
+  const highlightIcons = [TrendingUp, Cpu, Sparkles] as const
+
+  const getStepColor = (index: number, total: number) => {
+    if (total <= 1) return '#0ea5e9'
+    const t = (total - 1 - index) / (total - 1)
+    const start = { r: 37, g: 99, b: 235 } // blue-600
+    const end = { r: 16, g: 185, b: 129 } // emerald-500
+    const r = Math.round(start.r + (end.r - start.r) * t)
+    const g = Math.round(start.g + (end.g - start.g) * t)
+    const b = Math.round(start.b + (end.b - start.b) * t)
+    return `rgb(${r}, ${g}, ${b})`
+  }
+
+  const monthMap: Record<string, number> = {
+    jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+    jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11,
+  }
+
+  const getEventDate = (period: string) => {
+    const cleaned = period.trim()
+    const withDay = cleaned.match(/^([A-Za-z]{3,9})\s+(\d{1,2}),\s+(\d{4})/)
+    if (withDay) {
+      const month = monthMap[withDay[1].slice(0, 3).toLowerCase()] ?? 0
+      return new Date(Number(withDay[3]), month, Number(withDay[2])).getTime()
+    }
+
+    const monthYear = cleaned.match(/^([A-Za-z]{3,9})\s+(\d{4})/)
+    if (monthYear) {
+      const month = monthMap[monthYear[1].slice(0, 3).toLowerCase()] ?? 0
+      return new Date(Number(monthYear[2]), month, 1).getTime()
+    }
+
+    return 0
+  }
+
+  const timelineEvents = [
+    ...portfolioData.experience.map((exp) => ({
+      kind: 'experience' as const,
+      title: exp.title,
+      org: exp.company,
+      period: exp.period,
+      points: exp.highlights,
+    })),
+    {
+      kind: 'recognition' as const,
+      title: 'Best Junior Developer Recognition',
+      org: 'Ador Powertron',
+      period: 'March 22, 2023',
+      points: [
+        'Received organization-level recognition for high-impact contributions to EV charging software delivery.',
+        'Acknowledged for improving development execution quality across feature releases and test-readiness.',
+      ],
+    },
+    {
+      kind: 'recognition' as const,
+      title: 'Adobe Hackathon - Best Feedback',
+      org: 'Adobe Hackathon',
+      period: 'January 2025',
+      points: [
+        'Won Best Feedback recognition for clear, actionable product and UX review insights.',
+        'Delivered recommendations that helped improve iteration speed and overall submission quality.',
+      ],
+    },
+    {
+      kind: 'education' as const,
+      title: "Started Master's Degree",
+      org: 'Santa Clara University',
+      period: 'September 2024',
+      points: [
+        "Started Master's in Computer Science and Engineering with focus on AI systems and scalable software engineering.",
+        'Built academic and applied project depth in distributed systems, cloud tooling, and production-grade development.',
+      ],
+    },
+    {
+      kind: 'education' as const,
+      title: 'Graduated B.Tech',
+      org: 'MIT ADT',
+      period: 'August 2022',
+      points: [
+        'Completed Bachelor of Technology in Computer Science and Engineering.',
+        'Built foundations in software engineering, systems, and applied development projects.',
+      ],
+    },
+    {
+      kind: 'leadership' as const,
+      title: 'Community Lead',
+      org: 'ACM-G',
+      period: 'November 2025',
+      points: [
+        'Led ACM-G community initiatives and coordinated technical programming to increase active participation.',
+        'Organized events and engagement activities connecting student developers with practical engineering discussions.',
+      ],
+    },
+  ].sort((a, b) => getEventDate(b.period) - getEventDate(a.period))
+
+  const getOrgIconUrl = (org: string) => {
+    const lower = org.toLowerCase()
+    if (lower.includes('santa clara')) return 'https://www.google.com/s2/favicons?domain=scu.edu&sz=128'
+    if (lower.includes('ador')) return 'https://www.google.com/s2/favicons?domain=adorpowertron.com&sz=128'
+    if (lower.includes('adobe')) return 'https://www.google.com/s2/favicons?domain=adobe.com&sz=128'
+    if (lower.includes('acm')) return 'https://www.google.com/s2/favicons?domain=acm.org&sz=128'
+    return 'https://www.google.com/s2/favicons?domain=github.com&sz=128'
+  }
 
   return (
-    <div className="relative">
-      {/* Timeline line */}
-      <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-400 to-blue-500" />
+    <div className="relative overflow-hidden rounded-3xl border border-sky-200/70 bg-gradient-to-b from-slate-50 via-sky-50 to-blue-50 p-6 md:p-8">
+      <div className="circuit-board-bg pointer-events-none absolute inset-0">
+        <svg viewBox="0 0 1200 900" className="h-full w-full" preserveAspectRatio="none" aria-hidden>
+          <path className="circuit-trace" d="M40 120 H360 V210 H620" />
+          <path className="circuit-trace" d="M1180 160 H860 V260 H630" />
+          <path className="circuit-trace" d="M100 350 H420 V460 H600" />
+          <path className="circuit-trace" d="M1120 430 H780 V540 H640" />
+          <path className="circuit-trace" d="M60 650 H330 V760 H560" />
+          <path className="circuit-trace" d="M1140 720 H830 V820 H620" />
+          <circle className="circuit-node" cx="360" cy="210" r="4" />
+          <circle className="circuit-node" cx="860" cy="260" r="4" />
+          <circle className="circuit-node" cx="420" cy="460" r="4" />
+          <circle className="circuit-node" cx="780" cy="540" r="4" />
+          <circle className="circuit-node" cx="330" cy="760" r="4" />
+          <circle className="circuit-node" cx="830" cy="820" r="4" />
+        </svg>
+      </div>
 
-      <div className="space-y-8">
-        {experiences.map((exp, i) => (
-          <div key={i} className="relative flex gap-6 pl-12">
-            {/* Timeline dot */}
-            <div className="absolute left-4 w-5 h-5 rounded-full bg-white border-4 border-sky-400 -translate-x-1/2" />
-            
-            {/* Content */}
-            <div className="flex-1 bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:shadow-lg transition-all">
-              <div className="flex justify-between items-start mb-2">
-                <div>
-                  <h4 className="font-bold text-slate-800">{exp.role}</h4>
-                  <p className="text-sky-600 font-medium">{exp.company}</p>
+      <div className="absolute left-1/2 top-0 bottom-14 w-[6px] -translate-x-1/2 rounded-full bg-gradient-to-b from-sky-300 via-blue-500 to-sky-300" />
+      <div className="ev-timeline-pulse absolute left-1/2 top-0 bottom-14 w-[6px] -translate-x-1/2 rounded-full" />
+      <div className="ev-timeline-flow absolute left-1/2 top-0 bottom-14 w-2 -translate-x-1/2 rounded-full" />
+
+      <div className="relative z-10 space-y-12">
+        {timelineEvents.map((event, i) => {
+          const stepColor = getStepColor(i, timelineEvents.length)
+          return (
+          <div key={`${event.title}-${i}`} className="relative grid grid-cols-[1fr_auto_1fr] items-start gap-8 pt-12">
+            <span className="timeline-junction-dot pointer-events-none absolute left-1/2 top-[7px] -translate-x-1/2" />
+            <span
+              className={cn(
+                'timeline-connector pointer-events-none absolute top-[14px]',
+                i % 2 === 0 ? 'right-1/2 mr-3' : 'left-1/2 ml-3'
+              )}
+              style={{ backgroundColor: stepColor }}
+            />
+
+            <div className={cn('min-h-1', i % 2 === 0 ? 'col-start-1' : 'col-start-3')}>
+              <div className={cn('relative max-w-[460px] space-y-3', i % 2 === 0 ? 'ml-auto text-right' : 'mr-auto text-left')}>
+                <div className={cn('flex items-center gap-2', i % 2 === 0 ? 'justify-end' : 'justify-start')}>
+                  {i % 2 !== 0 && <img src={getOrgIconUrl(event.org)} alt={`${event.org} icon`} className="h-7 w-7 rounded-full border border-sky-300/60 bg-white p-0.5" />}
+                  <div className={cn('rounded-full border px-3 py-1 text-xs font-semibold', i % 2 === 0 ? 'border-blue-300 bg-blue-100/80 text-blue-700' : 'border-red-300 bg-red-100/80 text-red-700')}>
+                    {event.period}
+                  </div>
+                  {i % 2 === 0 && <img src={getOrgIconUrl(event.org)} alt={`${event.org} icon`} className="h-7 w-7 rounded-full border border-sky-300/60 bg-white p-0.5" />}
                 </div>
-                <span className="text-sm text-slate-400 bg-slate-100 px-3 py-1 rounded-full">{exp.period}</span>
+
+                <div
+                  className={cn(
+                    'timeline-title-tag inline-flex max-w-full items-center gap-2 px-4 py-2 text-lg font-extrabold uppercase tracking-tight text-white',
+                    i % 2 === 0 ? 'timeline-title-tag-left' : 'timeline-title-tag-right'
+                  )}
+                  style={{
+                    backgroundImage:
+                      i % 2 === 0
+                        ? 'linear-gradient(90deg, #1d4ed8 0%, #2563eb 56%, #3b82f6 100%)'
+                        : 'linear-gradient(270deg, #dc2626 0%, #ef4444 56%, #f87171 100%)',
+                  }}
+                >
+                  {(() => {
+                    const Icon = kindMeta[event.kind].Icon
+                    return <Icon className="h-5 w-5 shrink-0" />
+                  })()}
+                  <span className="truncate">{event.title}</span>
+                </div>
+
+                <p className={cn('text-sm font-semibold', i % 2 === 0 ? 'text-blue-700' : 'text-red-700')}>{event.org}</p>
+
+                <ul className={cn('space-y-2 text-sm text-slate-600', i % 2 === 0 ? 'pr-1' : 'pl-1')}>
+                  {event.points.map((point, pointIndex) => (
+                    <li key={`${event.title}-point-${pointIndex}`} className={cn('flex items-start gap-2.5', i % 2 === 0 ? 'flex-row-reverse text-right' : 'text-left')}>
+                      {(() => {
+                        const HighlightIcon = highlightIcons[pointIndex % highlightIcons.length]
+                        return (
+                          <span className={cn('mt-[1px] inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border bg-white', i % 2 === 0 ? 'border-blue-300 text-blue-600' : 'border-red-300 text-red-600')}>
+                            <HighlightIcon className="h-3 w-3" />
+                          </span>
+                        )
+                      })()}
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <p className="text-sm text-slate-500">{exp.description}</p>
             </div>
+
+            <div className={cn('min-h-1', i % 2 === 0 ? 'col-start-3' : 'col-start-1')} />
           </div>
-        ))}
+        )})}
       </div>
     </div>
   )
 }
 
 function ContactContent() {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+  const [statusText, setStatusText] = useState('')
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault()
+    setStatus('sending')
+    setStatusText('')
+
+    try {
+      const response = await fetch(CONTACT_FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: name || 'Not provided',
+          email,
+          message,
+          _subject: `Portfolio contact: ${name || 'New message'}`,
+        }),
+      })
+
+      if (!response.ok) {
+        const errorPayload = await response.json().catch(() => null)
+        throw new Error(errorPayload?.error || 'Failed to send message.')
+      }
+
+      setStatus('sent')
+      setStatusText('Message sent. Thank you!')
+      setName('')
+      setEmail('')
+      setMessage('')
+    } catch (error) {
+      setStatus('error')
+      setStatusText(error instanceof Error ? error.message : 'Could not send message.')
+    }
+  }
+
   return (
     <div className="max-w-xl mx-auto">
       <p className="text-slate-600 mb-8 text-center">
         I&apos;d love to hear from you! Fill out the form below and I&apos;ll get back to you as soon as possible.
       </p>
 
-      <div className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-2">Name</label>
           <input
             type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
             placeholder="Your name"
           />
@@ -336,6 +803,9 @@ function ContactContent() {
           <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
           <input
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
             className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
             placeholder="your@email.com"
           />
@@ -344,14 +814,32 @@ function ContactContent() {
           <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
           <textarea
             rows={4}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
             className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300 resize-none"
             placeholder="Your message..."
           />
         </div>
-        <button className="w-full py-4 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold rounded-xl hover:from-sky-400 hover:to-blue-500 transition-all hover:scale-[1.02] shadow-lg shadow-sky-300/30">
-          Send Message
+        <p
+          className={`text-sm ${
+            status === 'sent'
+              ? 'text-emerald-600'
+              : status === 'error'
+                ? 'text-red-600'
+                : 'text-slate-500'
+          }`}
+        >
+          {statusText || ' '}
+        </p>
+        <button
+          type="submit"
+          disabled={status === 'sending'}
+          className="w-full py-4 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold rounded-xl hover:from-sky-400 hover:to-blue-500 transition-all hover:scale-[1.02] shadow-lg shadow-sky-300/30 disabled:opacity-60 disabled:hover:scale-100"
+        >
+          {status === 'sending' ? 'Sending...' : 'Send Message'}
         </button>
-      </div>
+      </form>
     </div>
   )
 }

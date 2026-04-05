@@ -76,7 +76,7 @@
     {
       "project_name": "CC-Agents-Simulation",
       "picture": "images/cc-agents-simulation.svg",
-      "description": "An event-driven narrative simulation built on AI Town where autonomous agents generate evolving story arcs through conversations. It adds structured story phases, theme mutation, dynamic character generation, Convex-backed real-time state, and multimedia layers like TTS and context-aware music.",
+      "description": "CC-Agents-Simulation is a virtual world where AI characters talk to each other and those conversations automatically build a story. In short: agent chats are the input, and a story engine is the output. Architecture: Convex stores world state and events, agent conversations trigger story updates, and a React/Pixi frontend shows both the live world and the evolving narrative timeline.",
       "commit_messages": [
         "Update README to focus on Story-Driven Generative Agents project",
         "removed convex n other frontend stuff not needed",

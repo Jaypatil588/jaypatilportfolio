@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { ArrowLeft } from 'lucide-react'
 
 export default function AuthPage() {
   const router = useRouter()
@@ -37,6 +38,21 @@ export default function AuthPage() {
   return (
     <main className="min-h-screen bg-background flex items-center justify-center px-4">
       <section className="w-full max-w-md rounded-2xl border border-primary/20 bg-card/70 p-8 shadow-2xl shadow-primary/10">
+        <button
+          type="button"
+          onClick={() => {
+            if (typeof window !== 'undefined' && window.history.length > 1) {
+              router.back()
+              return
+            }
+            router.push('/')
+          }}
+          className="mb-5 inline-flex items-center gap-2 rounded-lg border border-primary/25 px-3 py-2 text-sm text-foreground hover:bg-primary/10 transition-colors"
+          aria-label="Go back"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back
+        </button>
         <h1 className="text-2xl font-semibold text-foreground">Admin Auth</h1>
         <p className="mt-2 text-sm text-muted-foreground">Enter passcode to continue to dashboard.</p>
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
@@ -62,4 +78,3 @@ export default function AuthPage() {
     </main>
   )
 }
-

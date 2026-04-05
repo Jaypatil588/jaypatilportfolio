@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 
 interface ChargerSceneProps {
-  onStart: () => void
+  onStart: (focus?: { xPct: number; yPct: number }) => void
 }
 
 // Source coordinate space for final.webm
@@ -56,7 +56,12 @@ export function ChargerScene({ onStart }: ChargerSceneProps) {
 
       <button
         type="button"
-        onClick={onStart}
+        onClick={() =>
+          onStart({
+            xPct: ((boxLeft + boxWidth / 2) / viewport.w) * 100,
+            yPct: ((boxTop + boxHeight / 2) / viewport.h) * 100,
+          })
+        }
         aria-label="Enter portfolio"
         className="absolute cursor-pointer flex items-center justify-center text-[#0b84d8] font-bold text-center leading-tight hover:text-[#0667ac] transition-colors"
         style={{

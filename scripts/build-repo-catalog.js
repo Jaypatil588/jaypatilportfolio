@@ -16,6 +16,8 @@ const CONCURRENCY = 4;
 const DESCRIPTION_OVERRIDES = {
   PulseFi:
     "PulseFi is a hardware-first heartbeat and human-presence detection system that uses ESP32 Wi-Fi CSI streams plus MAX30105 ground-truth BPM. It runs a two-stage ML pipeline (presence classification + BPM regression) with live serial inference, firmware TX/RX modules, and a Python dashboard for real-time signal-driven vitals estimation.",
+  "CC-Agents-Simulation":
+    "CC-Agents-Simulation is a virtual world where AI characters talk to each other and those conversations automatically build a story. In short: agent chats are the input, and a story engine is the output. Architecture: Convex stores world state and events, agent conversations trigger story updates, and a React/Pixi frontend shows both the live world and the evolving narrative timeline.",
 };
 
 async function main() {

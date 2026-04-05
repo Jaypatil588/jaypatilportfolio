@@ -15,7 +15,7 @@ interface GithubProject {
   stars: number
   forks: number
   topics: string[]
-  image?: string
+  image?: string | null
 }
 
 export function ProjectsWindow() {
@@ -83,7 +83,7 @@ export function ProjectsWindow() {
     }
   }
 
-  if (windowState === 'minimized' || windowState === 'closed') return null
+  if (windowState === 'minimized') return null
 
   return (
     <div
@@ -169,15 +169,27 @@ export function ProjectsWindow() {
                   >
                     {/* Image Section */}
                     <div className="w-full h-48 bg-gradient-to-br from-purple-600/20 to-pink-600/20 relative overflow-hidden group">
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#16213e]" />
-                      <div className="absolute inset-0 flex items-center justify-center text-6xl opacity-30">
-                        {project.language === 'TypeScript' ? '📘' :
-                         project.language === 'JavaScript' ? '📒' :
-                         project.language === 'Python' ? '🐍' :
-                         project.language === 'Go' ? '🐹' :
-                         project.language === 'Rust' ? '🦀' :
-                         '💻'}
-                      </div>
+                      {project.image ? (
+                        <Image
+                          src={project.image}
+                          alt={`${project.name} project cover`}
+                          fill
+                          sizes="320px"
+                          className="object-cover"
+                          priority={idx === activeIndex}
+                          unoptimized
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center text-6xl opacity-30">
+                          {project.language === 'TypeScript' ? '📘' :
+                           project.language === 'JavaScript' ? '📒' :
+                           project.language === 'Python' ? '🐍' :
+                           project.language === 'Go' ? '🐹' :
+                           project.language === 'Rust' ? '🦀' :
+                           '💻'}
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-b from-white/[0.04] via-transparent to-[#16213e]/30" />
                     </div>
 
                     {/* Content Section */}
@@ -186,7 +198,7 @@ export function ProjectsWindow() {
                         <h3 className="text-xl font-bold text-white mb-2 line-clamp-2">
                           {project.name}
                         </h3>
-                        <p className="text-sm text-white/60 line-clamp-3 min-h-[60px]">
+                        <p className="text-sm text-white/60 line-clamp-4 min-h-[76px]">
                           {project.description || 'Project description will be added from database'}
                         </p>
                       </div>

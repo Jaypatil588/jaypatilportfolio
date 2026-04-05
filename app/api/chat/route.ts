@@ -4,11 +4,13 @@ import {
   generateText,
   UIMessage,
 } from 'ai'
+import { createOpenAI, OpenAIProvider } from '@ai-sdk/openai'
 import { ragContext } from '@/lib/portfolio-data'
 import { neon } from '@neondatabase/serverless'
 
 export const maxDuration = 30
-const VECTOR_STORE_ID = 'vs_69c34c0041148191a9bc58aff18cbee6'
+const VECTOR_STORE_ID = process.env.OPENAI_VECTOR_STORE_ID ?? 'vs_69c34c0041148191a9bc58aff18cbee6'
+const OPENAI_MODEL = process.env.OPENAI_MODEL ?? 'gpt-4o-mini'
 
 function extractUserText(message: UIMessage): string {
   const textParts = message.parts
@@ -24,6 +26,7 @@ async function fetchVectorContext(query: string): Promise<string> {
   if (!apiKey || !query.trim()) return ''
 
   try {
+    console.log('[chat] vector search start', { vectorStoreId: VECTOR_STORE_ID, queryLength: query.length })
     const response = await fetch(`https://api.openai.com/v1/vector_stores/${VECTOR_STORE_ID}/search`, {
       method: 'POST',
       headers: {
@@ -37,7 +40,10 @@ async function fetchVectorContext(query: string): Promise<string> {
       }),
     })
 
-    if (!response.ok) return ''
+    if (!response.ok) {
+      console.error('[chat] vector search failed', { status: response.status, statusText: response.statusText })
+      return ''
+    }
 
     const payload = await response.json()
     const snippets = (payload?.data ?? [])
@@ -46,13 +52,16 @@ async function fetchVectorContext(query: string): Promise<string> {
       .map((entry: { text?: string }) => entry.text?.trim())
       .filter(Boolean)
 
-    return snippets.join('\n\n').slice(0, 12000)
+    const context = snippets.join('\n\n').slice(0, 12000)
+    console.log('[chat] vector search success', { snippets: snippets.length, contextLength: context.length })
+    return context
   } catch {
+    console.error('[chat] vector search exception')
     return ''
   }
 }
 
-async function classifyPortfolioQuery(query: string): Promise<0 | 1> {
+async function classifyPortfolioQuery(query: string, openai: OpenAIProvider): Promise<0 | 1> {
   if (!query.trim()) return 1 // Allow empty queries to proceed
 
   try {
@@ -75,7 +84,7 @@ Return "0" if the query is outside scope, including:
 Output exactly one character only: 0 or 1`
 
     const result = await generateText({
-      model: 'openai/gpt-4o-mini',
+      model: openai(OPENAI_MODEL),
       system: classifierPrompt,
       prompt: query,
       maxOutputTokens: 5,
@@ -83,6 +92,7 @@ Output exactly one character only: 0 or 1`
 
     const raw = result.text.trim()
     const digit = raw.match(/[01]/)?.[0]
+    console.log('[chat] classifier decision', { raw, digit, model: OPENAI_MODEL })
     return digit === '0' ? 0 : 1
   } catch (error) {
     console.error('[classifier] check failed', error)
@@ -107,11 +117,32 @@ async function persistChatLog(message: string, response: string, referer: string
 export async function POST(req: Request) {
   try {
     const { messages }: { messages: UIMessage[] } = await req.json()
+    console.log('[chat] request received', { messageCount: messages?.length ?? 0, model: OPENAI_MODEL, vectorStoreId: VECTOR_STORE_ID })
+    const apiKey = process.env.OPENAI_API_KEY
+    if (!apiKey) {
+      console.error('[chat] missing OPENAI_API_KEY')
+      return new Response(
+        JSON.stringify({ error: 'OPENAI_API_KEY is not configured on the server' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      )
+    }
+    if (apiKey.startsWith('sk-your')) {
+      console.error('[chat] placeholder OPENAI_API_KEY detected')
+      return new Response(
+        JSON.stringify({
+          error:
+            'Invalid OPENAI_API_KEY in runtime environment (placeholder key detected). Remove exported OPENAI_API_KEY from shell and restart dev server.',
+        }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      )
+    }
+    const openai = createOpenAI({ apiKey })
 
     const lastUserMessage = [...messages].reverse().find((message) => message.role === 'user')
     const userQuery = lastUserMessage ? extractUserText(lastUserMessage) : ''
     const referer = req.headers.get('referer') || null
-    const decision = await classifyPortfolioQuery(userQuery)
+    console.log('[chat] parsed user query', { queryLength: userQuery.length, referer })
+    const decision = await classifyPortfolioQuery(userQuery, openai)
 
     if (decision === 0) {
       const rejectionMessage = "I'm Jay's portfolio assistant - I can only help with questions about Jay's skills, experience, projects, and background. Feel free to ask me about those!"
@@ -119,14 +150,8 @@ export async function POST(req: Request) {
       // Persist the rejection
       await persistChatLog(userQuery || '', rejectionMessage, referer)
       
-      // Return a simple streaming response for rejections
-      const result = streamText({
-        model: 'openai/gpt-4o-mini',
-        prompt: rejectionMessage,
-        maxOutputTokens: 1,
-      })
-      
       // Override with our rejection message
+      console.log('[chat] rejected as out-of-scope')
       return new Response(
         new ReadableStream({
           async start(controller) {
@@ -150,6 +175,7 @@ export async function POST(req: Request) {
     }
 
     const vectorContext = await fetchVectorContext(userQuery)
+    console.log('[chat] building final response', { vectorContextLength: vectorContext.length })
 
     const systemPrompt = `You are Jay Patil's AI assistant on his portfolio website. You answer questions about Jay based on his resume and portfolio information.
 
@@ -171,7 +197,7 @@ ${vectorContext ? `ADDITIONAL RETRIEVED CONTEXT (VECTOR STORE ${VECTOR_STORE_ID}
 Remember: You represent Jay's portfolio. Be helpful and showcase his expertise!`
 
     const result = streamText({
-      model: 'openai/gpt-4o-mini',
+      model: openai(OPENAI_MODEL),
       system: systemPrompt,
       messages: await convertToModelMessages(messages),
       abortSignal: req.signal,
@@ -186,6 +212,7 @@ Remember: You represent Jay's portfolio. Be helpful and showcase his expertise!`
           .filter(Boolean)
           .join('\n')
 
+        console.log('[chat] stream finished', { responseLength: responseText.length })
         await persistChatLog(userQuery || '', responseText || '', referer)
       },
     })

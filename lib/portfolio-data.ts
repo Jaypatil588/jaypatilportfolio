@@ -103,12 +103,16 @@ export const portfolioData = {
 
   achievements: [
     {
-      title: "Adobe Systems Hackathon",
-      description: "1st Place, Best Developer Feedback"
+      title: "Best Junior Developer Recognition",
+      description: "Awarded at Ador Powertron on March 22, 2023 for strong EV product execution and impact."
     },
     {
-      title: "Ador Powertron Recognition",
-      description: "Best Junior Developer for leading EV feature development with measurable impact"
+      title: "Adobe Hackathon - Best Feedback",
+      description: "Won Best Feedback recognition in January 2025."
+    },
+    {
+      title: "Community Lead - ACM-G",
+      description: "Served as Community Lead in November 2025."
     }
   ]
 }
@@ -172,8 +176,9 @@ PUBLICATIONS:
 2. "Development of a Comparison Based Medicine Purchasing System": Developed a system to compare medicine prices across platforms, optimizing affordability.
 
 ACHIEVEMENTS:
-- Adobe Systems Hackathon: 1st Place, Best Developer Feedback
-- Ador Powertron: Best Junior Developer for leading EV feature development with measurable impact
+- Ador Powertron: Best Junior Developer Recognition (March 22, 2023)
+- Adobe Hackathon: Best Feedback recognition (January 2025)
+- ACM-G: Community Lead (November 2025)
 
 AREAS OF EXPERTISE:
 - Full-Stack Development (React, TypeScript, Node.js, .NET)

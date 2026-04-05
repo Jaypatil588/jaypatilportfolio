@@ -1,6 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { Settings } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { ChargerScene } from './charger-scene'
 import { PortfolioScreen } from './portfolio-screen'
@@ -8,9 +10,22 @@ import { PortfolioScreen } from './portfolio-screen'
 type AppState = 'charger' | 'zooming' | 'portfolio'
 
 export function EVPortfolio() {
+  const router = useRouter()
   const [state, setState] = useState<AppState>('charger')
+  const [zoomOrigin, setZoomOrigin] = useState('74% 50%')
 
-  const handleStart = () => {
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (params.get('screen') === '2') {
+      setState('portfolio')
+    }
+  }, [])
+
+  const handleStart = (focus?: { xPct: number; yPct: number }) => {
+    if (focus) {
+      const rightBiasedX = Math.min(100, focus.xPct + 10)
+      setZoomOrigin(`${rightBiasedX}% ${focus.yPct}%`)
+    }
     setState('zooming')
     // After zoom animation completes, show portfolio
     setTimeout(() => {
@@ -29,9 +44,10 @@ export function EVPortfolio() {
         className={cn(
           'absolute inset-0 transition-all duration-800 ease-out',
           state === 'charger' && 'opacity-100 scale-100',
-          state === 'zooming' && 'opacity-0 scale-[3] origin-[35%_40%]',
+          state === 'zooming' && 'opacity-100 scale-[3.6]',
           state === 'portfolio' && 'opacity-0 scale-[5] pointer-events-none'
         )}
+        style={{ transformOrigin: zoomOrigin }}
       >
         <ChargerScene onStart={handleStart} />
       </div>
@@ -39,44 +55,66 @@ export function EVPortfolio() {
       {/* Charger Screen Frame (visible during zoom and portfolio state) */}
       <div
         className={cn(
-          'absolute inset-0 transition-all duration-800',
+          'absolute inset-0',
           state === 'charger' && 'opacity-0 pointer-events-none',
-          (state === 'zooming' || state === 'portfolio') && 'opacity-100'
+          state === 'zooming' && 'opacity-0 pointer-events-none',
+          state === 'portfolio' && 'opacity-100'
         )}
       >
-        {/* Charger screen bezel frame */}
-        <div className="w-full h-full bg-gradient-to-b from-slate-800 to-slate-900 p-4">
-          {/* Screen border glow */}
-          <div className="w-full h-full rounded-2xl overflow-hidden shadow-[inset_0_0_30px_rgba(56,189,248,0.1)] relative">
-            {/* Screen reflection effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none z-10" />
+        {/* Outer frame: monitor-focused background from final.webm */}
+        <div className="w-full h-full relative overflow-hidden bg-slate-200">
+          <video
+            src="/ev-charging-final.webm"
+            className="absolute inset-0 w-full h-full object-cover blur-sm"
+            style={{
+              objectPosition: '74% 50%',
+              transform: 'scale(4.45)',
+              transformOrigin: '74% 50%',
+            }}
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+          <div className="absolute inset-0 bg-slate-950/8" />
 
-            {/* Screen status bar */}
-            <div className="absolute top-0 left-0 right-0 h-8 bg-slate-900/80 backdrop-blur flex items-center justify-between px-4 z-20">
+          {/* Inner screen rectangle (header + screen 2) */}
+          <div className="absolute left-1/2 top-1/2 h-[88%] w-[84%] -translate-x-1/2 -translate-y-1/2 overflow-hidden border-2 border-slate-700/80 bg-white relative z-10 rounded-[0.8rem]">
+            {/* Header */}
+            <div className="h-10 border-b border-slate-700/70 bg-slate-900/82 backdrop-blur flex items-center justify-between px-4 z-20">
               <div className="flex items-center gap-2">
                 {state === 'portfolio' && (
                   <button
                     type="button"
                     onClick={handleBackToCharger}
-                    className="inline-flex items-center justify-center rounded px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide bg-red-600 text-white hover:bg-red-500 transition-colors"
+                    className="inline-flex items-center justify-center rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-wide bg-red-800 text-white hover:bg-red-700 transition-colors"
                     aria-label="Back to charger scene"
                   >
-                    {'<-- exit'}
+                    {'← EXIT'}
                   </button>
                 )}
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <span className="text-[10px] text-sky-400 font-mono">CONNECTED</span>
+                <span className="text-xs text-sky-400 font-mono">CONNECTED</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-3 h-3 text-sky-400" viewBox="0 0 24 24" fill="currentColor">
+                <button
+                  type="button"
+                  onClick={() => router.push('/auth')}
+                  className="inline-flex items-center justify-center rounded-md p-1.5 text-sky-300 hover:text-sky-100 hover:bg-slate-800/70 transition-colors"
+                  aria-label="Open admin auth"
+                  title="Open admin auth"
+                >
+                  <Settings className="w-3.5 h-3.5" />
+                </button>
+                <svg className="w-4 h-4 text-sky-400" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" />
                 </svg>
-                <span className="text-[10px] text-sky-400 font-mono">EV POWER OS</span>
+                <span className="text-xs font-mono animate-charging-text">EV POWER OS</span>
               </div>
             </div>
 
-            {/* Portfolio content */}
-            <div className="w-full h-full pt-8">
+            {/* Screen 2 body */}
+            <div className="h-[calc(100%-2.5rem)] overflow-y-auto no-scrollbar">
               <PortfolioScreen />
             </div>
           </div>
