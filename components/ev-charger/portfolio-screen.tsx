@@ -805,7 +805,6 @@ function ContactContent() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
             className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-sky-300"
             placeholder="your@email.com"
           />
