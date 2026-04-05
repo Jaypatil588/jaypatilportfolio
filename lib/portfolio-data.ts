@@ -4,7 +4,7 @@ export const portfolioData = {
   tagline: "I build scalable cloud-native applications",
   location: "Santa Clara, CA",
   email: "jaypatilsde@gmail.com",
-  phone: "+1-669-367-0026",
+  phone: "+1 (669) 340-7293",
   linkedin: "https://linkedin.com/in/jaypatil588",
   github: "https://github.com/Jaypatil588",
   leetcodeUsername: "jaypatil588",

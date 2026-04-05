@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { DefaultChatTransport } from 'ai'
 import { useChat } from '@ai-sdk/react'
 import Image from 'next/image'
-import { Linkedin, Github, FileText, MessageSquare, Send, ArrowLeft, Briefcase, Code, Mail, User, Trophy, ExternalLink, GraduationCap, Star, Users, TrendingUp, Cpu, Sparkles } from 'lucide-react'
+import { Linkedin, Github, FileText, MessageSquare, Send, ArrowLeft, Briefcase, Code, Mail, Phone, User, Trophy, ExternalLink, GraduationCap, Star, Users, TrendingUp, Cpu, Sparkles } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -13,6 +13,44 @@ import { portfolioData } from '@/lib/portfolio-data'
 
 type CardType = 'about' | 'projects' | 'experience' | 'contact' | null
 const CONTACT_FORMSPREE_ENDPOINT = 'https://formspree.io/f/mlgorpjo'
+const CARD_HEADER_TITLES: Record<Exclude<CardType, null>, string> = {
+  about: 'About Me',
+  projects: "Project Showcase (Projects I'm proud of)",
+  experience: 'Experience',
+  contact: 'Contact Me',
+}
+const SCREEN_SUMMARY_KEYWORDS = [
+  'Python',
+  'Java',
+  'TypeScript',
+  'React.js',
+  'Next.js',
+  'Node.js',
+  'TensorFlow',
+  'C#',
+  '.NET',
+  'Spring Boot',
+  'AWS',
+  'GCP',
+  'Docker',
+  'Kubernetes',
+  'Kafka',
+  'C',
+  'C++',
+  'Hardware',
+  'Embedded',
+  'EV Chargers',
+  'SLM Quantization',
+]
+
+const SCREEN_KEYWORD_COLOR_CLASSES = [
+  'border-sky-200 bg-sky-50 text-sky-700',
+  'border-blue-200 bg-blue-50 text-blue-700',
+  'border-indigo-200 bg-indigo-50 text-indigo-700',
+  'border-cyan-200 bg-cyan-50 text-cyan-700',
+  'border-emerald-200 bg-emerald-50 text-emerald-700',
+  'border-violet-200 bg-violet-50 text-violet-700',
+] as const
 
 export function PortfolioScreen() {
   const router = useRouter()
@@ -98,7 +136,7 @@ export function PortfolioScreen() {
             }}
             title="Triple-click to open auth"
             aria-label="Profile photo. Triple-click to open auth"
-            className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 shrink-0 rounded-2xl bg-gradient-to-br from-sky-100 to-blue-100 border-2 border-sky-200 p-0 flex items-center justify-center shadow-lg overflow-hidden cursor-pointer transition-all hover:scale-[1.03] hover:border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-300/70"
+            className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 shrink-0 rounded-2xl bg-gradient-to-br from-sky-100 to-blue-100 border-2 border-sky-200 p-0 flex items-center justify-center shadow-lg overflow-hidden cursor-pointer transition-all hover:scale-[1.03] hover:border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-300/70"
           >
             <div className="w-full h-full rounded-[0.875rem] overflow-hidden">
               <Image
@@ -114,28 +152,49 @@ export function PortfolioScreen() {
 
           {/* Name, Links, Summary */}
           <div className="flex-1 min-w-0">
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-6">
-              <div className="min-w-0 md:min-w-[17rem]">
+            <div className="flex flex-col md:flex-row md:items-start gap-3 md:gap-3">
+              <div className="min-w-0 md:min-w-[15.5rem]">
                 <h1 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-1 whitespace-nowrap">Jay Patil</h1>
-                <p className="text-slate-500 text-base mb-4">Software Engineer</p>
+                <p className="text-slate-500 text-base mb-3">Software Engineer</p>
 
                 {/* Icon row */}
                 <div className="flex gap-3">
-                  <a href="#" className="w-10 h-10 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-sky-200/50">
+                  <a href={portfolioData.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-sky-200/50">
                     <Linkedin className="w-5 h-5 text-sky-600" />
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg">
+                  <a href={portfolioData.github} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg">
                     <Github className="w-5 h-5 text-slate-700" />
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-blue-200/50">
+                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-blue-200/50">
                     <FileText className="w-5 h-5 text-blue-600" />
                   </a>
                 </div>
+                <a
+                  href={`mailto:${portfolioData.email}`}
+                  className="mt-2 inline-flex text-sm text-slate-600 hover:text-sky-700 transition-colors break-all"
+                >
+                  {portfolioData.email}
+                </a>
               </div>
 
-              <p className="text-sm sm:text-[15px] leading-relaxed text-slate-600 max-w-[28rem] md:pt-1">
-                Building scalable cloud-native apps with strong backend systems, full-stack delivery, and practical AI/ML integration.
-              </p>
+              <div className="flex-1 min-w-0 md:-ml-2 md:pt-0.5">
+                <p className="text-sm sm:text-[15px] leading-relaxed text-slate-600">
+                  Building scalable cloud-native apps with strong backend systems, full-stack delivery, and practical AI/ML integration.
+                </p>
+                <div className="mt-2 flex flex-wrap gap-1.5">
+                  {SCREEN_SUMMARY_KEYWORDS.map((keyword, index) => (
+                    <span
+                      key={keyword}
+                      className={cn(
+                        'inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] sm:text-[11px] font-medium',
+                        SCREEN_KEYWORD_COLOR_CLASSES[index % SCREEN_KEYWORD_COLOR_CLASSES.length]
+                      )}
+                    >
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -145,49 +204,81 @@ export function PortfolioScreen() {
           {/* About Me Card */}
           <button
             onClick={() => setActiveCard('about')}
-            className="group bg-gradient-to-br from-sky-50 to-sky-100 border border-sky-200 rounded-2xl p-6 text-left transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-sky-200/50 hover:border-sky-300"
+            className="group relative overflow-hidden bg-gradient-to-br from-sky-50 to-sky-100 border border-sky-200 rounded-2xl p-6 pb-12 text-left transition-all duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl md:hover:shadow-sky-200/60 md:hover:border-sky-400"
           >
-            <div className="w-12 h-12 rounded-xl bg-sky-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <User className="w-6 h-6 text-white" />
+            <div className="pointer-events-none absolute top-4 right-4 opacity-30">
+              <User className="h-20 w-20 text-sky-300" strokeWidth={1.7} />
             </div>
-            <h3 className="text-xl font-bold text-slate-800 mb-2">About Me</h3>
-            <p className="text-base text-slate-500 line-clamp-2">Learn about my background, skills, and interests</p>
+            <div className="relative z-10 mb-3 flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-sky-500 flex items-center justify-center transition-all md:group-hover:scale-110 md:group-hover:shadow-lg md:group-hover:shadow-sky-300/70">
+                <User className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-800">About Me</h3>
+            </div>
+            <p className="relative z-10 text-base text-slate-500 line-clamp-2">Learn about my background, skills, and interests</p>
+            <span className="absolute bottom-4 right-5 text-xs font-semibold text-slate-500 transition-colors md:group-hover:text-sky-700">
+              Open →
+            </span>
           </button>
 
           {/* Projects Card */}
           <button
             onClick={() => setActiveCard('projects')}
-            className="group bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-2xl p-6 text-left transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-blue-200/50 hover:border-blue-300"
+            className="group relative overflow-hidden bg-gradient-to-br from-emerald-50 to-emerald-100 border border-emerald-200 rounded-2xl p-6 pb-12 text-left transition-all duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl md:hover:shadow-emerald-200/60 md:hover:border-emerald-400"
           >
-            <div className="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <Code className="w-6 h-6 text-white" />
+            <div className="pointer-events-none absolute top-4 right-4 opacity-30">
+              <Code className="h-20 w-20 text-emerald-300" strokeWidth={1.7} />
             </div>
-            <h3 className="text-xl font-bold text-slate-800 mb-2">Projects</h3>
-            <p className="text-base text-slate-500 line-clamp-2">Showcase of my featured work and side projects</p>
+            <div className="relative z-10 mb-3 flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center transition-all md:group-hover:scale-110 md:group-hover:shadow-lg md:group-hover:shadow-emerald-300/70">
+                <Code className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-800">Project Showcase</h3>
+            </div>
+            <p className="relative z-10 text-base text-slate-500 line-clamp-2">Showcase of my featured work and side projects</p>
+            <span className="absolute bottom-4 right-5 text-xs font-semibold text-slate-500 transition-colors md:group-hover:text-emerald-700">
+              Open →
+            </span>
           </button>
 
           {/* Experience Card */}
           <button
             onClick={() => setActiveCard('experience')}
-            className="group bg-gradient-to-br from-indigo-50 to-indigo-100 border border-indigo-200 rounded-2xl p-6 text-left transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-indigo-200/50 hover:border-indigo-300"
+            className="group relative overflow-hidden bg-gradient-to-br from-violet-50 to-violet-100 border border-violet-200 rounded-2xl p-6 pb-12 text-left transition-all duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl md:hover:shadow-violet-200/60 md:hover:border-violet-500"
           >
-            <div className="w-12 h-12 rounded-xl bg-indigo-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <Briefcase className="w-6 h-6 text-white" />
+            <div className="pointer-events-none absolute top-4 right-4 opacity-30">
+              <Briefcase className="h-20 w-20 text-violet-300" strokeWidth={1.7} />
             </div>
-            <h3 className="text-xl font-bold text-slate-800 mb-2">Experience</h3>
-            <p className="text-base text-slate-500 line-clamp-2">My professional journey and career timeline</p>
+            <div className="relative z-10 mb-3 flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-violet-600 flex items-center justify-center transition-all md:group-hover:scale-110 md:group-hover:shadow-lg md:group-hover:shadow-violet-300/70">
+                <Briefcase className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-800">Experience</h3>
+            </div>
+            <p className="relative z-10 text-base text-slate-500 line-clamp-2">My professional journey and career timeline</p>
+            <span className="absolute bottom-4 right-5 text-xs font-semibold text-slate-500 transition-colors md:group-hover:text-violet-700">
+              Open →
+            </span>
           </button>
 
           {/* Contact Card */}
           <button
             onClick={() => setActiveCard('contact')}
-            className="group bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-2xl p-6 text-left transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-slate-200/50 hover:border-slate-300"
+            className="group relative overflow-hidden bg-gradient-to-br from-orange-50 to-amber-100 border border-orange-200 rounded-2xl p-6 pb-12 text-left transition-all duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl md:hover:shadow-orange-200/60 md:hover:border-orange-400"
           >
-            <div className="w-12 h-12 rounded-xl bg-slate-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <Mail className="w-6 h-6 text-white" />
+            <div className="pointer-events-none absolute top-4 right-4 opacity-30">
+              <Mail className="h-20 w-20 text-orange-300" strokeWidth={1.7} />
             </div>
-            <h3 className="text-xl font-bold text-slate-800 mb-2">Contact Me</h3>
-            <p className="text-base text-slate-500 line-clamp-2">Get in touch for opportunities or collaborations</p>
+            <div className="relative z-10 mb-3 flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-orange-500 flex items-center justify-center transition-all md:group-hover:scale-110 md:group-hover:shadow-lg md:group-hover:shadow-orange-300/70">
+                <Mail className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-800">Contact Me</h3>
+            </div>
+            <p className="relative z-10 text-base text-slate-500 line-clamp-2">Get in touch for opportunities or collaborations</p>
+            <span className="absolute bottom-4 right-5 text-xs font-semibold text-slate-500 transition-colors md:group-hover:text-orange-700">
+              Open →
+            </span>
           </button>
         </div>
       </div>
@@ -196,10 +287,7 @@ export function PortfolioScreen() {
       <div className="w-full lg:w-[40%] h-auto lg:h-full min-h-[38%] bg-gradient-to-b from-slate-50 to-slate-100 border-t lg:border-t-0 lg:border-l border-slate-200 flex flex-col">
         {/* Chat header */}
         <div className="p-4 border-b border-slate-200 bg-white">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center">
-              <MessageSquare className="w-5 h-5 text-white" />
-            </div>
+          <div className="flex items-center gap-2">
             <div>
               <h3 className="text-xl font-bold text-slate-800">Ask Jay</h3>
               <p className="text-sm text-slate-500">Use the chat to discover cool things about me!</p>
@@ -217,7 +305,7 @@ export function PortfolioScreen() {
             <>
               <div className="flex gap-3 mb-4">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center shrink-0">
-                  <MessageSquare className="w-4 h-4 text-white" />
+                  <span className="text-sm leading-none">✋</span>
                 </div>
                 <div className="bg-white rounded-2xl rounded-tl-none p-4 shadow-sm border border-slate-100 max-w-[92%]">
                   <p className="text-base text-slate-700">
@@ -258,7 +346,7 @@ export function PortfolioScreen() {
               <div key={message.id} className={`flex ${isUser ? 'justify-end' : 'justify-start'} gap-3`}>
                 {!isUser && (
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center shrink-0">
-                    <MessageSquare className="w-4 h-4 text-white" />
+                    <span className="text-sm leading-none">✋</span>
                   </div>
                 )}
                 <div
@@ -283,7 +371,7 @@ export function PortfolioScreen() {
           {isLoading && (
             <div className="flex gap-3">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center shrink-0">
-                <MessageSquare className="w-4 h-4 text-white" />
+                <span className="text-sm leading-none">✋</span>
               </div>
               <div className="bg-white rounded-2xl rounded-tl-none p-4 shadow-sm border border-slate-100">
                 <div className="flex gap-1.5">
@@ -345,7 +433,9 @@ export function PortfolioScreen() {
               >
                 <ArrowLeft className="w-5 h-5 text-slate-600" />
               </button>
-              <h2 className="text-2xl font-bold text-slate-800 capitalize">{activeCard}</h2>
+              <h2 className="text-2xl font-bold text-slate-800">
+                {CARD_HEADER_TITLES[activeCard]}
+              </h2>
             </div>
 
             {/* Popup Content */}
@@ -375,50 +465,136 @@ export function PortfolioScreen() {
 }
 
 function AboutContent() {
+  const latestRole = portfolioData.experience[0]
+  const masters = portfolioData.education[0]
+  const bachelors = portfolioData.education[1]
+
   return (
-    <div className="prose prose-slate max-w-none">
-      <div className="flex gap-8">
-        {/* Main content */}
-        <div className="flex-1">
-          <h3 className="text-xl font-bold text-slate-800 mb-4">Background</h3>
-          <p className="text-slate-600 mb-6">
-            Software Engineer with 4+ years of experience building scalable cloud-native applications. 
-            Passionate about creating elegant solutions to complex problems and continuously learning new technologies.
+    <article className="mx-auto max-w-5xl rounded-2xl border border-slate-200 bg-white px-5 py-6 sm:px-8 sm:py-8">
+      <header className="border-b border-slate-200 pb-5">
+      </header>
+
+      <section className="pt-6">
+        <div className="flex flex-col md:flex-row md:items-start gap-5">
+          <figure className="md:w-72 shrink-0 rounded-xl border border-slate-200 bg-slate-50 p-2">
+            <div className="w-full overflow-hidden rounded-lg">
+              <Image
+                src="/about-jay-0395.jpg"
+                alt="Jay Patil portrait"
+                width={640}
+                height={840}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <figcaption className="px-1 pt-2 text-xs text-slate-500">
+              Jay Patil, Santa Clara, 2026
+            </figcaption>
+          </figure>
+
+          <div className="min-w-0">
+            <h4 className="text-2xl font-bold text-slate-900 mb-3">About Me</h4>
+            <div className="space-y-4 text-slate-700 leading-relaxed">
+              <p>
+                I&apos;m {portfolioData.name}, a {portfolioData.title.toLowerCase()} based in {portfolioData.location}. I build
+                production software across cloud platforms, full-stack interfaces, and AI-assisted systems with a strong focus
+                on reliability, speed, and real user impact.
+              </p>
+              <p>
+                My current work includes shipping practical AI and platform experiences at {latestRole?.company}, while also
+                deepening my systems and ML foundation through my graduate studies at {masters?.school}.
+              </p>
+              <p>
+                You can also connect with me on{' '}
+                <a href={portfolioData.linkedin} target="_blank" rel="noopener noreferrer" className="text-sky-700 font-semibold hover:underline">
+                  LinkedIn
+                </a>{' '}
+                or explore code and experiments on{' '}
+                <a href={portfolioData.github} target="_blank" rel="noopener noreferrer" className="text-sky-700 font-semibold hover:underline">
+                  GitHub
+                </a>.
+              </p>
+              <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-4">
+                <p className="text-slate-700 leading-relaxed">
+                  Thanks for visiting my portfolio. I&apos;m really glad you&apos;re here. If you want the full details in document
+                  form, you can view or download my resume below.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  <a
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center rounded-lg border border-sky-300 bg-sky-50 px-4 py-2 text-sm font-semibold text-sky-700 hover:bg-sky-100 transition-colors"
+                  >
+                    View Resume
+                  </a>
+                  <a
+                    href="/resume.pdf"
+                    download
+                    className="inline-flex items-center rounded-lg border border-blue-300 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-100 transition-colors"
+                  >
+                    Download Resume
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-7 border-t border-slate-200 pt-6">
+        <h5 className="text-xl font-bold text-slate-900 mb-3">Professional Journey</h5>
+        <div className="space-y-4 text-slate-700 leading-relaxed">
+          <p>
+            At Ador Powertron, I worked on EV charging software end-to-end: React frontends, OCPP/OpenAPI-driven backend
+            systems, EV emulation in C#, and performance-focused improvements for charging and testing workflows.
           </p>
-
-          <h3 className="text-xl font-bold text-slate-800 mb-4">Skills</h3>
-          <div className="flex flex-wrap gap-2 mb-6">
-            {['TypeScript', 'React', 'Next.js', 'Node.js', 'Python', 'AWS', 'Docker', 'PostgreSQL', 'GraphQL', 'Tailwind CSS'].map(skill => (
-              <span key={skill} className="px-3 py-1 bg-sky-50 text-sky-700 rounded-full text-sm border border-sky-200">
-                {skill}
-              </span>
-            ))}
-          </div>
-
-          <h3 className="text-xl font-bold text-slate-800 mb-4">Education</h3>
-          <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
-            <p className="font-semibold text-slate-800">Bachelor of Science in Computer Science</p>
-            <p className="text-slate-500 text-sm">University Name, 2020</p>
-          </div>
+          <p>
+            At Santa Clara University, I contributed to AI and full-stack initiatives, including a fine-tuned OpenAI RAG chatbot,
+            feedback analysis tooling, and platforms that improved discoverability, accessibility, and operational efficiency.
+          </p>
         </div>
+      </section>
 
-        {/* Sidebar with quick stats */}
-        <div className="w-64 space-y-4">
-          <div className="bg-sky-50 rounded-xl p-4 border border-sky-200">
-            <p className="text-3xl font-bold text-sky-600">4+</p>
-            <p className="text-sm text-slate-600">Years Experience</p>
-          </div>
-          <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
-            <p className="text-3xl font-bold text-blue-600">20+</p>
-            <p className="text-sm text-slate-600">Projects Completed</p>
-          </div>
-          <div className="bg-indigo-50 rounded-xl p-4 border border-indigo-200">
-            <p className="text-3xl font-bold text-indigo-600">5+</p>
-            <p className="text-sm text-slate-600">Technologies</p>
-          </div>
+      <section className="mt-7 border-t border-slate-200 pt-6">
+        <h5 className="text-xl font-bold text-slate-900 mb-3">Education</h5>
+        <div className="space-y-3 text-slate-700 leading-relaxed">
+          <p>
+            I&apos;m currently pursuing my {masters?.degree} at {masters?.school} ({masters?.period}).
+          </p>
+          <p>
+            Before that, I completed my {bachelors?.degree} at {bachelors?.school} ({bachelors?.period}),
+            where I built my core foundation in software engineering.
+          </p>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <section className="mt-7 border-t border-slate-200 pt-6">
+        <h5 className="text-xl font-bold text-slate-900 mb-3">Hobbies & Interests</h5>
+        <div className="space-y-4 text-slate-700 leading-relaxed">
+          <p>
+            Outside work, I&apos;m genuinely excited by electronics and hardware. I love building and experimenting with embedded
+            systems, sensor-driven prototypes, and hands-on engineering projects where software meets the physical world.
+          </p>
+          <p>
+            I also enjoy outdoor hiking and spending time in nature. It helps me reset, think clearly, and come back with
+            fresh energy for solving hard problems.
+          </p>
+        </div>
+      </section>
+
+      <footer className="mt-8 border-t border-slate-200 pt-6">
+        <p className="text-slate-800 font-medium leading-relaxed">
+          Thank you so much for reading through my portfolio. It means a lot to me, and I&apos;ve spent a lot of time perfecting it
+          so it reflects my journey and work with honesty.
+        </p>
+        <p className="mt-2 text-slate-700 leading-relaxed">
+          I also built this portfolio to showcase my UI craftsmanship and full-stack engineering capabilities in one complete experience.
+        </p>
+        <p className="mt-2 text-slate-700 leading-relaxed">
+          I truly appreciate your time, and I&apos;d be excited to connect if anything here resonates with you.
+        </p>
+      </footer>
+    </article>
   )
 }
 
@@ -787,6 +963,33 @@ function ContactContent() {
       <p className="text-slate-600 mb-8 text-center">
         I&apos;d love to hear from you! Fill out the form below and I&apos;ll get back to you as soon as possible.
       </p>
+
+      <div className="grid gap-3 sm:grid-cols-2 mb-6">
+        <a
+          href={`mailto:${portfolioData.email}`}
+          className="flex items-center gap-3 rounded-2xl border border-sky-100 bg-white/80 px-4 py-3 text-left shadow-sm transition-colors hover:bg-sky-50"
+        >
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-100 text-sky-700">
+            <Mail className="h-5 w-5" />
+          </span>
+          <span className="min-w-0">
+            <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Email</span>
+            <span className="block text-sm font-medium text-slate-700 break-all">{portfolioData.email}</span>
+          </span>
+        </a>
+        <a
+          href={`tel:${portfolioData.phone.replace(/\s+/g, '')}`}
+          className="flex items-center gap-3 rounded-2xl border border-sky-100 bg-white/80 px-4 py-3 text-left shadow-sm transition-colors hover:bg-sky-50"
+        >
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-100 text-sky-700">
+            <Phone className="h-5 w-5" />
+          </span>
+          <span>
+            <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Mobile</span>
+            <span className="block text-sm font-medium text-slate-700">{portfolioData.phone}</span>
+          </span>
+        </a>
+      </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

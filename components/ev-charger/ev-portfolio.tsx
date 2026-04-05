@@ -90,11 +90,11 @@ export function EVPortfolio() {
                     className="inline-flex items-center justify-center rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-wide bg-red-800 text-white hover:bg-red-700 transition-colors"
                     aria-label="Back to charger scene"
                   >
-                    {'← EXIT'}
+                    {'← Plug out'}
                   </button>
                 )}
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <span className="text-xs text-sky-400 font-mono">CONNECTED</span>
+                <span className="text-xs text-sky-400 font-mono font-bold">CONNECTED</span>
               </div>
               <div className="flex items-center gap-2">
                 <button
@@ -109,7 +109,7 @@ export function EVPortfolio() {
                 <svg className="w-4 h-4 text-sky-400" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" />
                 </svg>
-                <span className="text-xs font-mono animate-charging-text">EV POWER OS</span>
+                <span className="text-xs font-mono font-bold animate-charging-text">EV POWER OS</span>
               </div>
             </div>
 
