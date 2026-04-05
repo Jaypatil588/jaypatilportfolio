@@ -15,7 +15,7 @@ type CardType = 'about' | 'projects' | 'experience' | 'contact' | null
 const CONTACT_FORMSPREE_ENDPOINT = 'https://formspree.io/f/mlgorpjo'
 const CARD_HEADER_TITLES: Record<Exclude<CardType, null>, string> = {
   about: 'About Me',
-  projects: "Project Showcase (Projects I'm proud of)",
+  projects: 'Project Showcase',
   experience: 'Experience',
   contact: 'Contact Me',
 }
@@ -123,7 +123,7 @@ export function PortfolioScreen() {
         )}
       >
         {/* Profile Section */}
-        <div className="flex items-start gap-4 sm:gap-6 mb-5 sm:mb-7 lg:mb-8">
+        <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-5 sm:mb-7 lg:mb-8">
           {/* Profile Photo */}
           <button
             type="button"
@@ -136,7 +136,7 @@ export function PortfolioScreen() {
             }}
             title="Triple-click to open auth"
             aria-label="Profile photo. Triple-click to open auth"
-            className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 shrink-0 rounded-2xl bg-gradient-to-br from-sky-100 to-blue-100 border-2 border-sky-200 p-0 flex items-center justify-center shadow-lg overflow-hidden cursor-pointer transition-all hover:scale-[1.03] hover:border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-300/70"
+            className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 shrink-0 rounded-2xl bg-gradient-to-br from-sky-100 to-blue-100 border-2 border-sky-200 p-0 flex items-center justify-center shadow-lg overflow-hidden cursor-pointer transition-all hover:scale-[1.03] hover:border-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-300/70"
           >
             <div className="w-full h-full rounded-[0.875rem] overflow-hidden">
               <Image
@@ -152,36 +152,36 @@ export function PortfolioScreen() {
 
           {/* Name, Links, Summary */}
           <div className="flex-1 min-w-0">
-            <div className="flex flex-col md:flex-row md:items-start gap-3 md:gap-3">
+            <div className="flex flex-col md:flex-row md:items-start gap-3 md:gap-3 w-full">
               <div className="min-w-0 md:min-w-[15.5rem]">
-                <h1 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-1 whitespace-nowrap">Jay Patil</h1>
+                <h1 className="text-[2.15rem] sm:text-4xl font-bold text-slate-800 mb-0.5 whitespace-nowrap">Jay Patil</h1>
                 <p className="text-slate-500 text-base mb-3">Software Engineer</p>
 
                 {/* Icon row */}
-                <div className="flex gap-3">
-                  <a href={portfolioData.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-sky-200/50">
+                <div className="flex gap-2.5">
+                  <a href={portfolioData.linkedin} target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-sky-200/50">
                     <Linkedin className="w-5 h-5 text-sky-600" />
                   </a>
-                  <a href={portfolioData.github} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg">
+                  <a href={portfolioData.github} target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg">
                     <Github className="w-5 h-5 text-slate-700" />
                   </a>
-                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-blue-200/50">
+                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-blue-200/50">
                     <FileText className="w-5 h-5 text-blue-600" />
                   </a>
                 </div>
                 <a
                   href={`mailto:${portfolioData.email}`}
-                  className="mt-2 inline-flex text-sm text-slate-600 hover:text-sky-700 transition-colors break-all"
+                  className="mt-1.5 inline-flex text-sm text-slate-600 hover:text-sky-700 transition-colors break-all"
                 >
                   {portfolioData.email}
                 </a>
               </div>
 
-              <div className="flex-1 min-w-0 md:-ml-2 md:pt-0.5">
-                <p className="text-sm sm:text-[15px] leading-relaxed text-slate-600">
+              <div className="flex-1 min-w-0 md:-ml-2 md:pt-0.5 mt-1 sm:mt-0">
+                <p className="text-[0.92rem] sm:text-[15px] leading-relaxed text-slate-600">
                   Building scalable cloud-native apps with strong backend systems, full-stack delivery, and practical AI/ML integration.
                 </p>
-                <div className="mt-2 flex flex-wrap gap-1.5">
+                <div className="mt-3 flex flex-wrap gap-2 sm:gap-1.5">
                   {SCREEN_SUMMARY_KEYWORDS.map((keyword, index) => (
                     <span
                       key={keyword}
@@ -200,11 +200,11 @@ export function PortfolioScreen() {
         </div>
 
         {/* 2x2 Card Grid */}
-        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
           {/* About Me Card */}
           <button
             onClick={() => setActiveCard('about')}
-            className="group relative overflow-hidden bg-gradient-to-br from-sky-50 to-sky-100 border border-sky-200 rounded-2xl p-6 pb-12 text-left transition-all duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl md:hover:shadow-sky-200/60 md:hover:border-sky-400"
+            className="group relative overflow-hidden bg-gradient-to-br from-sky-50 to-sky-100 border border-sky-200 rounded-2xl min-h-[11.25rem] p-5 sm:p-6 pb-10 sm:pb-12 text-left transition-all duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl md:hover:shadow-sky-200/60 md:hover:border-sky-400"
           >
             <div className="pointer-events-none absolute top-4 right-4 opacity-30">
               <User className="h-20 w-20 text-sky-300" strokeWidth={1.7} />
@@ -224,7 +224,7 @@ export function PortfolioScreen() {
           {/* Projects Card */}
           <button
             onClick={() => setActiveCard('projects')}
-            className="group relative overflow-hidden bg-gradient-to-br from-emerald-50 to-emerald-100 border border-emerald-200 rounded-2xl p-6 pb-12 text-left transition-all duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl md:hover:shadow-emerald-200/60 md:hover:border-emerald-400"
+            className="group relative overflow-hidden bg-gradient-to-br from-emerald-50 to-emerald-100 border border-emerald-200 rounded-2xl min-h-[11.25rem] p-5 sm:p-6 pb-10 sm:pb-12 text-left transition-all duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl md:hover:shadow-emerald-200/60 md:hover:border-emerald-400"
           >
             <div className="pointer-events-none absolute top-4 right-4 opacity-30">
               <Code className="h-20 w-20 text-emerald-300" strokeWidth={1.7} />
@@ -235,7 +235,7 @@ export function PortfolioScreen() {
               </div>
               <h3 className="text-xl font-bold text-slate-800">Project Showcase</h3>
             </div>
-            <p className="relative z-10 text-base text-slate-500 line-clamp-2">Showcase of my featured work and side projects</p>
+            <p className="relative z-10 text-base text-slate-500 line-clamp-2">Projects I&apos;m proud of: featured work and side projects</p>
             <span className="absolute bottom-4 right-5 text-xs font-semibold text-slate-500 transition-colors md:group-hover:text-emerald-700">
               Open →
             </span>
@@ -244,7 +244,7 @@ export function PortfolioScreen() {
           {/* Experience Card */}
           <button
             onClick={() => setActiveCard('experience')}
-            className="group relative overflow-hidden bg-gradient-to-br from-violet-50 to-violet-100 border border-violet-200 rounded-2xl p-6 pb-12 text-left transition-all duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl md:hover:shadow-violet-200/60 md:hover:border-violet-500"
+            className="group relative overflow-hidden bg-gradient-to-br from-violet-50 to-violet-100 border border-violet-200 rounded-2xl min-h-[11.25rem] p-5 sm:p-6 pb-10 sm:pb-12 text-left transition-all duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl md:hover:shadow-violet-200/60 md:hover:border-violet-500"
           >
             <div className="pointer-events-none absolute top-4 right-4 opacity-30">
               <Briefcase className="h-20 w-20 text-violet-300" strokeWidth={1.7} />
@@ -264,7 +264,7 @@ export function PortfolioScreen() {
           {/* Contact Card */}
           <button
             onClick={() => setActiveCard('contact')}
-            className="group relative overflow-hidden bg-gradient-to-br from-orange-50 to-amber-100 border border-orange-200 rounded-2xl p-6 pb-12 text-left transition-all duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl md:hover:shadow-orange-200/60 md:hover:border-orange-400"
+            className="group relative overflow-hidden bg-gradient-to-br from-orange-50 to-amber-100 border border-orange-200 rounded-2xl min-h-[11.25rem] p-5 sm:p-6 pb-10 sm:pb-12 text-left transition-all duration-300 md:hover:-translate-y-1 md:hover:shadow-2xl md:hover:shadow-orange-200/60 md:hover:border-orange-400"
           >
             <div className="pointer-events-none absolute top-4 right-4 opacity-30">
               <Mail className="h-20 w-20 text-orange-300" strokeWidth={1.7} />
@@ -284,13 +284,13 @@ export function PortfolioScreen() {
       </div>
 
       {/* Right side - RAG Chat (40%) */}
-      <div className="w-full lg:w-[40%] h-auto lg:h-full min-h-[38%] bg-gradient-to-b from-slate-50 to-slate-100 border-t lg:border-t-0 lg:border-l border-slate-200 flex flex-col">
+      <div className="w-full lg:w-[40%] h-[72vh] min-h-[32rem] sm:h-auto lg:h-full sm:min-h-[38%] bg-gradient-to-b from-slate-50 to-slate-100 border-t lg:border-t-0 lg:border-l border-slate-200 flex flex-col">
         {/* Chat header */}
         <div className="p-4 border-b border-slate-200 bg-white">
           <div className="flex items-center gap-2">
             <div>
-              <h3 className="text-xl font-bold text-slate-800">Ask Jay</h3>
-              <p className="text-sm text-slate-500">Use the chat to discover cool things about me!</p>
+              <h3 className="text-lg sm:text-xl font-bold text-slate-800">Ask Jay</h3>
+              <p className="text-sm text-slate-500 leading-snug">Use the chat to discover cool things about me!</p>
             </div>
             <div className="ml-auto flex items-center gap-2">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
@@ -300,7 +300,7 @@ export function PortfolioScreen() {
         </div>
 
         {/* Chat messages area */}
-        <div ref={messagesContainerRef} className="flex-1 p-4 overflow-y-auto no-scrollbar space-y-3">
+        <div ref={messagesContainerRef} className="flex-1 min-h-0 p-4 overflow-hidden md:overflow-y-auto md:no-scrollbar space-y-3">
           {messages.length === 0 && (
             <>
               <div className="flex gap-3 mb-4">
@@ -455,7 +455,11 @@ export function PortfolioScreen() {
                   <ExperienceContent />
                 </div>
               )}
-              {activeCard === 'contact' && <ContactContent />}
+              {activeCard === 'contact' && (
+                <div className="h-full overflow-y-auto no-scrollbar overscroll-contain">
+                  <ContactContent />
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -840,38 +844,38 @@ function ExperienceContent() {
         </svg>
       </div>
 
-      <div className="absolute left-1/2 top-0 bottom-14 w-[6px] -translate-x-1/2 rounded-full bg-gradient-to-b from-sky-300 via-blue-500 to-sky-300" />
-      <div className="ev-timeline-pulse absolute left-1/2 top-0 bottom-14 w-[6px] -translate-x-1/2 rounded-full" />
-      <div className="ev-timeline-flow absolute left-1/2 top-0 bottom-14 w-2 -translate-x-1/2 rounded-full" />
+      <div className="absolute left-3 md:left-1/2 top-0 bottom-14 w-[4px] md:w-[6px] md:-translate-x-1/2 rounded-full bg-gradient-to-b from-sky-300 via-blue-500 to-sky-300 opacity-60 md:opacity-100" />
+      <div className="ev-timeline-pulse absolute left-3 md:left-1/2 top-0 bottom-14 w-[4px] md:w-[6px] md:-translate-x-1/2 rounded-full opacity-45 md:opacity-100" />
+      <div className="ev-timeline-flow absolute left-3 md:left-1/2 top-0 bottom-14 w-1 md:w-2 md:-translate-x-1/2 rounded-full opacity-35 md:opacity-100" />
 
       <div className="relative z-10 space-y-12">
         {timelineEvents.map((event, i) => {
           const stepColor = getStepColor(i, timelineEvents.length)
           return (
-          <div key={`${event.title}-${i}`} className="relative grid grid-cols-[1fr_auto_1fr] items-start gap-8 pt-12">
-            <span className="timeline-junction-dot pointer-events-none absolute left-1/2 top-[7px] -translate-x-1/2" />
+          <div key={`${event.title}-${i}`} className="relative pt-12 pl-8 md:pl-0 md:grid md:grid-cols-[1fr_auto_1fr] md:items-start md:gap-8">
+            <span className="timeline-junction-dot pointer-events-none absolute left-3 md:left-1/2 top-[7px] md:-translate-x-1/2 hidden md:block" />
             <span
               className={cn(
-                'timeline-connector pointer-events-none absolute top-[14px]',
+                'timeline-connector pointer-events-none absolute top-[14px] hidden md:block',
                 i % 2 === 0 ? 'right-1/2 mr-3' : 'left-1/2 ml-3'
               )}
               style={{ backgroundColor: stepColor }}
             />
 
-            <div className={cn('min-h-1', i % 2 === 0 ? 'col-start-1' : 'col-start-3')}>
-              <div className={cn('relative max-w-[460px] space-y-3', i % 2 === 0 ? 'ml-auto text-right' : 'mr-auto text-left')}>
-                <div className={cn('flex items-center gap-2', i % 2 === 0 ? 'justify-end' : 'justify-start')}>
-                  {i % 2 !== 0 && <img src={getOrgIconUrl(event.org)} alt={`${event.org} icon`} className="h-7 w-7 rounded-full border border-sky-300/60 bg-white p-0.5" />}
+            <div className={cn('min-h-1 col-start-1', i % 2 === 0 ? 'md:col-start-1' : 'md:col-start-3')}>
+              <div className={cn('relative max-w-[460px] space-y-3 text-left', i % 2 === 0 ? 'md:ml-auto md:text-right' : 'md:mr-auto md:text-left')}>
+                <div className={cn('flex items-center gap-2 justify-start', i % 2 === 0 ? 'md:justify-end' : 'md:justify-start')}>
+                  {i % 2 !== 0 && <img src={getOrgIconUrl(event.org)} alt={`${event.org} icon`} className="hidden md:block h-7 w-7 rounded-full border border-sky-300/60 bg-white p-0.5" />}
                   <div className={cn('rounded-full border px-3 py-1 text-xs font-semibold', i % 2 === 0 ? 'border-blue-300 bg-blue-100/80 text-blue-700' : 'border-red-300 bg-red-100/80 text-red-700')}>
                     {event.period}
                   </div>
-                  {i % 2 === 0 && <img src={getOrgIconUrl(event.org)} alt={`${event.org} icon`} className="h-7 w-7 rounded-full border border-sky-300/60 bg-white p-0.5" />}
+                  {i % 2 === 0 && <img src={getOrgIconUrl(event.org)} alt={`${event.org} icon`} className="hidden md:block h-7 w-7 rounded-full border border-sky-300/60 bg-white p-0.5" />}
                 </div>
 
                 <div
                   className={cn(
-                    'timeline-title-tag inline-flex max-w-full items-center gap-2 px-4 py-2 text-lg font-extrabold uppercase tracking-tight text-white',
-                    i % 2 === 0 ? 'timeline-title-tag-left' : 'timeline-title-tag-right'
+                    'timeline-title-tag timeline-title-tag-left inline-flex w-full md:w-auto max-w-full items-center gap-2 px-3 md:px-4 py-2 text-sm md:text-lg font-extrabold uppercase tracking-tight text-white',
+                    i % 2 !== 0 && 'md:timeline-title-tag-right'
                   )}
                   style={{
                     backgroundImage:
@@ -884,14 +888,14 @@ function ExperienceContent() {
                     const Icon = kindMeta[event.kind].Icon
                     return <Icon className="h-5 w-5 shrink-0" />
                   })()}
-                  <span className="truncate">{event.title}</span>
+                  <span className="break-words whitespace-normal">{event.title}</span>
                 </div>
 
                 <p className={cn('text-sm font-semibold', i % 2 === 0 ? 'text-blue-700' : 'text-red-700')}>{event.org}</p>
 
-                <ul className={cn('space-y-2 text-sm text-slate-600', i % 2 === 0 ? 'pr-1' : 'pl-1')}>
+                <ul className={cn('space-y-2 text-sm text-slate-600 pl-1', i % 2 === 0 ? 'md:pr-1 md:pl-0' : 'md:pl-1')}>
                   {event.points.map((point, pointIndex) => (
-                    <li key={`${event.title}-point-${pointIndex}`} className={cn('flex items-start gap-2.5', i % 2 === 0 ? 'flex-row-reverse text-right' : 'text-left')}>
+                    <li key={`${event.title}-point-${pointIndex}`} className={cn('flex items-start gap-2.5 text-left', i % 2 === 0 ? 'md:flex-row-reverse md:text-right' : 'md:text-left')}>
                       {(() => {
                         const HighlightIcon = highlightIcons[pointIndex % highlightIcons.length]
                         return (
@@ -907,7 +911,7 @@ function ExperienceContent() {
               </div>
             </div>
 
-            <div className={cn('min-h-1', i % 2 === 0 ? 'col-start-3' : 'col-start-1')} />
+            <div className={cn('hidden md:block min-h-1', i % 2 === 0 ? 'md:col-start-3' : 'md:col-start-1')} />
           </div>
         )})}
       </div>

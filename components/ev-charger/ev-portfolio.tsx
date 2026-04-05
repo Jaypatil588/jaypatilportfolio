@@ -79,37 +79,37 @@ export function EVPortfolio() {
           <div className="absolute inset-0 bg-slate-950/8" />
 
           {/* Inner screen rectangle (header + screen 2) */}
-          <div className="absolute left-1/2 top-1/2 h-[88%] w-[84%] -translate-x-1/2 -translate-y-1/2 overflow-hidden border-2 border-slate-700/80 bg-white relative z-10 rounded-[0.8rem]">
+          <div className="absolute left-1/2 top-1/2 h-[92%] w-[94%] sm:h-[88%] sm:w-[84%] -translate-x-1/2 -translate-y-1/2 overflow-hidden border-2 border-slate-700/80 bg-white relative z-10 rounded-[0.8rem]">
             {/* Header */}
-            <div className="h-10 border-b border-slate-700/70 bg-slate-900/82 backdrop-blur flex items-center justify-between px-4 z-20">
-              <div className="flex items-center gap-2">
+            <div className="h-10 sm:h-10 border-b border-slate-700/70 bg-slate-900/82 backdrop-blur flex items-center justify-between px-2 sm:px-4 z-20">
+              <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
                 {state === 'portfolio' && (
                   <button
                     type="button"
                     onClick={handleBackToCharger}
-                    className="inline-flex items-center justify-center rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-wide bg-red-800 text-white hover:bg-red-700 transition-colors"
+                    className="inline-flex items-center justify-center rounded-md px-2 sm:px-3 py-1 text-[9px] sm:text-xs font-semibold whitespace-nowrap bg-red-800 text-white hover:bg-red-700 transition-colors leading-none"
                     aria-label="Back to charger scene"
                   >
                     {'← Plug out'}
                   </button>
                 )}
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <span className="text-xs text-sky-400 font-mono font-bold">CONNECTED</span>
+                <span className="text-[10px] sm:text-xs text-sky-400 font-mono font-bold whitespace-nowrap">CONNECTED</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
                 <button
                   type="button"
                   onClick={() => router.push('/auth')}
-                  className="inline-flex items-center justify-center rounded-md p-1.5 text-sky-300 hover:text-sky-100 hover:bg-slate-800/70 transition-colors"
+                  className="inline-flex items-center justify-center rounded-md p-1 text-sky-300 hover:text-sky-100 hover:bg-slate-800/70 transition-colors"
                   aria-label="Open admin auth"
                   title="Open admin auth"
                 >
-                  <Settings className="w-3.5 h-3.5" />
+                  <Settings className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 </button>
-                <svg className="w-4 h-4 text-sky-400" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sky-400" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" />
                 </svg>
-                <span className="text-xs font-mono font-bold animate-charging-text">EV POWER OS</span>
+                <span className="text-[10px] sm:text-xs font-mono font-bold animate-charging-text whitespace-nowrap">EV POWER OS</span>
               </div>
             </div>
 

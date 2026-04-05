@@ -63,7 +63,7 @@ export function ChargerScene({ onStart }: ChargerSceneProps) {
           })
         }
         aria-label="Enter portfolio"
-        className="absolute cursor-pointer flex items-center justify-center text-[#0b84d8] font-bold text-center leading-tight hover:text-[#0667ac] transition-colors"
+        className="start-cta-pulse-host absolute cursor-pointer flex items-center justify-center text-[#0b84d8] font-bold text-center leading-tight hover:text-[#0667ac] transition-colors"
         style={{
           left: `${boxLeft}px`,
           top: `${boxTop}px`,

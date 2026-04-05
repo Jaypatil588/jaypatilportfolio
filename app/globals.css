@@ -287,6 +287,17 @@
   }
 }
 
+@keyframes start-cta-pulse {
+  0%, 100% {
+    transform: scale(0.94);
+    opacity: 0.86;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
 .animate-electric-pulse {
   animation: electric-pulse 1s ease-in-out infinite;
 }
@@ -330,6 +341,18 @@
 
 .animate-exit-soft-pulse {
   animation: exit-soft-pulse 2s ease-in-out infinite;
+}
+
+.animate-start-cta-pulse {
+  display: inline-block;
+  transform-origin: center;
+  animation: start-cta-pulse 1.25s ease-in-out infinite;
+}
+
+.start-cta-pulse-host > span {
+  display: inline-block;
+  transform-origin: center;
+  animation: start-cta-pulse 1.25s ease-in-out infinite;
 }
 
 .ev-timeline-pulse {
@@ -433,6 +456,14 @@
 
 .timeline-title-tag-right {
   clip-path: polygon(18px 0, 100% 0, 100% 100%, 18px 100%, 0 50%);
+}
+
+@media (max-width: 767px) {
+  .timeline-title-tag-left,
+  .timeline-title-tag-right {
+    clip-path: none;
+    border-radius: 0.75rem;
+  }
 }
 
 .timeline-junction-dot {
