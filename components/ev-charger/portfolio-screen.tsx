@@ -146,7 +146,7 @@ export function PortfolioScreen() {
         {/* Profile Section */}
         <div className="mb-5 sm:mb-7 lg:mb-8">
           {/* Profile Photo */}
-          <div className="flex flex-row items-start gap-3 sm:gap-6">
+          <div className="flex flex-row items-start gap-3 sm:gap-6 lg:gap-2">
             <button
               type="button"
               onClick={handleProfileClick}
@@ -173,7 +173,7 @@ export function PortfolioScreen() {
             </button>
 
             {/* Name, Links, Email */}
-            <div className="flex-1 min-w-0 md:min-w-[15.5rem]">
+            <div className="min-w-0 flex-1 md:min-w-[15.5rem] lg:flex-none lg:w-[18.5rem]">
               <h1 className="text-[1.95rem] sm:text-4xl font-bold text-slate-800 mb-0.5 sm:whitespace-nowrap">Jay Patil</h1>
               <p className="text-slate-500 text-base mb-3">Software Engineer</p>
 
@@ -196,10 +196,15 @@ export function PortfolioScreen() {
                 {portfolioData.email}
               </a>
             </div>
+
+            {/* Desktop summary to the right of name */}
+            <div className="hidden lg:block flex-1 min-w-0 pt-0.5">
+              {summaryAndSkills}
+            </div>
           </div>
 
-          {/* Summary full-width below profile row */}
-          <div className="mt-3">
+          {/* Mobile/tablet summary full-width below profile row */}
+          <div className="mt-3 lg:hidden">
             {summaryAndSkills}
           </div>
         </div>
